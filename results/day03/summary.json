@@ -1,0 +1,19 @@
+{
+  "runtime": "NumPy CPU state-vector simulation",
+  "input_state": "|0>",
+  "angle_count_per_rotation": 5,
+  "theta_range_radians": [
+    0.0,
+    3.141592653589793
+  ],
+  "max_norm_error": 2.220446049250313e-16,
+  "h_on_zero_probabilities": [
+    0.4999999999999999,
+    0.4999999999999999
+  ],
+  "checks": {
+    "x_on_zero_p1": 1.0,
+    "ry_pi_on_zero_p1": 1.0,
+    "rz_preserves_z_probabilities": true
+  }
+}

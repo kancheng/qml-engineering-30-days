@@ -69,6 +69,15 @@ Maria Schuld, Ryan Sweke, and Johannes Jakob Meyer. “Effect of data encoding o
 - 用途：Day 12–14 的 encoding、data re-uploading 與 Fourier spectrum 討論。
 - 核對：APS 頁列出作者、article number 032430，發表日 2021-03-24。
 
+### P2｜Quantum Circuit Learning
+
+K. Mitarai, M. Negoro, M. Kitagawa, and K. Fujii. “Quantum circuit learning.” *Physical Review A* 98, 032309 (2018). DOI: [10.1103/PhysRevA.98.032309](https://doi.org/10.1103/PhysRevA.98.032309).
+
+- 類型：Peer-reviewed research article。
+- 用途：Day 3 的 parameterized rotation 與 QML 連接，以及 Day 9–10 的 hybrid optimization loop。
+- 核對：APS version of record 列出四位作者、volume 98、article 032309，發表日 2018-09-10。
+- 支持範圍：論文提出以 classical computer 迭代調整 low-depth parameterized quantum circuit 的 hybrid learning framework；本系列不由此延伸宣稱已獲得 quantum advantage。
+
 ## 官方技術文件
 
 ### D1｜CUDA-Q Quick Start

@@ -29,8 +29,8 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | 日期 | Day | 章節 | 實作／成果 | 狀態 |
 |---|---:|---|---|---|
 | 09/15 | 01 | [AI Engineer 為什麼現在要理解 QML？](articles/day01/README.md) | 專案定位、研究問題、文獻入口 | ✅ |
-| 09/16 | 02 | [從 Bit 到 Qubit](articles/day02/README.md) | NumPy state vector 與 Born rule | 📝 |
-| 09/17 | 03 | Quantum Gate：量子世界的 Layer？ | NumPy 實作 X、Y、Z、H、RX、RY、RZ | 🧪 |
+| 09/16 | 02 | [從 Bit 到 Qubit](articles/day02/README.md) | NumPy state vector 與 Born rule | ✅ |
+| 09/17 | 03 | [Quantum Gate：量子世界的 Layer？](articles/day03/README.md) | NumPy gates、測試、CSV／JSON 實驗資料 | ✅ |
 | 09/18 | 04 | Superposition、Entanglement、Measurement | 提前用 CUDA-Q 建立 Bell state 與 shots 實驗 | 🧪 |
 | 09/19 | 05 | 從 Classical ML Pipeline 看懂 QML Pipeline | 完整 circuit demo、Notebook、架構圖 | 🧪 |
 | 09/20 | 06 | CUDA-Q、CUDA、cuQuantum 有何不同？ | Ubuntu RTX 3060 環境驗證與 Hello Quantum | 📌 |
