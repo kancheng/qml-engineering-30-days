@@ -1,0 +1,80 @@
+{
+  "source": {
+    "sha256": "6f608b71a7317216319b4d27b4d9bc84e6abd734eda7872b71a458569e2656c0",
+    "dropped_duplicate_ids": [
+      142
+    ],
+    "classes": {
+      "0": "Iris-versicolor",
+      "1": "Iris-virginica"
+    }
+  },
+  "task": "deduplicated binary Iris, 99 rows, Day20 splits",
+  "split_seeds": [
+    2028,
+    2029
+  ],
+  "initialization_seeds": [
+    42,
+    43
+  ],
+  "models": {
+    "pca_once2": 8,
+    "pca_repeat2": 8,
+    "chunks_once4": 16,
+    "chunks_repeat4": 16,
+    "logistic4": 5
+  },
+  "circuit_resources": {
+    "pca_once2": {
+      "qubits": 2,
+      "parameters": 8,
+      "upload_blocks": 1,
+      "ry_gates": 10,
+      "cnot_gates": 2,
+      "unoptimized_logical_depth": 7
+    },
+    "pca_repeat2": {
+      "qubits": 2,
+      "parameters": 8,
+      "upload_blocks": 2,
+      "ry_gates": 12,
+      "cnot_gates": 2,
+      "unoptimized_logical_depth": 8
+    },
+    "chunks_once4": {
+      "qubits": 2,
+      "parameters": 16,
+      "upload_blocks": 2,
+      "ry_gates": 20,
+      "cnot_gates": 4,
+      "unoptimized_logical_depth": 14
+    },
+    "chunks_repeat4": {
+      "qubits": 2,
+      "parameters": 16,
+      "upload_blocks": 4,
+      "ry_gates": 24,
+      "cnot_gates": 4,
+      "unoptimized_logical_depth": 16
+    },
+    "logistic4": {
+      "qubits": 0,
+      "parameters": 5,
+      "upload_blocks": 0,
+      "ry_gates": 0,
+      "cnot_gates": 0,
+      "unoptimized_logical_depth": 0
+    }
+  },
+  "budget": 73,
+  "optimizer": "Day18 coordinate search; initial step .4",
+  "loss": "Brier",
+  "threshold": 0.5,
+  "selection": "final validation Brier then lower seed, per model",
+  "preprocessing": "train-only PCA2 minmax or raw4 minmax; logistic4 train standardization",
+  "quantum": "2 qubits, positive_half RY, 2 or 4 Ansatz blocks, matched once/repeat controls; (1-ZZ)/2",
+  "training_engine": "NumPy CPU exact reference; zero CUDA-Q training calls",
+  "shots": -1,
+  "noise": "none"
+}

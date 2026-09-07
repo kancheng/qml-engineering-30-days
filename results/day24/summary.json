@@ -1,0 +1,11 @@
+{
+  "generated_at_utc": "2026-09-07T05:09:20.627436+00:00",
+  "samples": 768,
+  "gradient_values": 1536,
+  "numpy": "2.2.6",
+  "python": "3.12.7",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "reference_seconds": 0.7973037630144972,
+  "artifact_sha256": "7dff4f4c6e46d97ccebc72e554dbf6d60b629e76f9822e7d5a85407bdbf90985",
+  "passed": true
+}

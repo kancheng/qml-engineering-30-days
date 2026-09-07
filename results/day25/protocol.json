@@ -1,0 +1,50 @@
+{
+  "source": {
+    "sha256": "6be6b1203f3d51df0b553a70e57b8a723cd405683958204f96d23d7cd6aea659",
+    "dropped_duplicate_ids": [],
+    "classes": {
+      "0": "UCI cultivar 2",
+      "1": "UCI cultivar 3"
+    },
+    "features": [
+      "alcohol",
+      "malic_acid",
+      "ash",
+      "alcalinity_of_ash",
+      "magnesium",
+      "total_phenols",
+      "flavanoids",
+      "nonflavanoid_phenols",
+      "proanthocyanins",
+      "color_intensity",
+      "hue",
+      "od280_od315",
+      "proline"
+    ]
+  },
+  "task": "UCI Wine cultivar 2/3 binary, 119 rows",
+  "split_seeds": [
+    2030,
+    2031
+  ],
+  "initialization_seeds": [
+    42,
+    43
+  ],
+  "models": {
+    "mlp": 9,
+    "vqc": 4,
+    "hybrid": 12,
+    "logistic13": 14
+  },
+  "budget": 73,
+  "optimizer": "Day18 coordinate search; initial step .4",
+  "loss": "Brier",
+  "threshold": 0.5,
+  "selection": "final validation Brier then lower seed, per model",
+  "preprocessing": "train-only raw13 standardization and PCA2 minmax for MLP/VQC/Hybrid; full13 standardized logistic control",
+  "quantum": "Day20 MLP9/VQC4/Hybrid12; VQC and Hybrid two qubits; hybrid head scale initialized .8",
+  "training_engine": "NumPy CPU exact reference; zero CUDA-Q training calls",
+  "shots": -1,
+  "noise": "none"
+}

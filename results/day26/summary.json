@@ -1,0 +1,12 @@
+{
+  "generated_at_utc": "2026-09-07T09:42:23.277224+00:00",
+  "backend": "density-matrix-cpu",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "exact_records": 180,
+  "wine_records": 18,
+  "exact_observe_calls": 648,
+  "max_exact_error": 4.440892098500626e-16,
+  "max_wine_error": 3.3306690738754696e-16,
+  "passed": true
+}

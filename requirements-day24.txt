@@ -1,0 +1,2 @@
+# Reuse the isolated environment; no new dependencies.
+-r requirements-day23.txt

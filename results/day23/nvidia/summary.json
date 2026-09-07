@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-09-07T04:30:33.202649+00:00",
+  "backend": "nvidia",
+  "cudaq": "0.15.1",
+  "precision": "SimulationPrecision.fp32",
+  "OMP_NUM_THREADS": "1",
+  "shots": -1,
+  "noise": "none",
+  "artifact_sha256": "1bb2aab35d35144e0312eddbf6a47f09009a231efab6c95298e082f82e0a9ce1",
+  "records": 6,
+  "observe_calls": 11682,
+  "max_kernel_error": 3.6246307699716596e-07,
+  "max_score_error": 1.526576858101869e-05,
+  "passed": true,
+  "scope": "complete quantum matrices, frozen NumPy alpha; no CUDA-Q training or speedup benchmark"
+}

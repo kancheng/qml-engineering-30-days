@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-09-07T00:06:35.073883+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "python": "3.12.7",
+  "OMP_NUM_THREADS": "1",
+  "records": 18,
+  "max_reference_error": 3.3306690738754696e-16,
+  "cudaq_observe_calls": 396,
+  "shots": -1,
+  "noise_model": "none",
+  "scope": "frozen-model inference validation, not training or isolated timing benchmark",
+  "passed": true
+}

@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-09-07T09:43:33.239761+00:00",
+  "backend": "density-matrix-cpu",
+  "cudaq": "0.15.1",
+  "precision": "SimulationPrecision.fp64",
+  "records": 270,
+  "shots_per_record": 4096,
+  "total_shots": 1105920,
+  "max_frequency_error": 0.015136718750000333,
+  "seconds_including_compilation": 69.58689268500893,
+  "passed": true,
+  "scope": "finite-shot noisy sampling; not exact GPU density-matrix or isolated speed benchmark"
+}

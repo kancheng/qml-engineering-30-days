@@ -1,0 +1,40 @@
+{
+  "task": "Iris versicolor vs virginica; exact duplicate rows removed before split",
+  "source": {
+    "sha256": "6f608b71a7317216319b4d27b4d9bc84e6abd734eda7872b71a458569e2656c0",
+    "dropped_duplicate_ids": [
+      142
+    ],
+    "classes": {
+      "0": "Iris-versicolor",
+      "1": "Iris-virginica"
+    }
+  },
+  "split_seeds": [
+    2028,
+    2029
+  ],
+  "initialization_seeds": [
+    42,
+    43
+  ],
+  "models": {
+    "mlp": 9,
+    "vqc": 4,
+    "hybrid": 12
+  },
+  "budget_per_fit": 73,
+  "loss": "Brier",
+  "optimizer": "Day18 coordinate search, step .4, full pairs only",
+  "preprocessing": "train-only mean/std, PCA2, PC minmax [-1,1], clipping",
+  "selection": "final validation Brier, lower seed breaks ties",
+  "threshold": 0.5,
+  "training_engine": "NumPy CPU for all models, including exact statevector quantum reference",
+  "quantum_scope": "CUDA-Q only verifies frozen selected models; no claim of CUDA-Q/GPU training",
+  "input_features": [
+    "sepal_length_cm",
+    "sepal_width_cm",
+    "petal_length_cm",
+    "petal_width_cm"
+  ]
+}

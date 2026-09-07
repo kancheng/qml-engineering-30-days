@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-09-07T10:00:17.139259+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "cudaq": "0.15.1",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz",
+  "logical_cpus": 16,
+  "OMP_NUM_THREADS": "1",
+  "gpu_snapshot_after_run": "NVIDIA GeForce RTX 3060 Laptop GPU, 570.211.01, 6144 MiB, 53",
+  "target_setup_seconds": 0.0006429229979403317,
+  "protocol": {
+    "qubits": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "blocks": [
+      4,
+      12
+    ],
+    "seed": 42,
+    "warmups_after_first": 2,
+    "repeats": 7,
+    "targets": [
+      "qpp-cpu",
+      "nvidia-fp64",
+      "nvidia"
+    ],
+    "threads": 1,
+    "shots": -1,
+    "noise": "none",
+    "circuit": "Day24 RY/RZ per wire followed by nearest-neighbor CZ chain; 2*n*blocks parameters",
+    "observable": "Z0 Z1 ... Z(n-1)",
+    "timed_region": "blocking observe + expectation retrieval; excludes weights/observable setup",
+    "order": "one process per backend, serial CPU then GPU fp64 then GPU fp32; cases increasing n then blocks",
+    "scope": "host-visible end-to-end exact inference latency, not training or device kernel time"
+  },
+  "records": 8,
+  "observe_calls": 80,
+  "passed": true
+}

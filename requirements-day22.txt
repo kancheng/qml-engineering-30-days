@@ -1,0 +1,2 @@
+# Reuse the isolated Day21 environment; no new packages.
+-r requirements-day21.txt

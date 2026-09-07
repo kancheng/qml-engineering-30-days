@@ -1,0 +1,5594 @@
+[
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 391,
+      "00": 3705
+    },
+    "expected_probabilities": [
+      0.8999999999999999,
+      0.0,
+      0.1,
+      0.0
+    ],
+    "max_frequency_error": 0.004541015625000089,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 437,
+      "00": 3659
+    },
+    "expected_probabilities": [
+      0.8999999999999999,
+      0.0,
+      0.1,
+      0.0
+    ],
+    "max_frequency_error": 0.0066894531249999944,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 402,
+      "00": 3694
+    },
+    "expected_probabilities": [
+      0.8999999999999999,
+      0.0,
+      0.1,
+      0.0
+    ],
+    "max_frequency_error": 0.0018554687500000888,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.013183593750000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.011474609374999861,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.009765625000000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2872,
+      "10": 1224
+    },
+    "expected_probabilities": [
+      0.7000000000000001,
+      0.0,
+      0.29999999999999993,
+      0.0
+    ],
+    "max_frequency_error": 0.0011718749999999334,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 1229,
+      "00": 2867
+    },
+    "expected_probabilities": [
+      0.7000000000000001,
+      0.0,
+      0.29999999999999993,
+      0.0
+    ],
+    "max_frequency_error": 4.882812500006661e-05,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 1247,
+      "00": 2849
+    },
+    "expected_probabilities": [
+      0.7000000000000001,
+      0.0,
+      0.29999999999999993,
+      0.0
+    ],
+    "max_frequency_error": 0.004443359375000067,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999992,
+      0.24999999999999992,
+      0.24999999999999992,
+      0.24999999999999992
+    ],
+    "max_frequency_error": 0.013183593750000083,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999992,
+      0.24999999999999992,
+      0.24999999999999992,
+      0.24999999999999992
+    ],
+    "max_frequency_error": 0.011474609374999917,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999992,
+      0.24999999999999992,
+      0.24999999999999992,
+      0.24999999999999992
+    ],
+    "max_frequency_error": 0.009765625000000083,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 1007,
+      "10": 3089
+    },
+    "expected_probabilities": [
+      0.25,
+      0.0,
+      0.7499999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.004150390625000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 1062,
+      "10": 3034
+    },
+    "expected_probabilities": [
+      0.25,
+      0.0,
+      0.7499999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.00927734375,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 1064,
+      "10": 3032
+    },
+    "expected_probabilities": [
+      0.25,
+      0.0,
+      0.7499999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009765625,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 4096
+    },
+    "expected_probabilities": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 4096
+    },
+    "expected_probabilities": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 4096
+    },
+    "expected_probabilities": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      0.9999999999999999,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      0.9999999999999999,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      0.9999999999999999,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.013183593750000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.011474609374999861,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.009765625000000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      0.9999999999999999,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      0.9999999999999999,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      0.9999999999999999,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.013183593750000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.011474609374999861,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.009765625000000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 4096
+    },
+    "expected_probabilities": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 271,
+      "00": 3825
+    },
+    "expected_probabilities": [
+      0.9333333333333332,
+      0.0,
+      0.06666666666666665,
+      0.0
+    ],
+    "max_frequency_error": 0.0005045572916667629,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 277,
+      "00": 3819
+    },
+    "expected_probabilities": [
+      0.9333333333333332,
+      0.0,
+      0.06666666666666665,
+      0.0
+    ],
+    "max_frequency_error": 0.0009602864583333481,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 282,
+      "00": 3814
+    },
+    "expected_probabilities": [
+      0.9333333333333332,
+      0.0,
+      0.06666666666666665,
+      0.0
+    ],
+    "max_frequency_error": 0.002180989583333348,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.013183593750000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.011474609374999861,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.009765625000000139,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 798,
+      "00": 3298
+    },
+    "expected_probabilities": [
+      0.8,
+      0.0,
+      0.2,
+      0.0
+    ],
+    "max_frequency_error": 0.005175781250000011,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 842,
+      "00": 3254
+    },
+    "expected_probabilities": [
+      0.8,
+      0.0,
+      0.2,
+      0.0
+    ],
+    "max_frequency_error": 0.005566406250000044,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 829,
+      "00": 3267
+    },
+    "expected_probabilities": [
+      0.8,
+      0.0,
+      0.2,
+      0.0
+    ],
+    "max_frequency_error": 0.0023925781250000444,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.5,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.5,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.5,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "max_frequency_error": 0.00048828125,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 1314,
+      "10": 2782
+    },
+    "expected_probabilities": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666,
+      0.0
+    ],
+    "max_frequency_error": 0.01253255208333337,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "00": 1403,
+      "10": 2693
+    },
+    "expected_probabilities": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666,
+      0.0
+    ],
+    "max_frequency_error": 0.009195963541666685,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "00": 1418,
+      "10": 2678
+    },
+    "expected_probabilities": [
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666,
+      0.0
+    ],
+    "max_frequency_error": 0.012858072916666685,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.013183593750000111,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.011474609374999889,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999,
+      0.2499999999999999
+    ],
+    "max_frequency_error": 0.009765625000000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000167,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.0021972656250001665,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500001665,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      0.4999999999999996,
+      6.842277657836021e-49,
+      6.842277657836021e-49
+    ],
+    "max_frequency_error": 0.009521484375000389,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      0.4999999999999996,
+      6.842277657836021e-49,
+      6.842277657836021e-49
+    ],
+    "max_frequency_error": 0.0021972656250003886,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      0.4999999999999996,
+      6.842277657836021e-49,
+      6.842277657836021e-49
+    ],
+    "max_frequency_error": 0.0004882812500003886,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999956,
+      0.49999999999999956,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000444,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999956,
+      0.49999999999999956,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000444,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999956,
+      0.49999999999999956,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500004441,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000167,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.0021972656250001665,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500001665,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 193,
+      "10": 203,
+      "00": 1806,
+      "01": 1894
+    },
+    "expected_probabilities": [
+      0.4499999999999996,
+      0.4499999999999996,
+      0.04999999999999997,
+      0.04999999999999997
+    ],
+    "max_frequency_error": 0.012402343750000377,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 207,
+      "01": 1850,
+      "00": 1847,
+      "10": 192
+    },
+    "expected_probabilities": [
+      0.4499999999999996,
+      0.4499999999999996,
+      0.04999999999999997,
+      0.04999999999999997
+    ],
+    "max_frequency_error": 0.003124999999999968,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 217,
+      "10": 189,
+      "01": 1829,
+      "00": 1861
+    },
+    "expected_probabilities": [
+      0.4499999999999996,
+      0.4499999999999996,
+      0.04999999999999997,
+      0.04999999999999997
+    ],
+    "max_frequency_error": 0.0043457031250003775,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 592,
+      "10": 623,
+      "00": 1386,
+      "01": 1495
+    },
+    "expected_probabilities": [
+      0.3499999999999998,
+      0.3499999999999998,
+      0.14999999999999988,
+      0.14999999999999988
+    ],
+    "max_frequency_error": 0.014990234375000189,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 634,
+      "01": 1423,
+      "00": 1452,
+      "10": 587
+    },
+    "expected_probabilities": [
+      0.3499999999999998,
+      0.3499999999999998,
+      0.14999999999999988,
+      0.14999999999999988
+    ],
+    "max_frequency_error": 0.006689453124999883,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 606,
+      "01": 1440,
+      "00": 1474,
+      "10": 576
+    },
+    "expected_probabilities": [
+      0.3499999999999998,
+      0.3499999999999998,
+      0.14999999999999988,
+      0.14999999999999988
+    ],
+    "max_frequency_error": 0.009863281250000189,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 513,
+      "01": 560,
+      "10": 1496,
+      "11": 1527
+    },
+    "expected_probabilities": [
+      0.1249999999999999,
+      0.1249999999999999,
+      0.37499999999999967,
+      0.37499999999999967
+    ],
+    "max_frequency_error": 0.011718750000000097,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 514,
+      "11": 1543,
+      "00": 524,
+      "10": 1515
+    },
+    "expected_probabilities": [
+      0.1249999999999999,
+      0.1249999999999999,
+      0.37499999999999967,
+      0.37499999999999967
+    ],
+    "max_frequency_error": 0.005126953124999667,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 497,
+      "11": 1549,
+      "00": 526,
+      "10": 1524
+    },
+    "expected_probabilities": [
+      0.1249999999999999,
+      0.1249999999999999,
+      0.37499999999999967,
+      0.37499999999999967
+    ],
+    "max_frequency_error": 0.003662109374999903,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.0,
+      0.0,
+      0.49999999999999967,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "10": 2039
+    },
+    "expected_probabilities": [
+      0.0,
+      0.0,
+      0.49999999999999967,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "10": 2050
+    },
+    "expected_probabilities": [
+      0.0,
+      0.0,
+      0.49999999999999967,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000167,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.0021972656250001665,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.49999999999999983,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500001665,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 131,
+      "11": 141,
+      "00": 1878,
+      "01": 1946
+    },
+    "expected_probabilities": [
+      0.4666666666666663,
+      0.4666666666666663,
+      0.03333333333333331,
+      0.03333333333333331
+    ],
+    "max_frequency_error": 0.008430989583333715,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 137,
+      "01": 1920,
+      "00": 1898,
+      "10": 141
+    },
+    "expected_probabilities": [
+      0.4666666666666663,
+      0.4666666666666663,
+      0.03333333333333331,
+      0.03333333333333331
+    ],
+    "max_frequency_error": 0.0032877604166662855,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 139,
+      "10": 132,
+      "01": 1907,
+      "00": 1918
+    },
+    "expected_probabilities": [
+      0.4666666666666663,
+      0.4666666666666663,
+      0.03333333333333331,
+      0.03333333333333331
+    ],
+    "max_frequency_error": 0.0015950520833337145,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 391,
+      "10": 413,
+      "00": 1596,
+      "01": 1696
+    },
+    "expected_probabilities": [
+      0.39999999999999974,
+      0.39999999999999974,
+      0.09999999999999992,
+      0.09999999999999992
+    ],
+    "max_frequency_error": 0.014062500000000255,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 437,
+      "01": 1620,
+      "00": 1638,
+      "10": 401
+    },
+    "expected_probabilities": [
+      0.39999999999999974,
+      0.39999999999999974,
+      0.09999999999999992,
+      0.09999999999999992
+    ],
+    "max_frequency_error": 0.006689453125000078,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 402,
+      "01": 1644,
+      "00": 1674,
+      "10": 376
+    },
+    "expected_probabilities": [
+      0.39999999999999974,
+      0.39999999999999974,
+      0.09999999999999992,
+      0.09999999999999992
+    ],
+    "max_frequency_error": 0.008691406250000255,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999983,
+      0.24999999999999983,
+      0.24999999999999983,
+      0.24999999999999983
+    ],
+    "max_frequency_error": 0.013183593750000167,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999983,
+      0.24999999999999983,
+      0.24999999999999983,
+      0.24999999999999983
+    ],
+    "max_frequency_error": 0.011474609374999833,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999983,
+      0.24999999999999983,
+      0.24999999999999983,
+      0.24999999999999983
+    ],
+    "max_frequency_error": 0.009765625000000167,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "10": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "10": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.4999999999999998,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000222,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 674,
+      "01": 724,
+      "10": 1335,
+      "11": 1363
+    },
+    "expected_probabilities": [
+      0.16666666666666652,
+      0.16666666666666652,
+      0.33333333333333304,
+      0.33333333333333304
+    ],
+    "max_frequency_error": 0.010091145833333481,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 676,
+      "11": 1381,
+      "00": 690,
+      "10": 1349
+    },
+    "expected_probabilities": [
+      0.16666666666666652,
+      0.16666666666666652,
+      0.33333333333333304,
+      0.33333333333333304
+    ],
+    "max_frequency_error": 0.003987630208333037,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1370,
+      "01": 676,
+      "00": 718,
+      "10": 1332
+    },
+    "expected_probabilities": [
+      0.16666666666666652,
+      0.16666666666666652,
+      0.33333333333333304,
+      0.33333333333333304
+    ],
+    "max_frequency_error": 0.008626302083333481,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "01": 228,
+      "10": 203,
+      "00": 1806,
+      "11": 1859
+    },
+    "expected_probabilities": [
+      0.44999999999999984,
+      0.049999999999999996,
+      0.049999999999999996,
+      0.44999999999999984
+    ],
+    "max_frequency_error": 0.009082031249999845,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 215,
+      "11": 1842,
+      "00": 1847,
+      "10": 192
+    },
+    "expected_probabilities": [
+      0.44999999999999984,
+      0.049999999999999996,
+      0.049999999999999996,
+      0.44999999999999984
+    ],
+    "max_frequency_error": 0.003124999999999996,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 189,
+      "01": 191,
+      "11": 1855,
+      "00": 1861
+    },
+    "expected_probabilities": [
+      0.44999999999999984,
+      0.049999999999999996,
+      0.049999999999999996,
+      0.44999999999999984
+    ],
+    "max_frequency_error": 0.004345703125000155,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      5.392603844284241e-34,
+      5.392603844284241e-34,
+      0.4999999999999996
+    ],
+    "max_frequency_error": 0.009521484375000389,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      5.392603844284241e-34,
+      5.392603844284241e-34,
+      0.4999999999999996
+    ],
+    "max_frequency_error": 0.0021972656250003886,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      5.392603844284241e-34,
+      5.392603844284241e-34,
+      0.4999999999999996
+    ],
+    "max_frequency_error": 0.0004882812500003886,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 623,
+      "01": 664,
+      "00": 1386,
+      "11": 1423
+    },
+    "expected_probabilities": [
+      0.3499999999999999,
+      0.14999999999999994,
+      0.14999999999999994,
+      0.3499999999999999
+    ],
+    "max_frequency_error": 0.012109375000000061,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 607,
+      "11": 1450,
+      "00": 1452,
+      "10": 587
+    },
+    "expected_probabilities": [
+      0.3499999999999999,
+      0.14999999999999994,
+      0.14999999999999994,
+      0.3499999999999999
+    ],
+    "max_frequency_error": 0.006689453124999939,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1458,
+      "01": 588,
+      "00": 1474,
+      "10": 576
+    },
+    "expected_probabilities": [
+      0.3499999999999999,
+      0.14999999999999994,
+      0.14999999999999994,
+      0.3499999999999999
+    ],
+    "max_frequency_error": 0.009863281250000078,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      -3.081487911019587e-34,
+      -3.081487911019587e-34,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      -3.081487911019587e-34,
+      -3.081487911019587e-34,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      -3.081487911019587e-34,
+      -3.081487911019587e-34,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 489,
+      "00": 513,
+      "10": 1496,
+      "01": 1598
+    },
+    "expected_probabilities": [
+      0.12499999999999997,
+      0.37499999999999983,
+      0.37499999999999983,
+      0.12499999999999997
+    ],
+    "max_frequency_error": 0.015136718750000167,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 528,
+      "01": 1529,
+      "00": 524,
+      "10": 1515
+    },
+    "expected_probabilities": [
+      0.12499999999999997,
+      0.37499999999999983,
+      0.37499999999999983,
+      0.12499999999999997
+    ],
+    "max_frequency_error": 0.0051269531249998335,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 508,
+      "01": 1538,
+      "00": 526,
+      "10": 1524
+    },
+    "expected_probabilities": [
+      0.12499999999999997,
+      0.37499999999999983,
+      0.37499999999999983,
+      0.12499999999999997
+    ],
+    "max_frequency_error": 0.0034179687500000278,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      -2.3947971802426073e-48,
+      -2.3947971802426073e-48,
+      0.4999999999999996
+    ],
+    "max_frequency_error": 0.009521484375000389,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      -2.3947971802426073e-48,
+      -2.3947971802426073e-48,
+      0.4999999999999996
+    ],
+    "max_frequency_error": 0.0021972656250003886,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999996,
+      -2.3947971802426073e-48,
+      -2.3947971802426073e-48,
+      0.4999999999999996
+    ],
+    "max_frequency_error": 0.0004882812500003886,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.0,
+      0.4999999999999999,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "10": 2039
+    },
+    "expected_probabilities": [
+      0.0,
+      0.4999999999999999,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "10": 2050
+    },
+    "expected_probabilities": [
+      0.0,
+      0.4999999999999999,
+      0.4999999999999999,
+      0.0
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.0,
+      0.49999999999999983
+    ],
+    "max_frequency_error": 0.009521484375000167,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.0,
+      0.49999999999999983
+    ],
+    "max_frequency_error": 0.0021972656250001665,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999983,
+      0.0,
+      0.0,
+      0.49999999999999983
+    ],
+    "max_frequency_error": 0.0004882812500001665,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "01": 228,
+      "10": 203,
+      "00": 1806,
+      "11": 1859
+    },
+    "expected_probabilities": [
+      0.4499999999999996,
+      0.04999999999999997,
+      0.04999999999999997,
+      0.4499999999999996
+    ],
+    "max_frequency_error": 0.009082031249999623,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 215,
+      "11": 1842,
+      "00": 1847,
+      "10": 192
+    },
+    "expected_probabilities": [
+      0.4499999999999996,
+      0.04999999999999997,
+      0.04999999999999997,
+      0.4499999999999996
+    ],
+    "max_frequency_error": 0.003124999999999968,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 189,
+      "01": 191,
+      "11": 1855,
+      "00": 1861
+    },
+    "expected_probabilities": [
+      0.4499999999999996,
+      0.04999999999999997,
+      0.04999999999999997,
+      0.4499999999999996
+    ],
+    "max_frequency_error": 0.0043457031250003775,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 623,
+      "01": 664,
+      "00": 1386,
+      "11": 1423
+    },
+    "expected_probabilities": [
+      0.3499999999999998,
+      0.14999999999999988,
+      0.14999999999999988,
+      0.3499999999999998
+    ],
+    "max_frequency_error": 0.012109375000000117,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 607,
+      "11": 1450,
+      "00": 1452,
+      "10": 587
+    },
+    "expected_probabilities": [
+      0.3499999999999998,
+      0.14999999999999988,
+      0.14999999999999988,
+      0.3499999999999998
+    ],
+    "max_frequency_error": 0.006689453124999883,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1458,
+      "01": 588,
+      "00": 1474,
+      "10": 576
+    },
+    "expected_probabilities": [
+      0.3499999999999998,
+      0.14999999999999988,
+      0.14999999999999988,
+      0.3499999999999998
+    ],
+    "max_frequency_error": 0.009863281250000189,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.0,
+      0.4999999999999998
+    ],
+    "max_frequency_error": 0.009521484375000222,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.0,
+      0.4999999999999998
+    ],
+    "max_frequency_error": 0.002197265625000222,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999998,
+      0.0,
+      0.0,
+      0.4999999999999998
+    ],
+    "max_frequency_error": 0.000488281250000222,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 489,
+      "00": 513,
+      "10": 1496,
+      "01": 1598
+    },
+    "expected_probabilities": [
+      0.1249999999999999,
+      0.37499999999999967,
+      0.37499999999999967,
+      0.1249999999999999
+    ],
+    "max_frequency_error": 0.015136718750000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 528,
+      "01": 1529,
+      "00": 524,
+      "10": 1515
+    },
+    "expected_probabilities": [
+      0.1249999999999999,
+      0.37499999999999967,
+      0.37499999999999967,
+      0.1249999999999999
+    ],
+    "max_frequency_error": 0.005126953124999667,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 508,
+      "01": 1538,
+      "00": 526,
+      "10": 1524
+    },
+    "expected_probabilities": [
+      0.1249999999999999,
+      0.37499999999999967,
+      0.37499999999999967,
+      0.1249999999999999
+    ],
+    "max_frequency_error": 0.003417968750000097,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 2009,
+      "01": 2087
+    },
+    "expected_probabilities": [
+      0.0,
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 2057,
+      "10": 2039
+    },
+    "expected_probabilities": [
+      0.0,
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 2046,
+      "10": 2050
+    },
+    "expected_probabilities": [
+      0.0,
+      0.49999999999999967,
+      0.49999999999999967,
+      0.0
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.009521484375000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.002197265625000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.4999999999999999,
+      0.0,
+      0.0,
+      0.4999999999999999
+    ],
+    "max_frequency_error": 0.000488281250000111,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "00": 2009,
+      "11": 2087
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.009521484375000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 2057,
+      "00": 2039
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.002197265625000333,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 2046,
+      "00": 2050
+    },
+    "expected_probabilities": [
+      0.49999999999999967,
+      0.0,
+      0.0,
+      0.49999999999999967
+    ],
+    "max_frequency_error": 0.0004882812500003331,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 131,
+      "01": 139,
+      "00": 1878,
+      "11": 1948
+    },
+    "expected_probabilities": [
+      0.4666666666666665,
+      0.033333333333333326,
+      0.033333333333333326,
+      0.4666666666666665
+    ],
+    "max_frequency_error": 0.008919270833333492,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 139,
+      "11": 1918,
+      "00": 1898,
+      "10": 141
+    },
+    "expected_probabilities": [
+      0.4666666666666665,
+      0.033333333333333326,
+      0.033333333333333326,
+      0.4666666666666665
+    ],
+    "max_frequency_error": 0.0032877604166665075,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 132,
+      "01": 131,
+      "11": 1915,
+      "00": 1918
+    },
+    "expected_probabilities": [
+      0.4666666666666665,
+      0.033333333333333326,
+      0.033333333333333326,
+      0.4666666666666665
+    ],
+    "max_frequency_error": 0.0015950520833334925,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 131,
+      "01": 139,
+      "00": 1878,
+      "11": 1948
+    },
+    "expected_probabilities": [
+      0.4666666666666663,
+      0.03333333333333331,
+      0.03333333333333331,
+      0.4666666666666663
+    ],
+    "max_frequency_error": 0.008919270833333715,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 139,
+      "11": 1918,
+      "00": 1898,
+      "10": 141
+    },
+    "expected_probabilities": [
+      0.4666666666666663,
+      0.03333333333333331,
+      0.03333333333333331,
+      0.4666666666666663
+    ],
+    "max_frequency_error": 0.0032877604166662855,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "10": 132,
+      "01": 131,
+      "11": 1915,
+      "00": 1918
+    },
+    "expected_probabilities": [
+      0.4666666666666663,
+      0.03333333333333331,
+      0.03333333333333331,
+      0.4666666666666663
+    ],
+    "max_frequency_error": 0.0015950520833337145,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 413,
+      "01": 457,
+      "00": 1596,
+      "11": 1630
+    },
+    "expected_probabilities": [
+      0.3999999999999999,
+      0.09999999999999999,
+      0.09999999999999999,
+      0.3999999999999999
+    ],
+    "max_frequency_error": 0.011572265625000008,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 415,
+      "11": 1642,
+      "00": 1638,
+      "10": 401
+    },
+    "expected_probabilities": [
+      0.3999999999999999,
+      0.09999999999999999,
+      0.09999999999999999,
+      0.3999999999999999
+    ],
+    "max_frequency_error": 0.0020996093749999917,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 399,
+      "11": 1647,
+      "00": 1674,
+      "10": 376
+    },
+    "expected_probabilities": [
+      0.3999999999999999,
+      0.09999999999999999,
+      0.09999999999999999,
+      0.3999999999999999
+    ],
+    "max_frequency_error": 0.008691406250000089,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 413,
+      "01": 457,
+      "00": 1596,
+      "11": 1630
+    },
+    "expected_probabilities": [
+      0.39999999999999974,
+      0.09999999999999992,
+      0.09999999999999992,
+      0.39999999999999974
+    ],
+    "max_frequency_error": 0.011572265625000078,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 415,
+      "11": 1642,
+      "00": 1638,
+      "10": 401
+    },
+    "expected_probabilities": [
+      0.39999999999999974,
+      0.09999999999999992,
+      0.09999999999999992,
+      0.39999999999999974
+    ],
+    "max_frequency_error": 0.0020996093749999223,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "01": 399,
+      "11": 1647,
+      "00": 1674,
+      "10": 376
+    },
+    "expected_probabilities": [
+      0.39999999999999974,
+      0.09999999999999992,
+      0.09999999999999992,
+      0.39999999999999974
+    ],
+    "max_frequency_error": 0.008691406250000255,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999994,
+      0.24999999999999994,
+      0.24999999999999994,
+      0.24999999999999994
+    ],
+    "max_frequency_error": 0.013183593750000056,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999994,
+      0.24999999999999994,
+      0.24999999999999994,
+      0.24999999999999994
+    ],
+    "max_frequency_error": 0.011474609374999944,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999994,
+      0.24999999999999994,
+      0.24999999999999994,
+      0.24999999999999994
+    ],
+    "max_frequency_error": 0.009765625000000056,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "10": 1002,
+      "01": 1078,
+      "00": 1007,
+      "11": 1009
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.013183593750000139,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "01": 1015,
+      "11": 1042,
+      "00": 1062,
+      "10": 977
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.011474609374999861,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 1056,
+      "01": 990,
+      "00": 1064,
+      "10": 986
+    },
+    "expected_probabilities": [
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986,
+      0.24999999999999986
+    ],
+    "max_frequency_error": 0.009765625000000139,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 661,
+      "00": 674,
+      "10": 1335,
+      "01": 1426
+    },
+    "expected_probabilities": [
+      0.1666666666666666,
+      0.3333333333333332,
+      0.3333333333333332,
+      0.1666666666666666
+    ],
+    "max_frequency_error": 0.014811197916666796,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 699,
+      "01": 1358,
+      "00": 690,
+      "10": 1349
+    },
+    "expected_probabilities": [
+      0.1666666666666666,
+      0.3333333333333332,
+      0.3333333333333332,
+      0.1666666666666666
+    ],
+    "max_frequency_error": 0.003987630208333398,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "Z",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 669,
+      "01": 1377,
+      "00": 718,
+      "10": 1332
+    },
+    "expected_probabilities": [
+      0.1666666666666666,
+      0.3333333333333332,
+      0.3333333333333332,
+      0.1666666666666666
+    ],
+    "max_frequency_error": 0.008626302083333398,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 42,
+    "shots": 4096,
+    "counts": {
+      "11": 661,
+      "00": 674,
+      "10": 1335,
+      "01": 1426
+    },
+    "expected_probabilities": [
+      0.16666666666666655,
+      0.3333333333333331,
+      0.3333333333333331,
+      0.16666666666666655
+    ],
+    "max_frequency_error": 0.014811197916666907,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 43,
+    "shots": 4096,
+    "counts": {
+      "11": 699,
+      "01": 1358,
+      "00": 690,
+      "10": 1349
+    },
+    "expected_probabilities": [
+      0.16666666666666655,
+      0.3333333333333331,
+      0.3333333333333331,
+      0.16666666666666655
+    ],
+    "max_frequency_error": 0.003987630208333454,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "basis": "X",
+    "seed": 44,
+    "shots": 4096,
+    "counts": {
+      "11": 669,
+      "01": 1377,
+      "00": 718,
+      "10": 1332
+    },
+    "expected_probabilities": [
+      0.16666666666666655,
+      0.3333333333333331,
+      0.3333333333333331,
+      0.16666666666666655
+    ],
+    "max_frequency_error": 0.008626302083333454,
+    "passed": true
+  }
+]

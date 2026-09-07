@@ -1,0 +1,2 @@
+# Same environment, no extra benchmarking dependencies.
+-r requirements-day26.txt

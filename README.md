@@ -49,14 +49,14 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | 10/01 | 17 | [QML 怎麼 Backprop？](articles/day17/README.md) | parameter-shift、finite difference、chain rule | ✅ |
 | 10/02 | 18 | [Classical ML vs QML](articles/day18/README.md) | Logistic-link、MLP、VQC 固定協定 benchmark | ✅ |
 | 10/03 | 19 | [Hybrid Neural Network](articles/day19/README.md) | Classical＋Quantum＋Classical、完整 chain rule | ✅ |
-| 10/04 | 20 | Iris：Classical vs Quantum vs Hybrid | metrics、時間與 stability report | 📌 |
-| 10/05 | 21 | Qubit 不夠、Feature 太多怎麼辦？ | PCA、selection、bottleneck 比較 | 📌 |
-| 10/06 | 22 | Data Re-uploading | depth、expressibility 與 feature interaction | 📌 |
-| 10/07 | 23 | Quantum Kernel | Classical kernel vs quantum kernel | 📌 |
-| 10/08 | 24 | Barren Plateau | depth／initialization 與 gradient 實驗 | 📌 |
-| 10/09 | 25 | 第二個真實資料集 | Classical、VQC、Hybrid benchmark | 📌 |
-| 10/10 | 26 | 沒有完美 Qubit：Quantum Noise | bit flip、phase flip、depolarizing noise | 📌 |
-| 10/11 | 27 | CPU vs GPU Quantum Simulation | qubit scaling、runtime、memory | 📌 |
+| 10/04 | 20 | [Iris：Classical vs Quantum vs Hybrid](articles/day20/README.md) | Binary Iris、PCA、metrics／成本／穩定性報告 | ✅ |
+| 10/05 | 21 | [Qubit 不夠、Feature 太多怎麼辦？](articles/day21/README.md) | PCA、train-only selection、learned bottleneck 與四維 baseline | ✅ |
+| 10/06 | 22 | [Data Re-uploading](articles/day22/README.md) | 配對 schedule、四維分段輸入、電路成本與 CPU／GPU 驗證 | ✅ |
+| 10/07 | 23 | [Quantum Kernel](articles/day23/README.md) | Fidelity／RBF／linear、kernel ridge、完整 CPU／GPU 矩陣驗證 | ✅ |
+| 10/08 | 24 | [Barren Plateau](articles/day24/README.md) | qubits／depth／initialization／cost locality、解析對照與梯度驗證 | ✅ |
+| 10/09 | 25 | [第二個真實資料集：Wine](articles/day25/README.md) | Classical、VQC、Hybrid與13維baseline、CPU／GPU驗證 | ✅ |
+| 10/10 | 26 | [沒有完美 Qubit：Quantum Noise](articles/day26/README.md) | Kraus／density matrix、CPU／GPU抽樣與Wine末端noise | ✅ |
+| 10/11 | 27 | [CPU vs GPU Quantum Simulation](articles/day27/README.md) | 依序量測、fp64配對、first／warm latency與輸出核對 | ✅ |
 | 10/12 | 28 | 單 GPU 到 Multi-GPU | 可用設備實測或 reproducible scaling model | 📌 |
 | 10/13 | 29 | Simulator → QPU | backend、shots、queue、hardware noise | 📌 |
 | 10/14 | 30 | 我還相信 Quantum Machine Learning 嗎？ | 證據導向總結與研究 Roadmap | 📌 |
@@ -68,8 +68,8 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | Day 05 | [Quantum Fundamentals ✅](articles/day05/README.md) | [Notebook](notebooks/day05_quantum_fundamentals.ipynb)、[架構圖](figures/day05_pipeline.svg)、完整 circuit demo |
 | [Day 10](articles/day10/README.md) | CUDA-Q Fundamentals | ✅ MSE、座標搜尋、CPU／GPU hybrid optimization loop |
 | [Day 15](articles/day15/README.md) | First QML Model ✅ | XOR Classifier、Training Curve、Decision Boundary |
-| Day 20 | Hybrid QML | Classical vs VQC vs Hybrid report |
-| Day 25 | Real Dataset | 第二份可重現 QML benchmark |
+| [Day 20](articles/day20/README.md) | Hybrid QML ✅ | Iris binary：MLP／VQC／Hybrid report |
+| [Day 25](articles/day25/README.md) | Wine Binary Dataset | ✅ 第二份可重現 Classical／VQC／Hybrid benchmark |
 | Day 30 | Final Project | Noise、GPU、QPU 與完整工程總結 |
 
 Day 11 已完成：[Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md)，包含資料縮放、編碼比較與 CPU／GPU 可重現實驗。

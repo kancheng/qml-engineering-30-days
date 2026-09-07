@@ -1,0 +1,2 @@
+# Reuses installed CUDA-Q NoiseModel; no new packages.
+-r requirements-day25.txt

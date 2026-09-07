@@ -46,24 +46,24 @@ Day 06 已完成工具分工與環境驗證，主機 CPU／RTX 3060 smoke tests 
 17. [QML 怎麼 Backprop？Gradient 從哪裡來？](articles/day17/README.md)——已完成 parameter-shift／finite difference／matrix derivative、loss chain rule 與 CPU／GPU 驗證
 18. [Classical ML vs QML：第一次公平 Benchmark](articles/day18/README.md)——已完成同 split／Brier／評估預算的 logistic-link、MLP、VQC 比較與成本紀錄
 19. [Hybrid Neural Network：Classical Layer + Quantum Layer](articles/day19/README.md)——已完成 12 參數 classical／quantum／classical 模型、全梯度與聯合更新驗證
-20. Iris：Classical vs Quantum vs Hybrid
+20. [Iris：Classical vs Quantum vs Hybrid](articles/day20/README.md)——已完成 binary Iris、train-only PCA、兩組 split、12 次 reference 訓練與 CUDA-Q CPU／GPU 凍結模型驗證
 
 成果：Classical Baseline、VQC、Hybrid QNN 與第一份 Benchmark Report。
 
 ## Part 5｜Day 21–25：不只 Toy Example
 
-21. Qubit 不夠、Feature 太多怎麼辦？
-22. Data Re-uploading
-23. Quantum Kernel：QML 不只有 QNN
-24. Barren Plateau：為什麼 QNN 突然學不動？
-25. 第二個真實資料集 Benchmark
+21. [Qubit 不夠、Feature 太多怎麼辦？](articles/day21/README.md)——已完成 PCA／feature selection／learned bottleneck、四維 classical baseline、16 次 reference 訓練與 CPU／GPU 驗證
+22. [Data Re-uploading](articles/day22/README.md)——已完成 once／repeat 配對、四維分段輸入、20 次 reference 訓練與 CPU／GPU 各792次 observe 驗證
+23. [Quantum Kernel：QML 不只有 QNN](articles/day23/README.md)——已完成 compute–uncompute、三種 kernel ridge、Gram 診斷與 CPU／GPU 各11,682次 observe 驗證
+24. [Barren Plateau：為什麼 QNN 學不動？](articles/day24/README.md)——已完成768個初始化、local／global梯度分布、解析對照與CPU／GPU各3,072次observe驗證
+25. [第二個真實資料集：Wine Benchmark](articles/day25/README.md)——已完成13維Wine二分類、train-only PCA、16次reference訓練與CPU／GPU各476次observe驗證
 
 成果：降維、Quantum Kernel、Trainability 與真實資料集比較。
 
 ## Part 6｜Day 26–30：GPU、Noise、QPU 與真正的 QML Engineering
 
-26. 用 CUDA-Q 模擬 Quantum Noise
-27. CPU vs GPU Quantum Simulation
+26. [用 CUDA-Q 模擬 Quantum Noise](articles/day26/README.md)——bit／phase flip、depolarizing、density matrix解析核對與CPU／GPU有限shots
+27. [CPU vs GPU Quantum Simulation](articles/day27/README.md)——相同電路／精度、序列量測、first／warm latency與原始計時紀錄
 28. 從單 GPU 到 Multi-GPU
 29. Simulator → QPU
 30. 寫了 30 天 CUDA-Q 與 QML，我還相信 QML 嗎？

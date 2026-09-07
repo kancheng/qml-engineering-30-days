@@ -1,0 +1,65 @@
+{
+  "qubits": [
+    2,
+    4,
+    6,
+    8
+  ],
+  "depths": [
+    1,
+    4,
+    8
+  ],
+  "initializations": [
+    "uniform",
+    "small"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "uniform": "Uniform(-pi,pi)",
+  "small": "Normal(0,0.1), not identity-block initialization",
+  "circuit": "each block RY then RZ per wire; sequential CZ chain (0,1),(1,2),...,(n-2,n-1)",
+  "costs": {
+    "local": "<Z0>",
+    "global": "<Z0 Z1 ... Z(n-1)>"
+  },
+  "derivative": "first block RY on qubit0, index0 only",
+  "engine": "NumPy tangent-state derivative; CUDA-Q independently verifies parameter shift",
+  "scope": "finite small-n ensemble, no training, no proof of asymptotic barren plateau",
+  "shots": -1,
+  "noise": "none",
+  "statistic": "sample variance ddof=1 across 32 initializations, not across parameters",
+  "control": "classically tractable product RY states, uniform angles; exact variances local=1/2, global=2^-n"
+}

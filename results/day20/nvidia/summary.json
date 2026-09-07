@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-09-07T00:06:44.360970+00:00",
+  "backend": "nvidia",
+  "precision": "SimulationPrecision.fp32",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "python": "3.12.7",
+  "OMP_NUM_THREADS": "1",
+  "records": 18,
+  "max_reference_error": 1.3397297382589102e-07,
+  "cudaq_observe_calls": 396,
+  "shots": -1,
+  "noise_model": "none",
+  "scope": "frozen-model inference validation, not training or isolated timing benchmark",
+  "passed": true
+}

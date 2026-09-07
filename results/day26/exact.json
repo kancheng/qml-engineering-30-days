@@ -1,0 +1,1802 @@
+[
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.7999999999999999,
+    "actual": 0.7999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.7999999999999999,
+    "actual": 0.7999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.40000000000000013,
+    "actual": 0.40000000000000013,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.40000000000000013,
+    "actual": 0.40000000000000013,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": -0.4999999999999999,
+    "actual": -0.4999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": -0.4999999999999999,
+    "actual": -0.4999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": -1.0,
+    "actual": -1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": -1.0,
+    "actual": -1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.9999999999999999,
+    "actual": 0.9999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.9999999999999999,
+    "actual": 0.9999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.9999999999999999,
+    "actual": 0.9999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.9999999999999999,
+    "actual": 0.9999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 1.0,
+    "actual": 1.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.8666666666666666,
+    "actual": 0.8666666666666666,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.8666666666666666,
+    "actual": 0.8666666666666666,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.6000000000000001,
+    "actual": 0.6000000000000001,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.6000000000000001,
+    "actual": 0.6000000000000001,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": -0.3333333333333333,
+    "actual": -0.3333333333333333,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": -0.3333333333333333,
+    "actual": -0.3333333333333333,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 0,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999997,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.9999999999999997,
+    "actual": 0.9999999999999996,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999997,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.9999999999999996,
+    "actual": 0.9999999999999993,
+    "absolute_error": 2.220446049250313e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999997,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999997,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.7999999999999997,
+    "actual": 0.7999999999999996,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": -1.3877787807814457e-17,
+    "absolute_error": 1.3877787807814457e-17,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.39999999999999997,
+    "actual": 0.3999999999999998,
+    "absolute_error": 1.6653345369377348e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": -0.4999999999999997,
+    "actual": -0.49999999999999956,
+    "absolute_error": 1.6653345369377348e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": -0.9999999999999998,
+    "actual": -0.9999999999999997,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999997,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.8666666666666664,
+    "actual": 0.8666666666666663,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 2.0816681711721685e-17,
+    "absolute_error": 2.0816681711721685e-17,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.5999999999999999,
+    "actual": 0.5999999999999998,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": -2.7755575615628914e-17,
+    "absolute_error": 2.7755575615628914e-17,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": -0.3333333333333332,
+    "actual": -0.3333333333333332,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 1,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999998,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999996,
+    "absolute_error": 2.220446049250313e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.7999999999999997,
+    "actual": 0.7999999999999997,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.9999999999999997,
+    "actual": 0.9999999999999993,
+    "absolute_error": 3.3306690738754696e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.39999999999999997,
+    "actual": 0.39999999999999997,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999993,
+    "absolute_error": 4.440892098500626e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": -0.4999999999999997,
+    "actual": -0.49999999999999967,
+    "absolute_error": 5.551115123125783e-17,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.9999999999999996,
+    "actual": 0.9999999999999992,
+    "absolute_error": 3.3306690738754696e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": -0.9999999999999998,
+    "actual": -0.9999999999999998,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "bit_flip",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999996,
+    "absolute_error": 2.220446049250313e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999998,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999996,
+    "absolute_error": 2.220446049250313e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.9999999999999997,
+    "actual": 0.9999999999999997,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.7999999999999997,
+    "actual": 0.7999999999999996,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999998,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.39999999999999997,
+    "actual": 0.39999999999999986,
+    "absolute_error": 1.1102230246251565e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.9999999999999996,
+    "actual": 0.9999999999999996,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": -0.4999999999999997,
+    "actual": -0.4999999999999994,
+    "absolute_error": 3.3306690738754696e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999998,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "phase_flip",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": -0.9999999999999998,
+    "actual": -0.9999999999999996,
+    "absolute_error": 2.220446049250313e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "ZZ",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999998,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.0,
+    "observable": "XX",
+    "expected": 0.9999999999999998,
+    "actual": 0.9999999999999996,
+    "absolute_error": 2.220446049250313e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "ZZ",
+    "expected": 0.8666666666666664,
+    "actual": 0.8666666666666664,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.1,
+    "observable": "XX",
+    "expected": 0.8666666666666664,
+    "actual": 0.866666666666666,
+    "absolute_error": 3.3306690738754696e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "ZZ",
+    "expected": 0.5999999999999999,
+    "actual": 0.5999999999999999,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.3,
+    "observable": "XX",
+    "expected": 0.5999999999999999,
+    "actual": 0.5999999999999995,
+    "absolute_error": 3.3306690738754696e-16,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "ZZ",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 0.75,
+    "observable": "XX",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "Z0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "X0",
+    "expected": 0.0,
+    "actual": 0.0,
+    "absolute_error": 0.0,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "ZZ",
+    "expected": -0.3333333333333332,
+    "actual": -0.33333333333333315,
+    "absolute_error": 5.551115123125783e-17,
+    "passed": true
+  },
+  {
+    "kind": 2,
+    "channel": "depolarizing",
+    "p": 1.0,
+    "observable": "XX",
+    "expected": -0.3333333333333332,
+    "actual": -0.33333333333333315,
+    "absolute_error": 5.551115123125783e-17,
+    "passed": true
+  }
+]

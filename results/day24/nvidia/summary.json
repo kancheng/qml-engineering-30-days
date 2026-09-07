@@ -1,0 +1,15 @@
+{
+  "generated_at_utc": "2026-09-07T05:09:28.760801+00:00",
+  "backend": "nvidia",
+  "cudaq": "0.15.1",
+  "precision": "SimulationPrecision.fp32",
+  "OMP_NUM_THREADS": "1",
+  "records": 1536,
+  "observe_calls": 3072,
+  "max_gradient_error": 8.709843239140813e-07,
+  "seconds_including_compilation": 1.487771233980311,
+  "shots": -1,
+  "noise": "none",
+  "artifact_sha256": "7dff4f4c6e46d97ccebc72e554dbf6d60b629e76f9822e7d5a85407bdbf90985",
+  "passed": true
+}

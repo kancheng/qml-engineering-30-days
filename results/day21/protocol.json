@@ -1,0 +1,37 @@
+{
+  "source": {
+    "sha256": "6f608b71a7317216319b4d27b4d9bc84e6abd734eda7872b71a458569e2656c0",
+    "dropped_duplicate_ids": [
+      142
+    ],
+    "classes": {
+      "0": "Iris-versicolor",
+      "1": "Iris-virginica"
+    }
+  },
+  "task": "deduplicated binary Iris, 99 rows, Day20 splits",
+  "split_seeds": [
+    2028,
+    2029
+  ],
+  "initialization_seeds": [
+    42,
+    43
+  ],
+  "models": {
+    "pca_vqc": 4,
+    "selection_vqc": 4,
+    "bottleneck_vqc": 14,
+    "logistic4": 5
+  },
+  "budget": 73,
+  "optimizer": "Day18 coordinate search; initial step .4",
+  "loss": "Brier",
+  "threshold": 0.5,
+  "selection": "final validation Brier then lower seed, per model",
+  "preprocessing": "train-only standardization; PCA2 or abs train Pearson top2 or jointly learned tanh bottleneck",
+  "quantum": "2 qubits, positive_half angle encoding, one 4-parameter Ansatz, (1-ZZ)/2",
+  "training_engine": "NumPy CPU exact reference; zero CUDA-Q training calls",
+  "shots": -1,
+  "noise": "none"
+}

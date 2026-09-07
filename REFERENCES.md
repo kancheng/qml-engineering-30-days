@@ -106,6 +106,14 @@ K. Mitarai, M. Negoro, M. Kitagawa, and K. Fujii. “Quantum circuit learning.�
 - 核對：APS version of record 列出四位作者、volume 98、article 032309，發表日 2018-09-10。
 - 支持範圍：論文提出以 classical computer 迭代調整 low-depth parameterized quantum circuit 的 hybrid learning framework；本系列不由此延伸宣稱已獲得 quantum advantage。
 
+### P4｜Data Re-uploading
+
+Adrián Pérez-Salinas, Alba Cervera-Lierta, Elies Gil-Fuster, and José I. Latorre. “Data re-uploading for a universal quantum classifier.” *Quantum* 4, 226 (2020). DOI: [10.22331/q-2020-02-06-226](https://doi.org/10.22331/q-2020-02-06-226).
+
+- 類型：Peer-reviewed research article；[出版頁](https://quantum-journal.org/papers/q-2020-02-06-226/)。
+- Day22 於 2026-09-07 核對作者、題名、發表日 2020-02-06、volume4／article226。出版頁對應 arXiv v2，另提示較新的 v3；本日引用期刊版本。
+- 支持範圍：重複資料編碼與 trainable operations、qubit／layer 取捨。本日 RY／CNOT／ZZ 與 Iris 配對實驗是受限示範，不聲稱論文完整復現、universal approximation 或量子優勢。
+
 ## 官方技術文件
 
 ### D1｜CUDA-Q Quick Start
@@ -229,3 +237,68 @@ Maria Schuld, Ville Bergholm, Christian Gogolin, Josh Izaac, Nathan Killoran. �
 
 - [scikit-learn log_loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)。
 - Day 18 於 2026-09-07 查閱：標準 logistic regression 使用 negative log-likelihood；本文 logistic-link 以共同 Brier loss 訓練，明確不冒稱標準 LogisticRegression solver benchmark。另查閱 D14 的資料洩漏邊界。
+
+### D17｜Iris Dataset
+
+- R. A. Fisher, Iris, UCI Machine Learning Repository；[官方頁面](https://archive.ics.uci.edu/dataset/53/iris)，DOI [10.24432/C56C76](https://doi.org/10.24432/C56C76)。
+- Day 20 於 2026-09-07 核對 150 instances、4 features、3 classes、CC BY 4.0，下載原始 iris.data 並記錄 SHA-256。
+- 本日只使用 versicolor／virginica，去除完全重複 feature＋label 後為 99 筆，再做 train-only standardization／PCA2；不宣稱完整三分類 Iris benchmark。
+
+### D18｜PCA 與 Explained Variance
+
+- 官方文件：[scikit-learn PCA](https://scikit-learn.org/stable/modules/decomposition.html#pca)。
+- Day21 於 2026-09-07 查閱：以 train-only SVD 實作 PCA2；variance ratio 不視為分類資訊保留率。未安裝 scikit-learn。
+
+### D19｜Feature Selection
+
+- 官方文件：[scikit-learn Feature selection](https://scikit-learn.org/stable/modules/feature_selection.html)。
+- Day21 於 2026-09-07 查閱：參照單變量 ranking 流程，自行用 NumPy 實作 binary label 的絕對 point-biserial correlation top2；不聲稱使用 SelectKBest 或做統計顯著性檢定。資料洩漏規則另見 D14。
+
+### P5｜Quantum Feature Space 與 Kernel Estimation
+
+Vojtěch Havlíček, Antonio D. Córcoles, Kristan Temme, Aram W. Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta. “Supervised learning with quantum-enhanced feature spaces.” *Nature* 567, 209–212 (2019). DOI: [10.1038/s41586-019-0980-2](https://www.nature.com/articles/s41586-019-0980-2)。
+
+- Day23 於2026-09-07查閱Nature出版索引：發表日2019-03-13、作者與頁碼。正文頁存取受網站重新導向限制，未宣稱閱讀全文。
+- 支持範圍：quantum feature spaces／kernel estimation概念；本日自訂RY／CNOT map與kernel ridge，不是論文電路／SVM完整復現，不宣稱量子優勢。
+
+### D20｜Kernel Ridge Regression
+
+- [scikit-learn官方文件](https://scikit-learn.org/stable/modules/kernel_ridge.html)，Day23於2026-09-07查閱。
+- KRR結合squared loss、regularization與kernel trick；本日用NumPy solve實作，沒有安裝scikit-learn。Clipped score僅用於本日validation／評分，不宣稱calibrated probability。
+
+### P6｜Barren Plateaus
+
+Jarrod R. McClean, Sergio Boixo, Vadim N. Smelyanskiy, Ryan Babbush, and Hartmut Neven. “Barren plateaus in quantum neural network training landscapes.” *Nature Communications* 9, 4812 (2018). DOI: [10.1038/s41467-018-07090-4](https://doi.org/10.1038/s41467-018-07090-4)。[arXiv:1803.11173](https://arxiv.org/abs/1803.11173)。
+
+- Day24於2026-09-07核對arXiv作者、題名與journal reference。arXiv v1提交於2018-03-29；期刊為2018年，兩者版本不混稱。
+- 支持範圍：隨機初始化電路的梯度集中與2-design關係。本日n≤8、32seeds是小規模診斷，不宣稱證明此CZ ansatz的漸近scaling。
+
+### P7｜Cost Locality 與 Barren Plateaus
+
+M. Cerezo, Akira Sone, Tyler Volkoff, Lukasz Cincio, and Patrick J. Coles. “Cost function dependent barren plateaus in shallow parametrized quantum circuits.” *Nature Communications* 12, 1791 (2021). DOI: [10.1038/s41467-021-21728-w](https://doi.org/10.1038/s41467-021-21728-w)。[arXiv:2001.00550v3](https://arxiv.org/abs/2001.00550v3)。
+
+- Day24於2026-09-07核對出版索引與arXiv：期刊2021-03-19，v3於2021-03-20更新並標示published version；原始preprint為2020年。
+- 論文結果有local 2-design blocks等假設；locality與depth共同影響梯度。本日Z0／global parity比較不是完整定理復現，也不將更換cost當成保持原任務的保證。
+
+### D21｜UCI Wine Dataset
+
+S. Aeberhard and M. Forina (1992). Wine [Dataset]. UCI Machine Learning Repository. DOI: [10.24432/C5PC7J](https://doi.org/10.24432/C5PC7J)。[官方頁面](https://archive.ics.uci.edu/dataset/109/wine)。
+
+- Day25於2026-09-07查閱：178筆、13個features、三種cultivars，CC BY4.0。資料來源不是Wine Quality。
+- 實驗預先取class2／3、119筆、無完全重複features＋label；原始wine.data不修改，來源SHA-256與欄位順序保存於protocol。
+- 支持範圍：來源、欄位、類別與授權；本日binary PCA2模型的結果不宣稱完整Wine三分類表現。
+
+### D22｜CUDA-Q NoiseModel
+
+- [NVIDIA Noisy Simulation](https://nvidia.github.io/cuda-quantum/latest/examples/python/noisy_simulations.html)，2026-09-07查閱。
+- Day26使用本機0.15.1 NoiseModel.add_channel與density-matrix-cpu；channel慣例另依本機Kraus docstring與解析測試核對。DepolarizationChannel的p是非identity Pauli總機率，完全混合在p=.75。
+
+### D23｜CUDA-Q Noisy Backends
+
+- [NVIDIA Noisy Simulators](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/noisy.html)，2026-09-07查閱。
+- density-matrix-cpu提供density matrix simulation；GPU nvidia支援trajectory noisy sampling。本日不宣稱GPU exact density matrix或QPU error calibration。
+
+### D24｜Statevector Backend與Precision
+
+- [NVIDIA State Vector Simulators](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/svsims.html)，Day27於2026-09-07查閱。
+- nvidia預設fp32，可透過option='fp64'指定雙精度；Day27將CPU／GPU fp64作主配對，fp32另列。時間結論只依本機實測，不由文件推論固定speedup。

@@ -1,0 +1,14 @@
+[
+  {
+    "backend": "qpp-cpu",
+    "process_wall_seconds": 91.11396965099266
+  },
+  {
+    "backend": "nvidia-fp64",
+    "process_wall_seconds": 0.7482262470002752
+  },
+  {
+    "backend": "nvidia",
+    "process_wall_seconds": 0.7325182239874266
+  }
+]

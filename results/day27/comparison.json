@@ -1,0 +1,114 @@
+[
+  {
+    "qubits": 4,
+    "blocks": 4,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 8.326672684688674e-17,
+    "cpu_median_over_gpu_median": 0.6127002289265584
+  },
+  {
+    "qubits": 4,
+    "blocks": 4,
+    "gpu_backend": "nvidia",
+    "max_output_error": 1.0772663849856201e-07,
+    "cpu_median_over_gpu_median": 0.6569294846469145
+  },
+  {
+    "qubits": 4,
+    "blocks": 12,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 4.996003610813204e-16,
+    "cpu_median_over_gpu_median": 0.7040897112470731
+  },
+  {
+    "qubits": 4,
+    "blocks": 12,
+    "gpu_backend": "nvidia",
+    "max_output_error": 1.2504844493221867e-08,
+    "cpu_median_over_gpu_median": 0.706268540898932
+  },
+  {
+    "qubits": 8,
+    "blocks": 4,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 3.7470027081099033e-16,
+    "cpu_median_over_gpu_median": 3.412987034293955
+  },
+  {
+    "qubits": 8,
+    "blocks": 4,
+    "gpu_backend": "nvidia",
+    "max_output_error": 3.2085733819853246e-08,
+    "cpu_median_over_gpu_median": 3.3421502043913476
+  },
+  {
+    "qubits": 8,
+    "blocks": 12,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 0.0,
+    "cpu_median_over_gpu_median": 4.4172386960852155
+  },
+  {
+    "qubits": 8,
+    "blocks": 12,
+    "gpu_backend": "nvidia",
+    "max_output_error": 5.1797682504295395e-08,
+    "cpu_median_over_gpu_median": 4.318937025285913
+  },
+  {
+    "qubits": 12,
+    "blocks": 4,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 4.163336342344337e-17,
+    "cpu_median_over_gpu_median": 64.35675972647945
+  },
+  {
+    "qubits": 12,
+    "blocks": 4,
+    "gpu_backend": "nvidia",
+    "max_output_error": 1.198035795221819e-08,
+    "cpu_median_over_gpu_median": 64.94653361064051
+  },
+  {
+    "qubits": 12,
+    "blocks": 12,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 8.673617379884035e-17,
+    "cpu_median_over_gpu_median": 77.1898243932991
+  },
+  {
+    "qubits": 12,
+    "blocks": 12,
+    "gpu_backend": "nvidia",
+    "max_output_error": 1.5462004704369647e-08,
+    "cpu_median_over_gpu_median": 74.64893496243492
+  },
+  {
+    "qubits": 16,
+    "blocks": 4,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 3.9898639947466563e-17,
+    "cpu_median_over_gpu_median": 1101.2997153224476
+  },
+  {
+    "qubits": 16,
+    "blocks": 4,
+    "gpu_backend": "nvidia",
+    "max_output_error": 2.958610823347585e-09,
+    "cpu_median_over_gpu_median": 1175.007307710063
+  },
+  {
+    "qubits": 16,
+    "blocks": 12,
+    "gpu_backend": "nvidia-fp64",
+    "max_output_error": 3.9898639947466563e-17,
+    "cpu_median_over_gpu_median": 1112.8847314026375
+  },
+  {
+    "qubits": 16,
+    "blocks": 12,
+    "gpu_backend": "nvidia",
+    "max_output_error": 7.259484913375858e-09,
+    "cpu_median_over_gpu_median": 1353.2355680114265
+  }
+]

@@ -1,0 +1,2 @@
+# NumPy kernel ridge solver; no scikit-learn installation needed.
+-r requirements-day22.txt

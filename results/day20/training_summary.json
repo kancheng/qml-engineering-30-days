@@ -1,0 +1,10 @@
+{
+  "generated_at_utc": "2026-09-07T00:04:37.315401+00:00",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "fits": 12,
+  "deduplicated_samples": 99,
+  "cudaq_training_calls": 0,
+  "passed": true
+}

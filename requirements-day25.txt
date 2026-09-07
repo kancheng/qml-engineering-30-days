@@ -1,0 +1,2 @@
+# Reuse the isolated environment; no new packages.
+-r requirements-day24.txt

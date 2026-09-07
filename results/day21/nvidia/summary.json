@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-09-07T01:01:49.932247+00:00",
+  "backend": "nvidia",
+  "precision": "SimulationPrecision.fp32",
+  "cudaq": "0.15.1",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "OMP_NUM_THREADS": "1",
+  "artifact_sha256": "023f8edeb38e52a3dc283f8b2c1f7fea6e582ae892b5bd95d946a8d491754fd7",
+  "records": 24,
+  "shots": -1,
+  "noise": "none",
+  "observe_calls": 594,
+  "max_reference_error": 1.3397297382589102e-07,
+  "scope": "frozen inference verification, not GPU training or isolated performance benchmark",
+  "passed": true
+}

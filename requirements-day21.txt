@@ -1,0 +1,2 @@
+# Day21 reuses NumPy, Matplotlib and CUDA-Q in the isolated .venv.
+-r requirements-day20.txt

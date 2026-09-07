@@ -1,0 +1,35 @@
+{
+  "source": {
+    "sha256": "6f608b71a7317216319b4d27b4d9bc84e6abd734eda7872b71a458569e2656c0",
+    "dropped_duplicate_ids": [
+      142
+    ],
+    "classes": {
+      "0": "Iris-versicolor",
+      "1": "Iris-virginica"
+    }
+  },
+  "split_seeds": [
+    2028,
+    2029
+  ],
+  "models": [
+    "quantum",
+    "rbf",
+    "linear"
+  ],
+  "lambdas": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "preprocessing": "train-only raw4 minmax [-1,1], clipping; all models same inputs",
+  "selection": "minimum validation Brier of clipped ridge score, then smaller lambda",
+  "ridge": "(K + lambda I) alpha = y; no intercept; no n factor",
+  "quantum": "fixed RY01 CNOT RY23; squared overlap, 2 qubits, no trainable circuit parameters",
+  "rbf_gamma": 1.0,
+  "linear": "1 + x dot z / 4; constant feature is regularized",
+  "training_engine": "NumPy reference kernels and classical solves",
+  "score": "clip(Kquery,train @ alpha, 0, 1); not calibrated probability",
+  "threshold": 0.5
+}

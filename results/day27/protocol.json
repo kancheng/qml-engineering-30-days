@@ -1,0 +1,28 @@
+{
+  "qubits": [
+    4,
+    8,
+    12,
+    16
+  ],
+  "blocks": [
+    4,
+    12
+  ],
+  "seed": 42,
+  "warmups_after_first": 2,
+  "repeats": 7,
+  "targets": [
+    "qpp-cpu",
+    "nvidia-fp64",
+    "nvidia"
+  ],
+  "threads": 1,
+  "shots": -1,
+  "noise": "none",
+  "circuit": "Day24 RY/RZ per wire followed by nearest-neighbor CZ chain; 2*n*blocks parameters",
+  "observable": "Z0 Z1 ... Z(n-1)",
+  "timed_region": "blocking observe + expectation retrieval; excludes weights/observable setup",
+  "order": "one process per backend, serial CPU then GPU fp64 then GPU fp32; cases increasing n then blocks",
+  "scope": "host-visible end-to-end exact inference latency, not training or device kernel time"
+}

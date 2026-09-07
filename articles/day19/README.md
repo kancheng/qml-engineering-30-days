@@ -154,4 +154,4 @@ OMP_NUM_THREADS=1 DAY19_TARGET=nvidia python -m unittest discover -s articles/da
 
 [D15] [NVIDIA Hybrid QNN 教學（0.8.0）](https://nvidia.github.io/cuda-quantum/0.8.0/examples/python/tutorials/hybrid_qnns.html) 示範 classical／quantum layers 的整合。2026-09-07 重新查閱；本日未移植其歷史版本梯度程式，而是沿用 Day 17 的 shift 規則並獨立核對完整 chain rule。來源索引：[REFERENCES.md](../../REFERENCES.md)。
 
-下一篇 Day 20 將進入 Iris 的 Classical／Quantum／Hybrid 比較。本日不作 QPU、速度或量子優勢宣稱。
+下一篇 [Day 20](../day20/README.md) 將進入 Iris 的 Classical／Quantum／Hybrid 比較。本日不作 QPU、速度或量子優勢宣稱。

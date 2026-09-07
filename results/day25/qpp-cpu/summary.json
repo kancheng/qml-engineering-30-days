@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-09-07T05:22:21.782667+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "cudaq": "0.15.1",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "OMP_NUM_THREADS": "1",
+  "artifact_sha256": "a84413cf5a1e802fb4af9853615794e29c043d4b2f64bd2ecda91563cc6c0e14",
+  "records": 24,
+  "shots": -1,
+  "noise": "none",
+  "observe_calls": 476,
+  "max_reference_error": 3.3306690738754696e-16,
+  "scope": "frozen inference verification, not GPU training or isolated performance benchmark",
+  "passed": true
+}

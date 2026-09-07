@@ -1,0 +1,11 @@
+{
+  "generated_at_utc": "2026-09-07T01:00:09.602300+00:00",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "fits": 16,
+  "cudaq_training_calls": 0,
+  "artifact_sha256": "023f8edeb38e52a3dc283f8b2c1f7fea6e582ae892b5bd95d946a8d491754fd7",
+  "passed": true
+}

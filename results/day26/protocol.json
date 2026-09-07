@@ -1,0 +1,35 @@
+{
+  "channels": [
+    "bit_flip",
+    "phase_flip",
+    "depolarizing"
+  ],
+  "probabilities": [
+    0.0,
+    0.1,
+    0.3,
+    0.75,
+    1.0
+  ],
+  "states": {
+    "0": "|00>",
+    "1": "|+0>",
+    "2": "Bell Phi+"
+  },
+  "injection": "one channel on q0 after final rz(0); preparation and measurement basis gates ideal",
+  "observables": [
+    "Z0",
+    "X0",
+    "ZZ",
+    "XX"
+  ],
+  "shots": 4096,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "depolarization": "(1-p)rho + p/3(XrhoX+YrhoY+ZrhoZ); maximally mixed at p=.75",
+  "sampling_check": "all 4 bin frequencies within .06 of exact probabilities; descriptive absolute threshold, not confidence interval",
+  "wine": "frozen Day25 VQC test samples; terminal noise only, no retraining or noise-aware selection"
+}
