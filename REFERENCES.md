@@ -302,3 +302,33 @@ S. Aeberhard and M. Forina (1992). Wine [Dataset]. UCI Machine Learning Reposito
 
 - [NVIDIA State Vector Simulators](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/svsims.html)，Day27於2026-09-07查閱。
 - nvidia預設fp32，可透過option='fp64'指定雙精度；Day27將CPU／GPU fp64作主配對，fp32另列。時間結論只依本機實測，不由文件推論固定speedup。
+
+### D25｜Multi-GPU Statevector Simulation
+
+- [NVIDIA State Vector Simulators](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/svsims.html)，Day28於2026-09-08查閱。
+- 支持mgpu,fp64、MPI啟動形式與資源條件。另核對本機0.15.1 targets/nvidia.yml的配置；latest文件的完整預設值不視為本機版本保證。Day28容量與延遲數字來自自訂假設模型，沒有multi-GPU實測。
+
+### D26｜Multi-QPU Task Parallelism
+
+- [NVIDIA Multiple QPUs](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/mqpusims.html)、[Multi-GPU Workflows](https://nvidia.github.io/cuda-quantum/latest/using/examples/multi_gpu_workflows.html)，Day28於2026-09-08查閱。
+- 支持mqpu模擬多個QPU、observe_async與qpu_id派送；任務平行與單一statevector分散必須區分。官方範例效能不移植為本機結論。
+
+### D27｜Hardware Target與Local Emulation
+
+- [NVIDIA Ion Trap Backends](https://nvidia.github.io/cuda-quantum/latest/using/backends/hardware/iontrap.html)、[Quantum Hardware](https://nvidia.github.io/cuda-quantum/latest/using/backends/hardware.html)，Day29於2026-09-08查閱。
+- 支持ionq emulate=True為本地無noise emulation、provider與實際裝置的區分、遠端帳號條件。本日0.15.1本地驗證成功；未提交cloud simulator或physical QPU，不固定裝置可用性與費用。
+
+### D28｜Sampling與Asynchronous Hardware Workflows
+
+- [Executing Kernels](https://nvidia.github.io/cuda-quantum/latest/using/examples/executing_kernels.html)、[Using Quantum Hardware Providers](https://nvidia.github.io/cuda-quantum/latest/using/examples/hardware_providers.html)，Day29於2026-09-08查閱。
+- 支持明確terminal measurement、sample_async／get與job reference取得流程。Day29以本地counts驗證輸出契約，沒有遠端future／queue實測。
+
+### D29｜IonQ Job生命週期與Metadata
+
+- [IonQ Jobs](https://docs.ionq.com/user-manual/jobs)、[API v0.4 Get Job](https://docs.ionq.com/api-reference/v0.4/jobs/get-job)，Day29於2026-09-08查閱。
+- 區分排隊、執行、完成、失敗與取消；版本間started／running名稱有差異。Day29僅以文件說明工作管理，沒有直接呼叫IonQ API；本地wall time不能當QPU execution time。
+
+## Day30 結論的專案證據入口
+
+- [Day30證據報告](results/day30/README.md)與[來源SHA-256](results/day30/evidence.json)：從Day20／23／25保存預測核算metrics，重算Day26 Wine noise metrics與Day27 fp64計時比值，核對Day28模型與Day29本地預演範圍。
+- 這是本專案結果彙整，不是新增外部文獻、硬體benchmark或量子優勢證明。既有官方文件查閱日期與版本條件維持原紀錄。

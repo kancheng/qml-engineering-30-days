@@ -1,0 +1,1240 @@
+{
+  "scope": "Saved evidence audit; no experiment reruns, no new training, no remote jobs",
+  "benchmarks": [
+    {
+      "day": 20,
+      "task": "Iris binary",
+      "split": 2028,
+      "model": "mlp",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 21,
+      "brier": 0.07088430112117819,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          8,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 20,
+      "task": "Iris binary",
+      "split": 2028,
+      "model": "vqc",
+      "selection_field": "seed",
+      "selected_value": 43,
+      "test_size": 21,
+      "brier": 0.10539648224165682,
+      "accuracy": 0.8571428571428571,
+      "confusion_matrix": [
+        [
+          8,
+          2
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "day": 20,
+      "task": "Iris binary",
+      "split": 2028,
+      "model": "hybrid",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 21,
+      "brier": 0.07686678872903918,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          8,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 20,
+      "task": "Iris binary",
+      "split": 2029,
+      "model": "mlp",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 21,
+      "brier": 0.08854314340966601,
+      "accuracy": 0.8571428571428571,
+      "confusion_matrix": [
+        [
+          8,
+          2
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "day": 20,
+      "task": "Iris binary",
+      "split": 2029,
+      "model": "vqc",
+      "selection_field": "seed",
+      "selected_value": 43,
+      "test_size": 21,
+      "brier": 0.10286941520112373,
+      "accuracy": 0.8571428571428571,
+      "confusion_matrix": [
+        [
+          9,
+          1
+        ],
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "day": 20,
+      "task": "Iris binary",
+      "split": 2029,
+      "model": "hybrid",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 21,
+      "brier": 0.0816910319840259,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          9,
+          1
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "day": 23,
+      "task": "Iris binary",
+      "split": 2028,
+      "model": "quantum",
+      "selection_field": "lambda",
+      "selected_value": 0.1,
+      "test_size": 21,
+      "brier": 0.06690661820396097,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          10,
+          0
+        ],
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "day": 23,
+      "task": "Iris binary",
+      "split": 2028,
+      "model": "rbf",
+      "selection_field": "lambda",
+      "selected_value": 0.1,
+      "test_size": 21,
+      "brier": 0.067818805981596,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          9,
+          1
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "day": 23,
+      "task": "Iris binary",
+      "split": 2028,
+      "model": "linear",
+      "selection_field": "lambda",
+      "selected_value": 0.01,
+      "test_size": 21,
+      "brier": 0.04134476022862714,
+      "accuracy": 0.9523809523809523,
+      "confusion_matrix": [
+        [
+          9,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 23,
+      "task": "Iris binary",
+      "split": 2029,
+      "model": "quantum",
+      "selection_field": "lambda",
+      "selected_value": 0.01,
+      "test_size": 21,
+      "brier": 0.07170325809161719,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          10,
+          0
+        ],
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "day": 23,
+      "task": "Iris binary",
+      "split": 2029,
+      "model": "rbf",
+      "selection_field": "lambda",
+      "selected_value": 0.01,
+      "test_size": 21,
+      "brier": 0.028752610689537612,
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 23,
+      "task": "Iris binary",
+      "split": 2029,
+      "model": "linear",
+      "selection_field": "lambda",
+      "selected_value": 0.1,
+      "test_size": 21,
+      "brier": 0.0475786662034812,
+      "accuracy": 0.9047619047619048,
+      "confusion_matrix": [
+        [
+          9,
+          1
+        ],
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2030,
+      "model": "mlp",
+      "selection_field": "seed",
+      "selected_value": 43,
+      "test_size": 26,
+      "brier": 0.028477794357372965,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2030,
+      "model": "vqc",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 26,
+      "brier": 0.03240421559088548,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2030,
+      "model": "hybrid",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 26,
+      "brier": 0.034819569066366636,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2030,
+      "model": "logistic13",
+      "selection_field": "seed",
+      "selected_value": 43,
+      "test_size": 26,
+      "brier": 0.040233753769154015,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2031,
+      "model": "mlp",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 26,
+      "brier": 0.04169294211603406,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2031,
+      "model": "vqc",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 26,
+      "brier": 0.057050012074172846,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2031,
+      "model": "hybrid",
+      "selection_field": "seed",
+      "selected_value": 42,
+      "test_size": 26,
+      "brier": 0.04149514579202661,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "day": 25,
+      "task": "Wine binary",
+      "split": 2031,
+      "model": "logistic13",
+      "selection_field": "seed",
+      "selected_value": 43,
+      "test_size": 26,
+      "brier": 0.03222364746987073,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    }
+  ],
+  "paired_deltas": [
+    {
+      "day": 20,
+      "split": 2028,
+      "model": "vqc",
+      "delta_brier_vs_mlp": 0.03451218112047863
+    },
+    {
+      "day": 20,
+      "split": 2028,
+      "model": "hybrid",
+      "delta_brier_vs_mlp": 0.005982487607860992
+    },
+    {
+      "day": 20,
+      "split": 2029,
+      "model": "vqc",
+      "delta_brier_vs_mlp": 0.01432627179145772
+    },
+    {
+      "day": 20,
+      "split": 2029,
+      "model": "hybrid",
+      "delta_brier_vs_mlp": -0.0068521114256401144
+    },
+    {
+      "day": 25,
+      "split": 2030,
+      "model": "vqc",
+      "delta_brier_vs_mlp": 0.003926421233512514
+    },
+    {
+      "day": 25,
+      "split": 2030,
+      "model": "hybrid",
+      "delta_brier_vs_mlp": 0.006341774708993671
+    },
+    {
+      "day": 25,
+      "split": 2031,
+      "model": "vqc",
+      "delta_brier_vs_mlp": 0.015357069958138785
+    },
+    {
+      "day": 25,
+      "split": 2031,
+      "model": "hybrid",
+      "delta_brier_vs_mlp": -0.0001977963240074529
+    }
+  ],
+  "timing_fp64": [
+    {
+      "qubits": 4,
+      "blocks": 4,
+      "cpu_over_gpu": 0.6127002289265584,
+      "cpu_ms": 0.21796199143864214,
+      "gpu_ms": 0.35574001958593726
+    },
+    {
+      "qubits": 4,
+      "blocks": 12,
+      "cpu_over_gpu": 0.7040897112470731,
+      "cpu_ms": 0.42976299300789833,
+      "gpu_ms": 0.6103810155764222
+    },
+    {
+      "qubits": 8,
+      "blocks": 4,
+      "cpu_over_gpu": 3.412987034293955,
+      "cpu_ms": 2.5186410057358444,
+      "gpu_ms": 0.7379579765256494
+    },
+    {
+      "qubits": 8,
+      "blocks": 12,
+      "cpu_over_gpu": 4.4172386960852155,
+      "cpu_ms": 7.447004987625405,
+      "gpu_ms": 1.6858959861565381
+    },
+    {
+      "qubits": 12,
+      "blocks": 4,
+      "cpu_over_gpu": 64.35675972647945,
+      "cpu_ms": 78.71578299091198,
+      "gpu_ms": 1.223116007167846
+    },
+    {
+      "qubits": 12,
+      "blocks": 12,
+      "cpu_over_gpu": 77.1898243932991,
+      "cpu_ms": 230.42065900517628,
+      "gpu_ms": 2.9851170256733894
+    },
+    {
+      "qubits": 16,
+      "blocks": 4,
+      "cpu_over_gpu": 1101.2997153224476,
+      "cpu_ms": 2159.376718016574,
+      "gpu_ms": 1.960752997547388
+    },
+    {
+      "qubits": 16,
+      "blocks": 12,
+      "cpu_over_gpu": 1112.8847314026375,
+      "cpu_ms": 6442.454100993928,
+      "gpu_ms": 5.788968002889305
+    }
+  ],
+  "noise": [
+    {
+      "split": 2030,
+      "channel": "bit_flip",
+      "p": 0.0,
+      "brier": 0.032404215590885486,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "bit_flip",
+      "p": 0.1,
+      "brier": 0.05053753276007745,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "bit_flip",
+      "p": 0.3,
+      "brier": 0.12488292666740776,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "phase_flip",
+      "p": 0.0,
+      "brier": 0.032404215590885486,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "phase_flip",
+      "p": 0.1,
+      "brier": 0.03240421559088549,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "phase_flip",
+      "p": 0.3,
+      "brier": 0.032404215590885486,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "depolarizing",
+      "p": 0.0,
+      "brier": 0.032404215590885486,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "depolarizing",
+      "p": 0.1,
+      "brier": 0.04308276927520062,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2030,
+      "channel": "depolarizing",
+      "p": 0.3,
+      "brier": 0.08136376978558488,
+      "accuracy": 0.9615384615384616,
+      "confusion_matrix": [
+        [
+          14,
+          1
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "bit_flip",
+      "p": 0.0,
+      "brier": 0.05705001207417285,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "bit_flip",
+      "p": 0.1,
+      "brier": 0.07743578218058401,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "bit_flip",
+      "p": 0.3,
+      "brier": 0.14551366361153772,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "phase_flip",
+      "p": 0.0,
+      "brier": 0.05705001207417285,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "phase_flip",
+      "p": 0.1,
+      "brier": 0.057050012074172866,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "phase_flip",
+      "p": 0.3,
+      "brier": 0.057050012074172866,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "depolarizing",
+      "p": 0.0,
+      "brier": 0.05705001207417285,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "depolarizing",
+      "p": 0.1,
+      "brier": 0.06962917950740505,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    },
+    {
+      "split": 2031,
+      "channel": "depolarizing",
+      "p": 0.3,
+      "brier": 0.1069236660263723,
+      "accuracy": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          13,
+          2
+        ],
+        [
+          0,
+          11
+        ]
+      ]
+    }
+  ],
+  "training": {
+    "20": {
+      "fits": 12,
+      "cudaq_training_calls": 0
+    },
+    "25": {
+      "fits": 16,
+      "cudaq_training_calls": 0
+    }
+  },
+  "multi_gpu": {
+    "kind": "hypothetical model, not multi-GPU measurements",
+    "capacity_rows": 16,
+    "latency_rows": 12
+  },
+  "qpu": {
+    "status": "not_submitted",
+    "physical_qpu_jobs": 0,
+    "local_modes": [
+      {
+        "mode": "qpp-cpu",
+        "kind": "local_ideal_simulator",
+        "sample_calls": 30,
+        "shots": 93440
+      },
+      {
+        "mode": "ionq-emulate",
+        "kind": "local_ideal_emulation",
+        "sample_calls": 30,
+        "shots": 93440
+      },
+      {
+        "mode": "density-bitflip",
+        "kind": "local_noisy_simulator",
+        "sample_calls": 30,
+        "shots": 93440
+      }
+    ],
+    "planned_shots": 2048
+  },
+  "inventory": [
+    {
+      "day": 1,
+      "article": "articles/day01/README.md",
+      "scripts": [],
+      "notebooks": []
+    },
+    {
+      "day": 2,
+      "article": "articles/day02/README.md",
+      "scripts": [
+        "articles/day02/state_vector.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 3,
+      "article": "articles/day03/README.md",
+      "scripts": [
+        "articles/day03/demo.py",
+        "articles/day03/experiment.py",
+        "articles/day03/quantum_gates.py",
+        "articles/day03/test_quantum_gates.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 4,
+      "article": "articles/day04/README.md",
+      "scripts": [
+        "articles/day04/bell_state.py",
+        "articles/day04/cudaq_bell.py",
+        "articles/day04/experiment.py",
+        "articles/day04/test_bell_state.py",
+        "articles/day04/test_cudaq_bell.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 5,
+      "article": "articles/day05/README.md",
+      "scripts": [
+        "articles/day05/cudaq_pipeline.py",
+        "articles/day05/execute_notebook.py",
+        "articles/day05/pipeline.py",
+        "articles/day05/test_cudaq_pipeline.py",
+        "articles/day05/test_pipeline.py"
+      ],
+      "notebooks": [
+        "notebooks/day05_quantum_fundamentals.ipynb"
+      ]
+    },
+    {
+      "day": 6,
+      "article": "articles/day06/README.md",
+      "scripts": [
+        "articles/day06/check_environment.py",
+        "articles/day06/hello_quantum.py",
+        "articles/day06/test_environment.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 7,
+      "article": "articles/day07/README.md",
+      "scripts": [
+        "articles/day07/demo.py",
+        "articles/day07/experiment.py",
+        "articles/day07/kernels.py",
+        "articles/day07/test_kernels.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 8,
+      "article": "articles/day08/README.md",
+      "scripts": [
+        "articles/day08/experiment.py",
+        "articles/day08/kernels.py",
+        "articles/day08/test_execution.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 9,
+      "article": "articles/day09/README.md",
+      "scripts": [
+        "articles/day09/demo.py",
+        "articles/day09/experiment.py",
+        "articles/day09/pqc.py",
+        "articles/day09/test_pqc.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 10,
+      "article": "articles/day10/README.md",
+      "scripts": [
+        "articles/day10/test_train.py",
+        "articles/day10/train.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 11,
+      "article": "articles/day11/README.md",
+      "scripts": [
+        "articles/day11/encoding.py",
+        "articles/day11/experiment.py",
+        "articles/day11/test_encoding.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 12,
+      "article": "articles/day12/README.md",
+      "scripts": [
+        "articles/day12/angle_encoding.py",
+        "articles/day12/demo.py",
+        "articles/day12/experiment.py",
+        "articles/day12/test_angle_encoding.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 13,
+      "article": "articles/day13/README.md",
+      "scripts": [
+        "articles/day13/amplitude_encoding.py",
+        "articles/day13/demo.py",
+        "articles/day13/experiment.py",
+        "articles/day13/test_amplitude_encoding.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 14,
+      "article": "articles/day14/README.md",
+      "scripts": [
+        "articles/day14/demo.py",
+        "articles/day14/experiment.py",
+        "articles/day14/model.py",
+        "articles/day14/test_model.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 15,
+      "article": "articles/day15/README.md",
+      "scripts": [
+        "articles/day15/classifier.py",
+        "articles/day15/demo.py",
+        "articles/day15/experiment.py",
+        "articles/day15/plot_results.py",
+        "articles/day15/test_classifier.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 16,
+      "article": "articles/day16/README.md",
+      "scripts": [
+        "articles/day16/demo.py",
+        "articles/day16/experiment.py",
+        "articles/day16/models.py",
+        "articles/day16/plot_results.py",
+        "articles/day16/test_models.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 17,
+      "article": "articles/day17/README.md",
+      "scripts": [
+        "articles/day17/demo.py",
+        "articles/day17/experiment.py",
+        "articles/day17/gradients.py",
+        "articles/day17/plot_results.py",
+        "articles/day17/test_gradients.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 18,
+      "article": "articles/day18/README.md",
+      "scripts": [
+        "articles/day18/benchmark.py",
+        "articles/day18/demo.py",
+        "articles/day18/plot_results.py",
+        "articles/day18/test_benchmark.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 19,
+      "article": "articles/day19/README.md",
+      "scripts": [
+        "articles/day19/demo.py",
+        "articles/day19/experiment.py",
+        "articles/day19/hybrid.py",
+        "articles/day19/plot_results.py",
+        "articles/day19/test_hybrid.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 20,
+      "article": "articles/day20/README.md",
+      "scripts": [
+        "articles/day20/demo.py",
+        "articles/day20/experiment.py",
+        "articles/day20/iris_models.py",
+        "articles/day20/plot_results.py",
+        "articles/day20/test_iris.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 21,
+      "article": "articles/day21/README.md",
+      "scripts": [
+        "articles/day21/demo.py",
+        "articles/day21/experiment.py",
+        "articles/day21/plot_results.py",
+        "articles/day21/reduction.py",
+        "articles/day21/test_reduction.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 22,
+      "article": "articles/day22/README.md",
+      "scripts": [
+        "articles/day22/demo.py",
+        "articles/day22/experiment.py",
+        "articles/day22/plot_results.py",
+        "articles/day22/reuploading.py",
+        "articles/day22/test_reuploading.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 23,
+      "article": "articles/day23/README.md",
+      "scripts": [
+        "articles/day23/demo.py",
+        "articles/day23/experiment.py",
+        "articles/day23/kernels.py",
+        "articles/day23/plot_results.py",
+        "articles/day23/test_kernels.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 24,
+      "article": "articles/day24/README.md",
+      "scripts": [
+        "articles/day24/demo.py",
+        "articles/day24/experiment.py",
+        "articles/day24/landscape.py",
+        "articles/day24/plot_results.py",
+        "articles/day24/test_landscape.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 25,
+      "article": "articles/day25/README.md",
+      "scripts": [
+        "articles/day25/demo.py",
+        "articles/day25/experiment.py",
+        "articles/day25/plot_results.py",
+        "articles/day25/test_wine.py",
+        "articles/day25/wine_models.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 26,
+      "article": "articles/day26/README.md",
+      "scripts": [
+        "articles/day26/demo.py",
+        "articles/day26/experiment.py",
+        "articles/day26/noise.py",
+        "articles/day26/plot_results.py",
+        "articles/day26/test_noise.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 27,
+      "article": "articles/day27/README.md",
+      "scripts": [
+        "articles/day27/audit_results.py",
+        "articles/day27/benchmark.py",
+        "articles/day27/plot_results.py",
+        "articles/day27/run_all.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 28,
+      "article": "articles/day28/README.md",
+      "scripts": [
+        "articles/day28/scaling.py",
+        "articles/day28/test_scaling.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 29,
+      "article": "articles/day29/README.md",
+      "scripts": [
+        "articles/day29/execution.py",
+        "articles/day29/experiment.py",
+        "articles/day29/report.py",
+        "articles/day29/run_all.py",
+        "articles/day29/test_execution.py"
+      ],
+      "notebooks": []
+    },
+    {
+      "day": 30,
+      "article": "articles/day30/README.md",
+      "scripts": [
+        "articles/day30/evidence.py",
+        "articles/day30/test_evidence.py"
+      ],
+      "notebooks": []
+    }
+  ],
+  "source_sha256": {
+    "results/day20/selected.json": "825b42497b8ce7b61a4ff6ff0e6a02a9b80c5520c8e4f15cde2e1d4bf0e2a64c",
+    "results/day20/candidates.json": "32c49f49b4f5b2e00b41ad167b12061d09d4f4fdbf304cb8e583ff0289ef2cdb",
+    "results/day20/datasets.json": "3203af78a3aaf77e59b1c11936561eff5bba68fce9e9253d2dc5e65460162602",
+    "results/day20/protocol.json": "183a70d98a80ca38574ec72511fe6a8c5212a8ca5a6fc82468b10f5c836d03ec",
+    "results/day23/selected.json": "cb6a4484f6719e796f1c9c1e41eb51f3841657265cfbd472e6da9ea9cda7057e",
+    "results/day23/candidates.json": "18a251b2eb62cf06b738eb6c7e52d25a1973cb12b7580b6e778b615a5dd3140c",
+    "results/day23/datasets.json": "c47473b2588c540200f9407318956bb45135522e6882fae33b794409d454d68f",
+    "results/day23/protocol.json": "ffc8e3dbc49dd8a242d4ef3c253da997f219f71b891f190fdfde281d61a53ea0",
+    "results/day25/selected.json": "1788a1ead3a3674253a96905d12119532e10dabb53dc4f84b4b05fc3ddf9b959",
+    "results/day25/candidates.json": "d04881e7615be8e1da608baf8905200ee0c04c50473229066ca1318958ae6d96",
+    "results/day25/datasets.json": "2e93327cd643b24f70135876b3e3b0a08ca8afc05df3be667453faf61dc3d87b",
+    "results/day25/protocol.json": "60f95ebe9e1e357f55e67f88237b6545dde9feff07558614bae2ecec8fca2bba",
+    "results/day20/training_summary.json": "addc5fbbddcee60df41f791b426afad2536c1106c20fc455cb92c7e81d5ce814",
+    "results/day25/training_summary.json": "6c77c3de7c46956f2afb4fccb21c98f6b949454e6ae72660840ffcdc4e44b712",
+    "results/day26/wine.json": "8cb268a570aa320eb0c1c556ea870257fbfdff3622a20a1f87d561d4b1cf7957",
+    "results/day27/qpp-cpu/records.json": "558b2f0d35ab5fb74c47b87dbe049516a6c8147ecce64eabc27b43fb7990f496",
+    "results/day27/nvidia-fp64/records.json": "81fa3103fa31ebfa88060b5b3b2c4e53852f20f00f2d911377a20ba9f0855757",
+    "results/day27/comparison.json": "aac8a817a0994ff43b987c3f9638f1e3b43e123ef85e03c0ead5228ee4f5187c",
+    "results/day27/protocol.json": "aac969c3bf832b0408ba0233816386d4de6b9cf09dff3b1f2b8f9332c1185592",
+    "results/day27/qpp-cpu/summary.json": "cf956e079d7cf6de91e161282d5d2c8ffa0c8d1290dee78de246535979532386",
+    "results/day27/nvidia-fp64/summary.json": "5d6dbc8a88c5e1eb0d847fb4fd9060beef6deb971432f3a56827f76c925c007b",
+    "results/day28/model.json": "16e69f3da9e3ea95564e498f02c8cbc3ad0958e8fcaa919390be4a8928c8e90e",
+    "results/day29/qpp-cpu.json": "2ed383fdbfce4bb6ddab4867c151d1db7081db4244b846eb983e9071b71613e6",
+    "results/day29/ionq-emulate.json": "eb805f5280c36530454778caed4974d85bc52568b1756b94ddb8d0f8def97b3b",
+    "results/day29/density-bitflip.json": "e991fb245a54283e01773ab22b1a9e8a497c4afd32efd7633d4f6ddcc2c79d74",
+    "results/day29/submission_plan.json": "7bf8fa8743960284f367ed16a07cc88ee38590ef02b5132a9e77a0d3caaf7d68"
+  }
+}

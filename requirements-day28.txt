@@ -1,0 +1,2 @@
+# Reuse Day27 environment; no MPI install needed for the analytical model.
+-r requirements-day27.txt

@@ -39,8 +39,8 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | 09/21 | 07 | [第一個 CUDA-Q Quantum Kernel](articles/day07/README.md) | allocation、參數、迴圈／分支、CPU／GPU 各 36 組驗證 | ✅ |
 | 09/22 | 08 | [`sample`、`run`、`observe`](articles/day08/README.md) | 共用 state preparation、回傳契約、finite／exact observe 與 CPU／GPU 比較 | ✅ |
 | 09/23 | 09 | [Parameterized Quantum Circuit](articles/day09/README.md) | data／weights 分離、4L 參數 Ansatz、CPU／GPU forward 與參數反應驗證 | ✅ |
-| 09/24 | 10 | 第一個 CUDA-Q Optimization Loop | Classical optimizer + quantum circuit | 📌 |
-| 09/25 | 11 | Classical Data 怎麼變成 Quantum Data？ | feature 維度與 qubit 成本實驗 | 📌 |
+| 09/24 | 10 | [第一個 CUDA-Q Optimization Loop](articles/day10/README.md) | MSE、座標搜尋、CPU／GPU hybrid optimization loop | ✅ |
+| 09/25 | 11 | [Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md) | train-only preprocessing、編碼比較與 CPU／GPU 驗證 | ✅ |
 | 09/26 | 12 | [Angle Encoding](articles/day12/README.md) | 2D dataset、角度範圍與旋轉軸比較 | ✅ |
 | 09/27 | 13 | [Amplitude Encoding](articles/day13/README.md) | normalization、明確 gate 準備與成本 | ✅ |
 | 09/28 | 14 | [Feature Map + Ansatz](articles/day14/README.md) | 可訓練 model skeleton、雙編碼與 optimizer 整合 | ✅ |
@@ -57,9 +57,9 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | 10/09 | 25 | [第二個真實資料集：Wine](articles/day25/README.md) | Classical、VQC、Hybrid與13維baseline、CPU／GPU驗證 | ✅ |
 | 10/10 | 26 | [沒有完美 Qubit：Quantum Noise](articles/day26/README.md) | Kraus／density matrix、CPU／GPU抽樣與Wine末端noise | ✅ |
 | 10/11 | 27 | [CPU vs GPU Quantum Simulation](articles/day27/README.md) | 依序量測、fp64配對、first／warm latency與輸出核對 | ✅ |
-| 10/12 | 28 | 單 GPU 到 Multi-GPU | 可用設備實測或 reproducible scaling model | 📌 |
-| 10/13 | 29 | Simulator → QPU | backend、shots、queue、hardware noise | 📌 |
-| 10/14 | 30 | 我還相信 Quantum Machine Learning 嗎？ | 證據導向總結與研究 Roadmap | 📌 |
+| 10/12 | 28 | [單 GPU 到 Multi-GPU](articles/day28/README.md) | 容量／延遲情境模型、mgpu／mqpu分工、環境探測與測試 | ✅ |
+| 10/13 | 29 | [Simulator → QPU](articles/day29/README.md) | CPU／IonQ本地emulation／noise、shots誤差與未提交工作規格 | ✅ |
+| 10/14 | 30 | [我還相信 Quantum Machine Learning 嗎？](articles/day30/README.md) | 保存預測／計時核算、證據總結與後續實驗規格 | ✅ |
 
 ## 六個 Milestone
 
@@ -70,9 +70,22 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | [Day 15](articles/day15/README.md) | First QML Model ✅ | XOR Classifier、Training Curve、Decision Boundary |
 | [Day 20](articles/day20/README.md) | Hybrid QML ✅ | Iris binary：MLP／VQC／Hybrid report |
 | [Day 25](articles/day25/README.md) | Wine Binary Dataset | ✅ 第二份可重現 Classical／VQC／Hybrid benchmark |
-| Day 30 | Final Project | Noise、GPU、QPU 與完整工程總結 |
+| [Day 30](articles/day30/README.md) | Final Project ✅ | [證據報告](results/day30/README.md)、Noise／GPU實測、Multi-GPU模型與QPU本地預演 |
 
 Day 11 已完成：[Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md)，包含資料縮放、編碼比較與 CPU／GPU 可重現實驗。
+
+## 系列完成與重現入口
+
+30篇文章與每日交付物已齊備。[Day30總結](articles/day30/README.md)與[證據報告](results/day30/README.md)整理可支持的結論；multi-GPU為模型分析、QPU為本地預演，尚未證明量子優勢。
+
+快速核對保存成果（不需GPU）：
+
+```bash
+python3 articles/day30/evidence.py --check
+python3 -m unittest discover -s articles/day30 -p 'test_*.py'
+```
+
+這是保存資料核對，不會重跑全部歷史訓練。完整重跑請使用各日文章及對應requirements檔。
 
 ## Repository 目錄
 
@@ -81,12 +94,9 @@ Day 11 已完成：[Classical Data 怎麼變成 Quantum Data？](articles/day11/
 ├── README.md             # 章節規劃與文章目錄
 ├── ROADMAP.md            # 每階段目標與交付物
 ├── REFERENCES.md         # 已核對文獻、官方資源與引用規則
-├── articles/             # 每日文章
+├── articles/             # 每日文章、Python程式與測試
 ├── notebooks/            # 可重現教學與實驗
-├── src/                  # 共用 Python 程式
-├── datasets/             # 資料與取得方式
-├── experiments/          # 實驗設定
-├── benchmarks/           # Classical / Quantum 比較
+├── data/                 # 保存的資料、來源與授權
 ├── figures/              # 文章圖表
 └── results/              # 結果與執行環境紀錄
 ```

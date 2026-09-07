@@ -1,0 +1,221 @@
+{
+  "kind": "hypothetical model, not multi-GPU measurements",
+  "baseline_source": "results/day27/nvidia-fp64/records.json",
+  "baseline_sha256": "81fa3103fa31ebfa88060b5b3b2c4e53852f20f00f2d911377a20ba9f0855757",
+  "baseline_qubits": 16,
+  "baseline_blocks": 12,
+  "baseline_seconds": 0.005788968002889305,
+  "formula": "T(P)=T1*(s+(1-s)/P+c*log2(P))",
+  "capacities": [
+    {
+      "gpus": 1,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 29
+    },
+    {
+      "gpus": 2,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 30
+    },
+    {
+      "gpus": 4,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 31
+    },
+    {
+      "gpus": 8,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 32
+    },
+    {
+      "gpus": 1,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 29
+    },
+    {
+      "gpus": 2,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 30
+    },
+    {
+      "gpus": 4,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 31
+    },
+    {
+      "gpus": 8,
+      "precision": "fp32",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 32
+    },
+    {
+      "gpus": 1,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 28
+    },
+    {
+      "gpus": 2,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 29
+    },
+    {
+      "gpus": 4,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 30
+    },
+    {
+      "gpus": 8,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 1.0,
+      "max_qubits_buffer_only": 31
+    },
+    {
+      "gpus": 1,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 28
+    },
+    {
+      "gpus": 2,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 29
+    },
+    {
+      "gpus": 4,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 30
+    },
+    {
+      "gpus": 8,
+      "precision": "fp64",
+      "assumed_gib_per_gpu": 6,
+      "usable_fraction": 0.75,
+      "max_qubits_buffer_only": 31
+    }
+  ],
+  "scenarios": [
+    {
+      "gpus": 1,
+      "serial_fraction": 0,
+      "overhead_fraction": 0,
+      "modeled_seconds": 0.005788968002889305,
+      "speedup": 1.0,
+      "efficiency": 1.0
+    },
+    {
+      "gpus": 2,
+      "serial_fraction": 0,
+      "overhead_fraction": 0,
+      "modeled_seconds": 0.0028944840014446527,
+      "speedup": 2.0,
+      "efficiency": 1.0
+    },
+    {
+      "gpus": 4,
+      "serial_fraction": 0,
+      "overhead_fraction": 0,
+      "modeled_seconds": 0.0014472420007223263,
+      "speedup": 4.0,
+      "efficiency": 1.0
+    },
+    {
+      "gpus": 8,
+      "serial_fraction": 0,
+      "overhead_fraction": 0,
+      "modeled_seconds": 0.0007236210003611632,
+      "speedup": 8.0,
+      "efficiency": 1.0
+    },
+    {
+      "gpus": 1,
+      "serial_fraction": 0.1,
+      "overhead_fraction": 0.05,
+      "modeled_seconds": 0.005788968002889305,
+      "speedup": 1.0,
+      "efficiency": 1.0
+    },
+    {
+      "gpus": 2,
+      "serial_fraction": 0.1,
+      "overhead_fraction": 0.05,
+      "modeled_seconds": 0.003473380801733584,
+      "speedup": 1.6666666666666663,
+      "efficiency": 0.8333333333333331
+    },
+    {
+      "gpus": 4,
+      "serial_fraction": 0.1,
+      "overhead_fraction": 0.05,
+      "modeled_seconds": 0.002460311401227955,
+      "speedup": 2.352941176470588,
+      "efficiency": 0.588235294117647
+    },
+    {
+      "gpus": 8,
+      "serial_fraction": 0.1,
+      "overhead_fraction": 0.05,
+      "modeled_seconds": 0.0020985009010473735,
+      "speedup": 2.758620689655172,
+      "efficiency": 0.3448275862068965
+    },
+    {
+      "gpus": 1,
+      "serial_fraction": 0.3,
+      "overhead_fraction": 0.2,
+      "modeled_seconds": 0.005788968002889305,
+      "speedup": 1.0,
+      "efficiency": 1.0
+    },
+    {
+      "gpus": 2,
+      "serial_fraction": 0.3,
+      "overhead_fraction": 0.2,
+      "modeled_seconds": 0.0049206228024559085,
+      "speedup": 1.1764705882352944,
+      "efficiency": 0.5882352941176472
+    },
+    {
+      "gpus": 4,
+      "serial_fraction": 0.3,
+      "overhead_fraction": 0.2,
+      "modeled_seconds": 0.005065347002528142,
+      "speedup": 1.1428571428571428,
+      "efficiency": 0.2857142857142857
+    },
+    {
+      "gpus": 8,
+      "serial_fraction": 0.3,
+      "overhead_fraction": 0.2,
+      "modeled_seconds": 0.005716605902853189,
+      "speedup": 1.0126582278481011,
+      "efficiency": 0.12658227848101264
+    }
+  ]
+}

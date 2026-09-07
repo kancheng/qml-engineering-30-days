@@ -1,0 +1,1123 @@
+{
+  "generated_at_utc": "2026-09-07T19:59:42.251819+00:00",
+  "mode": "density-bitflip",
+  "execution_kind": "local_noisy_simulator",
+  "cudaq": "0.15.1",
+  "python": "3.12.7",
+  "OMP_NUM_THREADS": "1",
+  "CUDAQ_DEFAULT_SIMULATOR": "qpp",
+  "target": "Target density-matrix-cpu\n\tsimulator=dm\n\tplatform=default\n\tdescription=The Density Matrix CPU Target provides a simulated QPU via OpenMP-enabled, CPU-only density matrix emulation.\n\tprecision=fp64\n",
+  "theta": 1.0471975511965976,
+  "noise_p": 0.08,
+  "noise_location": "one bit flip on q0 at RZ(0) after preparation",
+  "ordering_probe": {
+    "10": 32
+  },
+  "analytic_reference": {
+    "Z0": 0.4200000000000001,
+    "ZZ": 0.84,
+    "X0": 0.0,
+    "XX": 0.8660254037844386
+  },
+  "exact_simulator": {
+    "Z0": 0.42000000000000015,
+    "ZZ": 0.8400000000000001,
+    "X0": 0.0,
+    "XX": 0.8660254037844384
+  },
+  "source_sha256": {
+    "articles/day29/execution.py": "82f534eef147762ba17ff797ec32b105db4056fa26d9e7a72ec2b6873d598589",
+    "articles/day08/kernels.py": "bfecd337467d8115dde8f7daaa165de4163b44976884598a88a54f0f5eca58b6",
+    "articles/day26/noise.py": "67fd1f4ceb7d70a692d6f77c89b5ad703c2f6889e5fffe98a0813e4e85a813d0"
+  },
+  "remote_submitted": false,
+  "job_ids": [],
+  "queue_seconds": null,
+  "sample_calls": 30,
+  "requested_shots": 93440,
+  "validation_probe_shots": 32,
+  "exact_observe_calls": 4,
+  "passed": true,
+  "records": [
+    {
+      "shots": 128,
+      "seed": 42,
+      "basis": "Z",
+      "counts": {
+        "00": 94,
+        "01": 1,
+        "10": 8,
+        "11": 25
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.484375,
+          "plus_count": 95,
+          "wilson95": [
+            0.3202616154088618,
+            0.620261958201177
+          ],
+          "reference": 0.4200000000000001,
+          "error": 0.0643749999999999
+        },
+        "ZZ": {
+          "value": 0.859375,
+          "plus_count": 119,
+          "wilson95": [
+            0.7435303930127874,
+            0.9251404633921201
+          ],
+          "reference": 0.84,
+          "error": 0.01937500000000003
+        }
+      },
+      "sample_wall_seconds": 0.03225442499388009,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 42,
+      "basis": "X",
+      "counts": {
+        "00": 64,
+        "01": 2,
+        "10": 2,
+        "11": 60
+      },
+      "statistics": {
+        "X0": {
+          "value": 0.03125,
+          "plus_count": 66,
+          "wilson95": [
+            -0.1402750992477032,
+            0.20095403948060886
+          ],
+          "reference": 0.0,
+          "error": 0.03125
+        },
+        "XX": {
+          "value": 0.9375,
+          "plus_count": 124,
+          "wilson95": [
+            0.8448047374772785,
+            0.9755634695098931
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.0714745962155614
+        }
+      },
+      "sample_wall_seconds": 0.026557502016657963,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 43,
+      "basis": "Z",
+      "counts": {
+        "00": 87,
+        "01": 1,
+        "10": 2,
+        "11": 38
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.375,
+          "plus_count": 88,
+          "wilson95": [
+            0.20545788836559287,
+            0.5226893944292759
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.045000000000000095
+        },
+        "ZZ": {
+          "value": 0.953125,
+          "plus_count": 125,
+          "wilson95": [
+            0.8667125098971356,
+            0.983995167206489
+          ],
+          "reference": 0.84,
+          "error": 0.11312500000000003
+        }
+      },
+      "sample_wall_seconds": 0.026174003985943273,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 43,
+      "basis": "X",
+      "counts": {
+        "00": 56,
+        "01": 4,
+        "10": 6,
+        "11": 62
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.0625,
+          "plus_count": 60,
+          "wilson95": [
+            -0.23105046454592104,
+            0.10969258408010951
+          ],
+          "reference": 0.0,
+          "error": -0.0625
+        },
+        "XX": {
+          "value": 0.84375,
+          "plus_count": 118,
+          "wilson95": [
+            0.7243061363904191,
+            0.9140252498980355
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.022275403784438597
+        }
+      },
+      "sample_wall_seconds": 0.026974020001944155,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 44,
+      "basis": "Z",
+      "counts": {
+        "00": 87,
+        "01": 3,
+        "10": 5,
+        "11": 33
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.40625,
+          "plus_count": 90,
+          "wilson95": [
+            0.23798954469910782,
+            0.5508366783286665
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.013750000000000095
+        },
+        "ZZ": {
+          "value": 0.875,
+          "plus_count": 120,
+          "wilson95": [
+            0.7630241779114826,
+            0.9359861486098775
+          ],
+          "reference": 0.84,
+          "error": 0.03500000000000003
+        }
+      },
+      "sample_wall_seconds": 0.026620435994118452,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 44,
+      "basis": "X",
+      "counts": {
+        "00": 59,
+        "01": 5,
+        "10": 5,
+        "11": 59
+      },
+      "statistics": {
+        "X0": {
+          "value": 0.0,
+          "plus_count": 64,
+          "wilson95": [
+            -0.17069550747898554,
+            0.17069550747898554
+          ],
+          "reference": 0.0,
+          "error": 0.0
+        },
+        "XX": {
+          "value": 0.84375,
+          "plus_count": 118,
+          "wilson95": [
+            0.7243061363904191,
+            0.9140252498980355
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.022275403784438597
+        }
+      },
+      "sample_wall_seconds": 0.026196629012702033,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 45,
+      "basis": "Z",
+      "counts": {
+        "00": 82,
+        "01": 2,
+        "10": 8,
+        "11": 36
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.3125,
+          "plus_count": 84,
+          "wilson95": [
+            0.14099255569130253,
+            0.46579684663775467
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.1075000000000001
+        },
+        "ZZ": {
+          "value": 0.84375,
+          "plus_count": 118,
+          "wilson95": [
+            0.7243061363904191,
+            0.9140252498980355
+          ],
+          "reference": 0.84,
+          "error": 0.003750000000000031
+        }
+      },
+      "sample_wall_seconds": 0.026238155987812206,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 45,
+      "basis": "X",
+      "counts": {
+        "00": 50,
+        "01": 5,
+        "10": 4,
+        "11": 69
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.140625,
+          "plus_count": 55,
+          "wilson95": [
+            -0.3055765733472676,
+            0.0325213422991919
+          ],
+          "reference": 0.0,
+          "error": -0.140625
+        },
+        "XX": {
+          "value": 0.859375,
+          "plus_count": 119,
+          "wilson95": [
+            0.7435303930127874,
+            0.9251404633921201
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.006650403784438597
+        }
+      },
+      "sample_wall_seconds": 0.027401464991271496,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 46,
+      "basis": "Z",
+      "counts": {
+        "00": 86,
+        "01": 3,
+        "10": 11,
+        "11": 28
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.390625,
+          "plus_count": 89,
+          "wilson95": [
+            0.22169798321610612,
+            0.5367887696952156
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.029375000000000095
+        },
+        "ZZ": {
+          "value": 0.78125,
+          "plus_count": 114,
+          "wilson95": [
+            0.6495310972366453,
+            0.8674424085859977
+          ],
+          "reference": 0.84,
+          "error": -0.05874999999999997
+        }
+      },
+      "sample_wall_seconds": 0.027459999022539705,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 128,
+      "seed": 46,
+      "basis": "X",
+      "counts": {
+        "00": 63,
+        "01": 2,
+        "10": 1,
+        "11": 62
+      },
+      "statistics": {
+        "X0": {
+          "value": 0.015625,
+          "plus_count": 65,
+          "wilson95": [
+            -0.15550554149043005,
+            0.18584501160688305
+          ],
+          "reference": 0.0,
+          "error": 0.015625
+        },
+        "XX": {
+          "value": 0.953125,
+          "plus_count": 125,
+          "wilson95": [
+            0.8667125098971356,
+            0.983995167206489
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.0870995962155614
+        }
+      },
+      "sample_wall_seconds": 0.026936570007819682,
+      "hoeffding_family99_bound": 0.4048779564850038,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 42,
+      "basis": "Z",
+      "counts": {
+        "00": 702,
+        "01": 16,
+        "10": 80,
+        "11": 226
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.40234375,
+          "plus_count": 718,
+          "wilson95": [
+            0.3448520622059381,
+            0.45682799548061004
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.017656250000000095
+        },
+        "ZZ": {
+          "value": 0.8125,
+          "plus_count": 928,
+          "wilson95": [
+            0.7736952925732459,
+            0.8452314258617257
+          ],
+          "reference": 0.84,
+          "error": -0.02749999999999997
+        }
+      },
+      "sample_wall_seconds": 0.026793678000103682,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 42,
+      "basis": "X",
+      "counts": {
+        "00": 459,
+        "01": 26,
+        "10": 43,
+        "11": 496
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.052734375,
+          "plus_count": 485,
+          "wilson95": [
+            -0.11358685113072364,
+            0.00851228046306951
+          ],
+          "reference": 0.0,
+          "error": -0.052734375
+        },
+        "XX": {
+          "value": 0.865234375,
+          "plus_count": 955,
+          "wilson95": [
+            0.8311797699864318,
+            0.8928215191161939
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.0007910287844385966
+        }
+      },
+      "sample_wall_seconds": 0.027418159996159375,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 43,
+      "basis": "Z",
+      "counts": {
+        "00": 687,
+        "01": 21,
+        "10": 51,
+        "11": 265
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.3828125,
+          "plus_count": 708,
+          "wilson95": [
+            0.32488618575416894,
+            0.4378773642776925
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.037187500000000095
+        },
+        "ZZ": {
+          "value": 0.859375,
+          "plus_count": 952,
+          "wilson95": [
+            0.8247378263421721,
+            0.8875885104640477
+          ],
+          "reference": 0.84,
+          "error": 0.01937500000000003
+        }
+      },
+      "sample_wall_seconds": 0.027761192992329597,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 43,
+      "basis": "X",
+      "counts": {
+        "00": 474,
+        "01": 28,
+        "10": 30,
+        "11": 492
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.01953125,
+          "plus_count": 502,
+          "wilson95": [
+            -0.08058094733770571,
+            0.04166443968301903
+          ],
+          "reference": 0.0,
+          "error": -0.01953125
+        },
+        "XX": {
+          "value": 0.88671875,
+          "plus_count": 966,
+          "wilson95": [
+            0.854948132149588,
+            0.9118613153731934
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.020693346215561403
+        }
+      },
+      "sample_wall_seconds": 0.02704780999920331,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 44,
+      "basis": "Z",
+      "counts": {
+        "00": 700,
+        "01": 25,
+        "10": 62,
+        "11": 237
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.416015625,
+          "plus_count": 725,
+          "wilson95": [
+            0.358846125728566,
+            0.4700754873162629
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.0039843750000000955
+        },
+        "ZZ": {
+          "value": 0.830078125,
+          "plus_count": 937,
+          "wilson95": [
+            0.7927435488160901,
+            0.8612080265080997
+          ],
+          "reference": 0.84,
+          "error": -0.009921874999999969
+        }
+      },
+      "sample_wall_seconds": 0.02674681702046655,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 44,
+      "basis": "X",
+      "counts": {
+        "00": 476,
+        "01": 32,
+        "10": 32,
+        "11": 484
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.0078125,
+          "plus_count": 508,
+          "wilson95": [
+            -0.06891575428337238,
+            0.05334915122149808
+          ],
+          "reference": 0.0,
+          "error": -0.0078125
+        },
+        "XX": {
+          "value": 0.875,
+          "plus_count": 960,
+          "wilson95": [
+            0.841953128495194,
+            0.9015064144347751
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.008974596215561403
+        }
+      },
+      "sample_wall_seconds": 0.027206316008232534,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 45,
+      "basis": "Z",
+      "counts": {
+        "00": 713,
+        "01": 21,
+        "10": 58,
+        "11": 232
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.43359375,
+          "plus_count": 734,
+          "wilson95": [
+            0.37686075980113976,
+            0.48708571013290736
+          ],
+          "reference": 0.4200000000000001,
+          "error": 0.013593749999999905
+        },
+        "ZZ": {
+          "value": 0.845703125,
+          "plus_count": 945,
+          "wilson95": [
+            0.809765090245625,
+            0.875319691202314
+          ],
+          "reference": 0.84,
+          "error": 0.005703125000000031
+        }
+      },
+      "sample_wall_seconds": 0.027452013979200274,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 45,
+      "basis": "X",
+      "counts": {
+        "00": 487,
+        "01": 35,
+        "10": 31,
+        "11": 471
+      },
+      "statistics": {
+        "X0": {
+          "value": 0.01953125,
+          "plus_count": 522,
+          "wilson95": [
+            -0.04166443968301903,
+            0.08058094733770571
+          ],
+          "reference": 0.0,
+          "error": 0.01953125
+        },
+        "XX": {
+          "value": 0.87109375,
+          "plus_count": 958,
+          "wilson95": [
+            0.8376380407957933,
+            0.8980382006032388
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.005068346215561403
+        }
+      },
+      "sample_wall_seconds": 0.027865931013366207,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 46,
+      "basis": "Z",
+      "counts": {
+        "00": 691,
+        "01": 23,
+        "10": 63,
+        "11": 247
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.39453125,
+          "plus_count": 714,
+          "wilson95": [
+            0.3368621281229398,
+            0.44925132650173394
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.025468750000000095
+        },
+        "ZZ": {
+          "value": 0.83203125,
+          "plus_count": 938,
+          "wilson95": [
+            0.7948663820346957,
+            0.8629768440549626
+          ],
+          "reference": 0.84,
+          "error": -0.007968749999999969
+        }
+      },
+      "sample_wall_seconds": 0.028103925986215472,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 1024,
+      "seed": 46,
+      "basis": "X",
+      "counts": {
+        "00": 470,
+        "01": 45,
+        "10": 22,
+        "11": 487
+      },
+      "statistics": {
+        "X0": {
+          "value": 0.005859375,
+          "plus_count": 515,
+          "wilson95": [
+            -0.055295789804080675,
+            0.06697074210048659
+          ],
+          "reference": 0.0,
+          "error": 0.005859375
+        },
+        "XX": {
+          "value": 0.869140625,
+          "plus_count": 957,
+          "wilson95": [
+            0.8354834085454776,
+            0.8963011820880855
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.0031152212155614034
+        }
+      },
+      "sample_wall_seconds": 0.02798515500035137,
+      "hoeffding_family99_bound": 0.14314597429174905,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 42,
+      "basis": "Z",
+      "counts": {
+        "00": 5642,
+        "01": 146,
+        "10": 533,
+        "11": 1871
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.4130859375,
+          "plus_count": 5788,
+          "wilson95": [
+            0.3931751860868804,
+            0.43260945530781214
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.0069140625000000955
+        },
+        "ZZ": {
+          "value": 0.834228515625,
+          "plus_count": 7513,
+          "wilson95": [
+            0.8218930662812598,
+            0.8457819453296529
+          ],
+          "reference": 0.84,
+          "error": -0.005771484374999969
+        }
+      },
+      "sample_wall_seconds": 0.02985232399078086,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 42,
+      "basis": "X",
+      "counts": {
+        "00": 3779,
+        "01": 293,
+        "10": 271,
+        "11": 3849
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.005859375,
+          "plus_count": 4072,
+          "wilson95": [
+            -0.027505928973037053,
+            0.01579267164828968
+          ],
+          "reference": 0.0,
+          "error": -0.005859375
+        },
+        "XX": {
+          "value": 0.8623046875,
+          "plus_count": 7628,
+          "wilson95": [
+            0.8509298977174611,
+            0.8728711385745327
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.0037207162844385966
+        }
+      },
+      "sample_wall_seconds": 0.029901545989559963,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 43,
+      "basis": "Z",
+      "counts": {
+        "00": 5613,
+        "01": 162,
+        "10": 493,
+        "11": 1924
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.409912109375,
+          "plus_count": 5775,
+          "wilson95": [
+            0.38997183810906066,
+            0.42946812223472697
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.010087890625000095
+        },
+        "ZZ": {
+          "value": 0.840087890625,
+          "plus_count": 7537,
+          "wilson95": [
+            0.8279436641523612,
+            0.8514446047832986
+          ],
+          "reference": 0.84,
+          "error": 8.789062500003109e-05
+        }
+      },
+      "sample_wall_seconds": 0.03089244299917482,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 43,
+      "basis": "X",
+      "counts": {
+        "00": 3776,
+        "01": 285,
+        "10": 275,
+        "11": 3856
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.008544921875,
+          "plus_count": 4061,
+          "wilson95": [
+            -0.030189798553385216,
+            0.01310796495479516
+          ],
+          "reference": 0.0,
+          "error": -0.008544921875
+        },
+        "XX": {
+          "value": 0.86328125,
+          "plus_count": 7632,
+          "wilson95": [
+            0.8519420427972797,
+            0.873811203048839
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.0027441537844385966
+        }
+      },
+      "sample_wall_seconds": 0.03045947599457577,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 44,
+      "basis": "Z",
+      "counts": {
+        "00": 5633,
+        "01": 160,
+        "10": 455,
+        "11": 1944
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.414306640625,
+          "plus_count": 5793,
+          "wilson95": [
+            0.3944073197627507,
+            0.43381758357459743
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.0056933593750000955
+        },
+        "ZZ": {
+          "value": 0.849853515625,
+          "plus_count": 7577,
+          "wilson95": [
+            0.8380384432662296,
+            0.8608719212106761
+          ],
+          "reference": 0.84,
+          "error": 0.009853515625000031
+        }
+      },
+      "sample_wall_seconds": 0.0292354250268545,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 44,
+      "basis": "X",
+      "counts": {
+        "00": 3814,
+        "01": 259,
+        "10": 280,
+        "11": 3839
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.005615234375,
+          "plus_count": 4073,
+          "wilson95": [
+            -0.027261933089950285,
+            0.016036728153733915
+          ],
+          "reference": 0.0,
+          "error": -0.005615234375
+        },
+        "XX": {
+          "value": 0.868408203125,
+          "plus_count": 7653,
+          "wilson95": [
+            0.8572584701508486,
+            0.8787438758544239
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.0023827993405614034
+        }
+      },
+      "sample_wall_seconds": 0.03100344998529181,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 45,
+      "basis": "Z",
+      "counts": {
+        "00": 5657,
+        "01": 165,
+        "10": 510,
+        "11": 1860
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.42138671875,
+          "plus_count": 5822,
+          "wilson95": [
+            0.4015545408918568,
+            0.44082388171289444
+          ],
+          "reference": 0.4200000000000001,
+          "error": 0.0013867187499999045
+        },
+        "ZZ": {
+          "value": 0.835205078125,
+          "plus_count": 7517,
+          "wilson95": [
+            0.8229011861585747,
+            0.8467260350064625
+          ],
+          "reference": 0.84,
+          "error": -0.004794921874999969
+        }
+      },
+      "sample_wall_seconds": 0.02918199700070545,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 45,
+      "basis": "X",
+      "counts": {
+        "00": 3839,
+        "01": 244,
+        "10": 273,
+        "11": 3836
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.003173828125,
+          "plus_count": 4083,
+          "wilson95": [
+            -0.024821903316617933,
+            0.018477222265713023
+          ],
+          "reference": 0.0,
+          "error": -0.003173828125
+        },
+        "XX": {
+          "value": 0.873779296875,
+          "plus_count": 7675,
+          "wilson95": [
+            0.8628330607651997,
+            0.8839064377877577
+          ],
+          "reference": 0.8660254037844386,
+          "error": 0.007753893090561403
+        }
+      },
+      "sample_wall_seconds": 0.029734184994595125,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 46,
+      "basis": "Z",
+      "counts": {
+        "00": 5574,
+        "01": 172,
+        "10": 479,
+        "11": 1967
+      },
+      "statistics": {
+        "Z0": {
+          "value": 0.40283203125,
+          "plus_count": 5746,
+          "wilson95": [
+            0.382826940989635,
+            0.4224595000867495
+          ],
+          "reference": 0.4200000000000001,
+          "error": -0.017167968750000095
+        },
+        "ZZ": {
+          "value": 0.841064453125,
+          "plus_count": 7541,
+          "wilson95": [
+            0.8289525427427147,
+            0.8523879357470701
+          ],
+          "reference": 0.84,
+          "error": 0.001064453125000031
+        }
+      },
+      "sample_wall_seconds": 0.029734037001617253,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    },
+    {
+      "shots": 8192,
+      "seed": 46,
+      "basis": "X",
+      "counts": {
+        "00": 3721,
+        "01": 291,
+        "10": 282,
+        "11": 3898
+      },
+      "statistics": {
+        "X0": {
+          "value": -0.0205078125,
+          "plus_count": 4012,
+          "wilson95": [
+            -0.04214332114945896,
+            0.0011469205128431526
+          ],
+          "reference": 0.0,
+          "error": -0.0205078125
+        },
+        "XX": {
+          "value": 0.860107421875,
+          "plus_count": 7619,
+          "wilson95": [
+            0.8486531488312024,
+            0.8707554159640114
+          ],
+          "reference": 0.8660254037844386,
+          "error": -0.005917981909438597
+        }
+      },
+      "sample_wall_seconds": 0.030293637013528496,
+      "hoeffding_family99_bound": 0.050609744560625475,
+      "passed": true
+    }
+  ]
+}

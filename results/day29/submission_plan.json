@@ -1,0 +1,35 @@
+{
+  "status": "not_submitted",
+  "provider_example": "ionq",
+  "machine": null,
+  "execution_kind": "physical_qpu_requested_only_after_device_selection",
+  "theta": 1.0471975511965976,
+  "qubits": 2,
+  "bases": [
+    "Z",
+    "X"
+  ],
+  "shots_per_circuit": 1024,
+  "parameter_sets": 1,
+  "repeats": 1,
+  "measurement_circuits": 2,
+  "total_requested_shots": 2048,
+  "max_automatic_resubmissions": 0,
+  "job_ids": [],
+  "queue_seconds": null,
+  "device_execution_seconds": null,
+  "cost": null,
+  "required_before_submission": [
+    "account access",
+    "available physical device identifier",
+    "device constraints and calibration snapshot",
+    "provider quote and shot limits"
+  ],
+  "noise_model": "physical device noise; no synthetic channel requested",
+  "note": "Logical circuit/shot budget, not provider billing or job-count guarantee.",
+  "source_sha256": {
+    "articles/day29/execution.py": "82f534eef147762ba17ff797ec32b105db4056fa26d9e7a72ec2b6873d598589",
+    "articles/day08/kernels.py": "bfecd337467d8115dde8f7daaa165de4163b44976884598a88a54f0f5eca58b6",
+    "articles/day26/noise.py": "67fd1f4ceb7d70a692d6f77c89b5ad703c2f6889e5fffe98a0813e4e85a813d0"
+  }
+}

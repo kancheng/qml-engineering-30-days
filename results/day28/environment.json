@@ -1,0 +1,18 @@
+{
+  "generated_at_utc": "2026-09-07T19:38:57.217150+00:00",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "nvidia_smi": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=name,uuid,memory.total",
+      "--format=csv,noheader"
+    ],
+    "returncode": 9,
+    "stdout": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.\n\n",
+    "stderr": ""
+  },
+  "mpiexec": null,
+  "multi_gpu_measurement": "not performed",
+  "note": "Probe visibility is not proof of physical GPU count or MPI readiness."
+}

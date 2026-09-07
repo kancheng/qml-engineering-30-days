@@ -1,0 +1,290 @@
+[
+  {
+    "mode": "qpp-cpu",
+    "shots": 128,
+    "observable": "Z0",
+    "mean": 0.46875,
+    "reference": 0.5000000000000001,
+    "rmse": 0.08208703460352315
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 128,
+    "observable": "ZZ",
+    "mean": 1.0,
+    "reference": 1.0,
+    "rmse": 0.0
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 128,
+    "observable": "X0",
+    "mean": -0.03125,
+    "reference": 0.0,
+    "rmse": 0.07057243619147634
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 128,
+    "observable": "XX",
+    "mean": 0.8875,
+    "reference": 0.8660254037844386,
+    "rmse": 0.05240529107467493
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 1024,
+    "observable": "Z0",
+    "mean": 0.487109375,
+    "reference": 0.5000000000000001,
+    "rmse": 0.03193822238052907
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 1024,
+    "observable": "ZZ",
+    "mean": 1.0,
+    "reference": 1.0,
+    "rmse": 0.0
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 1024,
+    "observable": "X0",
+    "mean": -0.0109375,
+    "reference": 0.0,
+    "rmse": 0.02697858851536251
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 1024,
+    "observable": "XX",
+    "mean": 0.8734375,
+    "reference": 0.8660254037844386,
+    "rmse": 0.010438164761584752
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 8192,
+    "observable": "Z0",
+    "mean": 0.493603515625,
+    "reference": 0.5000000000000001,
+    "rmse": 0.01307965027951159
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 8192,
+    "observable": "ZZ",
+    "mean": 1.0,
+    "reference": 1.0,
+    "rmse": 0.0
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 8192,
+    "observable": "X0",
+    "mean": -0.008740234375,
+    "reference": 0.0,
+    "rmse": 0.010672604001169138
+  },
+  {
+    "mode": "qpp-cpu",
+    "shots": 8192,
+    "observable": "XX",
+    "mean": 0.865576171875,
+    "reference": 0.8660254037844386,
+    "rmse": 0.004943626407802545
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 128,
+    "observable": "Z0",
+    "mean": 0.46875,
+    "reference": 0.5000000000000001,
+    "rmse": 0.08208703460352315
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 128,
+    "observable": "ZZ",
+    "mean": 1.0,
+    "reference": 1.0,
+    "rmse": 0.0
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 128,
+    "observable": "X0",
+    "mean": -0.03125,
+    "reference": 0.0,
+    "rmse": 0.07057243619147634
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 128,
+    "observable": "XX",
+    "mean": 0.8875,
+    "reference": 0.8660254037844386,
+    "rmse": 0.05240529107467493
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 1024,
+    "observable": "Z0",
+    "mean": 0.487109375,
+    "reference": 0.5000000000000001,
+    "rmse": 0.03193822238052907
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 1024,
+    "observable": "ZZ",
+    "mean": 1.0,
+    "reference": 1.0,
+    "rmse": 0.0
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 1024,
+    "observable": "X0",
+    "mean": -0.0109375,
+    "reference": 0.0,
+    "rmse": 0.02697858851536251
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 1024,
+    "observable": "XX",
+    "mean": 0.8734375,
+    "reference": 0.8660254037844386,
+    "rmse": 0.010438164761584752
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 8192,
+    "observable": "Z0",
+    "mean": 0.493603515625,
+    "reference": 0.5000000000000001,
+    "rmse": 0.01307965027951159
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 8192,
+    "observable": "ZZ",
+    "mean": 1.0,
+    "reference": 1.0,
+    "rmse": 0.0
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 8192,
+    "observable": "X0",
+    "mean": -0.008740234375,
+    "reference": 0.0,
+    "rmse": 0.010672604001169138
+  },
+  {
+    "mode": "ionq-emulate",
+    "shots": 8192,
+    "observable": "XX",
+    "mean": 0.865576171875,
+    "reference": 0.8660254037844386,
+    "rmse": 0.004943626407802545
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 128,
+    "observable": "Z0",
+    "mean": 0.39375,
+    "reference": 0.4200000000000001,
+    "rmse": 0.06128187945877644
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 128,
+    "observable": "ZZ",
+    "mean": 0.8625,
+    "reference": 0.84,
+    "rmse": 0.05977170108002617
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 128,
+    "observable": "X0",
+    "mean": -0.03125,
+    "reference": 0.0,
+    "rmse": 0.07057243619147634
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 128,
+    "observable": "XX",
+    "mean": 0.8875,
+    "reference": 0.8660254037844386,
+    "rmse": 0.05240529107467493
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 1024,
+    "observable": "Z0",
+    "mean": 0.405859375,
+    "reference": 0.4200000000000001,
+    "rmse": 0.022556488335191444
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 1024,
+    "observable": "ZZ",
+    "mean": 0.8359375,
+    "reference": 0.84,
+    "rmse": 0.016285643001390817
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 1024,
+    "observable": "X0",
+    "mean": -0.0109375,
+    "reference": 0.0,
+    "rmse": 0.02697858851536251
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 1024,
+    "observable": "XX",
+    "mean": 0.8734375,
+    "reference": 0.8660254037844386,
+    "rmse": 0.010438164761584752
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 8192,
+    "observable": "Z0",
+    "mean": 0.4123046875,
+    "reference": 0.4200000000000001,
+    "rmse": 0.009784132852546056
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 8192,
+    "observable": "ZZ",
+    "mean": 0.840087890625,
+    "reference": 0.84,
+    "rmse": 0.0055593859924928215
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 8192,
+    "observable": "X0",
+    "mean": -0.008740234375,
+    "reference": 0.0,
+    "rmse": 0.010672604001169138
+  },
+  {
+    "mode": "density-bitflip",
+    "shots": 8192,
+    "observable": "XX",
+    "mean": 0.865576171875,
+    "reference": 0.8660254037844386,
+    "rmse": 0.004943626407802545
+  }
+]
