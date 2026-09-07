@@ -1,0 +1,98 @@
+[
+  {
+    "pair": "endpoints",
+    "features_a": [
+      -1,
+      0
+    ],
+    "features_b": [
+      1,
+      0
+    ],
+    "mapping": "centered_full",
+    "axis": "ry",
+    "fidelity": 0.9999999999999962,
+    "analytic_fidelity": 1.0,
+    "passed": true
+  },
+  {
+    "pair": "endpoints",
+    "features_a": [
+      -1,
+      0
+    ],
+    "features_b": [
+      1,
+      0
+    ],
+    "mapping": "centered_half",
+    "axis": "ry",
+    "fidelity": 0.0,
+    "analytic_fidelity": 3.749399456654644e-33,
+    "passed": true
+  },
+  {
+    "pair": "endpoints",
+    "features_a": [
+      -1,
+      0
+    ],
+    "features_b": [
+      1,
+      0
+    ],
+    "mapping": "positive_half",
+    "axis": "ry",
+    "fidelity": 1.910685473631212e-15,
+    "analytic_fidelity": 3.749399456654644e-33,
+    "passed": true
+  },
+  {
+    "pair": "opposite_signs",
+    "features_a": [
+      -0.25,
+      0
+    ],
+    "features_b": [
+      0.25,
+      0
+    ],
+    "mapping": "centered_full",
+    "axis": "ry",
+    "fidelity": 0.49999990050727333,
+    "analytic_fidelity": 0.5000000000000001,
+    "passed": true
+  },
+  {
+    "pair": "opposite_signs",
+    "features_a": [
+      -0.25,
+      0
+    ],
+    "features_b": [
+      0.25,
+      0
+    ],
+    "mapping": "centered_half",
+    "axis": "ry",
+    "fidelity": 0.8535532815979248,
+    "analytic_fidelity": 0.8535533905932737,
+    "passed": true
+  },
+  {
+    "pair": "opposite_signs",
+    "features_a": [
+      -0.25,
+      0
+    ],
+    "features_b": [
+      0.25,
+      0
+    ],
+    "mapping": "positive_half",
+    "axis": "ry",
+    "fidelity": 0.8535533030841991,
+    "analytic_fidelity": 0.8535533905932737,
+    "passed": true
+  }
+]

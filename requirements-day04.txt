@@ -1,0 +1,3 @@
+-r requirements-day03.txt
+# Linux CUDA 12 distribution; do not install a second CUDA-Q binary distribution.
+cuda-quantum-cu12==0.15.1

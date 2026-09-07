@@ -1,0 +1,57 @@
+{
+  "generated_at_utc": "2026-09-06T19:40:58.706912+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "dataset_seed": 2026,
+  "split_sizes": {
+    "train": 12,
+    "validation": 12,
+    "test": 12
+  },
+  "initialization_seeds": [
+    42,
+    43
+  ],
+  "selected_seed": 43,
+  "selection": "lowest final validation Brier; seed breaks ties",
+  "sweeps": 16,
+  "step": 0.4,
+  "step_tolerance": 0.0001,
+  "training_shots": -1,
+  "noise_model": "none",
+  "test": {
+    "brier": 0.05071799320805933,
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        6,
+        0
+      ],
+      [
+        0,
+        6
+      ]
+    ]
+  },
+  "test_sampled": {
+    "brier": 0.04921875,
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        6,
+        0
+      ],
+      [
+        0,
+        6
+      ]
+    ]
+  },
+  "max_probability_reference_error": 4.440892098500626e-16,
+  "passed": true
+}

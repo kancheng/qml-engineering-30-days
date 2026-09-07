@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "architecture": "2 -> affine+tanh(2) -> pi angles -> 2-qubit ZZ -> affine+sigmoid(1)",
+  "parameter_order": {
+    "W": [
+      0,
+      4
+    ],
+    "b": [
+      4,
+      6
+    ],
+    "quantum_weights": [
+      6,
+      10
+    ],
+    "head_scale": [
+      10,
+      11
+    ],
+    "head_bias": [
+      11,
+      12
+    ]
+  },
+  "parameters": [
+    0.048243991096756804,
+    -0.19488425099204815,
+    0.19742242837158583,
+    -0.13681868558078947,
+    -0.40278266215204284,
+    -0.2651211944320986,
+    0.01917170608910928,
+    -0.058133747139087734,
+    0.00740386849071126,
+    -0.2073005017713722,
+    0.8177492548694116,
+    0.1940518943859651
+  ],
+  "input_contract": "two finite scaled features; no fitted scaler in this synthetic demo",
+  "seed": 42
+}

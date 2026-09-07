@@ -1,0 +1,2 @@
+# Reuse the already verified CUDA 12 stack; no new packages for Day 06.
+-r requirements-day04-lock.txt

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import platform
 from pathlib import Path
 
 import numpy as np
@@ -39,13 +40,23 @@ def write_results(records: list[dict[str, float | str]], output_dir: Path) -> No
     output_dir.mkdir(parents=True, exist_ok=True)
     csv_path = output_dir / "gate_sweep.csv"
     with csv_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(records[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(records[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(records)
 
     h_state = apply_gate(H, KET_ZERO)
     summary = {
         "runtime": "NumPy CPU state-vector simulation",
+        "environment": {
+            "python": platform.python_version(),
+            "numpy": np.__version__,
+            "os": platform.system(),
+            "machine": platform.machine(),
+            "backend": "numpy-cpu",
+            "dtype": "complex128",
+        },
+        "measurement": "exact probabilities; no finite shots",
+        "random_seed": None,
         "input_state": "|0>",
         "angle_count_per_rotation": 5,
         "theta_range_radians": [0.0, float(np.pi)],

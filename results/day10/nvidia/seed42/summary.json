@@ -1,0 +1,48 @@
+{
+  "generated_at_utc": "2026-09-06T06:14:20.418384+00:00",
+  "backend": "nvidia",
+  "precision": "SimulationPrecision.fp32",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "seed": 42,
+  "layers": 1,
+  "initial_weights": [
+    0.06094341595088627,
+    -0.20799682124809912,
+    0.15009023916129147,
+    0.1881129432782428
+  ],
+  "final_weights": [
+    0.3359434159508864,
+    0.6045031787519008,
+    0.06259023916129146,
+    0.0006129432782427842
+  ],
+  "optimizer": "sequential coordinate search",
+  "initial_step": 0.4,
+  "step_tolerance": 0.0001,
+  "max_sweeps": 40,
+  "completed_sweeps": 40,
+  "stop_reason": "max_sweeps",
+  "objective_evaluations": 321,
+  "training_observe_calls": 2889,
+  "training_shots": -1,
+  "noise_model": "none",
+  "metrics": {
+    "train": {
+      "initial_mse": 0.3818843448169812,
+      "final_mse": 1.0684300729400991e-05,
+      "constant_baseline_mse": 0.36392049900518364
+    },
+    "holdout": {
+      "initial_mse": 0.34777419601281295,
+      "final_mse": 1.0421403236268832e-05,
+      "constant_baseline_mse": 0.5053934150345009
+    }
+  },
+  "max_reference_error": 1.56184353006239e-07,
+  "passed": true
+}

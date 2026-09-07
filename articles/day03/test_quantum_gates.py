@@ -42,6 +42,13 @@ class QuantumGateTests(unittest.TestCase):
         self.assertTrue(equivalent_up_to_global_phase(apply_gate(ry(np.pi), KET_ZERO), KET_ONE))
         self.assertTrue(equivalent_up_to_global_phase(apply_gate(rz(np.pi), KET_ZERO), KET_ZERO))
 
+    def test_relative_phase_becomes_measurable_after_hadamard(self) -> None:
+        plus = apply_gate(H, KET_ZERO)
+        minus = apply_gate(Z, plus)
+        np.testing.assert_allclose(probabilities(plus), probabilities(minus), atol=1e-12)
+        np.testing.assert_allclose(probabilities(apply_gate(H, plus)), [1, 0], atol=1e-12)
+        np.testing.assert_allclose(probabilities(apply_gate(H, minus)), [0, 1], atol=1e-12)
+
     def test_rejects_non_unitary_matrix(self) -> None:
         invalid = np.array([[1, 1], [0, 1]], dtype=np.complex128)
         with self.assertRaisesRegex(ValueError, "unitary"):

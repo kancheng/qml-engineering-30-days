@@ -1,0 +1,21 @@
+{
+  "dataset_seed": 2027,
+  "initialization_seeds": [
+    42,
+    43
+  ],
+  "models": {
+    "logistic": 3,
+    "mlp": 9,
+    "vqc": 4
+  },
+  "objective": "Brier",
+  "budget_per_fit": 109,
+  "optimizer": "coordinate search, complete +/- pairs, step halved after full no-improvement sweep",
+  "initial_step": 0.4,
+  "threshold": 0.5,
+  "selection": "minimum final validation Brier; lower seed breaks ties",
+  "preprocessing": "train-only minmax [-1,1], clipping",
+  "vqc": "angle positive_half, one layer, p1=(1-ZZ)/2",
+  "dataset_sha256": "63a28f19392d70464d09b236a86fa5b78063a9560a369762383f629562f3c879"
+}

@@ -1,0 +1,221 @@
+{
+  "environment": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "backend": "qpp-cpu",
+    "cudaq": "0.15.1",
+    "target": "qpp-cpu"
+  },
+  "generated_at_utc": "2026-09-05T20:49:41.183059+00:00",
+  "qubits": 2,
+  "bit_order": "q0 q1; 00, 01, 10, 11",
+  "shots": [
+    100,
+    1000,
+    10000
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "noise_model": "none",
+  "execution_seconds": 50.96740243700333,
+  "record_count": 90,
+  "mixture_preparation": "fair classical choice of |00> or |11>; CUDA-Q batches preparations",
+  "timing_note": "includes initial JIT/runtime overhead; not a CPU/GPU benchmark",
+  "exact_probabilities": {
+    "product": {
+      "Z": [
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999
+      ],
+      "X": [
+        0.9999999999999992,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "bell": {
+      "Z": [
+        0.4999999999999999,
+        0.0,
+        0.0,
+        0.4999999999999999
+      ],
+      "X": [
+        0.49999999999999967,
+        0.0,
+        0.0,
+        0.49999999999999967
+      ]
+    },
+    "mixture": {
+      "Z": [
+        0.5,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "X": [
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999
+      ]
+    }
+  },
+  "aggregates": [
+    {
+      "state": "product",
+      "basis": "Z",
+      "shots": 100,
+      "mean_tvd": 0.07400000000000002,
+      "std_tvd": 0.01816590212458493,
+      "mean_correlation": 0.08800000000000001
+    },
+    {
+      "state": "product",
+      "basis": "Z",
+      "shots": 1000,
+      "mean_tvd": 0.026000000000000013,
+      "std_tvd": 0.012509996003196805,
+      "mean_correlation": 0.01639999999999999
+    },
+    {
+      "state": "product",
+      "basis": "Z",
+      "shots": 10000,
+      "mean_tvd": 0.007759999999999978,
+      "std_tvd": 0.0025841826560830247,
+      "mean_correlation": 0.0023999999999999855
+    },
+    {
+      "state": "product",
+      "basis": "X",
+      "shots": 100,
+      "mean_tvd": 3.885780586188048e-16,
+      "std_tvd": 0.0,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "product",
+      "basis": "X",
+      "shots": 1000,
+      "mean_tvd": 3.885780586188048e-16,
+      "std_tvd": 0.0,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "product",
+      "basis": "X",
+      "shots": 10000,
+      "mean_tvd": 3.885780586188048e-16,
+      "std_tvd": 0.0,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "Z",
+      "shots": 100,
+      "mean_tvd": 0.028000000000000025,
+      "std_tvd": 0.03033150177620617,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "Z",
+      "shots": 1000,
+      "mean_tvd": 0.009000000000000008,
+      "std_tvd": 0.008276472678623432,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "Z",
+      "shots": 10000,
+      "mean_tvd": 0.004339999999999994,
+      "std_tvd": 0.00285534586346384,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "X",
+      "shots": 100,
+      "mean_tvd": 0.02800000000000007,
+      "std_tvd": 0.03033150177620612,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "X",
+      "shots": 1000,
+      "mean_tvd": 0.009000000000000008,
+      "std_tvd": 0.008276472678623432,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "X",
+      "shots": 10000,
+      "mean_tvd": 0.004339999999999994,
+      "std_tvd": 0.00285534586346384,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "Z",
+      "shots": 100,
+      "mean_tvd": 0.028000000000000004,
+      "std_tvd": 0.031144823004794868,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "Z",
+      "shots": 1000,
+      "mean_tvd": 0.015400000000000014,
+      "std_tvd": 0.010526157893552624,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "Z",
+      "shots": 10000,
+      "mean_tvd": 0.005420000000000003,
+      "std_tvd": 0.003665651374585432,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "X",
+      "shots": 100,
+      "mean_tvd": 0.07400000000000002,
+      "std_tvd": 0.01816590212458493,
+      "mean_correlation": 0.08800000000000001
+    },
+    {
+      "state": "mixture",
+      "basis": "X",
+      "shots": 1000,
+      "mean_tvd": 0.026000000000000013,
+      "std_tvd": 0.012509996003196805,
+      "mean_correlation": 0.01639999999999999
+    },
+    {
+      "state": "mixture",
+      "basis": "X",
+      "shots": 10000,
+      "mean_tvd": 0.007759999999999978,
+      "std_tvd": 0.0025841826560830247,
+      "mean_correlation": 0.0023999999999999855
+    }
+  ]
+}

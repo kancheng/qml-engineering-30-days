@@ -1,0 +1,618 @@
+[
+  {
+    "name": "three",
+    "features": [
+      3.0,
+      4.0,
+      0.0
+    ],
+    "original_dimension": 3,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      0.6,
+      0.8,
+      0.0,
+      0.0
+    ],
+    "angles": [
+      0.0,
+      0.9272952180016123,
+      0.9272952180016123
+    ],
+    "fidelities": {
+      "gates": 0.999999880790714,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.35999995708465704,
+      0.639999923706057,
+      0.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865,
+      0.0,
+      0.0
+    ],
+    "x_last": 0.9599998593330383,
+    "reference_x_last": 0.96,
+    "observable_error": 1.4066696163439474e-07,
+    "counts": {
+      "00": 342,
+      "01": 658
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "scaled",
+    "features": [
+      30.0,
+      40.0,
+      0.0
+    ],
+    "original_dimension": 3,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 40.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      0.6,
+      0.8,
+      0.0,
+      0.0
+    ],
+    "angles": [
+      0.0,
+      0.9272952180016123,
+      0.9272952180016123
+    ],
+    "fidelities": {
+      "gates": 0.999999880790714,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.35999995708465704,
+      0.639999923706057,
+      0.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865,
+      0.0,
+      0.0
+    ],
+    "x_last": 0.9599998593330383,
+    "reference_x_last": 0.96,
+    "observable_error": 1.4066696163439474e-07,
+    "counts": {
+      "00": 363,
+      "01": 637
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "global_sign",
+    "features": [
+      -3.0,
+      -4.0,
+      0.0
+    ],
+    "original_dimension": 3,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      -0.6,
+      -0.8,
+      0.0,
+      0.0
+    ],
+    "angles": [
+      0.0,
+      -2.214297435588181,
+      -2.214297435588181
+    ],
+    "fidelities": {
+      "gates": 1.000000095367434,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.3600001716613974,
+      0.639999923706057,
+      0.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865,
+      0.0,
+      0.0
+    ],
+    "x_last": 0.9600001573562622,
+    "reference_x_last": 0.96,
+    "observable_error": 1.573562622425584e-07,
+    "counts": {
+      "00": 373,
+      "01": 627
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "relative_sign",
+    "features": [
+      3.0,
+      -4.0,
+      0.0
+    ],
+    "original_dimension": 3,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      0.6,
+      -0.8,
+      0.0,
+      0.0
+    ],
+    "angles": [
+      0.0,
+      -0.9272952180016123,
+      -0.9272952180016123
+    ],
+    "fidelities": {
+      "gates": 0.999999880790714,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.35999995708465704,
+      0.639999923706057,
+      0.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865,
+      0.0,
+      0.0
+    ],
+    "x_last": -0.9599998593330383,
+    "reference_x_last": -0.96,
+    "observable_error": 1.4066696163439474e-07,
+    "counts": {
+      "01": 643,
+      "00": 357
+    },
+    "shots": 1000,
+    "sampling_seed": 45,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "two",
+    "features": [
+      3.0,
+      4.0
+    ],
+    "original_dimension": 2,
+    "padded_dimension": 2,
+    "qubits": 1,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      0.6,
+      0.8
+    ],
+    "angles": [
+      1.8545904360032246,
+      0.0,
+      0.0
+    ],
+    "fidelities": {
+      "gates": 1.0000000476837168,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865
+    ],
+    "x_last": 0.9600000381469727,
+    "reference_x_last": 0.96,
+    "observable_error": 3.814697269177714e-08,
+    "counts": {
+      "1": 651,
+      "0": 349
+    },
+    "shots": 1000,
+    "sampling_seed": 46,
+    "logical_ry": 1,
+    "logical_cnot": 0,
+    "passed": true
+  },
+  {
+    "name": "negative_two",
+    "features": [
+      -3.0,
+      4.0
+    ],
+    "original_dimension": 2,
+    "padded_dimension": 2,
+    "qubits": 1,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      -0.6,
+      0.8
+    ],
+    "angles": [
+      4.428594871176362,
+      0.0,
+      0.0
+    ],
+    "fidelities": {
+      "gates": 1.000000023841858,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.3600001001358102,
+      0.639999923706057
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865
+    ],
+    "x_last": -0.9600000977516174,
+    "reference_x_last": -0.96,
+    "observable_error": 9.775161746716776e-08,
+    "counts": {
+      "0": 340,
+      "1": 660
+    },
+    "shots": 1000,
+    "sampling_seed": 47,
+    "logical_ry": 1,
+    "logical_cnot": 0,
+    "passed": true
+  },
+  {
+    "name": "basis01",
+    "features": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "original_dimension": 4,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 1.0,
+    "norm_scaled": 1.0,
+    "amplitudes": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "angles": [
+      0.0,
+      1.5707963267948966,
+      1.5707963267948966
+    ],
+    "fidelities": {
+      "gates": 0.999999880790714,
+      "loaded": 1.0
+    },
+    "gate_probabilities": [
+      0.0,
+      0.999999880790714,
+      0.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "x_last": 0.0,
+    "reference_x_last": 0.0,
+    "observable_error": 0.0,
+    "counts": {
+      "01": 1000
+    },
+    "shots": 1000,
+    "sampling_seed": 48,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "basis10",
+    "features": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "original_dimension": 4,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 1.0,
+    "norm_scaled": 1.0,
+    "amplitudes": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "angles": [
+      3.141592653589793,
+      0.0,
+      0.0
+    ],
+    "fidelities": {
+      "gates": 1.0,
+      "loaded": 1.0
+    },
+    "gate_probabilities": [
+      1.91068546595397e-15,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "x_last": 0.0,
+    "reference_x_last": 0.0,
+    "observable_error": 0.0,
+    "counts": {
+      "10": 1000
+    },
+    "shots": 1000,
+    "sampling_seed": 49,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "right_only",
+    "features": [
+      0.0,
+      0.0,
+      -3.0,
+      4.0
+    ],
+    "original_dimension": 4,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      0.0,
+      0.0,
+      -0.6,
+      0.8
+    ],
+    "angles": [
+      3.141592653589793,
+      2.214297435588181,
+      -2.214297435588181
+    ],
+    "fidelities": {
+      "gates": 1.000000095367434,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      1.9106857765420766e-15,
+      0.0,
+      0.3600001716613974,
+      0.639999923706057
+    ],
+    "loaded_probabilities": [
+      0.0,
+      0.0,
+      0.36000002861023006,
+      0.6400000190734865
+    ],
+    "x_last": -0.9600001573562622,
+    "reference_x_last": -0.96,
+    "observable_error": 1.573562622425584e-07,
+    "counts": {
+      "11": 625,
+      "10": 375
+    },
+    "shots": 1000,
+    "sampling_seed": 50,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "left_only",
+    "features": [
+      -3.0,
+      4.0,
+      0.0,
+      0.0
+    ],
+    "original_dimension": 4,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.25,
+    "amplitudes": [
+      -0.6,
+      0.8,
+      0.0,
+      0.0
+    ],
+    "angles": [
+      0.0,
+      2.214297435588181,
+      2.214297435588181
+    ],
+    "fidelities": {
+      "gates": 1.000000095367434,
+      "loaded": 1.0000000476837168
+    },
+    "gate_probabilities": [
+      0.3600001716613974,
+      0.639999923706057,
+      0.0,
+      0.0
+    ],
+    "loaded_probabilities": [
+      0.36000002861023006,
+      0.6400000190734865,
+      0.0,
+      0.0
+    ],
+    "x_last": -0.9600001573562622,
+    "reference_x_last": -0.96,
+    "observable_error": 1.573562622425584e-07,
+    "counts": {
+      "01": 640,
+      "00": 360
+    },
+    "shots": 1000,
+    "sampling_seed": 51,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "bell",
+    "features": [
+      1.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "original_dimension": 4,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 1.0,
+    "norm_scaled": 1.4142135623730951,
+    "amplitudes": [
+      0.7071067811865475,
+      0.0,
+      0.0,
+      0.7071067811865475
+    ],
+    "angles": [
+      1.5707963267948966,
+      1.5707963267948966,
+      -1.5707963267948966
+    ],
+    "fidelities": {
+      "gates": 0.9999999657714581,
+      "loaded": 0.9999999657714581
+    },
+    "gate_probabilities": [
+      0.4999999828857291,
+      0.0,
+      0.0,
+      0.4999999828857291
+    ],
+    "loaded_probabilities": [
+      0.4999999828857291,
+      0.0,
+      0.0,
+      0.4999999828857291
+    ],
+    "x_last": 0.0,
+    "reference_x_last": 0.0,
+    "observable_error": 0.0,
+    "counts": {
+      "00": 501,
+      "11": 499
+    },
+    "shots": 1000,
+    "sampling_seed": 52,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  },
+  {
+    "name": "signed_four",
+    "features": [
+      1.0,
+      -2.0,
+      3.0,
+      -4.0
+    ],
+    "original_dimension": 4,
+    "padded_dimension": 4,
+    "qubits": 2,
+    "norm_scale": 4.0,
+    "norm_scaled": 1.3693063937629153,
+    "amplitudes": [
+      0.18257418583505536,
+      -0.3651483716701107,
+      0.5477225575051661,
+      -0.7302967433402214
+    ],
+    "angles": [
+      2.300523983021863,
+      -2.0344439357957027,
+      -0.17985349979247822
+    ],
+    "fidelities": {
+      "gates": 1.0000000695732678,
+      "loaded": 0.9999999988385151
+    },
+    "gate_probabilities": [
+      0.03333333764752511,
+      0.13333332882556093,
+      0.30000008779794385,
+      0.5333333153022437
+    ],
+    "loaded_probabilities": [
+      0.03333333220639023,
+      0.13333332882556093,
+      0.3000000225043209,
+      0.5333333153022437
+    ],
+    "x_last": -0.9333334714174271,
+    "reference_x_last": -0.9333333333333331,
+    "observable_error": 1.3808409393689658e-07,
+    "counts": {
+      "00": 37,
+      "01": 137,
+      "10": 294,
+      "11": 532
+    },
+    "shots": 1000,
+    "sampling_seed": 53,
+    "logical_ry": 3,
+    "logical_cnot": 2,
+    "passed": true
+  }
+]

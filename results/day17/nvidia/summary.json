@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-09-06T21:37:41.625229+00:00",
+  "backend": "nvidia",
+  "precision": "SimulationPrecision.fp32",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "gradient_cases": 6,
+  "fd_records": 24,
+  "max_shift_error": 8.305349974424558e-08,
+  "max_loss_gradient_error": 4.929612668069794e-08,
+  "training_features": [
+    [
+      0.25,
+      -0.4
+    ],
+    [
+      -0.6,
+      0.2
+    ]
+  ],
+  "training_labels": [
+    1,
+    1
+  ],
+  "learning_rate": 0.4,
+  "updates": 4,
+  "history_evaluations": 5,
+  "training_observe_calls": 90,
+  "sampling_features": [
+    0.25,
+    -0.4
+  ],
+  "sampling_weights": [
+    0.06094341595088627,
+    -0.20799682124809912,
+    0.15009023916129147,
+    0.1881129432782428
+  ],
+  "sampling_index": 1,
+  "sampling_records": 20,
+  "noise_model": "none",
+  "finite_difference_is_diagnostic": true,
+  "passed": true
+}

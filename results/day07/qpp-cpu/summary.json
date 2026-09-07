@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-09-06T05:10:07.917435+00:00",
+  "backend": "qpp-cpu",
+  "target": "qpp-cpu",
+  "environment": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "cudaq": "0.15.1",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "OMP_NUM_THREADS": "1",
+    "precision": "SimulationPrecision.fp64"
+  },
+  "record_count": 36,
+  "shots_per_case": 1000,
+  "seed": 42,
+  "noise_model": "none",
+  "bit_order": "q0 q1 ... q(n-1)",
+  "max_fidelity_error": 0.0,
+  "max_tvd": 0.007000000000000117,
+  "passed": true,
+  "scope": "kernel correctness sweep, no training, statistical comparison or speed benchmark"
+}

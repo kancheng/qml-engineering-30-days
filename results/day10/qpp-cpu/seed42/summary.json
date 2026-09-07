@@ -1,0 +1,48 @@
+{
+  "generated_at_utc": "2026-09-06T06:13:58.073658+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "seed": 42,
+  "layers": 1,
+  "initial_weights": [
+    0.06094341595088627,
+    -0.20799682124809912,
+    0.15009023916129147,
+    0.1881129432782428
+  ],
+  "final_weights": [
+    0.3484434159508864,
+    0.6045031787519008,
+    0.06259023916129146,
+    0.0006129432782427842
+  ],
+  "optimizer": "sequential coordinate search",
+  "initial_step": 0.4,
+  "step_tolerance": 0.0001,
+  "max_sweeps": 40,
+  "completed_sweeps": 40,
+  "stop_reason": "max_sweeps",
+  "objective_evaluations": 321,
+  "training_observe_calls": 2889,
+  "training_shots": -1,
+  "noise_model": "none",
+  "metrics": {
+    "train": {
+      "initial_mse": 0.38188436929347724,
+      "final_mse": 1.0683269979871396e-05,
+      "constant_baseline_mse": 0.36392049900518364
+    },
+    "holdout": {
+      "initial_mse": 0.34777416458729304,
+      "final_mse": 1.0400488342466317e-05,
+      "constant_baseline_mse": 0.5053934150345009
+    }
+  },
+  "max_reference_error": 2.220446049250313e-16,
+  "passed": true
+}

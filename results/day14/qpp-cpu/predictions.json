@@ -1,0 +1,779 @@
+[
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 1
+    },
+    "features": [
+      -0.6,
+      0.2
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.3090169943749474,
+    "reference": -0.30901699437494745,
+    "fidelity": 1.0000000000000004,
+    "counts": {
+      "11": 39,
+      "10": 63,
+      "00": 290,
+      "01": 608
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": -0.342,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 1
+    },
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": 0.5877852522924732,
+    "reference": 0.5877852522924732,
+    "fidelity": 1.0,
+    "counts": {
+      "01": 65,
+      "10": 130,
+      "00": 257,
+      "11": 548
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": 0.61,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 1
+    },
+    "features": [
+      0.8,
+      0.5
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.7071067811865477,
+    "reference": -0.7071067811865476,
+    "fidelity": 1.0000000000000004,
+    "counts": {
+      "00": 5,
+      "01": 28,
+      "11": 129,
+      "10": 838
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": -0.732,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 1
+    },
+    "features": [
+      -0.6,
+      0.2
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "exact": -0.22702959172904508,
+    "reference": -0.22702959172904474,
+    "fidelity": 0.9999999999999996,
+    "counts": {
+      "11": 97,
+      "10": 76,
+      "00": 271,
+      "01": 556
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": -0.264,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 1
+    },
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "exact": 0.8003314467497493,
+    "reference": 0.8003314467497491,
+    "fidelity": 0.9999999999999996,
+    "counts": {
+      "01": 25,
+      "10": 71,
+      "00": 214,
+      "11": 690
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": 0.808,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 1
+    },
+    "features": [
+      0.8,
+      0.5
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "exact": -0.37319856375134797,
+    "reference": -0.37319856375134774,
+    "fidelity": 1.0000000000000004,
+    "counts": {
+      "01": 4,
+      "11": 320,
+      "10": 676
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": -0.36,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 2
+    },
+    "features": [
+      -0.6,
+      0.2
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.24999999999999994,
+    "reference": -0.25,
+    "fidelity": 1.0,
+    "counts": {
+      "11": 65,
+      "10": 34,
+      "00": 290,
+      "01": 611
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": -0.29,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 2
+    },
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.22493567784086377,
+    "reference": -0.22493567784086377,
+    "fidelity": 1.0,
+    "counts": {
+      "11": 158,
+      "01": 66,
+      "00": 257,
+      "10": 519
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": -0.17,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 2
+    },
+    "features": [
+      0.8,
+      0.5
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": 0.6724985119639575,
+    "reference": 0.6724985119639574,
+    "fidelity": 1.0000000000000004,
+    "counts": {
+      "01": 18,
+      "00": 5,
+      "10": 160,
+      "11": 817
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": 0.644,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 2
+    },
+    "features": [
+      -0.6,
+      0.2
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "exact": 0.0483134605494865,
+    "reference": 0.04831346054948664,
+    "fidelity": 0.9999999999999996,
+    "counts": {
+      "10": 22,
+      "11": 39,
+      "00": 479,
+      "01": 460
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": 0.036,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 2
+    },
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "exact": -0.3012669137417281,
+    "reference": -0.30126691374172837,
+    "fidelity": 0.9999999999999991,
+    "counts": {
+      "01": 68,
+      "11": 70,
+      "00": 295,
+      "10": 567
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": -0.27,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "angle",
+      "layers": 2
+    },
+    "features": [
+      0.8,
+      0.5
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "exact": 0.5455490214490243,
+    "reference": 0.5455490214490241,
+    "fidelity": 1.0,
+    "counts": {
+      "01": 20,
+      "00": 27,
+      "10": 234,
+      "11": 719
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": 0.492,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 1
+    },
+    "features": [
+      3,
+      4,
+      0
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.2800000000000003,
+    "reference": -0.2800000000000001,
+    "fidelity": 1.0,
+    "counts": {
+      "00": 342,
+      "01": 658
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": -0.316,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 1
+    },
+    "features": [
+      1,
+      -2,
+      3,
+      -4
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.33333333333333326,
+    "reference": -0.33333333333333337,
+    "fidelity": 0.9999999999999996,
+    "counts": {
+      "00": 35,
+      "01": 130,
+      "11": 317,
+      "10": 518
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": -0.296,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 1
+    },
+    "features": [
+      0,
+      0,
+      -3,
+      4
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.2800000000000004,
+    "reference": -0.28000000000000014,
+    "fidelity": 1.0,
+    "counts": {
+      "11": 376,
+      "10": 624
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": -0.248,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 1
+    },
+    "features": [
+      3,
+      4,
+      0
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "exact": -0.2558793653235235,
+    "reference": -0.25587936532352307,
+    "fidelity": 0.9999999999999998,
+    "counts": {
+      "10": 3,
+      "11": 8,
+      "00": 345,
+      "01": 644
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": -0.294,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 1
+    },
+    "features": [
+      1,
+      -2,
+      3,
+      -4
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "exact": -0.6261283020932586,
+    "reference": -0.6261283020932585,
+    "fidelity": 0.9999999999999991,
+    "counts": {
+      "11": 154,
+      "00": 53,
+      "01": 144,
+      "10": 649
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": -0.586,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 1
+    },
+    "features": [
+      0,
+      0,
+      -3,
+      4
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "exact": -0.6230504511989725,
+    "reference": -0.6230504511989721,
+    "fidelity": 1.0,
+    "counts": {
+      "00": 1,
+      "11": 179,
+      "10": 820
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": -0.64,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 2
+    },
+    "features": [
+      3,
+      4,
+      0
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": -0.2800000000000003,
+    "reference": -0.2800000000000001,
+    "fidelity": 1.0,
+    "counts": {
+      "00": 342,
+      "01": 658
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": -0.316,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 2
+    },
+    "features": [
+      1,
+      -2,
+      3,
+      -4
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": 0.1333333333333333,
+    "reference": 0.1333333333333333,
+    "fidelity": 0.9999999999999996,
+    "counts": {
+      "01": 125,
+      "00": 35,
+      "10": 303,
+      "11": 537
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": 0.144,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 2
+    },
+    "features": [
+      0,
+      0,
+      -3,
+      4
+    ],
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "exact": 0.2800000000000004,
+    "reference": 0.2800000000000001,
+    "fidelity": 1.0,
+    "counts": {
+      "10": 373,
+      "11": 627
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": 0.254,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 2
+    },
+    "features": [
+      3,
+      4,
+      0
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "exact": 0.05925161194438172,
+    "reference": 0.05925161194438244,
+    "fidelity": 0.9999999999999989,
+    "counts": {
+      "10": 4,
+      "11": 2,
+      "00": 512,
+      "01": 482
+    },
+    "shots": 1000,
+    "sampling_seed": 42,
+    "sampled_zz": 0.028,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 2
+    },
+    "features": [
+      1,
+      -2,
+      3,
+      -4
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "exact": 0.2983871403544515,
+    "reference": 0.29838714035445146,
+    "fidelity": 0.9999999999999993,
+    "counts": {
+      "01": 77,
+      "10": 277,
+      "11": 646
+    },
+    "shots": 1000,
+    "sampling_seed": 43,
+    "sampled_zz": 0.292,
+    "passed": true
+  },
+  {
+    "config": {
+      "encoding": "amplitude",
+      "layers": 2
+    },
+    "features": [
+      0,
+      0,
+      -3,
+      4
+    ],
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "exact": 0.4592927193762784,
+    "reference": 0.45929271937627786,
+    "fidelity": 1.0,
+    "counts": {
+      "00": 15,
+      "01": 12,
+      "10": 288,
+      "11": 685
+    },
+    "shots": 1000,
+    "sampling_seed": 44,
+    "sampled_zz": 0.4,
+    "passed": true
+  }
+]

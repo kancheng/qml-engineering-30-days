@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "config": {
+    "encoding": "angle",
+    "layers": 1
+  },
+  "mapping": "positive_half",
+  "readout": "p1=(1-ZZ)/2",
+  "threshold": 0.5,
+  "feature_order": [
+    "x0",
+    "x1"
+  ],
+  "label_rule": "1 iff x0*x1<0",
+  "scaler": {
+    "minimum": [
+      -0.9268735401136733,
+      -0.828126680862899
+    ],
+    "maximum": [
+      0.7142264343308167,
+      0.8938951123760946
+    ],
+    "policy": "clip to training range"
+  },
+  "weights": [
+    -0.157404098665648,
+    1.8043856640157712,
+    -0.1796058762704139,
+    -1.6067346246250696
+  ],
+  "seed": 43
+}

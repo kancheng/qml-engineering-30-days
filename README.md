@@ -15,6 +15,8 @@
 
 ## 設備分工
 
+Day 3 已提供 [Ubuntu 獨立環境與示範步驟](articles/day03/README.md#8-實作只用-numpy-建立-gate-simulator)，以及 [設備紀錄](articles/day03/ENVIRONMENT.md)。使用專案 `.venv` 與固定 NumPy 版本執行。
+
 | 設備 | 主要用途 |
 |---|---|
 | Windows Surface Pro 7 | 寫作、Git、資料整理、NumPy 與小型 CPU simulation |
@@ -31,22 +33,22 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | 09/15 | 01 | [AI Engineer 為什麼現在要理解 QML？](articles/day01/README.md) | 專案定位、研究問題、文獻入口 | ✅ |
 | 09/16 | 02 | [從 Bit 到 Qubit](articles/day02/README.md) | NumPy state vector 與 Born rule | ✅ |
 | 09/17 | 03 | [Quantum Gate：量子世界的 Layer？](articles/day03/README.md) | NumPy gates、測試、CSV／JSON 實驗資料 | ✅ |
-| 09/18 | 04 | Superposition、Entanglement、Measurement | 提前用 CUDA-Q 建立 Bell state 與 shots 實驗 | 🧪 |
-| 09/19 | 05 | 從 Classical ML Pipeline 看懂 QML Pipeline | 完整 circuit demo、Notebook、架構圖 | 🧪 |
-| 09/20 | 06 | CUDA-Q、CUDA、cuQuantum 有何不同？ | Ubuntu RTX 3060 環境驗證與 Hello Quantum | 📌 |
-| 09/21 | 07 | 第一個 CUDA-Q Quantum Kernel | kernel、qubit allocation、control flow | 📌 |
-| 09/22 | 08 | `sample`、`run`、`observe` | 同一 kernel 的執行方式比較 | 📌 |
-| 09/23 | 09 | Parameterized Quantum Circuit | 建立可調參數 Ansatz | 📌 |
+| 09/18 | 04 | [Superposition、Entanglement、Measurement](articles/day04/README.md) | NumPy／CUDA-Q CPU／RTX 3060 Bell state、Z／X 基底與 shots 實驗 | ✅ |
+| 09/19 | 05 | [從 Classical ML Pipeline 看懂 QML Pipeline](articles/day05/README.md) | 完整前向流程、已執行 Notebook、架構圖與三 backend 實驗 | ✅ |
+| 09/20 | 06 | [CUDA-Q、CUDA、cuQuantum 有何不同？](articles/day06/README.md) | Ubuntu RTX 3060 環境診斷、CPU／GPU Hello Quantum 與 JSON 報告 | ✅ |
+| 09/21 | 07 | [第一個 CUDA-Q Quantum Kernel](articles/day07/README.md) | allocation、參數、迴圈／分支、CPU／GPU 各 36 組驗證 | ✅ |
+| 09/22 | 08 | [`sample`、`run`、`observe`](articles/day08/README.md) | 共用 state preparation、回傳契約、finite／exact observe 與 CPU／GPU 比較 | ✅ |
+| 09/23 | 09 | [Parameterized Quantum Circuit](articles/day09/README.md) | data／weights 分離、4L 參數 Ansatz、CPU／GPU forward 與參數反應驗證 | ✅ |
 | 09/24 | 10 | 第一個 CUDA-Q Optimization Loop | Classical optimizer + quantum circuit | 📌 |
 | 09/25 | 11 | Classical Data 怎麼變成 Quantum Data？ | feature 維度與 qubit 成本實驗 | 📌 |
-| 09/26 | 12 | Angle Encoding | 2D dataset encoding | 📌 |
-| 09/27 | 13 | Amplitude Encoding | normalization 與 state-preparation cost | 📌 |
-| 09/28 | 14 | Feature Map + Ansatz | 可訓練 QML model skeleton | 📌 |
-| 09/29 | 15 | 第一個 CUDA-Q Quantum Classifier | XOR／Moons 分類、curve、boundary | 📌 |
-| 09/30 | 16 | QNN 到底是不是 Neural Network？ | QNN 與 MLP 的輸出／參數比較 | 📌 |
-| 10/01 | 17 | QML 怎麼 Backprop？ | numerical gradient vs parameter-shift | 📌 |
-| 10/02 | 18 | Classical ML vs QML | Logistic Regression、MLP、VQC benchmark | 📌 |
-| 10/03 | 19 | Hybrid Neural Network | Classical + Quantum + Classical model | 📌 |
+| 09/26 | 12 | [Angle Encoding](articles/day12/README.md) | 2D dataset、角度範圍與旋轉軸比較 | ✅ |
+| 09/27 | 13 | [Amplitude Encoding](articles/day13/README.md) | normalization、明確 gate 準備與成本 | ✅ |
+| 09/28 | 14 | [Feature Map + Ansatz](articles/day14/README.md) | 可訓練 model skeleton、雙編碼與 optimizer 整合 | ✅ |
+| 09/29 | 15 | [第一個 CUDA-Q Quantum Classifier](articles/day15/README.md) | XOR 分類、checkpoint、curve、boundary | ✅ |
+| 09/30 | 16 | [QNN 到底是不是 Neural Network？](articles/day16/README.md) | QNN／MLP 輸出、參數與非線性比較 | ✅ |
+| 10/01 | 17 | [QML 怎麼 Backprop？](articles/day17/README.md) | parameter-shift、finite difference、chain rule | ✅ |
+| 10/02 | 18 | [Classical ML vs QML](articles/day18/README.md) | Logistic-link、MLP、VQC 固定協定 benchmark | ✅ |
+| 10/03 | 19 | [Hybrid Neural Network](articles/day19/README.md) | Classical＋Quantum＋Classical、完整 chain rule | ✅ |
 | 10/04 | 20 | Iris：Classical vs Quantum vs Hybrid | metrics、時間與 stability report | 📌 |
 | 10/05 | 21 | Qubit 不夠、Feature 太多怎麼辦？ | PCA、selection、bottleneck 比較 | 📌 |
 | 10/06 | 22 | Data Re-uploading | depth、expressibility 與 feature interaction | 📌 |
@@ -63,12 +65,14 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 
 | 時間 | Milestone | 主要成果 |
 |---|---|---|
-| Day 05 | Quantum Fundamentals | Notebook、架構圖、完整 circuit demo |
-| Day 10 | CUDA-Q Fundamentals | Parameterized circuit、optimization loop |
-| Day 15 | First QML Model | CUDA-Q Quantum Classifier |
+| Day 05 | [Quantum Fundamentals ✅](articles/day05/README.md) | [Notebook](notebooks/day05_quantum_fundamentals.ipynb)、[架構圖](figures/day05_pipeline.svg)、完整 circuit demo |
+| [Day 10](articles/day10/README.md) | CUDA-Q Fundamentals | ✅ MSE、座標搜尋、CPU／GPU hybrid optimization loop |
+| [Day 15](articles/day15/README.md) | First QML Model ✅ | XOR Classifier、Training Curve、Decision Boundary |
 | Day 20 | Hybrid QML | Classical vs VQC vs Hybrid report |
 | Day 25 | Real Dataset | 第二份可重現 QML benchmark |
 | Day 30 | Final Project | Noise、GPU、QPU 與完整工程總結 |
+
+Day 11 已完成：[Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md)，包含資料縮放、編碼比較與 CPU／GPU 可重現實驗。
 
 ## Repository 目錄
 

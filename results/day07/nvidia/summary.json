@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-09-06T05:10:23.239009+00:00",
+  "backend": "nvidia",
+  "target": "nvidia",
+  "environment": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "cudaq": "0.15.1",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "OMP_NUM_THREADS": "1",
+    "precision": "SimulationPrecision.fp32"
+  },
+  "record_count": 36,
+  "shots_per_case": 1000,
+  "seed": 42,
+  "noise_model": "none",
+  "bit_order": "q0 q1 ... q(n-1)",
+  "max_fidelity_error": 3.4228541889724795e-08,
+  "max_tvd": 0.007000000000000117,
+  "passed": true,
+  "scope": "kernel correctness sweep, no training, statistical comparison or speed benchmark"
+}

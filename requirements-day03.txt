@@ -1,0 +1,2 @@
+# Tested with Python 3.12; keep the demonstration dependency reproducible.
+numpy==2.2.6

@@ -1,0 +1,9 @@
+-r requirements-day14.txt
+# Plotting dependencies added for Day 15; existing numerical stack is unchanged.
+matplotlib==3.10.6
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.64.0
+kiwisolver==1.5.1
+pillow==12.3.0
+pyparsing==3.3.2

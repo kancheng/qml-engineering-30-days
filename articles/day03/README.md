@@ -8,7 +8,7 @@ Day 2 把 Qubit 寫成 normalized complex vector：
       [β]
 ```
 
-今天開始真正動手。只用 Surface Pro 7、Python 和 NumPy，把 X、Y、Z、Hadamard、RX、RY、RZ 寫成矩陣，實際計算 gate 如何改變 state vector。
+今天開始真正動手。在 Ubuntu 的專案獨立 Python 環境中，只用 NumPy，把 X、Y、Z、Hadamard、RX、RY、RZ 寫成矩陣，實際計算 gate 如何改變 state vector。相同程式也可在 Surface Pro 7 的 CPU 上執行。
 
 標題把 Quantum Gate 類比成 neural network layer，是為了提供入口，不代表兩者等價。Quantum Gate 受到 unitary constraint；一般 neural network layer 不必 unitary，也可以改變維度或丟失資訊。
 
@@ -165,6 +165,41 @@ Mitarai et al. 的 Quantum Circuit Learning 使用參數化量子電路，讓 cl
 
 ## 8. 實作：只用 NumPy 建立 Gate Simulator
 
+### 建立獨立示範環境
+
+以下指令在 repository 根目錄執行。使用 Python 3.12 建立 `.venv`，即使目前終端顯示 Conda `(base)`，套件也會安裝到專案的虛擬環境。`.venv` 不納入 Git。
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-day03.txt
+python -c "import sys, numpy; print(sys.executable); print(numpy.__version__)"
+```
+
+最後應顯示專案內 `.venv/bin/python` 與 `2.2.6`。之後開新終端只需重新 `source .venv/bin/activate`；離開時使用 `deactivate`。IDE 的 Python interpreter 也選取此 `.venv/bin/python`。
+
+本日依賴固定在 [requirements-day03.txt](../../requirements-day03.txt)。設備資訊另見 [環境說明](ENVIRONMENT.md)；本日使用 CPU，不需安裝 CUDA-Q。
+
+### 範例一：直接觀察 gate 輸出
+
+```bash
+python articles/day03/demo.py
+```
+
+可執行的完整代碼在 [demo.py](demo.py)，預期輸出：
+
+```text
+X|0>           P(0)=0.000000 P(1)=1.000000
+H|0>           P(0)=0.500000 P(1)=0.500000
+HH|0>          P(0)=1.000000 P(1)=0.000000
+HZH|0>         P(0)=0.000000 P(1)=1.000000
+RY(pi/2)|0>    P(0)=0.500000 P(1)=0.500000
+```
+
+電路由右往左作用：`HZH|0⟩` 先 H，再 Z，最後 H。中間的 Z 不改變當下的 Z-basis 機率，卻改變 relative phase，因此最後得到 1；直接做 `HH|0⟩` 則得到 0。
+
+### 範例二：矩陣乘法
+
 核心程式位於 [quantum_gates.py](quantum_gates.py)。以 X gate 為例：
 
 ```python
@@ -183,7 +218,21 @@ ket_one = x_gate @ ket_zero
 - state 是否 normalized；
 - expectation value 對 Hermitian observable 是否為實數。
 
-執行完整實驗：
+### 範例三：掃描旋轉角度並保存實驗
+
+完整代碼在 [experiment.py](experiment.py)，核心迴圈如下（使用本日 `quantum_gates.py`）：
+
+```python
+import numpy as np
+from quantum_gates import KET_ZERO, apply_gate, probabilities, rx, ry, rz
+
+for name, gate in (("RX", rx), ("RY", ry), ("RZ", rz)):
+    for theta in np.linspace(0, np.pi, 5):
+        state = apply_gate(gate(float(theta)), KET_ZERO)
+        print(name, theta, probabilities(state))
+```
+
+從 repository 根目錄執行完整實驗：
 
 ```bash
 python articles/day03/experiment.py
@@ -195,7 +244,7 @@ python articles/day03/experiment.py
 python -m unittest discover -s articles/day03 -p "test_*.py" -v
 ```
 
-不需要 Ubuntu、CUDA-Q 或 GPU；Surface Pro 7 即可。
+執行實驗會更新 `results/day03/gate_sweep.csv` 與 `summary.json`；摘要同時保存實際 Python、NumPy、作業系統、架構與 backend。不同環境可能有微小浮點差異，比較數值時使用容差，不要求檔案逐字相同。
 
 ## 9. Experiment Design
 
@@ -297,4 +346,4 @@ feat: implement and verify single-qubit gates with NumPy
 
 ## 17. 下一篇
 
-Day 04 將進入兩個 Qubit：用 tensor product 表示 `|00⟩`，以 H + CNOT 建立 Bell state，重複 measurement 觀察 `00`／`11` correlation。是否直接使用 CUDA-Q，會先依 Ubuntu 筆電的實際環境檢查結果決定；即使環境尚未完成，也保留 NumPy fallback，確保文章可重現。
+[Day 04](../day04/README.md) 將進入兩個 Qubit：用 tensor product 表示 `|00⟩`，以 H + CNOT 建立 Bell state，重複 measurement 觀察 `00`／`11` correlation，再用 X 基底區分 Bell state 與經典混合態。已提供 NumPy 參考實作與 CUDA-Q CPU／RTX 3060 實驗。

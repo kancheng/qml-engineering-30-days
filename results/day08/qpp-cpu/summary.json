@@ -1,0 +1,28 @@
+{
+  "generated_at_utc": "2026-09-06T05:19:40.626136+00:00",
+  "backend": "qpp-cpu",
+  "target": "qpp-cpu",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "cudaq": "0.15.1",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "precision": "SimulationPrecision.fp64",
+  "OMP_NUM_THREADS": "1",
+  "qubits": 2,
+  "state": "cos(theta/2)|00> + sin(theta/2)|11>",
+  "observable": "Z0",
+  "noise_model": "none",
+  "shots": [
+    32,
+    256
+  ],
+  "seeds": [
+    42,
+    43
+  ],
+  "record_count": 16,
+  "max_exact_error": 1.6081226496766364e-16,
+  "passed": true,
+  "scope": "API semantics and correctness; no training or performance benchmark",
+  "shot_note": "each finite-shot API call has its own N shots; single Pauli observable"
+}

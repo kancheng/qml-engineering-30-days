@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-09-06T16:41:53.164008+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "cudaq": "0.15.1",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "cases": 12,
+  "noise_model": "none",
+  "max_fidelity_error": 4.440892098500626e-16,
+  "max_observable_error": 3.3306690738754696e-16,
+  "basis_convention": "logical |q0 q1>; reverse bits for State.from_data buffer",
+  "cost_scope": "source-level gates before optimization, not hardware depth or benchmark",
+  "passed": true
+}

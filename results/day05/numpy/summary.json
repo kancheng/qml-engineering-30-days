@@ -1,0 +1,38 @@
+{
+  "environment": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "backend": "numpy"
+  },
+  "generated_at_utc": "2026-09-05T21:11:33.338418+00:00",
+  "task": "known-function forward-pass verification, no training or held-out evaluation",
+  "dataset": "nine equally spaced scalar inputs in [0, 1]; target cos(pi*x)",
+  "encoding": "theta=pi*x; RY(theta) on q0",
+  "circuit": "RY(q0) -> CNOT(q0,q1)",
+  "qubits": 2,
+  "preparation_depth": 2,
+  "trainable_parameters": 0,
+  "observable": "Z0",
+  "bit_order": "q0 q1",
+  "noise_model": "none",
+  "shots": 1000,
+  "repeat_seeds": [
+    42,
+    43,
+    44
+  ],
+  "record_count": 27,
+  "sampled_mse": 0.00047116889712033863,
+  "expected_sampled_mse": 0.00044444444444444447,
+  "constant_zero_baseline_mse": 0.5555555555555556,
+  "analytic_classical_reference_mse": 0.0,
+  "baseline_note": "cos(pi*x) is the known generating rule; zero error by construction",
+  "per_seed_mse": {
+    "42": 0.000764413981905219,
+    "43": 0.000454836876932848,
+    "44": 0.00019425583252294886
+  },
+  "execution_seconds": 0.013829736999468878,
+  "timing_note": "includes compilation/initialization; not a performance benchmark"
+}

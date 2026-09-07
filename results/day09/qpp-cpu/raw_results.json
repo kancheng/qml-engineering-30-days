@@ -1,0 +1,904 @@
+[
+  {
+    "features": [
+      0.0,
+      0.0
+    ],
+    "layers": 1,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 4,
+    "exact": 1.0,
+    "numpy_reference": 1.0,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "00": 1000
+      },
+      "prediction": 1.0,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "layers": 1,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 4,
+    "exact": 0.3090169943749474,
+    "numpy_reference": 0.30901699437494745,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "11": 99,
+        "10": 65,
+        "00": 559,
+        "01": 277
+      },
+      "prediction": 0.316,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.5,
+      0.5
+    ],
+    "layers": 1,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 4,
+    "exact": 2.220446049250313e-16,
+    "numpy_reference": 2.220446049250313e-16,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "10": 263,
+        "01": 271,
+        "00": 230,
+        "11": 236
+      },
+      "prediction": -0.068,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      -0.75,
+      0.2
+    ],
+    "layers": 1,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 4,
+    "exact": 0.8090169943749475,
+    "numpy_reference": 0.8090169943749475,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "01": 13,
+        "00": 121,
+        "10": 71,
+        "11": 795
+      },
+      "prediction": 0.832,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.0,
+      0.0
+    ],
+    "layers": 1,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "parameter_count": 4,
+    "exact": 0.9901943198570143,
+    "numpy_reference": 0.9901943198570143,
+    "fidelity": 0.9999999999999993,
+    "sampled": {
+      "counts": {
+        "10": 8,
+        "00": 992
+      },
+      "prediction": 0.984,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "layers": 1,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "parameter_count": 4,
+    "exact": 0.24571394035355948,
+    "numpy_reference": 0.2457139403535598,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "11": 58,
+        "10": 73,
+        "00": 568,
+        "01": 301
+      },
+      "prediction": 0.252,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.5,
+      0.5
+    ],
+    "layers": 1,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "parameter_count": 4,
+    "exact": 0.23950625163731798,
+    "numpy_reference": 0.23950625163731815,
+    "fidelity": 0.9999999999999996,
+    "sampled": {
+      "counts": {
+        "10": 199,
+        "01": 208,
+        "00": 190,
+        "11": 403
+      },
+      "prediction": 0.186,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      -0.75,
+      0.2
+    ],
+    "layers": 1,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428
+    ],
+    "parameter_count": 4,
+    "exact": 0.9158324391237722,
+    "numpy_reference": 0.9158324391237719,
+    "fidelity": 0.9999999999999993,
+    "sampled": {
+      "counts": {
+        "10": 2,
+        "00": 143,
+        "01": 31,
+        "11": 824
+      },
+      "prediction": 0.934,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.0,
+      0.0
+    ],
+    "layers": 1,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965
+    ],
+    "parameter_count": 4,
+    "exact": 0.9930979608332016,
+    "numpy_reference": 0.9930979608332013,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "10": 5,
+        "00": 995
+      },
+      "prediction": 0.99,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "layers": 1,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965
+    ],
+    "parameter_count": 4,
+    "exact": 0.33175238843258725,
+    "numpy_reference": 0.3317523884325872,
+    "fidelity": 1.0000000000000004,
+    "sampled": {
+      "counts": {
+        "10": 62,
+        "11": 147,
+        "00": 499,
+        "01": 292
+      },
+      "prediction": 0.292,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.5,
+      0.5
+    ],
+    "layers": 1,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965
+    ],
+    "parameter_count": 4,
+    "exact": -0.11967448920794935,
+    "numpy_reference": -0.11967448920794949,
+    "fidelity": 1.0000000000000004,
+    "sampled": {
+      "counts": {
+        "11": 150,
+        "10": 334,
+        "00": 268,
+        "01": 248
+      },
+      "prediction": -0.164,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      -0.75,
+      0.2
+    ],
+    "layers": 1,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965
+    ],
+    "parameter_count": 4,
+    "exact": 0.6062948016806404,
+    "numpy_reference": 0.6062948016806408,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "01": 6,
+        "00": 120,
+        "10": 176,
+        "11": 698
+      },
+      "prediction": 0.636,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.0,
+      0.0
+    ],
+    "layers": 2,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 8,
+    "exact": 1.0,
+    "numpy_reference": 1.0,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "00": 1000
+      },
+      "prediction": 1.0,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "layers": 2,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 8,
+    "exact": 0.21850801222441052,
+    "numpy_reference": 0.21850801222441052,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "11": 53,
+        "10": 103,
+        "00": 559,
+        "01": 285
+      },
+      "prediction": 0.224,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.5,
+      0.5
+    ],
+    "layers": 2,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 8,
+    "exact": 0.0,
+    "numpy_reference": 1.232595164407831e-32,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "10": 263,
+        "01": 271,
+        "00": 230,
+        "11": 236
+      },
+      "prediction": -0.068,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      -0.75,
+      0.2
+    ],
+    "layers": 2,
+    "weight_setting": "zero",
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameter_count": 8,
+    "exact": -0.5720614028176843,
+    "numpy_reference": -0.5720614028176843,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "01": 16,
+        "11": 83,
+        "00": 121,
+        "10": 780
+      },
+      "prediction": -0.592,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.0,
+      0.0
+    ],
+    "layers": 2,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "parameter_count": 8,
+    "exact": 0.9397640948689928,
+    "numpy_reference": 0.9397640948689925,
+    "fidelity": 0.9999999999999993,
+    "sampled": {
+      "counts": {
+        "10": 2,
+        "01": 35,
+        "11": 14,
+        "00": 949
+      },
+      "prediction": 0.926,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "layers": 2,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "parameter_count": 8,
+    "exact": -0.03199429869136233,
+    "numpy_reference": -0.03199429869136208,
+    "fidelity": 0.9999999999999996,
+    "sampled": {
+      "counts": {
+        "11": 122,
+        "10": 159,
+        "00": 336,
+        "01": 383
+      },
+      "prediction": -0.084,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.5,
+      0.5
+    ],
+    "layers": 2,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "parameter_count": 8,
+    "exact": 0.061603736225278094,
+    "numpy_reference": 0.06160373622527802,
+    "fidelity": 0.9999999999999989,
+    "sampled": {
+      "counts": {
+        "11": 157,
+        "10": 299,
+        "00": 350,
+        "01": 194
+      },
+      "prediction": 0.014,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      -0.75,
+      0.2
+    ],
+    "layers": 2,
+    "weight_setting": "seed42",
+    "weights": [
+      0.06094341595088627,
+      -0.20799682124809912,
+      0.15009023916129147,
+      0.1881129432782428,
+      -0.3902070377307673,
+      -0.26043590137246364,
+      0.025568080633457075,
+      -0.06324851846871644
+    ],
+    "parameter_count": 8,
+    "exact": -0.586796750722528,
+    "numpy_reference": -0.586796750722528,
+    "fidelity": 0.9999999999999989,
+    "sampled": {
+      "counts": {
+        "01": 3,
+        "11": 61,
+        "00": 138,
+        "10": 798
+      },
+      "prediction": -0.602,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.0,
+      0.0
+    ],
+    "layers": 2,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965,
+      -0.39836764222427296,
+      0.1943245963972403,
+      0.0033314601152094115,
+      0.04114626898936563
+    ],
+    "parameter_count": 8,
+    "exact": 0.980513990183785,
+    "numpy_reference": 0.9805139901837846,
+    "fidelity": 1.0000000000000004,
+    "sampled": {
+      "counts": {
+        "01": 8,
+        "10": 1,
+        "11": 66,
+        "00": 925
+      },
+      "prediction": 0.982,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.25,
+      -0.4
+    ],
+    "layers": 2,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965,
+      -0.39836764222427296,
+      0.1943245963972403,
+      0.0033314601152094115,
+      0.04114626898936563
+    ],
+    "parameter_count": 8,
+    "exact": 0.3083499987216913,
+    "numpy_reference": 0.3083499987216914,
+    "fidelity": 1.0000000000000004,
+    "sampled": {
+      "counts": {
+        "11": 157,
+        "10": 230,
+        "00": 484,
+        "01": 129
+      },
+      "prediction": 0.282,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      0.5,
+      0.5
+    ],
+    "layers": 2,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965,
+      -0.39836764222427296,
+      0.1943245963972403,
+      0.0033314601152094115,
+      0.04114626898936563
+    ],
+    "parameter_count": 8,
+    "exact": -0.02375544071020444,
+    "numpy_reference": -0.023755440710204467,
+    "fidelity": 1.0000000000000004,
+    "sampled": {
+      "counts": {
+        "11": 174,
+        "10": 119,
+        "00": 290,
+        "01": 417
+      },
+      "prediction": -0.072,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  },
+  {
+    "features": [
+      -0.75,
+      0.2
+    ],
+    "layers": 2,
+    "weight_setting": "seed43",
+    "weights": [
+      0.048845901334352015,
+      0.13563566401577118,
+      -0.11710587627041394,
+      -0.18173462462506965,
+      -0.39836764222427296,
+      0.1943245963972403,
+      0.0033314601152094115,
+      0.04114626898936563
+    ],
+    "parameter_count": 8,
+    "exact": -0.460227075500688,
+    "numpy_reference": -0.46022707550068825,
+    "fidelity": 1.0,
+    "sampled": {
+      "counts": {
+        "01": 6,
+        "11": 187,
+        "00": 72,
+        "10": 735
+      },
+      "prediction": -0.482,
+      "shots": 1000,
+      "seed": 42
+    },
+    "checks": {
+      "state_fidelity": true,
+      "exact_matches_numpy": true,
+      "shot_count": true,
+      "bounded_output": true
+    },
+    "passed": true
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "generated_at_utc": "2026-09-06T18:46:34.654867+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "forward_cases": 24,
+  "training_checks": 2,
+  "observable": "ZZ",
+  "noise_model": "none",
+  "training_shots": -1,
+  "max_exact_error": 7.216449660063518e-16,
+  "max_fidelity_error": 1.1102230246251565e-15,
+  "passed": true
+}

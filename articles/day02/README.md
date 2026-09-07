@@ -267,4 +267,4 @@ docs: explain qubits with state vectors and amplitudes
 
 ## 15. 下一篇
 
-Day 03 將把 Quantum Gate 當成作用在 State Vector 上的受限線性轉換，依序認識 X、Y、Z、H、RX、RY、RZ 與 CNOT，並開始建立第一批 Quantum Circuit。
+Day 03 將把 Quantum Gate 當成作用在 State Vector 上的受限線性轉換，依序認識 X、Y、Z、H、RX、RY、RZ，並開始建立第一批單量子位元 Quantum Circuit。CNOT 與兩量子位元 Bell state 留到 Day 04。

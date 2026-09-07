@@ -1,0 +1,18 @@
+{
+  "generated_at_utc": "2026-09-06T18:46:53.846845+00:00",
+  "backend": "nvidia",
+  "precision": "SimulationPrecision.fp32",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "forward_cases": 24,
+  "training_checks": 2,
+  "observable": "ZZ",
+  "noise_model": "none",
+  "training_shots": -1,
+  "max_exact_error": 2.3722648823110148e-07,
+  "max_fidelity_error": 1.3113910546369567e-07,
+  "passed": true
+}

@@ -1,0 +1,59 @@
+{
+  "generated_at_utc": "2026-09-06T22:18:19.888658+00:00",
+  "backend": "qpp-cpu",
+  "precision": "SimulationPrecision.fp64",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "cudaq": "0.15.1",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "classical_execution": "NumPy CPU in both backend runs",
+  "fits": 6,
+  "baseline": {
+    "train": {
+      "brier": 0.25,
+      "accuracy": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    "validation": {
+      "brier": 0.25,
+      "accuracy": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    "test": {
+      "brier": 0.25,
+      "accuracy": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    }
+  },
+  "noise_model": "none",
+  "shots": -1,
+  "passed": true
+}

@@ -1,0 +1,219 @@
+{
+  "environment": {
+    "python": "3.12.7",
+    "numpy": "2.2.6",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "backend": "numpy"
+  },
+  "generated_at_utc": "2026-09-05T20:48:49.892616+00:00",
+  "qubits": 2,
+  "bit_order": "q0 q1; 00, 01, 10, 11",
+  "shots": [
+    100,
+    1000,
+    10000
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "noise_model": "none",
+  "execution_seconds": 0.028972435000468977,
+  "record_count": 90,
+  "mixture_preparation": "fair classical choice of |00> or |11>; CUDA-Q batches preparations",
+  "timing_note": "includes initial JIT/runtime overhead; not a CPU/GPU benchmark",
+  "exact_probabilities": {
+    "product": {
+      "Z": [
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999
+      ],
+      "X": [
+        0.9999999999999992,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "bell": {
+      "Z": [
+        0.4999999999999999,
+        0.0,
+        0.0,
+        0.4999999999999999
+      ],
+      "X": [
+        0.49999999999999967,
+        0.0,
+        0.0,
+        0.49999999999999967
+      ]
+    },
+    "mixture": {
+      "Z": [
+        0.5,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "X": [
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999,
+        0.2499999999999999
+      ]
+    }
+  },
+  "aggregates": [
+    {
+      "state": "product",
+      "basis": "Z",
+      "shots": 100,
+      "mean_tvd": 0.07200000000000004,
+      "std_tvd": 0.0342052627529741,
+      "mean_correlation": 0.06799999999999999
+    },
+    {
+      "state": "product",
+      "basis": "Z",
+      "shots": 1000,
+      "mean_tvd": 0.028799999999999992,
+      "std_tvd": 0.017711578134090744,
+      "mean_correlation": 0.021600000000000036
+    },
+    {
+      "state": "product",
+      "basis": "Z",
+      "shots": 10000,
+      "mean_tvd": 0.008219999999999996,
+      "std_tvd": 0.0038277930978567933,
+      "mean_correlation": 0.0043599999999999976
+    },
+    {
+      "state": "product",
+      "basis": "X",
+      "shots": 100,
+      "mean_tvd": 3.885780586188048e-16,
+      "std_tvd": 0.0,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "product",
+      "basis": "X",
+      "shots": 1000,
+      "mean_tvd": 3.885780586188048e-16,
+      "std_tvd": 0.0,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "product",
+      "basis": "X",
+      "shots": 10000,
+      "mean_tvd": 3.885780586188048e-16,
+      "std_tvd": 0.0,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "Z",
+      "shots": 100,
+      "mean_tvd": 0.028000000000000046,
+      "std_tvd": 0.031144823004794816,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "Z",
+      "shots": 1000,
+      "mean_tvd": 0.015400000000000014,
+      "std_tvd": 0.010526157893552624,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "Z",
+      "shots": 10000,
+      "mean_tvd": 0.005420000000000003,
+      "std_tvd": 0.003665651374585432,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "X",
+      "shots": 100,
+      "mean_tvd": 0.028000000000000136,
+      "std_tvd": 0.03114482300479472,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "X",
+      "shots": 1000,
+      "mean_tvd": 0.015400000000000014,
+      "std_tvd": 0.010526157893552624,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "bell",
+      "basis": "X",
+      "shots": 10000,
+      "mean_tvd": 0.005420000000000003,
+      "std_tvd": 0.003665651374585432,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "Z",
+      "shots": 100,
+      "mean_tvd": 0.028000000000000004,
+      "std_tvd": 0.031144823004794868,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "Z",
+      "shots": 1000,
+      "mean_tvd": 0.015400000000000014,
+      "std_tvd": 0.010526157893552624,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "Z",
+      "shots": 10000,
+      "mean_tvd": 0.005420000000000003,
+      "std_tvd": 0.003665651374585432,
+      "mean_correlation": 1.0
+    },
+    {
+      "state": "mixture",
+      "basis": "X",
+      "shots": 100,
+      "mean_tvd": 0.07200000000000004,
+      "std_tvd": 0.0342052627529741,
+      "mean_correlation": 0.06799999999999999
+    },
+    {
+      "state": "mixture",
+      "basis": "X",
+      "shots": 1000,
+      "mean_tvd": 0.028799999999999992,
+      "std_tvd": 0.017711578134090744,
+      "mean_correlation": 0.021600000000000036
+    },
+    {
+      "state": "mixture",
+      "basis": "X",
+      "shots": 10000,
+      "mean_tvd": 0.008219999999999996,
+      "std_tvd": 0.0038277930978567933,
+      "mean_correlation": 0.0043599999999999976
+    }
+  ]
+}

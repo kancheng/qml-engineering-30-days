@@ -1,0 +1,197 @@
+{
+  "generated_at_utc": "2026-09-06T05:59:42.082972+00:00",
+  "backend": "nvidia",
+  "target": "nvidia",
+  "python": "3.12.7",
+  "numpy": "2.2.6",
+  "cudaq": "0.15.1",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "precision": "SimulationPrecision.fp32",
+  "OMP_NUM_THREADS": "1",
+  "qubits": 2,
+  "encoding": "RY(pi*x0), RY(pi*x1)",
+  "ansatz": "[RY on both, CNOT(0,1), RY on both] repeated L times",
+  "observable": "Z0 Z1",
+  "parameters_per_layer": 4,
+  "logical_preparation_depth": "1 + 3*L before compiler optimization",
+  "noise_model": "none",
+  "initialization": "normal(mean=0,std=0.2); seeds 42 and 43 plus zeros",
+  "sweep_records": 24,
+  "response_records": 12,
+  "shots": 1000,
+  "sampling_seed": 42,
+  "max_exact_error": 9.708824127985238e-08,
+  "max_fidelity_error": 1.793667125937759e-07,
+  "response_features": [
+    0.25,
+    -0.4
+  ],
+  "response_base_weights": [
+    0.06094341595088627,
+    -0.20799682124809912,
+    0.15009023916129147,
+    0.1881129432782428
+  ],
+  "response": [
+    {
+      "weight_index": 0,
+      "delta": -0.5,
+      "weights": [
+        -0.43905658404911374,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.28536021895706654,
+      "numpy_reference": 0.2853601711663067,
+      "passed": true
+    },
+    {
+      "weight_index": 0,
+      "delta": 0.0,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.24571393057703972,
+      "numpy_reference": 0.2457139403535598,
+      "passed": true
+    },
+    {
+      "weight_index": 0,
+      "delta": 0.5,
+      "weights": [
+        0.5609434159508863,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.17110760509967804,
+      "numpy_reference": 0.17110764566951134,
+      "passed": true
+    },
+    {
+      "weight_index": 1,
+      "delta": -0.5,
+      "weights": [
+        0.06094341595088627,
+        -0.7079968212480992,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": -0.23862851038575172,
+      "numpy_reference": -0.23862849454443538,
+      "passed": true
+    },
+    {
+      "weight_index": 1,
+      "delta": 0.0,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.24571393057703972,
+      "numpy_reference": 0.2457139403535598,
+      "passed": true
+    },
+    {
+      "weight_index": 1,
+      "delta": 0.5,
+      "weights": [
+        0.06094341595088627,
+        0.29200317875190085,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.6750238966196775,
+      "numpy_reference": 0.6750238685578812,
+      "passed": true
+    },
+    {
+      "weight_index": 2,
+      "delta": -0.5,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        -0.3499097608387085,
+        0.1881129432782428
+      ],
+      "prediction": 0.1655464917421341,
+      "numpy_reference": 0.1655464456995537,
+      "passed": true
+    },
+    {
+      "weight_index": 2,
+      "delta": 0.0,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.24571393057703972,
+      "numpy_reference": 0.2457139403535598,
+      "passed": true
+    },
+    {
+      "weight_index": 2,
+      "delta": 0.5,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.6500902391612915,
+        0.1881129432782428
+      ],
+      "prediction": 0.26572211529128253,
+      "numpy_reference": 0.26572209283575704,
+      "passed": true
+    },
+    {
+      "weight_index": 3,
+      "delta": -0.5,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.15009023916129147,
+        -0.3118870567217572
+      ],
+      "prediction": -0.13458581268787384,
+      "numpy_reference": -0.13458588436631905,
+      "passed": true
+    },
+    {
+      "weight_index": 3,
+      "delta": 0.0,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.1881129432782428
+      ],
+      "prediction": 0.24571393057703972,
+      "numpy_reference": 0.2457139403535598,
+      "passed": true
+    },
+    {
+      "weight_index": 3,
+      "delta": 0.5,
+      "weights": [
+        0.06094341595088627,
+        -0.20799682124809912,
+        0.15009023916129147,
+        0.6881129432782428
+      ],
+      "prediction": 0.5658543519675732,
+      "numpy_reference": 0.5658544229016296,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "execution_seconds": 8.313268299010815,
+  "timing_note": "includes compilation, reference and sampling; not a benchmark",
+  "scope": "PQC structure and parameter response, no training, gradient or advantage claim"
+}

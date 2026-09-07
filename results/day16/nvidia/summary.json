@@ -1,0 +1,29 @@
+{
+  "generated_at_utc": "2026-09-06T20:11:31.353843+00:00",
+  "backend": "nvidia",
+  "precision": "SimulationPrecision.fp32",
+  "python": "3.12.7",
+  "cudaq": "0.15.1",
+  "numpy": "2.2.6",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "OMP_NUM_THREADS": "1",
+  "qnn_parameters": 4,
+  "mlp_parameters": 9,
+  "qnn_config": {
+    "encoding": "angle",
+    "mapping": "positive_half",
+    "layers": 1,
+    "readout": "p1=(1-ZZ)/2"
+  },
+  "mlp_architecture": "2 -> tanh(2) -> sigmoid(1), biases included",
+  "initialization": "normal(0,0.2), seeds 42 and 43; not trained or tuned",
+  "slice_cases": 42,
+  "parameter_response_cases": 39,
+  "max_qnn_reference_error": 6.684891618036204e-08,
+  "state_linearity_error": 0.0,
+  "cosine_midpoint_gap": 0.20710678118654757,
+  "noise_model": "none",
+  "shots": -1,
+  "mlp_execution": "NumPy host CPU on both runs",
+  "passed": true
+}
