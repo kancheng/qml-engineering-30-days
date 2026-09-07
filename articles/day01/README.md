@@ -1,6 +1,18 @@
 # Day 01｜AI Engineer 為什麼現在要理解 Quantum Machine Learning？
 
-如果你原本在做 Machine Learning、Deep Learning 或 AI Engineering，第一次看到 Quantum Machine Learning（QML），很容易在「它是下一代 AI」與「硬體還不成熟，現在研究沒有意義」之間擺盪。
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+這一章目標在於建立學習 Quantum Machine Learning（QML，量子機器學習）的方向，釐清兩個核心問題：**量子計算可以放進機器學習流程的哪個位置？需要哪些證據，才能判斷量子計算是否有幫助？** 本系列從一般數值資料出發，說明如何把資料轉成量子電路能處理的形式，經過電路運算，再透過量測取得可供預測與計算誤差的數值；一般電腦則負責資料處理與參數調整。理解這個分工，有助於掌握 qubit（量子位元）、encoding（資料編碼）與 measurement（量測）在流程中的用途。本章重點是：QML 仍然需要清楚的任務、資料與評估方法，而「程式能跑」「預測較準」「完成任務的成本較低」是需要分別驗證的事。讀完本章，應能描述這條基本流程，並說明為什麼每次實驗都要和解決同一任務的傳統機器學習方法比較，為後續技術學習與結果判讀建立基礎。
+
+### English
+
+This chapter aims to establish a foundation for learning Quantum Machine Learning (QML) by addressing two core questions: **Where can quantum computation fit into a machine learning workflow, and what evidence is needed to assess its value?** The series starts with ordinary numerical data and explains how data is encoded for a quantum circuit, processed by the circuit, and measured to obtain numerical outputs for predictions and error calculations. A classical computer handles data processing and parameter updates. Understanding this division of work clarifies the roles of qubits, encoding, and measurement. The key point is that QML still requires a well-defined task, data, and an evaluation method. A program running successfully, making better predictions, and solving a task at lower cost are separate claims that require separate evidence. The learning goal is to describe this basic workflow and explain why each experiment needs a comparison with a classical machine learning method solving the same task, establishing a foundation for later technical concepts and the interpretation of results.
+
+---
+
+從 Machine Learning、Deep Learning 或 AI Engineering 背景初次接觸 Quantum Machine Learning（QML）時，很容易在「它是下一代 AI」與「硬體還不成熟，現在研究沒有意義」之間擺盪。
 
 兩個結論都下得太快。第一天先不談量子閘，而是回答更基本的問題：**AI Engineer 為什麼值得現在開始理解 QML？**
 
@@ -62,7 +74,7 @@ Classical Neural Network 常見的計算是 `xW + b`、activation 與 layer comp
 
 ## 5. 現階段可以做什麼？
 
-我們可以建立並研究：
+現階段可建立並研究的模型與問題包括：
 
 - Variational Quantum Classifier
 - Quantum Kernel Method
