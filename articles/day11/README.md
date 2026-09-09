@@ -1,5 +1,21 @@
 # Day 11｜Classical Data 怎麼變成 Quantum Data？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day10](../day10/README.md) 加入損失函數與最佳化器，讓量子電路的權重根據預測誤差更新，完成第一個訓練迴圈。Day11 接著回到資料進入電路之前的步驟，探討原始數值如何經過前處理與編碼，以及哪些差異可能在轉換途中消失。
+
+這一章目標在於理解 **「一般數值資料如何成為量子態，以及資料轉換是否保留了任務需要的資訊」**，為後續選擇編碼方式與建立 QML 模型打下基礎。本章先比較 basis encoding（基底編碼）、angle encoding（角度編碼）與 amplitude encoding（振幅編碼）各自如何表示資料，再實作角度編碼的完整路徑：只用訓練資料計算縮放範圍，將數值轉到指定區間，最後換成 RY 旋轉角度。重點在於區分原始資料、scaler（縮放器）的統計量與模型權重，並確保 holdout（保留資料）不參與縮放規則的擬合。本章也追查資訊在哪個階段消失：clipping（截斷越界值）可能讓不同資料變成相同輸入；編碼本身可能把不同輸入映成相同物理態；即使量子態不同，選定的量測方式仍可能得到相同分布。實作以 NumPy 比較三種表示方式，並用 CUDA-Q 的 CPU／GPU 模擬核對角度編碼結果，尚未新增模型訓練。讀完本章，應能描述「原始資料 → 縮放 → 角度 → 量子態 → 量測」的流程，理解為什麼要保存前處理規則與截斷紀錄，並分辨問題來自資料處理、編碼方式，還是量測選擇。
+
+### English
+
+[Day10](../day10/README.md) added a loss function and an optimizer so that prediction errors could guide quantum-circuit weight updates, completing the first training loop. Day11 returns to the steps before data enters the circuit, examining how raw numerical values are preprocessed and encoded, and which differences may disappear during those transformations.
+
+This chapter aims to explain **how ordinary numerical data becomes a quantum state and whether the transformation preserves information needed for the task**, laying the foundation for encoding choices and QML model construction. The chapter first compares how basis, angle, and amplitude encoding represent data, then implements an angle-encoding workflow: fit scaling ranges using training data only, transform values into a specified interval, and convert the scaled values into RY rotation angles. A central distinction is between raw data, fitted scaler statistics, and model weights. Holdout data must not participate in fitting the scaling rules. The chapter also traces where information can be lost: clipping can turn different raw values into identical inputs; encoding can map distinct inputs to the same physical state; and a chosen measurement can produce identical distributions even when the states differ. NumPy illustrates the three representations, while CUDA-Q CPU/GPU simulation verifies angle encoding without additional model training. The learning goal is to describe the raw-data–scaling–angle–state–measurement workflow, explain why preprocessing rules and clipping records must be preserved, and distinguish issues caused by data processing, encoding, or measurement choice.
+
+---
+
 Day 10 已完成訓練迴圈，但資料本來就位於 `[-1,1]`。今天往前補上工程邊界：**原始數值如何經過 preprocessing，成為電路角度與量子態？哪些資訊在途中消失？**
 
 完整程式：[encoding.py](encoding.py)、[experiment.py](experiment.py)。本日實際執行 angle encoding 的 CUDA-Q 電路；basis 與 amplitude 先用 NumPy 比較表示方式，Day 12、13 再深入。

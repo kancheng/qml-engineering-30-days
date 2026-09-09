@@ -1,5 +1,21 @@
 # Day 12｜Angle Encoding：角度範圍、旋轉軸與讀出
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day11](../day11/README.md) 建立從原始資料到量子態的前處理與編碼流程，並區分縮放、編碼及量測階段可能造成的資訊損失。Day12 接著深入角度編碼，在固定資料與縮放規則下，觀察角度範圍、旋轉軸與初始態如何影響資料的表示與讀出。
+
+這一章目標在於理解 **「把資料轉成旋轉角度後，不同輸入是否仍能被區分，以及需要用什麼量測方式看出差異」**，為後續設計 QML 的資料編碼電路建立依據。本章將縮放後的數值分別映到三種角度範圍，比較哪些輸入會變成相同物理態，再用 fidelity（量子態重疊程度）檢查資料之間的關係；這個數值描述狀態的相似程度，並不是分類準確率。另一個重點是旋轉閘必須連同初始態與讀出一起考慮：直接對 `|0⟩` 施加 RZ，只會改變無法觀測的整體相位；先用 H 準備疊加態再施加 RZ，角度才會進入相對相位，但仍需適合的 X／Y 讀出才能看見變化。實作沿用只由訓練資料決定的 scaler，比較 NumPy 與 CUDA-Q 的狀態及期望值，另以有限 shots 觀察抽樣結果，尚未訓練模型。讀完本章，應能說明縮放與角度映射的差別，理解「量子態不同」不保證「目前的量測能分辨」，並知道更換編碼設定仍無法恢復先前 clipping 已丟失的資料差異。
+
+### English
+
+[Day11](../day11/README.md) established a preprocessing and encoding workflow from raw data to quantum states, distinguishing information loss during scaling, encoding, and measurement. Day12 examines angle encoding in more detail, keeping the data and scaling rules fixed while exploring how the angle range, rotation axis, and initial state affect representation and readout.
+
+This chapter aims to explain **whether distinct inputs remain distinguishable after conversion into rotation angles, and which measurements can reveal those differences**, providing a foundation for designing QML data-encoding circuits. Scaled values are mapped into three angle ranges to identify inputs that become the same physical state. Fidelity, a measure of quantum-state overlap, is used to examine relationships between encoded inputs; it measures state similarity rather than classification accuracy. Another key point is that rotation gates must be considered together with the initial state and readout. Applying RZ directly to `|0⟩` changes only an unobservable global phase. Preparing a superposition with H before applying RZ places the angle in the relative phase, but suitable X/Y readouts are still needed to reveal the change. The implementation reuses a scaler fitted only on training data, compares NumPy and CUDA-Q states and expectations, and examines finite-shot samples without training a model. The learning goal is to distinguish scaling from angle mapping, explain why different states need not be distinguishable by the chosen measurement, and recognize that changing the encoding cannot recover differences already lost through clipping.
+
+---
+
 Day 11 示範 `θ=πx`，也發現 −1 與 +1 編碼後碰撞。今天保留同一份 2D 資料與 train-only scaler，改變 **角度映射、旋轉軸、初始態**，看量子態與讀出如何改變。
 
 實作：[angle_encoding.py](angle_encoding.py)；單筆示範：[demo.py](demo.py)；完整實驗：[experiment.py](experiment.py)。本日沒有訓練 weights。

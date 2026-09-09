@@ -1,5 +1,21 @@
 # Day 16｜QNN 到底是不是 Neural Network？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day15](../day15/README.md) 完成具有資料切分、模型保存與評分流程的 XOR 量子分類器，將電路輸出接到實際的分類標籤。Day16 接著比較這類量子模型與一般神經網路的內部計算，釐清共同的訓練介面背後有哪些重要差異。
+
+這一章目標在於理解 **「QNN 為什麼能接入機器學習流程，以及哪些概念不能直接從一般神經網路套用到量子電路」**，為後續梯度計算與公平比較建立基礎。本章將 QNN（量子神經網路）的範圍限定為前幾章的參數化電路模型，並與小型 MLP（多層感知器）使用相同二維輸入、各自產生一個數值輸出。QNN 的四個權重是旋轉角度，MLP 的九個參數則是連接權重與偏差；量子態中的振幅也不等於可獨立訓練的神經元。核心重點是分清楚「對什麼而言是線性」：固定量子閘對狀態向量的作用是線性的，但輸入經角度編碼、電路運算與期望值讀出後，仍可形成非線性函數，例如 `RY(θ)` 後的 Z 期望值為 `cos(θ)`。實作比較重新初始化、尚未訓練的兩種模型，觀察輸出曲線、單一參數改動與旋轉角度的週期性，並核對數值正確性。讀完本章，應能說明 QNN 與 MLP 在參數、運算與讀出上的差別，理解相同輸出介面不代表相同模型能力，也不能從未訓練曲線的形狀判定分類成效或量子優勢。
+
+### English
+
+[Day15](../day15/README.md) completed an XOR quantum classifier with data splits, model persistence, and evaluation, connecting circuit outputs to class labels. Day16 compares the internal computation of this type of quantum model with a conventional neural network, clarifying the differences behind a shared training interface.
+
+This chapter aims to explain **why a QNN can fit into a machine learning workflow and which neural-network concepts cannot be transferred directly to quantum circuits**, preparing for gradient calculations and fair comparisons. Here, QNN refers specifically to the parameterized circuit model developed in earlier chapters. A small multilayer perceptron (MLP) receives the same two-dimensional inputs, and each model produces a scalar output. The QNN's four weights are rotation angles, whereas the MLP's nine parameters are connection weights and biases. Quantum-state amplitudes are not independently trainable neurons. A central distinction is what linearity refers to: a fixed quantum gate acts linearly on a state vector, but angle encoding, circuit operations, and expectation readout can together form a nonlinear function of the input. For example, the Z expectation after `RY(θ)` is `cos(θ)`. The implementation compares newly initialized, untrained models through output curves, individual parameter changes, and rotation-angle periodicity, while checking numerical correctness. The learning goal is to explain differences in parameters, computation, and readout; recognize that a shared output interface does not imply equal model capacity; and understand why untrained curve shapes cannot establish classification performance or quantum advantage.
+
+---
+
 **在本系列，QNN 指以參數化量子電路提供可訓練輸出的模型；它能接入 ML pipeline，但不等同把 MLP 的 neuron 換成 qubit。** QNN 也不是所有文獻中只有一種架構的名稱。本文聚焦 Day 14–15 使用的 variational circuit classifier。
 
 今天以相同二維輸入與 scalar probability 介面，比較一個四參數 PQC 和九參數 MLP。程式：[models.py](models.py)、[demo.py](demo.py)、[experiment.py](experiment.py)。兩者都重新初始化，沒有載入 Day 15 訓練 weights，沒有 accuracy 排名。

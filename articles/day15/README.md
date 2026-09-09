@@ -1,5 +1,21 @@
 # Day 15｜第一個 CUDA-Q Quantum Classifier
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day14](../day14/README.md) 將資料編碼、可訓練電路、讀出與最佳化器組合成共用模型，並透過短訓練確認元件能一起運作。Day15 接著加入明確的分類標籤、資料切分、模型保存與評分，完成可以重新載入並產生分類結果的 XOR 示範。
+
+這一章目標在於理解 **「量子電路的數值輸出如何成為分類結果，以及如何評估與保存一個訓練完成的模型」**，把前幾章的模型骨架延伸成完整的機器學習流程。本章使用兩個座標的符號判斷 XOR 類別：符號相異為 class 1，同號為 class 0。電路的 `Z0Z1` 期望值透過 `p1=(1−f)/2` 轉成兩個量測位元不同的機率，再以固定的 0.5 門檻決定預測類別。訓練以 Brier loss（預測機率與標籤的平均平方誤差）更新權重；train 決定縮放規則與訓練更新，validation 選擇兩個初始化結果中的最終模型，test 則在選定後用於評分。重點除了 loss 是否下降，也包括分類錯在哪裡、機率輸出與標籤的差距，以及重新載入模型後能否重現預測。因此，本章同時保存 checkpoint（模型檢查點）、訓練曲線與決策邊界，並以常數預測作為基本對照。讀完本章，應能說明分類機率、門檻、資料切分與模型保存的用途，理解精確期望值訓練與最終有限 shots 評估的差別，並掌握小型合成 XOR 結果所能支持的結論範圍。
+
+### English
+
+[Day14](../day14/README.md) combined data encoding, a trainable circuit, readout, and optimization into a shared model, using short training runs to check that the components work together. Day15 adds explicit class labels, data splits, model persistence, and evaluation to complete an XOR example that can be reloaded and used for classification.
+
+This chapter aims to explain **how numerical circuit outputs become class predictions, and how a trained model is evaluated and saved**, extending the earlier model structure into a complete machine learning workflow. The task assigns class 1 to coordinate pairs with opposite signs and class 0 to pairs with matching signs. The circuit's `Z0Z1` expectation is converted through `p1=(1−f)/2` into the probability of differing measurement bits, then a fixed threshold of 0.5 determines the predicted class. Training updates weights using Brier loss, the mean squared difference between predicted probabilities and labels. Training data determines scaling rules and weight updates, validation data selects between the final models from two initializations, and test data is used for scoring after selection. Beyond loss reduction, the chapter examines classification errors, probability errors, and whether reloading the model reproduces predictions. Checkpoints, training curves, and decision boundaries are saved, with a constant predictor providing a basic comparison. The learning goal is to explain the roles of probabilities, thresholds, data splits, and model persistence; distinguish exact-expectation training from final finite-shot evaluation; and understand the limited conclusions supported by a small synthetic XOR task.
+
+---
+
 Day 14 已經能把 features、Ansatz、readout 與 optimizer 接起來。今天完成第三階段交付：**有資料切分、可載入模型、評分、Training Curve 與 Decision Boundary 的 XOR classifier**。
 
 程式入口：[classifier.py](classifier.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[plot_results.py](plot_results.py)。本日採用 XOR，沒有另外訓練 Moons。
@@ -34,7 +50,7 @@ p(class 1 | x,w) = (1 − f(x,w))/2
 predicted class = 1 if p >= 0.5 else 0
 ```
 
-ZZ 在 00／11 的 eigenvalue 為 +1，在 01／10 為 −1。因此這裡 p1 是**奇數 parity 的量測機率**，不是任意把 expectation 稱作 probability。class 1 的語意是我們指定的 XOR label；這個映射不保證已完成機率校準。
+ZZ 在 00／11 的 eigenvalue 為 +1，在 01／10 為 −1。因此這裡 p1 是**奇數 parity 的量測機率**，不是任意把 expectation 稱作 probability。class 1 的語意由本章指定的 XOR label 定義；這個映射不保證已完成機率校準。
 
 `probabilities` 允許 1e-5 以內的 simulator 浮點越界後 clipping 到合法機率，明顯超過範圍則拒絕。p=0.5 的平手固定歸 class 1，baseline 與模型共用此規則。
 

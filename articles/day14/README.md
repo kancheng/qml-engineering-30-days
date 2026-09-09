@@ -1,5 +1,21 @@
 # Day 14｜Feature Map＋Ansatz：組成可訓練的 QML Model
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day13](../day13/README.md) 將資料轉成量子態的振幅，區分正規化與實際狀態準備，並核對直接載入模擬器與 RY／CNOT 電路兩條路徑。Day14 接著把角度編碼與振幅編碼接到共用的可調電路與訓練介面，整理成後續分類任務可延伸的模型。
+
+這一章目標在於理解 **「資料表示、可訓練電路、量測輸出與最佳化程序如何組合成同一個模型，同時保留各自的責任」**，讓前幾章的獨立元件成為可重用的 QML 流程。Feature map（資料編碼電路）負責準備輸入對應的量子態；Ansatz（含可調權重的電路結構）接著改變狀態；固定的 `Z0Z1` 讀出提供數值；一般 Python 程式再計算 loss 並更新權重。本章讓兩種編碼共用同一份 Ansatz，但仍分別檢查輸入維度與前處理規則，因為更換編碼並不代表可以直接使用相同格式的資料。另一個重點是：對一次編碼後的所有資料施加相同量子閘序列，可以改變讀出結果，卻無法重新區分已經編成相同物理態的輸入。實作提供單筆與批次前向介面，並接回 Day10 的座標搜尋，透過短訓練確認元件能一起運作。讀完本章，應能說明模型各部分的分工，理解保存模型時需要記錄編碼與結構設定，以及為什麼本章的兩種編碼使用不同合成資料，訓練誤差不能直接拿來判定編碼優劣。
+
+### English
+
+[Day13](../day13/README.md) encoded data into quantum-state amplitudes, distinguished normalization from state preparation, and checked both direct simulator loading and explicit RY/CNOT circuits. Day14 connects angle and amplitude encoding to a shared adjustable circuit and training interface, creating a model that can support the classification task developed next.
+
+This chapter aims to explain **how data representation, a trainable circuit, measurement readout, and optimization form one model while retaining distinct responsibilities**, turning earlier components into a reusable QML workflow. The feature map prepares the state associated with an input. The Ansatz, a circuit structure with adjustable weights, then transforms that state. A fixed `Z0Z1` readout supplies a numerical output, and ordinary Python code calculates the loss and updates the weights. Both encodings share the same Ansatz implementation, but their input dimensions and preprocessing rules are checked separately: interchangeable encoding components do not imply identical input formats. Another key point is that applying the same gate sequence to all states after a single encoding can change readout values, but cannot distinguish inputs already mapped to the same physical state. The implementation provides single-input and batch forward interfaces and reconnects Day10's coordinate search for short training runs that check integration. The learning goal is to explain each component's role, understand why saved models need encoding and structural settings, and recognize that training errors from the two encodings cannot directly establish encoding quality because the synthetic datasets differ.
+
+---
+
 Day 12、13 已分別準備 angle 與 amplitude states。今天將它們接到 **同一個 Ansatz、同一個 ZZ readout、同一個 optimizer 介面**，建立 Day 15 分類任務可延伸的模型骨架。
 
 完整程式：[model.py](model.py)、[demo.py](demo.py)、[experiment.py](experiment.py)。本日重用既有 kernels，沒有複製另一份可訓練電路。

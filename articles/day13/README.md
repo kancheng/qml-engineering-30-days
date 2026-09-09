@@ -1,5 +1,21 @@
 # Day 13｜Amplitude Encoding：正規化不是免費的 State Preparation
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day12](../day12/README.md) 比較角度範圍、旋轉軸與初始態，說明資料轉成旋轉角度後，量子態與量測方式如何影響可區分性。Day13 接著改用振幅編碼，將資料向量轉成量子態的係數，並檢查正規化保留了哪些資訊，以及實際準備這個狀態需要哪些操作。
+
+這一章目標在於理解 **「把資料寫成合法的量子態，與用量子電路準備出這個狀態，是兩個需要分開處理的步驟」**，為評估 QML 資料載入方式建立基礎。本章限定兩到四個有限實數，先將向量補零到適合一或兩個量子位元的長度，再除以向量長度，使振幅的絕對值平方總和為 1。例如 `[3,4,0]` 會變成 `[0.6,0.8,0,0]`；其中 0.6、0.8 是振幅，對應的量測機率是 0.36、0.64。重點之一是正規化會移除原始大小，而相對正負號仍可能影響後續量測，因此只核對 Z 基底機率並不足夠。實作分別使用模擬器直接載入狀態，以及明確的 RY／CNOT 電路準備狀態，核對兩條路徑的結果。讀完本章，應能說明振幅編碼與角度編碼的差別，理解全零向量為何不能直接正規化，並區分量子位元數、前處理成本與狀態準備成本。少量量子位元可以表示多個振幅，仍須計入資料載入的工作，也無法在單次量測中讀回完整向量。
+
+### English
+
+[Day12](../day12/README.md) compared angle ranges, rotation axes, and initial states, explaining how encoded states and measurement choices affect the distinguishability of inputs. Day13 turns to amplitude encoding, converting a data vector into quantum-state coefficients and examining both the information retained after normalization and the operations needed to prepare the state.
+
+This chapter aims to explain **why expressing data as a valid quantum state and preparing that state with a quantum circuit are two separate tasks**, providing a foundation for evaluating QML data-loading methods. The scope is two to four finite real values. Each vector is padded with zeros to a length suitable for one or two qubits, then divided by its norm so that the squared magnitudes of the amplitudes sum to 1. For example, `[3,4,0]` becomes `[0.6,0.8,0,0]`; the amplitudes 0.6 and 0.8 correspond to measurement probabilities of 0.36 and 0.64. Normalization removes the original magnitude, while relative signs can still affect subsequent measurements, so checking Z-basis probabilities alone is insufficient. The implementation compares direct simulator-state loading with explicit RY/CNOT state-preparation circuits. The learning goal is to distinguish amplitude encoding from angle encoding, explain why a zero vector cannot be normalized directly, and separate qubit count from preprocessing and state-preparation costs. Representing multiple amplitudes with a small number of qubits still requires data-loading work, and a single measurement cannot recover the complete vector.
+
+---
+
 Day 12 把每個 feature 映射成 rotation angle。今天改把資料放進**量子態的 amplitudes**，並實作兩條可核對的路徑：simulator state 載入，以及明確的 RY／CNOT 電路。
 
 程式：[amplitude_encoding.py](amplitude_encoding.py)、[demo.py](demo.py)、[experiment.py](experiment.py)。範圍限定 2–4 個有限實數，支援負數與零分支；不支援任意複數或更高維 gate synthesis。
