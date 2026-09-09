@@ -1,5 +1,21 @@
 # Day 23｜Quantum Kernel：QML 不只有 QNN
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day22](../day22/README.md) 比較單次、分段與重複資料編碼，檢查資料進入電路的排程如何影響模型輸出與成本。Day23 接著改用固定的資料編碼電路，計算兩筆資料對應量子態的相似度，再交由經典方法建立分類模型。
+
+這一章目標在於理解 **「QML 除了訓練電路權重，也能透過量子特徵空間中的樣本相似度進行學習」**，建立另一條建模路徑。本章的 quantum kernel（量子核函數）以兩個量子態重疊的絕對值平方衡量相似度，與 CUDA-Q 中標記程式函式的 `@cudaq.kernel` 是不同概念。實作先準備一筆資料的量子態，再施加另一筆資料編碼電路的反向操作，利用回到全零狀態的機率取得 kernel 值。所有訓練樣本兩兩比較後形成 Gram matrix（樣本相似度矩陣），再由 kernel ridge（核嶺迴歸）求出經典係數；新資料的預測仍需要與保存的訓練樣本比較。重點包括矩陣是否符合對稱性與半正定性、訓練樣本順序是否一致，以及正則化參數是否只依 validation 選擇。本章以相同 Iris 輸入比較 quantum、RBF 與 linear kernels，先用 NumPy 建立模型，再以 CUDA-Q CPU／GPU 核對量子矩陣。讀完本章，應能描述從相似度到預測的流程，理解沒有可訓練量子權重仍然需要經典求解、矩陣儲存與大量樣本配對，也不能只由熱圖或少量 test 成績判定量子優勢。
+
+### English
+
+[Day22](../day22/README.md) compared single, segmented, and repeated data encoding, examining how encoding schedules affect model outputs and cost. Day23 instead uses a fixed encoding circuit to calculate similarities between the quantum states of two inputs, then builds a classifier through classical computation.
+
+This chapter aims to explain **how QML can learn through sample similarities in a quantum feature space, rather than only through trainable circuit weights**, introducing another modeling approach. The quantum kernel measures similarity as the squared magnitude of the overlap between two states. This mathematical kernel is distinct from CUDA-Q's `@cudaq.kernel` function annotation. The implementation prepares one input's state, applies the inverse encoding circuit of another input, and obtains the kernel value from the probability of returning to the all-zero state. Pairwise comparisons of training samples form a Gram matrix, which kernel ridge regression uses to solve for classical coefficients. Predicting a new input still requires comparisons with the saved training samples. Key checks include symmetry and positive semidefiniteness, consistent training-sample ordering, and selection of the regularization parameter using validation data only. Quantum, RBF, and linear kernels are compared on the same Iris inputs, with NumPy model construction followed by CUDA-Q CPU/GPU verification of quantum matrices. The learning goal is to describe the similarity-to-prediction workflow, recognize that fixed quantum circuits still incur classical solving, matrix storage, and pair-evaluation costs, and avoid inferring quantum advantage from heatmaps or small test sets.
+
+---
+
 [Day22](../day22/README.md) 訓練電路權重。今天固定 feature map，改用量子態之間的相似度建立 kernel matrix，再交給 classical kernel ridge 求解。**Quantum kernel function 與 Day07 的 CUDA-Q `@cudaq.kernel` 程式函式是不同概念。**
 
 程式：[kernels.py](kernels.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[圖表與報告](plot_results.py)、[測試](test_kernels.py)。實測見 [results/day23](../../results/day23/README.md)。沿用獨立 `.venv`，無新套件、無新資料下載。

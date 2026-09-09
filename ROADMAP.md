@@ -66,7 +66,7 @@ Day 06 已完成工具分工與環境驗證，主機 CPU／RTX 3060 smoke tests 
 27. [CPU vs GPU Quantum Simulation](articles/day27/README.md)——相同電路／精度、序列量測、first／warm latency與原始計時紀錄
 28. [從單 GPU 到 Multi-GPU](articles/day28/README.md)——已完成可重現容量／延遲模型與測試；無多卡實測
 29. [Simulator → QPU](articles/day29/README.md)——已完成三種本地模式、90組counts與shots誤差驗證；QPU規格未提交
-30. [寫了30天CUDA-Q與QML，我還相信QML嗎？](articles/day30/README.md)——已完成20個選定模型與8組fp64計時核算、30篇交付索引及證據總結
+30. [30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向](articles/day30/README.md)——已完成20個選定模型與8組fp64計時核算、30篇交付索引及證據總結
 
 成果：Noise-aware 實驗、模擬效能比較、硬體落差分析與完整專案總結。
 

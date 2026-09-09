@@ -1,5 +1,21 @@
 # Day 22｜Data Re-uploading：讓資料再次進入量子電路
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day21](../day21/README.md) 固定兩個量子位元，比較 PCA、特徵選擇與可訓練壓縮層，檢查四維資料縮成二維時的資訊取捨。Day22 接著改變資料進入電路的位置，透過分段編碼與重複編碼，探索少量量子位元如何使用更多特徵或多次使用同一筆資料。
+
+這一章目標在於理解 **「增加可訓練電路層，與讓資料再次進入電路，有什麼不同」**，為設計 QML 的資料輸入方式與評估電路成本建立基礎。Data re-uploading（資料重複編碼）是在同一次狀態演化中，交替執行資料編碼與可訓練操作，中途不量測或重設；這與增加 shots、重新抽樣是不同的事。本章先比較二維資料只編碼一次或重複編碼，再將四個特徵分成兩段送入兩個量子位元，區分「每個特徵第一次進入」與「同一特徵再次進入」。配對實驗保留相同的可訓練參數數量、Ansatz 與初始權重，只改變資料編碼的排程，並記錄新增的旋轉閘與深度。重點是重複操作不保證帶來更好的分類結果；相鄰同軸旋轉可能合併，相同訓練評估次數也不代表相同計算成本。實作沿用 Iris 資料，在 NumPy CPU 完成訓練，再以 CUDA-Q CPU／GPU 核對保存模型。讀完本章，應能描述單次、分段與重複編碼的差別，理解配對控制的用途，並避免把輸出曲線改變直接當成模型能力提升或量子優勢的證據。
+
+### English
+
+[Day21](../day21/README.md) kept two qubits fixed while comparing PCA, feature selection, and a learned bottleneck, examining the information tradeoffs of reducing four features to two. Day22 changes where data enters the circuit, using segmented and repeated encoding to explore how a small number of qubits can use more features or reuse the same input.
+
+This chapter aims to explain **the difference between adding trainable circuit layers and introducing the data again**, providing a foundation for QML encoding design and circuit-cost evaluation. Data re-uploading alternates data encoding with trainable operations during a single state evolution, without intermediate measurement or reset. It is distinct from increasing shots or sampling again. The chapter first compares encoding two-dimensional data once with encoding it repeatedly, then feeds four features into two qubits in two segments, distinguishing a feature's first use from its subsequent reuse. Within each experimental pair, the trainable parameter count, Ansatz, and initial weights are held fixed while the encoding schedule changes. Additional rotation gates and depth are recorded. Repetition does not guarantee better classification: adjacent rotations around the same axis may combine, and equal training evaluation budgets do not imply equal computational cost. Training uses the existing Iris data and NumPy CPU reference, followed by CUDA-Q CPU/GPU verification of saved models. The learning goal is to distinguish single, segmented, and repeated encoding, explain the purpose of paired controls, and avoid treating changed output curves as direct evidence of improved model capacity or quantum advantage.
+
+---
+
 [Day21](../day21/README.md) 比較了四維到二維的壓縮。今天改變電路的資料輸入位置：**在同一個 quantum state 上交替執行資料編碼與 trainable blocks，讓資料被多次使用。**
 
 程式：[reuploading.py](reuploading.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[plot_results.py](plot_results.py)、[tests](test_reuploading.py)。完整數值見 [實驗報告](../../results/day22/README.md)。沿用 `.venv`，無新增套件或資料下載。
@@ -59,7 +75,7 @@ RY(b) RY(a) = RY(a+b)
 
 如果只是連續堆相同資料旋轉，中間沒有適當的其他操作，可能只得到角度相加。程式有矩陣測試驗證這個等式。本日 upload 前後部分 RY 也能合併，故資源表刻意標明「未合併」。CNOT 與其他操作之間的次序則會影響完整電路。
 
-我們另固定 seed42 的八個 weights，比較 once2 與 repeat2 的二維機率反應：
+本章另固定 seed42 的八個 weights，比較 once2 與 repeat2 的二維機率反應：
 
 ![Fixed-weight schedule probe](../../results/day22/schedule_probe.png)
 

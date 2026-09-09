@@ -1,5 +1,21 @@
 # Day 26｜沒有完美 Qubit：用 CUDA-Q 模擬 Quantum Noise
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day25](../day25/README.md) 將經典、量子與混合模型移到 Wine 資料集，在固定前處理與訓練預算下比較無噪聲模型的分類結果。Day26 接著在量子電路中加入明確的雜訊通道（noise channel），觀察量子態、量測分布與凍結模型的預測如何改變。
+
+這一章目標在於理解 **「量子雜訊如何影響模型，以及為何增加量測次數不能消除雜訊造成的偏移」**。理想電路描述的是沒有雜訊干擾的演化；加入雜訊後，需要用密度矩陣（density matrix）表示可能混合的量子狀態，再用雜訊通道描述狀態如何改變。本章從位元翻轉（bit flip）、相位翻轉（phase flip）與去極化（depolarizing）三種模型開始，將通道放在狀態準備完成後的指定量子位元上，方便追蹤單一雜訊來源的影響。學習重點是區分兩件事：雜訊通道改變了量測結果的理論分布，而有限量測次數（shots）使實際統計在該分布附近波動；增加 shots 能降低後者，卻不能還原無噪聲分布。同時，雜訊是否顯現在結果中，也取決於量測方式，例如相位翻轉可能在 Z 基底的計數中看不出差異，卻能透過 X 基底量測觀察到變化。實作以 NumPy 與 CPU 密度矩陣模擬核對精確結果，再以 GPU 的含雜訊軌跡抽樣觀察有限 shots 的波動。最後沿用 Day25 已訓練完成的 Wine VQC，固定權重與前處理，檢查加入雜訊後的預測：分類準確率可能維持不變，但衡量預測機率誤差的 Brier score 已經變差。完成本章後，應能分辨雜訊效應、抽樣誤差與評估指標各自代表的意義，並理解這是指定通道與位置下的模擬，尚不能直接代表真實量子硬體的完整表現。
+
+### English
+
+[Day25](../day25/README.md) transferred classical, quantum, and hybrid models to the Wine dataset and compared noiseless classification results under fixed preprocessing and training budgets. Day26 introduces explicit noise channels into quantum circuits to examine changes in quantum states, measurement distributions, and predictions from a frozen model.
+
+This chapter aims to explain **how quantum noise affects a model and why taking more measurements cannot remove a noise-induced shift**. Ideal circuits describe evolution without noise; density matrices represent potentially mixed quantum states, while noise channels describe how those states change. Three models—bit flip, phase flip, and depolarizing noise—are applied to a specified qubit after state preparation, making the effect of a single noise source easier to trace. The central distinction is between a channel changing the theoretical measurement distribution and a finite number of measurements, or shots, producing statistical fluctuations around that distribution. More shots reduce the fluctuations but do not restore the noiseless distribution. The measurement basis also matters: phase flips can leave Z-basis counts unchanged while producing visible changes in X-basis measurements. NumPy and CPU density-matrix simulation provide exact cross-checks, followed by GPU noisy-trajectory sampling to examine finite-shot fluctuations. Finally, the trained Wine VQC from Day25 retains its weights and preprocessing while noise is added: classification accuracy can remain unchanged even as the Brier score, which measures probability prediction error, worsens. The intended outcome is an understanding of noise effects, sampling error, and evaluation metrics, together with the limits of a simulation using specified channels and locations rather than a complete model of real quantum hardware.
+
+---
+
 Day25使用exact、無噪聲電路；今天加入bit flip、phase flip、depolarizing channel，分開比較**物理noise模型造成的分布改變**與**有限shots的抽樣波動**。
 
 程式：[noise.py](noise.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[tests](test_noise.py)、[plot_results.py](plot_results.py)。結果見[實測報告](../../results/day26/README.md)。沿用`.venv`，無新增套件。

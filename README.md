@@ -59,7 +59,7 @@ CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows
 | 10/11 | 27 | [CPU vs GPU Quantum Simulation](articles/day27/README.md) | 依序量測、fp64配對、first／warm latency與輸出核對 | ✅ |
 | 10/12 | 28 | [單 GPU 到 Multi-GPU](articles/day28/README.md) | 容量／延遲情境模型、mgpu／mqpu分工、環境探測與測試 | ✅ |
 | 10/13 | 29 | [Simulator → QPU](articles/day29/README.md) | CPU／IonQ本地emulation／noise、shots誤差與未提交工作規格 | ✅ |
-| 10/14 | 30 | [我還相信 Quantum Machine Learning 嗎？](articles/day30/README.md) | 保存預測／計時核算、證據總結與後續實驗規格 | ✅ |
+| 10/14 | 30 | [30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向](articles/day30/README.md) | 保存預測／計時核算、證據總結與後續實驗規格 | ✅ |
 
 ## 六個 Milestone
 

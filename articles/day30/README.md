@@ -1,6 +1,22 @@
-# Day 30｜寫了30天CUDA-Q與QML，我還相信QML嗎？
+# Day 30｜30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向
 
-**我仍願意研究QML，也更清楚自己需要什麼證據才會採用它。這30天完成了可訓練、可核對、可重現的工程流程；在本系列的資料與實驗條件下，我們還沒有證明量子優勢。**
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day29](../day29/README.md) 透過本地理想抽樣、硬體 target 預演與合成雜訊，核對小型電路的輸出，並整理尚未提交的 QPU 工作規格。Day30 將這些驗證連同前面各章的模型、資料與效能紀錄一起回顧，整理系列成果、結論的適用範圍，以及後續需要補足的實驗。
+
+這一章目標在於理解 **「如何把 30 天的實作整理成有依據、可回查的學習結論，並據此規劃下一步」**。完成量子電路與訓練程式之後，還需要確認每項結果回答了什麼問題，才能判斷下一輪實驗應該改進資料、模型還是執行方式。本章沿著量子基礎、CUDA-Q 電路、QML 建模與硬體執行準備，整理已建立的工程流程，並從保存的預測與計時資料重新計算指標，讓結論能追溯到原始紀錄。學習重點是分開解讀不同證據：模型比較需要檢查輸入資訊、資料切分與訓練預算；分類準確率之外，也要觀察衡量預測機率誤差的 Brier score；GPU 加快特定電路的模擬，不代表完整 QML 訓練已加速，也不等於量子方法優於經典方法。含雜訊模擬、多 GPU 假設模型與 QPU 本地預演，也各有不同的驗證範圍，不能合併當成真實硬體成果。本章的實作是核對既有資料與彙整證據，並未重跑全部歷史實驗。完成本章後，應能說明系列已建立哪些可訓練、可核對、可重現的能力，理解現有小型實驗尚不足以證明量子優勢，並將未解問題轉成具體的後續計畫：使用新的保留資料、設定公平對照、記錄完整成本，以及事先訂定結果的判讀標準。
+
+### English
+
+[Day29](../day29/README.md) checked a small circuit through local ideal sampling, hardware-target emulation, and synthetic noise, and prepared an unsubmitted QPU job specification. Day30 reviews those checks alongside the earlier model, data, and performance records to organize the series' outcomes, the scope of its conclusions, and the experiments still needed.
+
+This chapter aims to explain **how to turn 30 days of implementation into traceable, evidence-based learning conclusions and use them to plan the next steps**. After building circuits and training code, identifying the question each result answers helps determine whether the next experiment should improve the data, model, or execution method. The chapter reviews the engineering workflow from quantum fundamentals and CUDA-Q circuits to QML modeling and hardware preparation, recalculating metrics from saved predictions and timings so that conclusions remain connected to their records. The key is to interpret different types of evidence separately. Model comparisons require attention to input information, data splits, and training budgets; classification accuracy should be considered alongside the Brier score, which measures probability prediction error. Faster GPU simulation of a particular circuit establishes neither faster complete QML training nor an advantage of quantum methods over classical methods. Noisy simulation, multi-GPU scenario models, and local QPU emulation likewise have distinct validation scopes and do not collectively establish physical-hardware results. This chapter checks existing data and consolidates evidence rather than rerunning every historical experiment. The intended outcome is an understanding of the trainable, checkable, and reproducible workflow established by the series, why the small experiments do not establish quantum advantage, and how to turn open questions into plans using new held-out data, fair comparisons, complete cost records, and interpretation criteria defined in advance.
+
+---
+
+**本章整理30天CUDA-Q與QML實作的成果、適用範圍與後續實驗方向。系列已建立可訓練、可核對、可重現的工程流程；現有資料與實驗條件尚不足以證明量子優勢。**
 
 Day29以本地emulation走到硬體target的編譯與抽樣介面，但沒有提交physical QPU。今天把整個專案收束成一份可以回查的結論：哪些數字來自實測、哪些來自模型、哪些問題仍未回答。
 
@@ -40,7 +56,7 @@ VQC在這四個配對的Brier都比MLP高。Hybrid有兩個配對較低、兩個
 
 不同模型有不同參數量；相同objective evaluation預算也不等於相同更新步數、時間或充分收斂。因此這份對照支持「在這套固定協定下得到這些結果」，不能推出某個模型族已達最佳表現。
 
-Day25還保留看到全部13維特徵的logistic13：Wine2031的test Brier為0.032224。它是實用完整輸入baseline，與PCA2模型的輸入資訊不同，不能用來單獨歸因量子層效果。但它提醒我們：先問資料是否被降維丟掉，再問量子電路是否不夠深。
+Day25還保留看到全部13維特徵的logistic13：Wine2031的test Brier為0.032224。它是實用完整輸入baseline，與PCA2模型的輸入資訊不同，不能用來單獨歸因量子層效果。這項對照也說明，分析模型表現時，應先檢查降維是否丟失任務所需的資訊，再評估電路深度。
 
 ## 3. Quantum Kernel沒有免除公平比較的責任
 
@@ -50,7 +66,7 @@ Day23改用固定量子feature map與classical kernel ridge。它沒有訓練量
 
 這三者使用相同四維縮放輸入；Day20則是PCA2。即使來自Iris，也不能把跨日結果合併成隔離單一因素的比較。Ridge的clipped score也不是經校準的機率。
 
-我們完成的是兩種QML建模路徑：可訓練電路與固定量子kernel。兩條路都需要classical baseline、資料切分與完整成本紀錄。
+本系列完成兩種QML建模路徑：可訓練電路與固定量子kernel。兩條路都需要classical baseline、資料切分與完整成本紀錄。
 
 ## 4. GPU讓模擬變快，回答的是哪個問題？
 
@@ -60,9 +76,9 @@ Day27才依序量測相同電路、相同weights與fp64條件下的CPU／GPU war
 
 還有一個容易混淆的事實：**Day20／25共28次訓練都是NumPy CPU reference；這兩天的CUDA-Q training calls皆為0。** CUDA-Q CPU／GPU核對的是凍結模型的forward。不能拿NumPy fit time除以GPU inference time，稱為QML訓練加速。
 
-早期Day10確實執行了CUDA-Q optimization loop；兩件事並不衝突。我們需要逐個實驗說清楚training engine，而不是替整個repository貼一張「GPU訓練」標籤。
+早期Day10確實執行了CUDA-Q optimization loop；兩件事並不衝突。每個實驗都需要分別記錄training engine，才能正確解讀訓練與驗證的成本。
 
-## 5. Noise讓我重新看待Accuracy
+## 5. Noise下的Accuracy與機率誤差
 
 Day26對凍結Wine VQC的末端q0加入bit flip。Split2030在p=0時Brier約0.032404，p=.3時約0.124883；accuracy卻同為96.15%。[Day26報告](../../results/day26/README.md)
 
@@ -72,7 +88,7 @@ Day29用另一個可解析電路確認，更多shots會降低抽樣變異，卻�
 
 Day24也讓「梯度小」這句話更具體：需要一起看初始化、qubit數、depth與cost locality。那一天的768個初始化、1,536個單參數梯度是小規模診斷，沒有證明所有QNN的漸近trainability，更不能直接推論分類準確率。[Day24報告](../../results/day24/README.md)
 
-## 6. 我們還沒有跨過的硬體邊界
+## 6. 硬體驗證的範圍與待補證據
 
 | 問題 | 本系列證據 | 尚缺的證據 |
 |---|---|---|
@@ -126,13 +142,13 @@ python3 -m unittest discover -s articles/day30 -p 'test_*.py'
 
 如果QML沒有達到事先定義的實用品質或成本條件，就保留較簡單的classical方案。若在充分對照後出現可重複差異，再投入更大的模擬或硬體預算。這是一個能被結果改變的決策流程。
 
-## 9. 回答第一天的問題
+## 9. 系列成果與後續延伸
 
 從AI Engineer走到QML，不只是學一套gate語法。真正花時間的是把資料、數值、量測、optimizer與執行成本放在同一份可檢查的紀錄裡。
 
-我仍然相信這段學習值得做：它讓我能寫出量子模型，也能指出自己的證據在哪裡停止。至於QML是否值得放進某個實際系統，答案要由那個任務的完整對照實驗決定。
+本系列累積了量子模型實作、數值驗證、比較實驗與成本紀錄，並標示各項結果的適用範圍。後續若要評估QML在特定系統中的用途，仍需依任務需求設計完整的品質與成本對照。
 
-30天的終點，是一個可以繼續被驗證、修正，甚至被否定的專案。
+這些程式、資料與實驗紀錄，構成後續擴充資料集、比較模型與進行硬體驗證的基礎。
 
 ## 來源與閱讀入口
 

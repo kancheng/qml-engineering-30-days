@@ -1,5 +1,21 @@
 # Day 25｜第二個真實資料集：Wine Benchmark
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day24](../day24/README.md) 比較不同電路規模、目標與初始化下的梯度分布，釐清小梯度與 Barren Plateau 的診斷條件。Day25 接著回到分類任務，將既有的經典、量子與混合模型移到 Wine 資料集，檢查相同工程流程面對更多特徵與不同類別比例時的表現。
+
+這一章目標在於理解 **「在另一個真實資料集重用 QML 流程時，哪些設定需要重新擬合，哪些比較條件應維持一致」**，避免把 Iris 的結果當成所有任務都適用的結論。本章使用 UCI Wine 中兩個栽培品種的 119 筆資料，以十三個化學特徵進行二分類，並非葡萄酒品質預測。MLP、VQC 與 Hybrid 共用只從訓練資料擬合的標準化與 PCA（主成分分析），將十三維轉成兩維；另加入直接使用完整十三維的經典模型，觀察壓縮表示與完整輸入的差距。重點是完整輸入模型取得的資訊不同，不能將比較差異全部歸因於量子層。各模型使用相同損失評估預算，以 validation 選擇初始化結果，再用 test 評分；類別比例不同，也需要依訓練標籤平均值建立常數對照。實作先在 NumPy CPU 完成訓練，再以 CUDA-Q CPU／GPU 核對凍結權重後的輸出。讀完本章，應能說明資料來源、前處理、選模與成本紀錄如何支撐可重現比較，並理解小型 test 的準確率差異不代表穩定優勢，這次實驗也沒有驗證 GPU 訓練加速或解決 Barren Plateau。
+
+### English
+
+[Day24](../day24/README.md) compared gradient distributions across circuit sizes, objectives, and initializations, clarifying the evidence needed to diagnose small gradients and barren plateaus. Day25 returns to classification, transferring the existing classical, quantum, and hybrid models to Wine to examine the workflow with more features and different class proportions.
+
+This chapter aims to explain **which settings must be refitted and which comparison conditions should remain consistent when reusing a QML workflow on another real dataset**, avoiding conclusions that treat Iris results as universal. The task uses 119 records from two UCI Wine cultivars and thirteen chemical features for binary classification, rather than wine-quality prediction. The MLP, VQC, and hybrid model share training-only standardization and principal component analysis (PCA), reducing thirteen features to two. A classical model using all thirteen features provides a comparison between compressed representations and full inputs. Because this model receives different information, performance differences cannot be attributed entirely to the quantum layer. Models receive the same loss-evaluation budget, validation selects initialization results, and test scoring follows selection. A constant predictor uses the mean training label to account for the class proportions. Training runs on the NumPy CPU, followed by CUDA-Q CPU/GPU verification with frozen weights. The learning goal is to explain how data provenance, preprocessing, selection, and cost records support reproducible comparisons, recognize that accuracy differences on a small test set do not establish a stable advantage, and distinguish this experiment from GPU training acceleration or barren-plateau mitigation.
+
+---
+
 今天把前面建立的Classical、VQC、Hybrid流程移到另一個資料集。**使用UCI Wine的cultivar2／3二分類、13個原始特徵；不是完整三分類，也不是Wine Quality的品質預測。**
 
 交付：[wine_models.py](wine_models.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[圖表／報告產生器](plot_results.py)、[tests](test_wine.py)、[第二份Benchmark Report](../../results/day25/README.md)。沿用獨立`.venv`，不新增套件。

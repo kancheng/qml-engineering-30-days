@@ -1,8 +1,24 @@
 # Day 29｜Simulator → QPU：換 Backend 之後，還有哪些工程工作？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day28](../day28/README.md) 區分分散單一狀態向量與平行執行獨立任務，並以容量與延遲模型探討增加 GPU 的可能效益與限制。Day29 接著從本地模擬走向真實量子處理器（QPU）的執行流程，說明除了切換 backend，還需要準備哪些驗證與工作紀錄。
+
+這一章目標在於理解 **「量子電路從模擬器移到 QPU 時，如何確認結果可解讀、工作可追蹤，以及量測預算可掌握」**。在本地模擬中，一次函式呼叫就能取得結果；遠端執行則還涉及裝置選擇、編譯、排隊、有限量測次數（shots）與結果回收，因此相同的程式介面不代表相同的執行條件。本章先用具有解析答案的兩量子位元小電路，依序完成 CPU 理想抽樣、IonQ target 的本地無噪聲預演，以及加入指定雜訊的抽樣，讓預期結果可以逐項核對。學習重點包含確認回傳位元字串與量子位元的對應、將量測次數統計（counts）換成期望值，以及用統計區間表達有限 shots 帶來的不確定性；增加 shots 能降低抽樣變異，卻不能消除雜訊造成的偏差。接著將一次電路求值展開成包含參數、量測基底與總 shots 的工作規格，並說明遠端工作識別碼、狀態與裝置資訊為何需要保存，才能追蹤結果並判斷失敗後是否需要重送。計時也必須區分整體等待、排隊與硬體執行，不能把取得結果前的等待都當成 QPU 計算時間。本章完成的是本地預演與尚未提交的工作規格，沒有真實 QPU 實測。完成本章後，應能分辨本地驗證與硬體執行證據，並理解將 QML 實驗移到遠端裝置前，需要明確定義輸出格式、量測預算與結果追蹤方式。
+
+### English
+
+[Day28](../day28/README.md) distinguished distributing one statevector from running independent tasks in parallel, using capacity and latency models to explore the potential benefits and limits of additional GPUs. Day29 moves from local simulation toward execution on a physical quantum processing unit (QPU), explaining the validation and records needed beyond switching the backend.
+
+This chapter aims to explain **how to keep results interpretable, jobs traceable, and measurement budgets explicit when moving a quantum circuit from a simulator to a QPU**. A local function call returns a result, while remote execution also involves device selection, compilation, queues, finite measurement counts (shots), and result retrieval. The same programming interface therefore does not imply the same execution conditions. A two-qubit circuit with analytical answers provides a small, checkable example for CPU ideal sampling, noiseless local emulation of the IonQ target, and sampling with a specified noise channel. Key steps include checking how returned bitstrings map to qubits, converting counts into expectation values, and expressing finite-shot uncertainty with statistical intervals. More shots reduce sampling variance but do not remove noise-induced bias. A circuit evaluation is then expanded into a job specification containing parameters, measurement bases, and a total shot budget. Saving remote job identifiers, statuses, and device information supports result tracking and decisions about resubmission after failures. Timing must also distinguish total waiting, queueing, and hardware execution rather than treating the entire wait as QPU computation. The chapter delivers a local rehearsal and an unsubmitted job specification, with no physical-QPU measurements. The intended outcome is an understanding of the difference between local validation and hardware execution evidence, and of the output formats, measurement budgets, and tracking needed before moving QML experiments to a remote device.
+
+---
+
 Day28把「單一statevector分散」與「獨立任務平行」分開。今天再往外走一步：本地simulator回傳一個數字，到了遠端QPU，就成為有shots、排隊、裝置條件與結果追蹤的工作。
 
-我們延續Day08的RY＋CNOT狀態準備、Day26的noise位置標記，完成 **CPU理想抽樣 → IonQ本地emulation → 合成noise抽樣** 的可重現預演。本文沒有真實QPU實測，也沒有提交雲端simulator工作。成果是通過驗證的本地程式與一份可檢視的待提交規格。
+本章延續Day08的RY＋CNOT狀態準備、Day26的noise位置標記，完成 **CPU理想抽樣 → IonQ本地emulation → 合成noise抽樣** 的可重現預演。本文沒有真實QPU實測，也沒有提交雲端simulator工作。成果是通過驗證的本地程式與一份可檢視的待提交規格。
 
 程式：[execution.py](execution.py)、[experiment.py](experiment.py)、[run_all.py](run_all.py)、[報告與資料核對](report.py)、[測試](test_execution.py)。完整[結果報告](../../results/day29/README.md)。
 

@@ -1,5 +1,21 @@
 # Day 27｜CPU vs GPU Quantum Simulation
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day26](../day26/README.md) 加入量子雜訊通道，區分雜訊造成的量測分布改變與有限 shots 的抽樣波動，並觀察凍結模型的預測如何受到影響。Day27 將焦點轉向執行效率，回到無噪聲的狀態向量模擬，在固定任務與數值條件下比較 CPU 與 GPU 的耗時。
+
+這一章目標在於理解 **「如何公平比較 CPU 與 GPU 的量子模擬效能，以及測得的時間能說明什麼」**。QML 實驗需要反覆執行量子電路，因此了解單次電路求值的成本，有助於規劃後續實驗的規模與運算資源。本章固定電路、參數與量測目標，直接由狀態向量計算期望值，不使用有限 shots 抽樣；這裡的精確求值仍受浮點數精度限制。主要比較採用 CPU 與 GPU 的雙精度（fp64），另將 GPU 單精度（fp32）列為補充，避免把精度差異混入硬體比較。計時涵蓋從主機端發出呼叫到取得結果的整段等待時間，因此包含呼叫與執行環境的成本。首次呼叫與暖機後的時間分開記錄，再以多次量測的中位數及分散程度描述表現，並先確認計算結果一致，才解讀速度比。學習重點是理解 GPU 的平行運算能力需要足夠工作量才能發揮：小電路可能主要受固定呼叫成本影響，不能預設 GPU 一定較快；量子位元增加時，狀態向量的記憶體需求又會以 2^n 成長。完成本章後，應能閱讀效能報告中的計時範圍、精度與硬體條件，並理解結果僅適用於本次設定的單次電路求值，不能直接推論完整 QML 訓練、含雜訊模擬或真實量子處理器的速度。
+
+### English
+
+[Day26](../day26/README.md) introduced quantum noise channels, distinguished changes in measurement distributions from finite-shot sampling fluctuations, and examined their effects on a frozen model's predictions. Day27 shifts to execution efficiency, returning to noiseless statevector simulation to compare CPU and GPU latency under fixed tasks and numerical conditions.
+
+This chapter aims to explain **how to compare CPU and GPU quantum simulation performance fairly and what the measured times actually mean**. QML experiments repeatedly evaluate quantum circuits, so understanding the cost of one evaluation helps with planning experiment sizes and computing resources. The circuit, parameters, and observable remain fixed, and expectation values are calculated directly from the statevector without finite-shot sampling; this exact evaluation still has floating-point limitations. The main comparison uses double precision (fp64) on both CPU and GPU, with GPU single precision (fp32) reported separately. Timing covers the wait from the host call to the available result, including call and runtime overhead. First-call latency is recorded separately from measurements after warmup, and repeated measurements are described through their median and spread. Numerical agreement is checked before interpreting speed ratios. The key lesson is that GPU parallelism needs sufficient work: fixed overhead can dominate small circuits, so a GPU is not automatically faster. Meanwhile, statevector memory requirements grow as 2^n with the number of qubits. The intended outcome is an ability to interpret timing boundaries, precision, and hardware conditions in a benchmark report, while recognizing that these circuit-evaluation results do not directly establish the speed of complete QML training, noisy simulation, or real quantum processors.
+
+---
+
 前幾天的CPU／GPU主要用於結果核對。今天正式測量同一電路的host-visible latency，區分首次呼叫、暖機與精度。**這是exact statevector inference benchmark，不是QML訓練、QPU或Day26 noisy trajectory效能比較。**
 
 程式：[benchmark.py](benchmark.py)、[run_all.py](run_all.py)、[plot_results.py](plot_results.py)、[結果核對](audit_results.py)。數值與圖表見[實測報告](../../results/day27/README.md)。沿用`.venv`，不新增套件。

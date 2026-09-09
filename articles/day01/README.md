@@ -101,7 +101,7 @@ AI Engineer 已熟悉 Dataset、Tensor、Model、Optimizer、GPU 與 Benchmark�
 
 CUDA-Q 是主要工程工具，負責 Quantum Kernel、Sampling、Expectation Value、Variational Algorithm、Noise Simulation、GPU Simulation 與 QPU Backend；PennyLane、Qiskit 只在比較生態或驗證概念時輔助。
 
-系列主題是 **QML Engineering**，不是 CUDA-Q API 大全。
+因為系列主題是 QML Engineering，而非 CUDA-Q API 大全。
 
 ### 兩台設備如何分工？
 

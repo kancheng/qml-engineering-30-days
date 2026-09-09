@@ -1,6 +1,22 @@
 # Day 24｜Barren Plateau：為什麼 QNN 學不動？
 
-[Day17](../day17/README.md) 確認gradient怎麼算；今天問另一件事：**計算正確的gradient，是否仍小到難以估計或更新？** 我們比較qubit數、電路block數、cost locality與initialization，不執行分類器訓練。
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day23](../day23/README.md) 固定量子資料編碼，以樣本間的量子態相似度建立 kernel matrix，再交由經典方法求解分類模型。Day24 回到需要更新電路權重的 QNN，探討即使梯度計算正確，是否仍可能因數值太小而難以估計或用於更新。
+
+這一章目標在於理解 **「梯度很小可能代表什麼，以及需要哪些證據才能討論 Barren Plateau（貧瘠高原）」**，為排查 QML 訓練停滯建立依據。Barren Plateau 關注的是在特定電路與初始化分布下，梯度集中於零附近，且變異數可隨量子位元數呈指數下降；單次梯度為零或一條平坦的 loss 曲線，仍不足以確認這種現象。本章固定觀察同一個旋轉參數，改變量子位元數、電路區塊數與初始化方式，並比較只讀取一個量子位元的 local cost（局部目標）和涉及全部量子位元的 global cost（全域目標）。實作先用獨立矩陣導數與參數位移法核對梯度，再跨多個初始化觀察分布，另加入可直接推導的簡單電路作對照。重點是梯度大小也受目標定義、參數位置與初始化影響，換成局部目標或小角度初始化不保證解決原任務。讀完本章，應能分辨梯度計算錯誤、特定位置的零梯度與跨初始化的梯度集中，理解為什麼小梯度可能需要更多 shots 才能辨認，也知道本章是小規模理想模擬器診斷，尚未驗證改善策略的分類成效。
+
+### English
+
+[Day23](../day23/README.md) used a fixed quantum encoding to construct a kernel matrix from state similarities, then solved the classification model classically. Day24 returns to QNNs with trainable circuit weights and asks whether correctly computed gradients can nevertheless be too small to estimate or use effectively for updates.
+
+This chapter aims to explain **what small gradients can indicate and what evidence is needed to discuss barren plateaus**, establishing a basis for investigating stalled QML training. Barren-plateau research concerns gradients concentrating near zero under specified circuits and initialization distributions, with variance that can decrease exponentially with qubit count. A single zero gradient or flat loss curve is insufficient to establish this behavior. The chapter tracks the same rotation parameter while varying qubit count, circuit-block count, and initialization, comparing a local objective involving one qubit with a global objective involving all qubits. Independent matrix derivatives and parameter-shift check gradient correctness before distributions across initializations are examined. A simple circuit with analytically derivable gradients provides an additional control. Gradient magnitude also depends on the objective, parameter location, and initialization; choosing a local objective or small initial angles does not guarantee that the original task becomes easier. The learning goal is to distinguish calculation errors, zero gradients at particular points, and concentration across initializations; understand why resolving small gradients may require more shots; and recognize that this small-scale ideal-simulator diagnostic does not establish the classification performance of a mitigation strategy.
+
+---
+
+[Day17](../day17/README.md) 確認gradient怎麼算；今天問另一件事：**計算正確的gradient，是否仍小到難以估計或更新？** 本章比較qubit數、電路block數、cost locality與initialization，不執行分類器訓練。
 
 交付：[landscape.py](landscape.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[plot_results.py](plot_results.py)、[測試](test_landscape.py)、[實測報告](../../results/day24/README.md)。沿用獨立`.venv`與既有套件。
 

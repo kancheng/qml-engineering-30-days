@@ -1,5 +1,21 @@
 # Day 28｜從單 GPU 到 Multi-GPU
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day27](../day27/README.md) 在相同電路、參數與精度條件下比較 CPU 與單張 GPU 的量子模擬延遲，並區分首次呼叫與暖機後的時間。Day28 延續單 GPU 的實測基準，探討增加 GPU 時，如何分別擴充單一電路的容量與多個任務的處理能力。
+
+這一章目標在於理解 **「多張 GPU 應該如何分工，以及為何增加硬體不等於等比例加速」**。QML 實驗可能遇到兩種不同需求：單一電路的量子態太大，無法放進一張 GPU 的記憶體；或是需要執行大量彼此獨立的電路，例如不同輸入與計算梯度所需的參數位移。本章先區分兩種做法：`mgpu` 將單一狀態向量分散儲存與運算，`mqpu` 則把獨立任務派送到不同 GPU，每個任務仍需容納完整狀態向量。這個區分決定了增加資源是在解決容量問題，還是在提高每秒完成的任務數。由於 n 個量子位元需要 2^n 個複數振幅，理想情況下，即使總記憶體加倍，單一狀態向量也只多容納一個量子位元；實際容量還要扣除執行環境與通訊等額外空間。接著以 Day27 的單 GPU 時間建立簡化模型，調整無法平行化的工作比例與通訊成本，觀察相同工作量下的延遲如何變化，理解多卡效益可能被協調成本抵消。本章沒有多 GPU 實測，模型中的數字代表假設情境，不能視為硬體加速的證據。完成本章後，應能依任務選擇分工方式，分辨容量估算、效能模型與實測結果，並理解後續驗證需要固定工作量、核對計算結果，以及量測所有工作真正完成所需的時間。
+
+### English
+
+[Day27](../day27/README.md) compared CPU and single-GPU quantum simulation latency using the same circuit, parameters, and precision, separating first-call timing from measurements after warmup. Day28 builds on the single-GPU baseline to explore how additional GPUs can expand the capacity of one circuit or the processing capacity for multiple tasks.
+
+This chapter aims to explain **how multiple GPUs should share work and why adding hardware does not imply proportional speedup**. QML experiments can face two distinct needs: a quantum state too large for one GPU's memory, or many independent circuit evaluations, such as different inputs and parameter shifts for gradient calculations. The chapter distinguishes `mgpu`, which distributes one statevector across GPUs, from `mqpu`, which assigns independent tasks to different GPUs while each task still requires a complete statevector. This distinction determines whether additional resources address memory capacity or increase the number of tasks completed per second. Since n qubits require 2^n complex amplitudes, doubling total memory ideally accommodates only one additional qubit in a single statevector; runtime and communication allocations further constrain actual capacity. A simplified model then uses Day27's single-GPU timing to explore how serial work and communication costs affect latency for a fixed workload, showing how coordination overhead can offset the benefits of more GPUs. No multi-GPU measurements were performed: the model's numbers describe assumed scenarios rather than evidence of hardware speedup. The intended outcome is an ability to choose a suitable work distribution, distinguish capacity estimates and performance models from measurements, and understand that validation requires fixed workloads, numerical checks, and timing through the completion of all work.
+
+---
+
 Day27量測了相同電路在CPU與單GPU的延遲。下一個問題是：加第二張GPU，能跑更大的電路，還是讓更多電路同時完成？這兩個目標需要不同的工作分配。
 
 本日採用Roadmap允許的 **reproducible scaling model**：延續Day27單GPU實測，建立容量與延遲敏感度分析。已知設備紀錄是RTX3060 Laptop 6GiB；本日沙箱的driver探測失敗，也沒有找到`mpiexec`。**沒有multi-GPU實測，沒有宣稱多卡speedup。**
@@ -38,7 +54,7 @@ bytes_per_gpu = complex_bytes × 2^n / P
 n_max = floor(log2(P × memory_bytes_per_gpu × usable_fraction / complex_bytes))
 ```
 
-這是我們的儲存模型，不是backend容量測試。假設每卡6GiB且100%可用，fp64的1／2／4／8卡單buffer上限為28／29／30／31qubits；改成fp32各加一個qubit。程式同時產生75%可用比例的情境。75%沒有經過量測，也不能保證足以容納workspace。
+這是本章的儲存模型，不是backend容量測試。假設每卡6GiB且100%可用，fp64的1／2／4／8卡單buffer上限為28／29／30／31qubits；改成fp32各加一個qubit。程式同時產生75%可用比例的情境。75%沒有經過量測，也不能保證足以容納workspace。
 
 真實配置還要計入runtime、通訊buffer、額外state、其他程序與分割規則。`mqpu`的兩張卡各自跑一個電路，不能直接把兩張VRAM相加當成單一任務容量。density matrix的4^n entries也不適用本日statevector公式。
 
@@ -58,7 +74,7 @@ s是無法平行化的比例；c是每log2(P)級額外通訊／協調成本相�
 
 ![模型敏感度](../../results/day28/scaling.png)
 
-這是strong-scaling情境：n與blocks固定。增加GPU同時增加qubits則改變工作量，不能套用同一個T1，更不能拿本日曲線當weak-scaling實測。單GPU的一個時間點無法識別序列比例、互連頻寬或延遲；我們沒有估計它們。
+這是strong-scaling情境：n與blocks固定。增加GPU同時增加qubits則改變工作量，不能套用同一個T1，更不能拿本日曲線當weak-scaling實測。單GPU的一個時間點無法識別序列比例、互連頻寬或延遲；本章未估計這些參數。
 
 ## 4. CUDA-Q介面與版本邊界
 
