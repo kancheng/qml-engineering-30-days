@@ -1,5 +1,21 @@
 # Day 17｜QML 怎麼 Backprop？Gradient 從哪裡來？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day16](../day16/README.md) 比較 QNN 與 MLP 的參數、運算與讀出，釐清量子閘對狀態的線性作用，如何與模型輸出的非線性並存。Day17 接著探討如何計算參數變動對輸出與損失的影響，讓最佳化器能利用梯度調整權重。
+
+這一章目標在於理解 **「量子電路的梯度從哪裡來，以及如何把電路輸出的導數接到完整的訓練損失」**，為使用梯度的 QML 訓練建立基礎。Gradient（梯度）描述各個權重微小改變時，目標數值如何變化，可用來決定更新方向。本章先用 central finite difference（中央有限差分）比較權重增加與減少一小段距離後的輸出，理解近似步長與數值誤差的取捨；再實作 parameter-shift（參數位移法），對本章每個只控制一次 RY 的獨立權重，利用正負 π/2 位移後的兩次電路輸出求導。重點是位移公式有適用條件，不能直接套到任意共享權重或整個 loss；電路期望值的導數仍須透過 chain rule（鏈式法則），接上機率轉換與 Brier loss。本章以獨立矩陣導數核對結果，執行短程梯度下降，並觀察有限 shots 如何使梯度估計產生波動。讀完本章，應能區分輸出導數與損失梯度，說明有限差分與參數位移法的差別，並理解取得梯度需要額外電路評估，解析公式成立也不代表有限抽樣沒有誤差。
+
+### English
+
+[Day16](../day16/README.md) compared QNN and MLP parameters, computation, and readout, clarifying how linear gate action on states can coexist with nonlinear model outputs. Day17 examines how parameter changes affect outputs and loss, enabling an optimizer to use gradients for weight updates.
+
+This chapter aims to explain **where quantum-circuit gradients come from and how output derivatives connect to the full training loss**, establishing a foundation for gradient-based QML training. A gradient describes how a target quantity changes under small changes to each weight and can guide the update direction. The chapter first uses central finite differences to compare outputs at slightly increased and decreased weights, examining the tradeoff between approximation step size and numerical error. It then implements parameter-shift: for each independent weight controlling a single RY gate in this model, two circuit evaluations at shifts of plus and minus π/2 provide the output derivative. The shift rule has specific conditions and cannot be applied directly to arbitrary shared weights or the entire loss. Expectation derivatives must still pass through the chain rule for the probability conversion and Brier loss. Independent matrix derivatives check the results, a short gradient-descent run tests integration, and finite-shot experiments illustrate fluctuations in gradient estimates. The learning goal is to distinguish output derivatives from loss gradients, explain the difference between finite differences and parameter-shift, and recognize both the additional circuit evaluations required and the sampling error that remains even when an analytic shift identity holds.
+
+---
+
 Day 15 用不需要梯度的座標搜尋，Day 16 比較 QNN 與 MLP。今天實作 **parameter-shift、central finite difference、獨立矩陣導數與 loss chain rule**，再跑四次 gradient descent 更新。
 
 程式：[gradients.py](gradients.py)、[experiment.py](experiment.py)、[demo.py](demo.py)。沿用 Day 14 的獨立 RY weights；沒有 PyTorch autograd 或 QPU 執行。

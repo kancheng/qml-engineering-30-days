@@ -1,5 +1,21 @@
 # Day 20｜Iris：Classical vs Quantum vs Hybrid
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day19](../day19/README.md) 將經典編碼層、量子層與經典輸出層串接成混合模型，核對完整梯度並確認三組參數能共同更新。Day20 接著把這個模型與既有的經典、量子模型放到 Iris 資料上，透過共同的前處理、訓練預算與評分規則，比較實際分類結果。
+
+這一章目標在於理解 **「從小型合成示範轉向真實資料時，如何建立可重現且能追查比較條件的 QML 實驗」**。本章選取 Iris 的兩個花種作二分類，將四個原始特徵先標準化，再用 PCA（主成分分析）轉成兩個綜合特徵，讓 MLP、VQC 與 Hybrid 都收到相同的二維輸入。這些轉換規則只從 train 學得；validation 用來選擇各模型的初始化結果，test 則在選定模型後評分。三種模型共用 Brier loss 與固定評估次數的座標搜尋，因此本章沒有沿用 Day19 的梯度下降。另一個核心重點是分清楚訓練與驗證：全部訓練先在 NumPy CPU 完成，其中量子部分使用精確狀態向量模擬；保存權重後，才以 CUDA-Q CPU／GPU 核對含量子層模型的輸出。讀完本章，應能說明資料切分、降維、模型選擇與基準比較各自的用途，理解不同 split 與初始化可能影響結果，並知道這份受限的二分類報告既不是完整 Iris 三分類排名，也不能用來宣稱 GPU 訓練加速或量子優勢。
+
+### English
+
+[Day19](../day19/README.md) connected a classical encoder, quantum layer, and classical output head, checking the full gradient and confirming that all three parameter groups could update jointly. Day20 compares this hybrid model with the existing classical and quantum models on Iris, using shared preprocessing, training budgets, and evaluation rules.
+
+This chapter aims to explain **how to move from small synthetic demonstrations to a reproducible QML experiment on real data with traceable comparison conditions**. Two Iris species form a binary classification task. The four original features are standardized and reduced to two components through principal component analysis (PCA), giving the MLP, VQC, and hybrid model the same two-dimensional inputs. All preprocessing is fitted on training data only. Validation selects an initialization result within each model family, and test scoring follows model selection. The models share Brier loss and coordinate search with a fixed evaluation budget, rather than reusing Day19's gradient descent. Another central distinction is between training and verification: all training runs on the NumPy CPU, with exact state-vector simulation for the quantum components. After weights are saved, CUDA-Q CPU/GPU execution checks the outputs of models containing quantum layers. The learning goal is to explain the roles of data splits, dimensionality reduction, model selection, and baselines; understand how splits and initialization affect results; and recognize that this restricted binary report is neither a full three-class Iris ranking nor evidence of GPU training acceleration or quantum advantage.
+
+---
+
 今天把 Day 18 的比較流程與 Day 19 的 hybrid model 放到 Iris。**本日是 versicolor／virginica 二分類、四個原始特徵經 train-only PCA2 的受限 benchmark，不是完整三分類 Iris 排行榜。**
 
 程式：[iris_models.py](iris_models.py)、[experiment.py](experiment.py)、[demo.py](demo.py)、[plot_results.py](plot_results.py)。所有訓練先在 NumPy CPU 的精確 reference 完成，再用 CUDA-Q CPU／GPU 核對選定模型；這兩個階段的時間與作用分開保存。

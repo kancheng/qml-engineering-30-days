@@ -1,5 +1,21 @@
 # Day 21｜Qubit 不夠、Feature 太多怎麼辦？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day20](../day20/README.md) 將 Iris 的四個原始特徵經 PCA 轉成兩個主成分，再比較經典、量子與混合模型的二分類結果。Day21 接著檢查這個降維選擇，固定兩個量子位元與量子讀出，觀察不同的四維到二維表示如何影響分類與資訊保留。
+
+這一章目標在於理解 **「當輸入特徵比目前電路接受的角度數更多時，如何選擇資料表示，並辨認壓縮的代價」**。本章比較三種方法：PCA（主成分分析）將四個特徵線性組合成兩個高變異方向；feature selection（特徵選擇）依訓練資料與標籤的關係保留兩個原始欄位；learned bottleneck（可訓練的壓縮層）則將四維輸入轉成兩個數值，並與量子電路權重一起依分類 loss 更新。重點是三種方法保留資訊的依據不同：高變異不保證有助分類，單欄排序可能漏掉特徵間的聯合作用，可訓練壓縮則增加參數與搜尋成本。本章另加入使用完整四維輸入的經典模型作對照，避免把所有比較都限制在同一份壓縮資料上。實作沿用 Day20 的資料切分，全部訓練先在 NumPy CPU 完成，再以 CUDA-Q CPU／GPU 核對保存模型的輸出。讀完本章，應能說明特徵數與量子位元數並非固定的一對一關係，理解降維造成的資訊損失不會因接上量子電路而自動恢復，並分清楚資料表示、模型容量與訓練預算對比較結果的影響。
+
+### English
+
+[Day20](../day20/README.md) reduced Iris's four original features to two principal components and compared classical, quantum, and hybrid models on a binary classification task. Day21 examines that reduction choice, keeping two qubits and the quantum readout fixed while exploring how different four-to-two-dimensional representations affect classification and information retention.
+
+This chapter aims to explain **how to choose a data representation when the input has more features than the current circuit accepts as encoding angles, and how to recognize the costs of compression**. Three approaches are compared. Principal component analysis (PCA) combines the four features into two high-variance directions. Feature selection retains two original columns based on their relationship with training labels. A learned bottleneck maps four inputs to two values and updates its parameters jointly with the quantum circuit using classification loss. Each approach prioritizes information differently: high variance does not guarantee useful class information, single-feature ranking can miss joint effects, and a trainable bottleneck adds parameters and search cost. A classical model using all four features provides an additional comparison beyond compressed inputs. The implementation reuses Day20's data splits, trains entirely on the NumPy CPU, and then verifies saved model outputs with CUDA-Q CPU/GPU execution. The learning goal is to explain why feature count and qubit count need not have a fixed one-to-one relationship, recognize that a downstream quantum circuit cannot automatically recover discarded information, and distinguish the effects of representation, model capacity, and training budget on the results.
+
+---
+
 [Day20](../day20/README.md) 把四維 Iris 壓到兩個 PCs，再送入兩個 qubit。今天把這個決定拆開實驗：**固定兩個 qubit，改變四維到二維的表示方法，觀察分類、資訊損失與訓練成本。**
 
 交付：[表示與模型](reduction.py)、[訓練／驗證](experiment.py)、[單筆推論](demo.py)、[圖表／報告產生器](plot_results.py)、[測試](test_reduction.py)、[實測結果](../../results/day21/README.md)。沿用獨立 `.venv` 與本機 Iris 資料，不增加套件。

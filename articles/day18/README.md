@@ -1,5 +1,21 @@
 # Day 18｜Classical ML vs QML：第一次公平 Benchmark
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day17](../day17/README.md) 實作有限差分、參數位移法與損失函數的鏈式法則，核對梯度並記錄額外電路評估的成本。Day18 接著把重點轉向模型比較，透過預先固定的資料、評分與訓練預算，檢查 Classical ML 與 QML 在同一任務下的表現。
+
+這一章目標在於理解 **「比較模型之前需要固定哪些條件，以及結果能支持多大的結論」**，建立判讀 QML 實驗的基本方法。本章以新的小型 XOR 資料切分，比較 logistic 模型、MLP（多層感知器）與 VQC（變分量子分類器），另加入固定輸出訓練標籤平均值的常數對照。三種可訓練模型共用只由 train 擬合的縮放規則、Brier loss 與不需梯度的座標搜尋，因此本章沒有使用 Day17 的參數位移法。每次訓練固定為 109 次 objective evaluations（完整訓練損失評估），避免相同迴圈次數卻給予不同模型不同的候選比較預算；但相同評估次數仍不代表相同執行時間或充分訓練。Validation 只負責在各模型的兩個初始化結果中選擇最終版本，test 則在選定後評分。讀完本章，應能說明資料切分、共同目標、評估預算與基準模型的用途，理解為什麼要同時保存準確率、機率誤差與成本，並知道線性模型在 XOR 表現較差、或單次實驗中某個模型較好，都不足以判定整個模型家族的優劣或量子優勢。
+
+### English
+
+[Day17](../day17/README.md) implemented finite differences, parameter-shift, and the loss chain rule, checking gradients and recording the cost of additional circuit evaluations. Day18 turns to model comparison, using predefined data, evaluation rules, and training budgets to examine classical ML and QML on the same task.
+
+This chapter aims to explain **which conditions must be fixed before comparing models and how far the resulting conclusions can extend**, establishing a foundation for interpreting QML experiments. A new, small XOR split is used to compare a logistic model, a multilayer perceptron (MLP), and a variational quantum classifier (VQC), alongside a constant predictor based on the mean training label. All three trainable models share training-only scaling, Brier loss, and derivative-free coordinate search, so Day17's parameter-shift method is not used here. Each fit receives 109 objective evaluations—evaluations of the full training loss—to avoid allocating different candidate-comparison budgets through equal loop counts. Equal evaluation counts still do not imply equal execution time or sufficient training. Validation selects between the final models from two initializations within each model family; test scoring follows selection. The learning goal is to explain the roles of data splits, a common objective, evaluation budgets, and baselines; understand why accuracy, probability error, and cost should all be recorded; and recognize that a linear model struggling with XOR, or one model performing better in a single experiment, cannot establish model-family superiority or quantum advantage.
+
+---
+
 今天把 Day 16 的 MLP 與 Day 14 的 VQC 放在同一個比較協定下，加入 logistic baseline，實際訓練後再評分。**公平在本文指比較條件公開且一致，不代表一個 optimizer、單一 split 就能判定模型家族優劣。**
 
 程式：[benchmark.py](benchmark.py)、[plot_results.py](plot_results.py)。本日採用共同 Brier objective 的控制實驗，所有差異與成本都保留。

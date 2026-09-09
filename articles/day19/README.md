@@ -1,5 +1,21 @@
 # Day 19｜Hybrid Neural Network：Classical＋Quantum＋Classical
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day18](../day18/README.md) 在固定資料、損失函數與評估預算下，比較 Classical ML 與 QML，釐清公平比較的條件與結論限制。Day19 接著將經典層與量子層串接成單一模型，檢查誤差如何傳回各部分，讓三組參數共同更新。
+
+這一章目標在於理解 **「量子電路放在神經網路中間時，前後的經典層如何一起學習」**，為建立 Hybrid Neural Network（混合神經網路）打下基礎。本章先用 classical encoder（經典編碼層）把兩個輸入特徵轉成電路角度，再由 quantum layer（量子層）計算 `ZZ` 期望值，最後透過 classical head（經典輸出層）產生介於 0 與 1 的分數。與固定編碼不同，這裡產生角度的權重也會接受訓練，整個模型共有十二個參數。核心重點是量子層除了提供自身權重的導數，也必須提供輸入角度的導數，前面的編碼層才能透過 chain rule（鏈式法則）取得正確梯度。本章沿用參數位移法計算量子部分的局部導數，再接上經典計算的導數，並用完整模型的有限差分逐一核對。實作以三筆資料執行短程聯合更新，保存中間值、梯度與模型參數。讀完本章，應能描述資料向前流動與梯度傳回各層的路徑，理解初始化也可能阻斷梯度，並分清楚訓練誤差下降、分類正確與泛化能力是不同的驗證問題。
+
+### English
+
+[Day18](../day18/README.md) compared classical ML and QML under fixed data, loss, and evaluation budgets, clarifying the conditions for fair comparison and the limits of the conclusions. Day19 connects classical and quantum layers into one model and checks how errors propagate to update all three parameter groups jointly.
+
+This chapter aims to explain **how classical layers before and after a quantum circuit can learn together**, laying the foundation for hybrid neural networks. A classical encoder converts two input features into circuit angles, a quantum layer computes the `ZZ` expectation, and a classical output head produces a score between 0 and 1. Unlike fixed encoding, the parameters that generate the angles are also trained, giving twelve parameters in total. The central requirement is that the quantum layer provide derivatives with respect to both its own weights and its input angles, allowing the preceding encoder to receive correct gradients through the chain rule. The chapter uses parameter-shift for the quantum layer's local derivatives, combines these with classical derivatives, and checks every parameter against finite differences of the full model loss. A short joint-update experiment on three samples saves intermediate values, gradients, and model parameters. The learning goal is to describe the forward data flow and the gradient path through all layers, recognize that initialization can block gradients, and distinguish decreasing training loss from correct classification and evidence of generalization.
+
+---
+
 Day 18 比較不同模型。今天建立一個真正串接的模型：**classical encoder 產生電路角度，quantum layer 回傳 expectation，classical head 產生機率，三組參數一起更新。**
 
 完整程式：[hybrid.py](hybrid.py)、[experiment.py](experiment.py)、[demo.py](demo.py)。本日手寫 chain rule，沿用 NumPy／CUDA-Q，不新增 PyTorch；重點是驗證梯度穿過整個模型，不是再做分類 benchmark。
