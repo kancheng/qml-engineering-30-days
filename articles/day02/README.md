@@ -1,198 +1,159 @@
-# Day 02｜從 Bit 到 Qubit：工程師需要懂多少量子力學？
+# Day 02｜從 Bit 到 Qubit：量子狀態與量測機率
 
-## 本章摘要｜初學者學習筆記
+[Day1](../day01/README.md) 介紹量子計算如何參與機器學習，以及比較模型時需要保留哪些證據。Day2 從一般電腦的 0 與 1 出發，建立描述量子位元與計算量測機率的基本方法。
 
-### 中文
+量子位元（qubit）的狀態可以用兩個數描述，但這兩個數並不是量到 0 或 1 的機率，而是用來計算機率的「振幅」。本章以單一量子位元為例，逐步拆解狀態符號、複數與機率之間的關係，再說明為什麼 **兩個狀態即使量到 0、1 的機率相同，經過後續操作仍可能得到不同結果**。差異來自振幅之間的相對相位，可以先理解成複數在平面上指向的方向差。最後用球面圖像整理這些關係，並以 NumPy 數值運算核對理論機率與重複抽樣的差異。這些概念是後續理解量子電路如何處理資料的基礎。
 
-[Day1](../day01/README.md) 說明量子計算在機器學習流程中的位置，以及為什麼需要透過實驗與傳統方法比較。Day2 接著建立描述量子資料的基本語言，從熟悉的 0／1 出發，理解 qubit（量子位元）的狀態與量測結果。
+[Day1](../day01/README.md) introduced the role of quantum computation in machine learning and the evidence needed to compare models. Day2 starts from ordinary bits and develops the basic tools for describing a qubit and calculating measurement probabilities.
 
-這一章目標在於看懂 **「量子狀態如何表示，以及如何從狀態算出量測機率」**，為後續量子閘運算與資料編碼打下基礎。本章先以單一量子位元的純態為範圍，把 `|ψ⟩ = α|0⟩ + β|1⟩` 對應成兩個複數組成的向量：`α`、`β` 稱為機率振幅，取絕對值平方後，才是在 0／1 基底下量到各結果的機率；兩個機率相加必須等於 1。另一個重點是相對相位，也就是兩個振幅之間的相位差：即使兩個狀態量到 0／1 的機率相同，經過後續量子閘運算，仍可能產生不同結果。Bloch Sphere（布洛赫球）提供這些單一量子位元純態的幾何圖像，NumPy 小實驗則用來核對向量長度、理論機率與重複抽樣的結果。讀完本章，應能辨認振幅與機率的差別，理解一次量測只得到一個結果，以及為什麼需要重新準備相同狀態、重複量測，才能估計機率分布。
-
-### English
-
-[Day1](../day01/README.md) explained where quantum computation fits into a machine learning workflow and why experiments need comparisons with classical methods. Day2 builds the basic language for describing quantum data, starting from familiar bits to explain qubit states and measurement outcomes.
-
-This chapter aims to explain **how a quantum state is represented and how measurement probabilities are calculated from that state**, laying the foundation for quantum gates and data encoding. The scope is a single qubit in a pure state. The expression `|ψ⟩ = α|0⟩ + β|1⟩` corresponds to a vector containing two complex numbers. These numbers, called probability amplitudes, give the probabilities of measuring 0 and 1 in the computational basis through their squared magnitudes; the two probabilities must sum to 1. Another key concept is relative phase—the phase difference between the amplitudes. Two states with identical probabilities for 0 and 1 can still produce different outcomes after further quantum gates. The Bloch sphere provides a geometric picture of these single-qubit pure states, while a small NumPy experiment checks the vector norm, theoretical probabilities, and repeated sampling results. The learning goal is to distinguish amplitudes from probabilities, understand that a single measurement yields one outcome, and explain why estimating a probability distribution requires repeated preparation and measurement of the same state.
+A qubit's state can be described by two numbers, but these numbers are amplitudes used to calculate probabilities, rather than the probabilities themselves. This chapter explains state notation, complex numbers, and their connection to measurement, then examines why **two states with identical probabilities for 0 and 1 can behave differently after further operations**. The difference comes from relative phase, which can be pictured as the difference between the directions of complex numbers in a plane. A geometric picture and a small NumPy calculation connect these ideas to theoretical probabilities and repeated sampling, providing a foundation for understanding how quantum circuits process data.
 
 ---
 
-看到 `|ψ⟩ = α|0⟩ + β|1⟩`，很多工程師的第一反應不是好奇，而是先被符號勸退。
+## 1. 從只能取 0 或 1 的位元開始
 
-其實今天需要的數學不多。先把 Qubit 當成一個受到特殊規則約束的二維向量，就能讀懂後續 Quantum Gate、Circuit、Measurement 與 QML Encoding 的基本表示。
+一般電腦的位元（bit）只有 0、1 兩種可能值。兩個位元組合後，可以表示 `00`、`01`、`10`、`11`；某個確定的組合，例如 `01`，就是這四種可能之一。
 
-## 1. 今天要解決什麼問題？
+量子位元的量測結果也可以是 0 或 1，但量測前的狀態需要更多資訊才能描述。本章先討論純態（pure state）：能由一個狀態向量完整描述的量子狀態。向量可以先理解成按順序排列的一組數值。受到雜訊影響或以機率混合不同純態的情況，可能需要更一般的表示方式，會留到後續章節。
 
-今天只建立六個概念：Classical Bit、Qubit、State Vector、Dirac Notation、Probability Amplitude 與 Bloch Sphere。完成後，至少要能回答：
+## 2. 拆開量子狀態的符號
 
-- `|0⟩` 和數字 0 是否相同？
-- `α`、`β` 是機率，還是別的東西？
-- 為什麼 `|α|² + |β|² = 1`？
-- Qubit 在 Measurement 前後有什麼差異？
-- Bloch Sphere 描述的是什麼？
-
-## 2. Classical Bit：只能讀到 0 或 1
-
-Classical Bit 的狀態可以寫成：
-
-```text
-b ∈ {0, 1}
-```
-
-在電腦裡，Bit 可能由電壓、電荷或磁性實作，但在程式層，通常只關心數值是 0 還是 1。多個 Bit 組合後可表示更多狀態，例如兩個 Bit 有 `00`、`01`、`10`、`11` 四種可能。
-
-如果系統此刻是 `01`，它就不是同時處於其他三個狀態。這是接下來和 Qubit 最重要的差別之一。
-
-## 3. Qubit：不是「可以同時讀出 0 和 1」
-
-一個 Qubit 的一般狀態寫成：
+單一量子位元的純態寫成：
 
 ```text
 |ψ⟩ = α|0⟩ + β|1⟩
 ```
 
-其中：
+- `ψ` 是希臘字母 psi，用來替狀態命名。
+- `|ψ⟩` 表示一個狀態向量，外面的 `| ⟩` 稱為 ket 符號。
+- `|0⟩` 表示在 0／1 量測方式下必定得到 0 的狀態；`|1⟩` 則必定得到 1。
+- `α`、`β` 是希臘字母 alpha、beta，代表兩個機率振幅（probability amplitude），也就是組合這兩個基本狀態的係數。
 
-- `|ψ⟩`（讀作 ket psi）表示目前的 Quantum State。
-- `|0⟩`、`|1⟩` 是 computational basis states。
-- `α`、`β` 是 probability amplitudes，通常可以是複數。
+`|0⟩` 和 `|1⟩` 合稱計算基底（computational basis）。基底就像建立座標所用的基本方向，任何單一量子位元的純態都能用這兩個方向組合表示。
 
-這個表示叫做 Superposition，但不要把它簡化成「Measurement 時可以一次拿到 0 和 1」。在 computational basis 量測一個 Qubit，一次仍只得到 0 或 1；Superposition 描述的是量測前的狀態及其可能產生的統計結果。
+兩項振幅都不為零時，這個狀態相對於計算基底具有疊加（superposition）。疊加會影響後續運算，但在這個基底下量測一次，仍只得到 0 或 1。
 
-## 4. Dirac Notation 與 State Vector
+## 3. 狀態符號其實可以寫成向量
 
-Dirac notation 看似陌生，其實可以直接對應線性代數：
-
-```text
-      [1]             [0]
-|0⟩ = [ ]       |1⟩ = [ ]
-      [0]             [1]
-```
-
-因此：
+狄拉克符號（Dirac notation）就是使用 ket 等符號表示量子狀態與運算的寫法。轉成直向排列的欄向量（column vector）後：
 
 ```text
-|ψ⟩ = α|0⟩ + β|1⟩
-
-      [α]
-    = [ ]
-      [β]
+|0⟩ = [1, 0]ᵀ
+|1⟩ = [0, 1]ᵀ
+|ψ⟩ = [α, β]ᵀ
 ```
 
-Ket `|ψ⟩` 是 column vector；對應的 Bra `⟨ψ|` 是 conjugate transpose：
+右上角的 `ᵀ` 表示轉置（transpose），也就是把橫向排列改成直向排列。因此，`|0⟩` 是一個向量的名稱，不是數字 0；它的第一個分量為 1，第二個分量為 0。
 
-```text
-⟨ψ| = [α*  β*]
-```
+計算量測機率時，還需要了解振幅可以使用的複數。
 
-星號代表 complex conjugate。兩者相乘得到 inner product：
+## 4. 複數、振幅與機率
 
-```text
-⟨ψ|ψ⟩ = |α|² + |β|²
-```
+複數（complex number）寫成 `a + bi`，其中 `a`、`b` 是實數，而虛數單位 `i` 滿足 `i² = -1`。可以把複數畫在平面上：橫座標是 `a`，縱座標是 `b`。
 
-合法 Quantum State 必須 normalized，所以 `⟨ψ|ψ⟩ = 1`。
-
-### 只補今天需要的複數
-
-複數可以寫成 `a + bi`，其中 `i² = -1`。它的 complex conjugate 是 `a - bi`，絕對值平方為：
+複共軛（complex conjugate）將虛部的正負號反轉：`a + bi` 的共軛是 `a - bi`。複數乘上自己的共軛，得到絕對值的平方，也就是平面上到原點距離的平方：
 
 ```text
 |a + bi|² = (a + bi)(a - bi) = a² + b²
 ```
 
-所以當 amplitude 是 complex number，`|α|²` 仍是非負實數，能成為 probability。今天不需要完整複分析，但必須知道「取平方」和「取絕對值平方」不同。
-
-## 5. Probability Amplitude 不是 Probability
-
-假設：
+依波恩規則（Born rule），在計算基底下量測的機率為：
 
 ```text
-          1       1
-|ψ⟩ = ─────|0⟩ + ─────|1⟩
-         √2      √2
+P(0) = |α|²
+P(1) = |β|²
 ```
 
-`1/√2` 是 amplitude，不是量測機率。依 Born rule，在 computational basis 量測時：
+`P(0)` 表示得到 0 的機率。兩個結果涵蓋所有可能，因此 `|α|² + |β|² = 1`。這個條件稱為正規化（normalization），也等同狀態向量的長度為 1。
+
+例如 `α = 1/√2`、`β = i/√2`，兩個振幅的絕對值平方都是 `1/2`，所以 0 與 1 各有 50% 機率。這裡必須取「絕對值平方」；直接算 `β²` 會得到 `-1/2`，不能作為機率。
+
+### 用內積檢查正規化
+
+將 ket 轉成橫向排列，再對每個分量取複共軛，得到 bra，記作 `⟨ψ|`。這個步驟稱為共軛轉置（conjugate transpose）：
 
 ```text
-P(0) = |α|² = 1/2
-P(1) = |β|² = 1/2
+|ψ⟩ = [α, β]ᵀ
+⟨ψ| = [α*, β*]
+⟨ψ|ψ⟩ = α*α + β*β = |α|² + |β|² = 1
 ```
 
-兩個機率相加為 1，正是 normalization 的原因。
+星號 `*` 表示複共軛。最後一行是向量的內積（inner product）：將對應分量相乘後相加。向量與自己的內積就是長度的平方，因此這個算式可以檢查狀態是否已正規化。
 
-再看一個帶有 complex phase 的狀態：
+## 5. 相同機率，為什麼還可能是不同狀態？
+
+複數除了到原點的距離，還有指向的角度，這個角度稱為相位（phase）。兩個振幅的角度差稱為相對相位（relative phase）。例如，正的實數指向右方，負的實數指向左方，兩者相差半圈。
+
+考慮兩個狀態：
 
 ```text
-          1       i
-|ψ⟩ = ─────|0⟩ + ─────|1⟩
-         √2      √2
+|+⟩ = (|0⟩ + |1⟩) / √2
+|−⟩ = (|0⟩ − |1⟩) / √2
 ```
 
-在 computational basis 量測，0 與 1 仍各有 50% 機率。這不代表 phase 沒有作用：後續 Quantum Gate 會讓 amplitude 互相 interference，使相對 phase 影響可觀察結果。只看單次 basis measurement，會遺失大量 state 資訊。
-
-## 6. Measurement：從 State 到 Classical Result
-
-對 `|ψ⟩ = α|0⟩ + β|1⟩` 做 computational basis measurement：
+兩者量到 0、1 的機率都是 50%，但第二項的正負號不同，因此相對相位不同。量子閘（quantum gate）是改變量子狀態的基本操作；施加稱為 Hadamard 閘的 H 操作後：
 
 ```text
-Quantum State ── measurement ──→ 0  with probability |α|²
-                              └→ 1  with probability |β|²
+H|+⟩ = |0⟩
+H|−⟩ = |1⟩
 ```
 
-得到 0 後，狀態會對應到 `|0⟩`；得到 1 後則對應到 `|1⟩`。若要估計機率分布，需要重新準備同一狀態並重複量測許多次。這些重複執行次數就是後面會遇到的 shots。
+此時再量測，就能得到不同的確定結果。H 閘會將原本的振幅重新組合，讓某些項相加、某些項抵消，這種作用稱為干涉（interference）。Day 03 會以矩陣，也就是按列與欄排列的數值表，直接計算這個過程。
 
-因此 Quantum Program 常見的輸出不是一個完全確定的答案，而是一組 counts 或由樣本估計的 expectation value。
+### 整體相位與相對相位
 
-## 7. Bloch Sphere：把一個 Qubit 畫成球面上的點
+若所有振幅都乘上同一個長度為 1 的複數，只會改變整體相位（global phase）。例如，將整個狀態乘上 `-1`，得到 `-|ψ⟩`，不會改變物理預測。
 
-忽略無法觀察的 global phase 後，任一 pure single-qubit state 都能寫成：
+相對相位則比較同一狀態內不同振幅的方向差。前面的 `|+⟩` 與 `|−⟩` 只改變其中一項的符號，因而能在後續操作中產生差異。
+
+## 6. 量測如何產生結果？
+
+在理想的計算基底量測中：
+
+```text
+α|0⟩ + β|1⟩ → 以 |α|² 的機率得到 0，量測後為 |0⟩
+             → 以 |β|² 的機率得到 1，量測後為 |1⟩
+```
+
+若得到 0，立刻以相同方式再次量測，而且中間沒有其他操作或干擾，就仍會得到 0。要估計原本狀態的機率分布，需要每次重新準備原本的狀態，再執行量測。
+
+這些重複執行次數稱為 shots。量測計數（counts）記錄各個結果出現幾次，例如 1,000 次中有 493 次得到 0、507 次得到 1。除以總次數後，便得到機率的抽樣估計；有限次數的結果不必剛好等於理論機率。
+
+期望值（expectation value）是依機率計算的平均值。例如將結果 0 記為 `+1`、結果 1 記為 `-1`，期望值就是 `P(0) − P(1)`。實驗則以對應的樣本平均估計它。
+
+## 7. 布洛赫球：單一量子位元的幾何圖像
+
+布洛赫球（Bloch sphere）將單一量子位元的純態畫成球面上的點。忽略整體相位後，狀態可以寫成：
 
 ```text
 |ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sin(θ/2)|1⟩
 ```
 
-`θ` 和 `φ` 對應 Bloch Sphere 上的位置：
+`θ` 是從北極方向量起的角度，`φ` 是繞著南北軸的角度。`sin`、`cos` 是三角函數；`e^(iφ) = cosφ + i sinφ` 則是長度為 1、方向為 `φ` 的複數，負責表示相對相位。
 
-```text
-              |0⟩
-               ↑ z
-               │
-       |−⟩ ←── • ──→ |+⟩      x
-              /│
-             / │
-            y  ↓
-              |1⟩
-```
+- 北極是 `|0⟩`，量測必定得到 0。
+- 南極是 `|1⟩`，量測必定得到 1。
+- 赤道上的狀態量到 0、1 的機率各為 50%，但不同位置具有不同的相對相位。
+- `|+⟩` 與 `|−⟩` 位於赤道的相反兩側。
 
-- 北極是 `|0⟩`，南極是 `|1⟩`。
-- 赤道包含 `( |0⟩ + e^(iφ)|1⟩ ) / √2` 這類等機率狀態。
-- Quantum Gate 可視為對狀態向量做 rotation，但這個直覺只直接適用於單一 pure Qubit。
+對單一量子位元的理想量子閘，可以用球面上的旋轉理解。球面上的點代表狀態，並不是粒子在空間中的實際位置；多量子位元的完整狀態也不能直接用同一顆球表示。
 
-Bloch Sphere 的重點不是背球面座標，而是看懂兩件事：Qubit 除了 0/1 的量測機率，還有 relative phase；因此相同的 computational-basis probabilities 不代表相同 Quantum State。
+## 8. 這和機器學習中的向量有什麼關係？
 
-### Global phase 與 relative phase
+機器學習（Machine Learning，ML）常把一筆資料的特徵排列成向量，例如花瓣長度與寬度。量子狀態也用向量表示，但用途與限制不同：
 
-`|ψ⟩` 與 `e^(iγ)|ψ⟩` 相差 global phase，會給出相同的物理預測；但 `α|0⟩ + β|1⟩` 中兩項的 relative phase 可以在後續 interference 中影響量測。
-
-例如 `|+⟩ = (|0⟩ + |1⟩)/√2` 和 `|−⟩ = (|0⟩ − |1⟩)/√2` 在 Z basis 量測時都各有 50% 的 0／1，卻是不同狀態。對兩者再施加 Hadamard gate，前者會變成 `|0⟩`，後者會變成 `|1⟩`。Day 3 將用矩陣乘法直接驗證。
-
-## 8. 和 AI Engineering 有什麼關係？
-
-從 ML 視角，可以暫時建立以下對照：
-
-| AI / Linear Algebra | Quantum Computing |
+| 一般數值運算 | 量子計算中的對應與限制 |
 |---|---|
-| Feature vector | State vector（但必須 normalized） |
-| Linear transform | Quantum gate（還必須是 unitary） |
-| Model output | Measurement-derived classical value |
-| Sampling variance | 有限 shots 帶來的估計誤差 |
+| 用特徵向量保存輸入 | 狀態向量保存振幅，必須滿足正規化條件 |
+| 用矩陣轉換向量 | 理想量子閘使用么正矩陣（unitary matrix），也就是保持向量長度與內積的矩陣 |
+| 直接讀取程式中的數值 | 真實裝置透過量測取得結果，單次量測不能讀出所有振幅 |
+| 重複抽樣估計平均值 | 有限 shots 也會產生抽樣波動，需要與理論值分開解讀 |
 
-這只是學習橋梁，不是完全等價。尤其 Quantum State 不能被任意讀出或複製；後續也會看到多 Qubit state 的維度隨 qubit 數指數成長。
+模擬器是以一般電腦數值運算模仿量子系統的程式，可以保存並檢查完整狀態向量。量子處理器（Quantum Processing Unit，QPU）則是真正執行量子操作的硬體，取得資訊的方式受到量測規則限制。
 
 ## 9. 小實驗：用向量算量測機率
 
-先不用 CUDA-Q，只以 NumPy 驗證 normalization 與 Born rule：
+NumPy 是 Python 的數值運算套件。以下程式建立兩個複數分量，計算向量與自己的內積，再求每個振幅的絕對值平方：
 
 ```python
 import numpy as np
@@ -217,70 +178,43 @@ P(0) = 0.5
 P(1) = 0.5
 ```
 
-若把 state 改成 `[1, 1]`，機率總和會變成 2；它不是合法的 normalized Quantum State。除以向量長度後才可作為 state vector。
+程式中的 `1j` 是 Python 表示虛數單位的方式；`np.complex128` 指定使用 128 位元儲存一個複數，其中實部與虛部各占 64 位元。`np.vdot` 會對第一個向量取複共軛後計算內積，`.real` 取出實部，`np.abs` 則計算絕對值。
 
-Repository 已提供可直接執行的 [state_vector.py](state_vector.py)：
+變數 `norm` 在這段程式中實際保存的是向量長度的平方；正規化後，長度與長度平方都等於 1。若改用 `[1, 1]`，長度平方會是 2，需要將整個向量除以 `√2` 才能正規化。
+
+專案已提供可直接執行的 [state_vector.py](state_vector.py)：
 
 ```bash
 python articles/day02/state_vector.py
 ```
 
-除了 norm 和 probability，它也固定 random seed 模擬有限 shots，讓理論機率與抽樣估計可以被分開觀察。這個抽樣是 classical simulation，用來理解 measurement statistics，並不是在 QPU 上執行。
+程式還會固定隨機種子（seed），也就是產生隨機序列的起始設定，再模擬有限 shots。相同設定方便重現抽樣結果；抽樣是在一般電腦上進行，並未使用 QPU。
 
-## 10. 結果怎麼解讀？
+## 10. 從結果檢查觀念
 
-今天最重要的不是「Qubit 同時是 0 和 1」，而是以下較精確的說法：
+閱讀輸出時，可以依序核對：
 
-1. Single Qubit 是二維複數 Hilbert space 中的 normalized state vector。
-2. `α`、`β` 是 amplitudes，絕對值平方才是 computational-basis measurement probabilities。
-3. Relative phase 會影響 interference，不能只靠 0/1 機率描述完整狀態。
-4. Measurement 把 Quantum State 轉成 Classical Result；估計分布需要重複準備與量測。
-5. Bloch Sphere 是 single pure Qubit 的幾何表示，不是多 Qubit 系統的完整地圖。
+1. 振幅的絕對值平方相加是否為 1，而不是檢查振幅本身相加是否為 1。
+2. 理論機率與有限次抽樣比例是否被分開記錄；50% 的理論機率不要求每批樣本恰好各占一半。
+3. 比較狀態時，是否也考慮相對相位；只比較 0／1 的機率不能完整辨識狀態。
+4. 完整向量是否來自模擬器內部資料，而非誤認成硬體單次量測的輸出。
 
-## 11. 今天踩到的坑
+## 11. 從單一量子位元走向 QML
 
-- 把 amplitude 直接當成 probability。
-- 說 Qubit 可以「一次讀出 0 和 1」。
-- 只檢查 `α + β = 1`，正確條件是 `|α|² + |β|² = 1`。
-- 以為相同 measurement probabilities 就是相同 state，忽略 relative phase。
-- 把 Bloch Sphere 當成所有 Quantum System 都能直接使用的視覺化。
-- 把 global phase 和 relative phase 混在一起。
-- 看見 state vector simulator 可以讀出完整向量，就誤以為真實 QPU 也能在單次 measurement 中吐出所有 amplitudes。
+量子機器學習（Quantum Machine Learning，QML）會將資料轉成量子狀態，再用含有可調參數的電路處理，最後由量測產生預測所需的數值。本章的振幅、正規化與量測機率，正是這條流程的起點。
 
-## 12. 從一個 Qubit 到後續 QML
+對 `n` 個量子位元，純態向量有 `2^n` 個複數振幅：1 個量子位元需要 2 個，2 個需要 4 個，3 個需要 8 個。每增加一個量子位元，儲存完整向量所需的數值就加倍，因此模擬的記憶體成本會快速成長。
 
-今天的二維 state vector 會直接延伸到後續內容：
+較大的狀態空間並不自動代表量子優勢，也就是在明確任務與成本條件下優於適當的一般計算方法。資料如何放入電路、需要多少操作與量測，以及比較方法是否公平，都會影響結論。
 
-```text
-normalized vector
-      ↓
-unitary gate transformation
-      ↓
-multi-qubit tensor product
-      ↓
-parameterized circuit
-      ↓
-measurement expectation
-      ↓
-QML model output
-```
+## 12. 延伸資源
 
-對 `n` 個 Qubit，pure state vector 有 `2^n` 個 complex amplitudes。這解釋了 state-vector simulation 的記憶體成本為何會快速成長，也預告 Day 27 的 CPU／GPU benchmark。但「state space 很大」本身仍不等於可用的 quantum advantage：資料載入、circuit depth、measurement 與 classical comparison 都必須計入。
+- [F1] Nielsen and Chuang, *Quantum Computation and Quantum Information*, 10th Anniversary Edition, Cambridge University Press (2010), [publisher page](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE)。用於 量子狀態、狄拉克符號與量測 的標準背景。
+- [R4] Schuld and Petruccione, *Supervised Learning with Quantum Computers*, Springer (2018), [DOI](https://doi.org/10.1007/978-3-319-96424-9)。用於把 量子資訊基礎連接到監督式 QML，也就是使用附有正確答案的資料訓練模型。
+- [D1] [NVIDIA CUDA-Q Quick Start](https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html)。提供電路與取樣的入門範例；後續章節會使用 CUDA-Q 這套量子程式開發工具實作電路。
 
-## 13. 延伸資源與來源核對
+完整書目與使用目的見 [文獻與資源索引](../../REFERENCES.md)。
 
-- [F1] Nielsen and Chuang, *Quantum Computation and Quantum Information*, 10th Anniversary Edition, Cambridge University Press (2010), [publisher page](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE)。用於 state、Dirac notation 與 measurement 的標準背景。
-- [R4] Schuld and Petruccione, *Supervised Learning with Quantum Computers*, Springer (2018), [DOI](https://doi.org/10.1007/978-3-319-96424-9)。用於把 quantum information 基礎連接到 supervised QML。
-- [D1] [NVIDIA CUDA-Q Quick Start](https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html)。官方範例以 Bell／GHZ state 和 sampling 驗證安裝，會在 Day 4 實作。
+## 13. 下一篇
 
-上述出版資訊已在 [文獻與資源索引](../../REFERENCES.md) 核對。Day 2 的物理敘述以標準教材為主，不用一般部落格充當定義來源。
-
-## 14. 今日 GitHub Commit
-
-```text
-docs: explain qubits with state vectors and amplitudes
-```
-
-## 15. 下一篇
-
-Day 03 將把 Quantum Gate 當成作用在 State Vector 上的受限線性轉換，依序認識 X、Y、Z、H、RX、RY、RZ，並開始建立第一批單量子位元 Quantum Circuit。CNOT 與兩量子位元 Bell state 留到 Day 04。
+[Day 03](../day03/README.md) 將以矩陣運算改變狀態向量，逐一介紹單量子位元的基本量子閘，並驗證 H 閘如何讓相對相位影響量測結果。兩個量子位元之間的操作則留到 Day 04。
