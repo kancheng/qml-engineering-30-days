@@ -1,5 +1,21 @@
 # Day 10｜第一個 CUDA-Q Optimization Loop
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day9](../day09/README.md) 將輸入資料與可訓練權重分開，建立參數化量子電路，並觀察改動權重如何影響輸出。Day10 接著加入損失函數與最佳化器，讓權重根據預測誤差更新，形成第一個完整的訓練迴圈。
+
+這一章目標在於理解 **「量子電路如何從產生輸出，走到依任務目標調整參數」**，釐清量子與經典計算在訓練中的分工。本章沿用 Day9 的兩量子位元、四個旋轉權重與 `Z0Z1` 期望值讀出，以已知函數產生小型回歸資料，方便核對訓練流程。量子模擬器負責逐筆計算預測，一般 Python 程式則用 MSE（平均平方誤差）衡量預測與目標的差距，再由座標搜尋最佳化器依序嘗試增加或減少單一權重，只有誤差降低時才接受更新。這個方法不需要計算梯度，但每次比較候選權重都必須重新評估電路，因此訓練成本也要記錄。重點除了觀察 loss 是否下降，還包括保留未參與更新的 holdout（保留資料）作額外核對，以及分清楚停止原因、評估次數與訓練效果。本章使用理想模擬器的精確期望值訓練，最終另做有限 shots 抽樣，兩者用途不同。讀完本章，應能說明「預測 → 計算誤差 → 比較候選權重 → 更新」的流程，理解 `observe` 負責取得輸出、optimizer 負責選擇參數，以及小型合成任務的誤差下降仍不足以證明實務泛化能力或量子優勢。
+
+### English
+
+[Day9](../day09/README.md) separated input data from trainable weights, built a parameterized quantum circuit, and examined how weight changes affect outputs. Day10 adds a loss function and an optimizer so that prediction errors guide weight updates, forming the first complete training loop.
+
+This chapter aims to explain **how a quantum circuit progresses from producing outputs to adjusting parameters toward a task objective**, clarifying the division between quantum and classical computation during training. The implementation reuses Day9's two-qubit circuit, four rotation weights, and `Z0Z1` expectation readout. A known function generates a small regression dataset, making the training workflow easier to verify. The quantum simulator evaluates predictions for individual inputs, while ordinary Python code calculates mean squared error (MSE). A coordinate-search optimizer then tries increasing or decreasing one weight at a time, accepting an update only when the error decreases. No gradients are required, but each candidate comparison requires further circuit evaluations, so training cost must also be recorded. Beyond tracking loss reduction, the chapter preserves holdout inputs that do not participate in updates and distinguishes stopping reasons, evaluation counts, and training outcomes. Training uses exact expectations from an ideal simulator; finite-shot sampling is performed separately at the end. The learning goal is to explain the prediction–loss–candidate comparison–update cycle, distinguish the output-evaluation role of `observe` from the parameter-selection role of the optimizer, and recognize that lower error on a small synthetic task does not establish practical generalization or quantum advantage.
+
+---
+
 Day 9 的 weights 由人指定；今天讓 classical optimizer 根據 loss 更新它們。沿用兩個 qubit、一層四個 RY weights 與 ZZ readout，不改動 [Day 9 的模型](../day09/pqc.py)。完整可執行程式：[train.py](train.py)。
 
 ## 1. 今天學什麼？

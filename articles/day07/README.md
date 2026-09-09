@@ -1,5 +1,21 @@
 # Day 07｜第一個 CUDA-Q Quantum Kernel：Allocation、參數與 Control Flow
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day6](../day06/README.md) 釐清 CUDA-Q、CUDA 與 cuQuantum 的分工，並用環境診斷與 Bell state 小型測試確認指定後端能正確執行。Day7 接著拆解量子程式的寫法，從單一量子位元擴展到可調整大小的電路，理解參數、迴圈與分支如何決定電路結構。
+
+這一章目標在於理解 **「哪些工作屬於一般 Python 程式，哪些操作應寫進 quantum kernel（量子核心函式），以及如何讓同一份電路程式接受不同設定」**，為後續可重用的 QML 電路打下基礎。Host（主控端程式）負責檢查輸入、選擇執行後端、呼叫電路與保存結果；以 `@cudaq.kernel` 標記的函式則負責配置量子位元、施加量子閘與量測。本章先使用 `cudaq.qubit()` 配置一個量子位元，再以 `cudaq.qvector(n)` 配置一組量子位元，透過帶有型別的參數調整數量、旋轉角度與電路選項。核心重點是區分一般條件分支與量子控制閘：`if` 根據傳入的布林值決定是否執行一組操作，controlled-X 則直接作用於量子狀態，不會先量測控制位元。實作藉由迴圈建立不同大小的電路，並以 NumPy 參考結果、邊界條件與非對稱量測案例核對正確性。讀完本章，應能描述 host 與 kernel 的分工，修改參數並解釋結果變化，同時理解可調整角度只是程式介面，本章尚未透過 optimizer 學習參數。
+
+### English
+
+[Day6](../day06/README.md) clarified the roles of CUDA-Q, CUDA, and cuQuantum, using environment diagnostics and a small Bell-state test to verify execution on the requested backend. Day7 examines how quantum programs are written, extending a single-qubit example to circuits of adjustable size and explaining how parameters, loops, and branches determine circuit structure.
+
+This chapter aims to explain **which tasks belong in ordinary Python code, which operations belong in a quantum kernel, and how one circuit program can accept different configurations**, laying the foundation for reusable QML circuits. The host program validates inputs, selects the execution backend, invokes circuits, and saves results. A function marked with `@cudaq.kernel` allocates qubits, applies gates, and performs measurements. The chapter starts with `cudaq.qubit()` for a single qubit, then uses `cudaq.qvector(n)` for a register, with typed parameters controlling the qubit count, rotation angle, and circuit options. A central distinction is between classical branching and quantum-controlled gates: an `if` statement uses an input Boolean to decide whether to execute operations, whereas controlled-X acts directly on the quantum state without first measuring the control qubit. Loops construct circuits of different sizes, while NumPy references, boundary cases, and asymmetric measurement examples check correctness. The learning goal is to explain the host–kernel division, modify parameters and interpret the resulting changes, and recognize that an adjustable angle is a program input; no optimizer learns parameters in this chapter.
+
+---
+
 Day 4–6 已經執行過 CUDA-Q kernel。今天把它拆開來理解，從一個 Qubit 到可調整大小的 register，讓同一份 kernel 根據參數產生不同電路。
 
 今天要回答：**哪些事情留在 Python host，哪些事情寫進 quantum kernel？`if`、`for` 和 controlled gate 又有什麼不同？**

@@ -1,5 +1,21 @@
 # Day 05｜從 Classical ML Pipeline 看懂 QML Pipeline
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day4](../day04/README.md) 建立兩量子位元的 Bell state，透過不同量測基底與重複抽樣，理解糾纏、相關性與量測結果的差別。Day5 接著把輸入資料、量子電路與量測結果串起來，建立從一般數值輸入到可評估數值輸出的完整流程。
+
+這一章目標在於理解 **「一般資料如何進入量子電路，以及量測結果如何轉成機器學習流程能使用的數值」**，讓前幾章的量子概念各自對應到明確的處理步驟。本章用一個介於 0 與 1 的數值 `x` 作為輸入，透過 `θ = πx` 轉成 RY 旋轉閘的角度，再接上 CNOT，準備兩量子位元的狀態。量測後，將第一個量子位元的 0／1 結果分別換成 +1／−1，再取平均，得到 `⟨Z0⟩` 的估計值；這個輸出與 Day4 用來描述兩量子位元相關性的數值不同。由於理想答案可直接算成 `cos(πx)`，每個處理階段都能核對，並以 MSE（平均平方誤差）觀察有限 shots 帶來的抽樣誤差。這裡的角度由資料決定，尚未透過 optimizer（最佳化器）學習參數，因此本章完成的是 forward pass（前向計算）。讀完本章，應能說明編碼、電路、量測、數值轉換與評估各自的用途，理解量子運算與一般程式如何分工，並知道後續還需要加入可訓練參數與更新步驟，才能形成訓練流程。
+
+### English
+
+[Day4](../day04/README.md) constructed a two-qubit Bell state and used different measurement bases and repeated sampling to distinguish entanglement, correlation, and measurement outcomes. Day5 connects input data, quantum circuits, and measurement results into a complete workflow from an ordinary numerical input to a numerical output that can be evaluated.
+
+This chapter aims to explain **how ordinary data enters a quantum circuit and how measurement results become numerical outputs usable in a machine learning workflow**, giving the concepts from earlier chapters a clear role in the process. A scalar input `x` between 0 and 1 is converted into an RY rotation angle through `θ = πx`. A subsequent CNOT completes the two-qubit state preparation. After measurement, outcomes 0 and 1 for the first qubit are mapped to +1 and −1 and averaged to estimate `⟨Z0⟩`. This output differs from the two-qubit correlation examined in Day4. Since the ideal answer can be calculated directly as `cos(πx)`, each stage can be checked, and mean squared error (MSE) can quantify the sampling error from finite shots. The angle is determined by the input data; no optimizer learns parameters at this stage, so the implementation is a forward pass. The learning goal is to explain the roles of encoding, circuit execution, measurement, numerical post-processing, and evaluation; understand how quantum operations and classical code work together; and identify the trainable parameters and update steps still needed to build a training workflow.
+
+---
+
 Day 3 實作單量子位元 gate，Day 4 用 H + CNOT 建立 Bell state。今天將這些元件串成一條完整路徑：**輸入資料 → 編碼 → 電路 → 量測 → 數值輸出 → 評估與保存**。
 
 今天完成第一個 Quantum Fundamentals milestone：文章、Notebook、架構圖，以及可在 NumPy、CUDA-Q CPU 和 RTX 3060 執行的 circuit demo。
@@ -194,7 +210,7 @@ DAY05_TARGET=nvidia python -m unittest discover -s articles/day05 -p 'test_cudaq
 
 測試涵蓋輸入契約、解析 amplitudes、非對稱 counts 的位元順序、seed 重現、保存指標與完整 CUDA-Q pipeline。執行環境與限制見 [ENVIRONMENT.md](ENVIRONMENT.md)。
 
-## 10. Milestone 1：我們現在具備什麼？
+## 10. Milestone 1：目前已完成哪些成果？
 
 Day 1 確立研究與工程界線；Day 2 把 Qubit 寫成向量；Day 3 用 unitary matrix 改變狀態；Day 4 建立兩 Qubit 系統並理解量測相關性；Day 5 把輸入、電路、counts 與 metrics 接起來。
 

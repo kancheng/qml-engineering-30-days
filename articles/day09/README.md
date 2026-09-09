@@ -1,5 +1,21 @@
 # Day 09｜Parameterized Quantum Circuit：把資料與可訓練參數分開
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day8](../day08/README.md) 比較 `sample`、`run` 與 `observe` 的輸出形式，釐清量測分布、逐次回傳值與期望值的差別。Day9 接著把量子電路整理成具有明確輸入與權重的模型介面，為後續以最佳化程序更新參數做準備。
+
+這一章目標在於理解 **「資料決定的角度與模型可訓練的權重有何不同，以及兩者如何共同決定電路輸出」**，避免把所有傳入 kernel 的參數都當成學習對象。本章以兩個數值特徵作為輸入，透過 feature map（資料編碼電路）轉成旋轉角度，再接上 Ansatz（預先選定、含可調權重的電路結構）。每層 Ansatz 包含四個旋轉權重與一個 CNOT；同一組權重可用來處理不同資料，而層數與 shots 則屬於結構或執行設定。讀出選擇 `Z0Z1` 的期望值，也就是把兩個量測位元相同記為 +1、不同記為 −1 後的平均，輸出範圍為 `[-1,1]`，尚未定義成分類機率。實作先核對 CUDA-Q 與 NumPy 的結果，再固定資料、逐一改動權重，觀察輸出反應。讀完本章，應能說明資料編碼、可調電路與量測方式各自的角色，理解「參數能影響輸出」與「模型已經學會任務」的差別，並知道下一步需要加入 loss（損失函數）與 optimizer（最佳化器），才能讓權重依任務目標更新。
+
+### English
+
+[Day8](../day08/README.md) compared the outputs of `sample`, `run`, and `observe`, distinguishing measurement distributions, per-execution return values, and expectation values. Day9 organizes the quantum circuit into a model interface with explicit inputs and weights, preparing for parameter updates through optimization.
+
+This chapter aims to explain **how data-dependent angles differ from trainable model weights, and how both determine circuit outputs**, clarifying why kernel arguments are not all learning parameters. Two numerical features enter a feature map—a data-encoding circuit—that converts the inputs into rotation angles. An Ansatz, a chosen circuit structure with adjustable weights, follows the encoding. Each Ansatz block contains four rotation weights and one CNOT. The same weights can process different inputs, while the number of blocks and the shot count are structural or execution settings. The readout is the expectation of `Z0Z1`: the average obtained by assigning +1 to matching measurement bits and −1 to differing bits. Its range is `[-1,1]`, and it has not been defined as a classification probability. The implementation checks CUDA-Q outputs against NumPy references, then holds the data fixed and varies one weight at a time to examine output responses. The learning goal is to explain the roles of encoding, the adjustable circuit, and measurement; distinguish parameter sensitivity from successful learning; and identify the loss function and optimizer needed next to update weights toward a task objective.
+
+---
+
 Day 8 已經能用 `observe` 取得電路的數值輸出。今天要把電路變成一個具有明確參數介面的模型：**輸入資料 x 決定 feature map，weights 決定 Ansatz，observable 決定讀出方式。**
 
 本日建立可調參數的 forward model，驗證參數如何影響輸出。Day 10 才加入 loss 與 optimizer，因此今天的 weights 都是指定或初始化的，尚未經過訓練。
@@ -18,7 +34,7 @@ Day 8 已經能用 `observe` 取得電路的數值輸出。今天要把電路變
 
 CUDA-Q 可以以 `list[float]` 接收參數化 kernel 的角度。[D10] 但「有可調角度」與「已經學會某個任務」是兩回事。
 
-## 2. Ansatz 是我們選擇的電路結構
+## 2. Ansatz 是預先選定的電路結構
 
 本日固定兩個 Qubit，每層使用：
 
@@ -39,7 +55,7 @@ q1: ──RY(w[4l+1])───X──RY(w[4l+3])──
 
 兩個不同 qubit 上的 RY 可視為同一 logical layer，因此每個 block 深度為 3；加上最前面的 feature map，未經 compiler optimization 的準備深度為 `1+3L`。相鄰同軸旋轉可能合併，不能把這個教學層數當成編譯後的硬體深度。
 
-這個 RY-only Ansatz 方便與 NumPy 矩陣逐步核對。它從實數 amplitudes 出發，不能產生任意複數態；我們沒有宣稱它是通用電路或最佳模型架構。
+這個 RY-only Ansatz 方便與 NumPy 矩陣逐步核對。它從實數 amplitudes 出發，不能產生任意複數態；本章沒有宣稱這是通用電路或最佳模型架構。
 
 ## 3. Feature Map 與 Ansatz 的程式邊界
 
@@ -172,7 +188,7 @@ finite-shot 結果與 exact 的差異是本次抽樣的波動，不是 weights �
 
 這說明在選定設定下，四個參數都能影響輸出。這是有限改動的 response scan，不是梯度估計，也不能證明所有初始值、資料或深度都容易訓練。Barren Plateau 等問題留待後續章節。
 
-RY 的角度增加 `2π` 可帶來 global phase，但 observable 不變；測試會逐個 weight 核對輸出週期性。這也提醒我們：參數向量不同，不一定代表不同的可觀察模型。
+RY 的角度增加 `2π` 可帶來 global phase，但 observable 不變；測試會逐個 weight 核對輸出週期性。因此，參數向量不同，不一定代表不同的可觀察模型。
 
 ## 8. 零 Weights 不代表整個 Ansatz 是 Identity
 

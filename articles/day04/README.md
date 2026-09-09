@@ -1,5 +1,21 @@
 # Day 04｜Superposition、Entanglement、Measurement：建立第一個 Bell State
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day3](../day03/README.md) 用 NumPy 矩陣運算，觀察單一量子位元經過量子閘後，振幅、相位與量測機率如何改變。Day4 將範圍擴展到兩個量子位元，建立 Bell state（貝爾態），並以 CUDA-Q 實作電路與重複量測。
+
+這一章目標在於理解 **「兩個量子位元如何形成共同的狀態，以及為什麼量測結果相關還不足以證明糾纏」**，為後續多量子位元的 QML 電路與結果判讀打下基礎。本章先用 tensor product（張量積）組合兩個單量子位元狀態，再從 `|00⟩` 出發，依序施加 Hadamard 與 CNOT，建立無法拆成兩個單量子位元純態乘積的 Bell state。在理想的 Z 基底量測下，每次只會得到 `00` 或 `11`；然而，以公平硬幣決定準備 `|00⟩` 或 `|11⟩` 的經典混合，也能產生相同統計。因此，本章另外比較 X 基底量測，觀察這兩種已知準備的差異，釐清疊加、糾纏與一般相關性的區別。實作先以 NumPy 核對理論分布，再用 CUDA-Q 的 CPU／GPU 模擬取得 counts（各結果出現次數），並比較不同 shots（重複抽樣次數）帶來的波動。讀完本章，應能描述 Bell state 的建立流程，理解量測基底與抽樣次數如何影響結果判讀，並區分經典硬體上的量子模擬與真實量子硬體實驗。
+
+### English
+
+[Day3](../day03/README.md) used NumPy matrix operations to examine how single-qubit gates change amplitudes, phases, and measurement probabilities. Day4 extends the scope to two qubits, constructs a Bell state, and implements circuits and repeated measurements with CUDA-Q.
+
+This chapter aims to explain **how two qubits form a joint state and why correlated measurement outcomes alone do not establish entanglement**, laying the foundation for multi-qubit QML circuits and the interpretation of results. The chapter first uses the tensor product to combine single-qubit states. Starting from `|00⟩`, a Hadamard gate followed by a CNOT creates a Bell state that cannot be factored into a product of two single-qubit pure states. Ideal Z-basis measurements produce only `00` or `11`. However, a classical mixture prepared by using a fair coin to choose between `|00⟩` and `|11⟩` produces the same statistics. Comparing X-basis measurements distinguishes these two known preparations and clarifies the differences between superposition, entanglement, and ordinary correlation. The implementation uses NumPy to verify theoretical distributions, then CUDA-Q CPU/GPU simulation to obtain counts and examine sampling fluctuations at different shot counts. The learning goal is to describe Bell-state preparation, explain how the measurement basis and number of samples affect interpretation, and distinguish quantum simulation on classical hardware from experiments on physical quantum hardware.
+
+---
+
 Day 3 用矩陣改變一個 Qubit；今天把狀態擴展成兩個 Qubit，先用 NumPy 看清楚每一步，再以 CUDA-Q 在 CPU 與 RTX 3060 上執行相同概念。
 
 今天的核心問題是：**兩個量子位元各自都像隨機結果，為什麼合在一起卻有固定的關係？**
@@ -142,7 +158,7 @@ q1: ─────X──MZ
 
 ## 7. Measurement 與 Shots：一個結果不是機率分布
 
-Bell state 在 Z 基底下每次得到 `00` 或 `11`。單看任一 Qubit，0／1 各半；合看兩個結果，則永遠相同。條件在 q0 已量到 0 時，q1 為 0；但我們不能選擇 q0 的隨機結果來傳送訊息。
+Bell state 在 Z 基底下每次得到 `00` 或 `11`。單看任一 Qubit，0／1 各半；合看兩個結果，則永遠相同。條件在 q0 已量到 0 時，q1 為 0；但無法選擇 q0 的隨機結果來傳送訊息。
 
 真實硬體必須重新準備並量測以累積 shots；模擬器可以先建立狀態，再從其分布抽樣，不必真的做相同次數的完整狀態演化。[D3]
 

@@ -1,8 +1,24 @@
 # Day 08｜`sample`、`run`、`observe`：同一電路的三種執行方式
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day7](../day07/README.md) 拆解 quantum kernel 的寫法，透過量子位元配置、參數、迴圈與分支建立可調整的電路，並釐清 host 與 kernel 的分工。Day8 接著探討電路執行後如何取得結果，依後續需要的資料形式，選擇合適的執行介面。
+
+這一章目標在於理解 **「量測結果的分布、每次執行的回傳值，以及指定物理量的期望值有何不同」**，讓量子電路的輸出能正確接到後續分析與 QML 模型。本章共用 RY 加 CNOT 的狀態準備，再依輸出需求調整外層函式：`sample` 回傳各位元字串出現的次數，適合觀察分布；`run` 回傳逐次執行的自訂一般數值，本例以整數記錄兩個量測位元；`observe` 則根據指定的 observable（可觀測量），取得對應的期望值。重點在於理解每個數字的意義：位元字串編成整數後，直接取平均並不等於量子位元 Z 的期望值，而 Z 基底的 counts 也不能直接算出所有其他可觀測量。本章另外比較有限 shots 的抽樣估計與理想模擬器的精確期望值，區分抽樣波動與浮點誤差。讀完本章，應能依需求選擇 API，說明回傳資料如何轉成可用的數值，並理解三種介面共用的是狀態準備，各自仍有不同的量測、回傳形式與執行成本。
+
+### English
+
+[Day7](../day07/README.md) examined quantum kernel construction, using qubit allocation, parameters, loops, and branches to build configurable circuits while clarifying the host–kernel division. Day8 explores how to retrieve results after circuit execution and choose an execution interface based on the data needed for subsequent processing.
+
+This chapter aims to explain **the differences between measurement distributions, per-execution return values, and expectation values of specified observables**, enabling circuit outputs to feed correctly into analysis and QML models. The chapter shares an RY-plus-CNOT state preparation and adapts the surrounding function to each output requirement. `sample` returns counts for each bitstring, making it useful for examining distributions. `run` returns a sequence of custom classical values; this example encodes two measured bits as an integer. `observe` takes a specified observable and returns its expectation value. The central task is to understand what each number represents: averaging integers that encode bitstrings does not directly yield a qubit's Z expectation, and Z-basis counts cannot directly determine every other observable. The chapter also compares finite-shot estimates with exact expectations from ideal simulators, separating sampling fluctuations from floating-point error. The learning goal is to select an API for a given output requirement, explain how returned data becomes a useful numerical result, and recognize that shared state preparation still permits different measurement procedures, return formats, and execution costs.
+
+---
+
 Day 7 學會用 allocation、參數與 control flow 寫 kernel。今天解決另一個問題：**電路寫好後，應該用哪個 API 取得結果？**
 
-我們共用一份狀態準備，再依 readout 的需求接上不同 wrapper。這裡的「同一電路」指相同的量子態準備；三個 API 的回傳契約不同，因此不是把完全相同的函式任意塞給三個 API。
+本章共用一份狀態準備，再依 readout 的需求接上不同 wrapper。這裡的「同一電路」指相同的量子態準備；三個 API 的回傳契約不同，因此不是把完全相同的函式任意塞給三個 API。
 
 ## 1. 先看輸出契約
 

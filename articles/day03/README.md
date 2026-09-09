@@ -1,5 +1,21 @@
 # Day 03｜Quantum Gate：量子世界的 Layer？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day2](../day02/README.md) 介紹如何用向量表示單一量子位元的純態，並區分機率振幅、量測機率與相對相位。Day3 接著探討如何改變量子狀態，透過 NumPy 矩陣運算，觀察量子閘對狀態與量測機率的影響。
+
+這一章目標在於理解 **「量子閘如何改變狀態，以及這些改變為什麼會影響後續預測」**，為建立量子電路與可訓練的 QML 模型打下基礎。本章以單一量子位元為範圍，把 X、Y、Z、Hadamard 與旋轉閘寫成矩陣，再用「矩陣乘上狀態向量」計算結果。核心概念是 unitary（酉性）：本章討論的理想量子閘會保持向量長度，使量測機率總和維持為 1，且運算可以反轉。觀察時也要留意相對相位；例如 Z 閘作用於疊加態後，當下量到 0／1 的機率可能不變，但接上 Hadamard 閘後就能看出差異。RX、RY、RZ 則加入可調整的旋轉角度，成為後續資料編碼與模型訓練的基本元件。本章先掃描角度、核對矩陣性質與保存結果，尚未進行訓練。讀完本章，應能用矩陣運算解釋簡單的量子閘序列，理解輸入狀態、閘的順序與量測方式必須一起考慮，並說明量子閘與神經網路 layer 的類比有哪些限制。
+
+### English
+
+[Day2](../day02/README.md) introduced vector representations of single-qubit pure states and distinguished probability amplitudes, measurement probabilities, and relative phase. Day3 explores how quantum states change, using NumPy matrix operations to examine the effects of quantum gates on states and measurement probabilities.
+
+This chapter aims to explain **how quantum gates transform states and why those changes matter for later predictions**, laying the foundation for quantum circuits and trainable QML models. The scope is a single qubit: X, Y, Z, Hadamard, and rotation gates are represented as matrices and applied through matrix–vector multiplication. The central concept is unitarity. The ideal gates covered here preserve the vector norm, keeping measurement probabilities normalized, and their operations are reversible. Relative phase also matters: applying a Z gate to a superposition can leave the immediate probabilities of measuring 0 and 1 unchanged, while a subsequent Hadamard gate can reveal the difference. RX, RY, and RZ introduce adjustable rotation angles that become building blocks for data encoding and model training. This chapter scans those angles, checks matrix properties, and saves results; training comes later. The learning goal is to explain simple gate sequences through matrix operations, understand why the input state, gate order, and measurement basis must be considered together, and identify the limits of comparing quantum gates with neural network layers.
+
+---
+
 Day 2 把 Qubit 寫成 normalized complex vector：
 
 ```text
@@ -70,7 +86,7 @@ X [ ] = [ ]
   [β]   [α]
 ```
 
-在 Bloch sphere 上，X 對應繞 x axis 旋轉 `π`，但可能伴隨不影響物理預測的 global phase，取決於我們拿它和 `RX(π)` 如何比較。
+在 Bloch sphere 上，X 對應繞 x axis 旋轉 `π`；與 `RX(π)` 比較時，兩者只差不影響物理預測的 global phase。
 
 ## 4. Pauli Y：交換 basis，同時加入 complex phase
 
@@ -85,7 +101,7 @@ Y|0⟩ = i|1⟩
 Y|1⟩ = -i|0⟩
 ```
 
-若只量測 `Y|0⟩` 的 Z-basis probability，結果和 `X|0⟩` 一樣都是 100% 得到 1；但兩個 state vector 不完全相同。這再次提醒我們：probability distribution 不足以描述所有 phase 資訊。
+若只量測 `Y|0⟩` 的 Z-basis probability，結果和 `X|0⟩` 一樣都是 100% 得到 1；兩個 state vector 相差 global phase，因此代表相同的物理狀態。相對相位造成的可觀測差異，則在下一節以 Z 作用於疊加態的例子說明。
 
 ## 5. Pauli Z：不改 Z-basis probability，也可能改變未來結果
 

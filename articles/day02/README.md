@@ -1,5 +1,21 @@
 # Day 02｜從 Bit 到 Qubit：工程師需要懂多少量子力學？
 
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day1](../day01/README.md) 說明量子計算在機器學習流程中的位置，以及為什麼需要透過實驗與傳統方法比較。Day2 接著建立描述量子資料的基本語言，從熟悉的 0／1 出發，理解 qubit（量子位元）的狀態與量測結果。
+
+這一章目標在於看懂 **「量子狀態如何表示，以及如何從狀態算出量測機率」**，為後續量子閘運算與資料編碼打下基礎。本章先以單一量子位元的純態為範圍，把 `|ψ⟩ = α|0⟩ + β|1⟩` 對應成兩個複數組成的向量：`α`、`β` 稱為機率振幅，取絕對值平方後，才是在 0／1 基底下量到各結果的機率；兩個機率相加必須等於 1。另一個重點是相對相位，也就是兩個振幅之間的相位差：即使兩個狀態量到 0／1 的機率相同，經過後續量子閘運算，仍可能產生不同結果。Bloch Sphere（布洛赫球）提供這些單一量子位元純態的幾何圖像，NumPy 小實驗則用來核對向量長度、理論機率與重複抽樣的結果。讀完本章，應能辨認振幅與機率的差別，理解一次量測只得到一個結果，以及為什麼需要重新準備相同狀態、重複量測，才能估計機率分布。
+
+### English
+
+[Day1](../day01/README.md) explained where quantum computation fits into a machine learning workflow and why experiments need comparisons with classical methods. Day2 builds the basic language for describing quantum data, starting from familiar bits to explain qubit states and measurement outcomes.
+
+This chapter aims to explain **how a quantum state is represented and how measurement probabilities are calculated from that state**, laying the foundation for quantum gates and data encoding. The scope is a single qubit in a pure state. The expression `|ψ⟩ = α|0⟩ + β|1⟩` corresponds to a vector containing two complex numbers. These numbers, called probability amplitudes, give the probabilities of measuring 0 and 1 in the computational basis through their squared magnitudes; the two probabilities must sum to 1. Another key concept is relative phase—the phase difference between the amplitudes. Two states with identical probabilities for 0 and 1 can still produce different outcomes after further quantum gates. The Bloch sphere provides a geometric picture of these single-qubit pure states, while a small NumPy experiment checks the vector norm, theoretical probabilities, and repeated sampling results. The learning goal is to distinguish amplitudes from probabilities, understand that a single measurement yields one outcome, and explain why estimating a probability distribution requires repeated preparation and measurement of the same state.
+
+---
+
 看到 `|ψ⟩ = α|0⟩ + β|1⟩`，很多工程師的第一反應不是好奇，而是先被符號勸退。
 
 其實今天需要的數學不多。先把 Qubit 當成一個受到特殊規則約束的二維向量，就能讀懂後續 Quantum Gate、Circuit、Measurement 與 QML Encoding 的基本表示。
@@ -22,7 +38,7 @@ Classical Bit 的狀態可以寫成：
 b ∈ {0, 1}
 ```
 
-在電腦裡，它可能由電壓、電荷或磁性實作，但在程式層，我們通常只關心它是 0 還是 1。多個 Bit 組合後可表示更多狀態，例如兩個 Bit 有 `00`、`01`、`10`、`11` 四種可能。
+在電腦裡，Bit 可能由電壓、電荷或磁性實作，但在程式層，通常只關心數值是 0 還是 1。多個 Bit 組合後可表示更多狀態，例如兩個 Bit 有 `00`、`01`、`10`、`11` 四種可能。
 
 如果系統此刻是 `01`，它就不是同時處於其他三個狀態。這是接下來和 Qubit 最重要的差別之一。
 

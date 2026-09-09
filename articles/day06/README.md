@@ -1,6 +1,22 @@
 # Day 06｜CUDA-Q、CUDA、cuQuantum 有何不同？
 
-Day 4 已經在 RTX 3060 上建立 Bell state，Day 5 也完成資料到量測輸出的 forward pipeline。今天進入第二階段，先把底層工具與環境整理清楚：**我們寫的是 CUDA-Q 程式，GPU 上執行的是量子模擬；CUDA 與 cuQuantum 分別提供不同層次的支援。**
+## 本章摘要｜初學者學習筆記
+
+### 中文
+
+[Day5](../day05/README.md) 將資料編碼、量子電路、量測與結果評估串成完整的前向計算流程，並用已知答案核對輸出。Day6 接著整理支撐這條流程的工具與執行環境，釐清程式如何選擇 CPU／GPU 模擬器，以及如何確認環境確實能執行指定的工作。
+
+這一章目標在於理解 **「CUDA-Q、CUDA 與 cuQuantum 各自負責什麼，以及程式成功執行需要哪些可核對的證據」**，為後續量子程式開發與問題排查建立基礎。CUDA-Q 提供撰寫量子電路與選擇 backend（執行後端）的介面；CUDA 提供 NVIDIA GPU 平行運算的基礎；cuQuantum 則提供加速量子模擬的函式庫。這個分工有助於判斷錯誤發生在 Python 套件、GPU 驅動程式、裝置存取，還是電路執行階段。本章也區分 driver（驅動程式）、toolkit（開發工具組）與 runtime（執行時支援）的版本，避免把不同層次的資訊混成單一「CUDA 版本」。實作沿用熟悉的 Bell state 作為最小驗證案例，檢查指定後端、量測次數、狀態正確性與位元順序，並保存診斷結果和失敗訊息。讀完本章，應能說明三種工具的關係，理解套件匯入成功與後端實際執行成功的差別，並依診斷紀錄逐步定位問題。GPU 在這裡執行的是經典數值模擬；本章驗證的是環境與小型電路的正確性，尚未比較模擬效能或證明量子優勢。
+
+### English
+
+[Day5](../day05/README.md) connected data encoding, quantum circuits, measurement, and evaluation into a complete forward pass, checking the outputs against a known answer. Day6 examines the tools and execution environment supporting that workflow, explaining how CPU/GPU simulators are selected and how to verify that the environment can run the requested task.
+
+This chapter aims to explain **the roles of CUDA-Q, CUDA, and cuQuantum, and the evidence needed to verify successful execution**, establishing a foundation for quantum programming and troubleshooting. CUDA-Q provides interfaces for writing quantum circuits and selecting an execution backend. CUDA provides the foundation for parallel computing on NVIDIA GPUs, while cuQuantum supplies libraries that accelerate quantum simulation. Understanding these roles helps distinguish problems involving Python packages, GPU drivers, device access, and circuit execution. The chapter also separates driver, toolkit, and runtime versions rather than treating these different layers as a single “CUDA version.” The implementation reuses the familiar Bell state as a minimal verification case, checking the requested backend, shot totals, state correctness, and bit ordering while preserving diagnostic results and failure messages. The learning goal is to explain how the three tools relate, distinguish a successful package import from successful backend execution, and use diagnostic records to locate problems step by step. GPU execution here performs classical numerical simulation; this chapter verifies the environment and a small circuit, without measuring simulation speed or establishing quantum advantage.
+
+---
+
+Day 4 已經在 RTX 3060 上建立 Bell state，Day 5 也完成資料到量測輸出的 forward pipeline。今天進入第二階段，先把底層工具與環境整理清楚：**本系列以 CUDA-Q 撰寫程式，GPU 上執行的是量子模擬；CUDA 與 cuQuantum 分別提供不同層次的支援。**
 
 今天留下可重跑的環境診斷與 Hello Quantum。之後遇到 import、driver、backend 或結果差異，就有明確的檢查入口。
 
