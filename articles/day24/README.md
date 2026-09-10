@@ -165,3 +165,9 @@ Day25 將進入第二個真實資料集評測，把前面對表示、模型與�
 查閱日期 2026-09-07；[REFERENCES.md](../../REFERENCES.md)保存版本與支持範圍。本日僅引用原始研究的概念與條件，不宣稱此 CZ 電路滿足論文全部假設。
 
 接續：[Day25｜第二個真實資料集：Wine](../day25/README.md)。
+
+## 延伸研究
+
+[N8] Martín Larocca et al. “Barren plateaus in variational quantum computing.” Nature Reviews Physics 7, 174–189 (2025)；綜述論文。[原始來源](https://doi.org/10.1038/s42254-025-00813-9)；[完整書目](../../REFERENCES.md#n8)。
+
+本章量測梯度隨設定改變的情形；這篇綜述可延伸辨認不同成因。單一小型實驗中的小梯度，仍不足以證明隨規模增長的貧瘠高原。

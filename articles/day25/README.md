@@ -152,3 +152,9 @@ Day26 將加入 Quantum Noise（量子噪聲），也就是使量子操作或量
 來源：[D21] S. Aeberhard and M. Forina (1992). *Wine* [Dataset]. UCI Machine Learning Repository. [UCI 頁面](https://archive.ics.uci.edu/dataset/109/wine)，DOI [10.24432/C5PC7J](https://doi.org/10.24432/C5PC7J)，CC BY 4.0。查閱／下載日期 2026-09-07；完整 [參考索引](../../REFERENCES.md) 與 [資料處理紀錄](../../data/day25/README.md)。
 
 接續：[Day26｜Quantum Noise](../day26/README.md)。
+
+## 延伸研究
+
+[N7] Jan Schnabel and Marco Roth. “Quantum kernel methods under scrutiny: a benchmarking study.” Quantum Machine Intelligence 7, 58 (2025)；研究論文。[原始來源](https://doi.org/10.1007/s42484-025-00273-5)；[完整書目](../../REFERENCES.md#n7)。
+
+本章將比較延伸到 Wine；這篇研究有助於理解跨資料集評估的必要性。其量子核結果不等於本章分類模型的結果。

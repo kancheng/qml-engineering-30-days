@@ -176,3 +176,9 @@ Day24 回到電路是否容易訓練的問題，觀察梯度，也就是參數�
 查閱日期 2026-09-07；完整索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 接續：[Day24｜Barren Plateau](../day24/README.md)。
+
+## 延伸研究
+
+[N7] Jan Schnabel and Marco Roth. “Quantum kernel methods under scrutiny: a benchmarking study.” Quantum Machine Intelligence 7, 58 (2025)；研究論文。[原始來源](https://doi.org/10.1007/s42484-025-00273-5)；[完整書目](../../REFERENCES.md#n7)。
+
+本章實作量子核；這篇基準研究可直接銜接核的選擇、資料編碼與選參數流程，避免只以單一設定判定方法優劣。

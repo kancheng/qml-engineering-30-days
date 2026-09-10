@@ -262,3 +262,9 @@ DAY04_TARGET=nvidia python -m unittest discover -s articles/day04 -p 'test_cudaq
 ## 13. 下一篇
 
 [Day 05](../day05/README.md) 會把狀態準備、量子閘、量測與一般電腦上的結果處理串成完整流程，整理可將文字、程式與輸出放在一起的互動式筆記本，以及流程架構圖，完成第一個量子基礎實作。
+
+## 延伸研究
+
+[N2] Theodore McKeever and Ahsan Nazir. “An Introduction to the Foundations and Interpretations of Quantum Mechanics.” arXiv:2603.09818v2 (2026)；預印本講義。[原始來源](https://arxiv.org/abs/2603.09818v2)；[完整書目](../../REFERENCES.md#n2)。
+
+本章的 Bell 態與不同基底量測，可接到這份講義的量子關聯討論。局部結果相同，仍不足以判定整體狀態相同。

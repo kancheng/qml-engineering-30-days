@@ -261,3 +261,9 @@ NumPy 是本日的經典數值核對基準；本日沒有學習任務或資料�
 本日電路模板是教學設計，NumPy 參考值重用 Day 3 的 RY 與 Day 4 的 CNOT。未引用它來宣稱特定研究方法的效果。查閱日期：2026-09-06，實際版本 CUDA-Q 0.15.1，共用索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 [Day 10](../day10/README.md) 會在這個前向計算介面外加入損失函數與一般電腦上的最佳化器，第一次讓權重由最佳化過程更新，完成第二階段的量子與經典混合的參數更新流程。
+
+## 延伸研究
+
+[N3] Seungcheol Oh et al. “Fourier Analysis Perspective on Quantum Neural Networks.” Communications Physics 9, 176 (2026)；觀點論文。[原始來源](https://doi.org/10.1038/s42005-026-02680-x)；[完整書目](../../REFERENCES.md#n3)。
+
+本章區分資料角度與可訓練權重；這篇觀點論文可用來理解兩者對模型可表示函數的不同作用。

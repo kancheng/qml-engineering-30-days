@@ -218,3 +218,9 @@ python articles/day02/state_vector.py
 ## 13. 下一篇
 
 [Day 03](../day03/README.md) 將以矩陣運算改變狀態向量，逐一介紹單量子位元的基本量子閘，並驗證 H 閘如何讓相對相位影響量測結果。兩個量子位元之間的操作則留到 Day 04。
+
+## 延伸研究
+
+[N2] Theodore McKeever and Ahsan Nazir. “An Introduction to the Foundations and Interpretations of Quantum Mechanics.” arXiv:2603.09818v2 (2026)；預印本講義。[原始來源](https://arxiv.org/abs/2603.09818v2)；[完整書目](../../REFERENCES.md#n2)。
+
+本章從位元走向量子位元；這份講義可延伸理解狀態與量測規則，避免把疊加態當成一次就能讀出多個答案。

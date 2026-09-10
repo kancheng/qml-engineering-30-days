@@ -186,4 +186,10 @@ QML 的實作流程涵蓋資料、數值計算、量測、權重更新與執行�
 
 本章數值取自專案保存的實驗紀錄。數值入口為[Day20](../../results/day20/README.md)、[Day23](../../results/day23/README.md)、[Day24](../../results/day24/README.md)、[Day25](../../results/day25/README.md)、[Day26](../../results/day26/README.md)、[Day27](../../results/day27/README.md)、[Day28](../../results/day28/README.md)、[Day29](../../results/day29/README.md)。
 
-方法與官方後端文件沿用[REFERENCES.md](../../REFERENCES.md)的既有核對紀錄；查閱日期與版本限制不因本日彙整而更新。[完整 30 天目錄](../../README.md)、[Roadmap](../../ROADMAP.md)。
+方法與官方後端文件見 [REFERENCES.md](../../REFERENCES.md)，實作行為以各章固定的軟體版本為準。[完整 30 天目錄](../../README.md)、[Roadmap](../../ROADMAP.md)。
+
+## 延伸研究
+
+[N1] Shreeya Sanjeev Gokhale et al. “A review of quantum machine learning algorithms, applications, and emerging advantages.” Discover Computing 29, 226 (2026)；綜述論文。[原始來源](https://doi.org/10.1007/s10791-026-10085-1)；[完整書目](../../REFERENCES.md#n1)。
+
+本章彙整品質、成本與限制；這篇綜述可銜接後續研究方向。外部文獻提供比較脈絡，本章數值仍以專案保存的實驗紀錄為準。

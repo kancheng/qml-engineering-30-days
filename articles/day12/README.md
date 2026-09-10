@@ -165,3 +165,9 @@ NumPy 是 Python 的數值運算套件，用來核對公式。無噪聲表示未
 ## 8. 來源
 
 [D5] [NVIDIA CUDA-Q Python API](https://nvidia.github.io/cuda-quantum/latest/api/languages/python_api.html)：角度編碼與 Pauli 旋轉閘 convention。查閱日期 2026-09-06，實際 CUDA-Q 0.15.1。映射、布洛赫球表格與保真度公式由 Day 3 量子閘矩陣推導並測試；來源索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N3] Seungcheol Oh et al. “Fourier Analysis Perspective on Quantum Neural Networks.” Communications Physics 9, 176 (2026)；觀點論文。[原始來源](https://doi.org/10.1038/s42005-026-02680-x)；[完整書目](../../REFERENCES.md#n3)。
+
+本章比較角度映射；延伸閱讀可從輸出隨輸入變化的週期，理解縮放範圍與旋轉操作為何會影響可區分的資料。

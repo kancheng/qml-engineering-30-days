@@ -152,10 +152,16 @@ Ubuntu 是 Linux 作業系統的一種。實際能否執行 GPU 模擬，仍需�
 - [R4] Schuld and Petruccione, *Supervised Learning with Quantum Computers*, Springer (2018), [DOI](https://doi.org/10.1007/978-3-319-96424-9).
 - [F1] Nielsen and Chuang, *Quantum Computation and Quantum Information*, 10th Anniversary Edition, Cambridge University Press (2010), [publisher page](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE).
 - [P1] Schuld, Sweke, and Meyer, “Effect of data encoding on the expressive power of variational quantum-machine-learning models,” *Physical Review A* 103, 032430 (2021), [DOI](https://doi.org/10.1103/PhysRevA.103.032430).
-- [D2] [NVIDIA CUDA-Q Local Installation](https://nvidia.github.io/cuda-quantum/latest/using/install/local_installation.html), accessed 2026-09-01.
+- [D2] [NVIDIA CUDA-Q Local Installation](https://nvidia.github.io/cuda-quantum/latest/using/install/local_installation.html).
 
 ## 13. 下一篇
 
 [Day 02｜從 Bit 到 Qubit：工程師需要懂多少量子力學？](../day02/README.md)
 
 下一篇從只能取 0 或 1 的位元（bit）開始，介紹量子位元如何表示狀態，以及為什麼量測結果需要用機率描述，再逐步建立閱讀量子電路所需的數學符號。
+
+## 延伸研究
+
+[N1] Shreeya Sanjeev Gokhale et al. “A review of quantum machine learning algorithms, applications, and emerging advantages.” Discover Computing 29, 226 (2026)；綜述論文。[原始來源](https://doi.org/10.1007/s10791-026-10085-1)；[完整書目](../../REFERENCES.md#n1)。
+
+本章建立 QML 的研究地圖；這篇綜述可接著用來區分演算法構想、實驗證據與完整運算成本。

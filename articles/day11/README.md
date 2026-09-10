@@ -154,3 +154,9 @@ OMP_NUM_THREADS=1 DAY11_TARGET=nvidia python -m unittest discover -s articles/da
 ## 8. 來源
 
 [D5] [NVIDIA CUDA-Q Python API](https://nvidia.github.io/cuda-quantum/latest/api/languages/python_api.html)：Quantum Embeddings 的振幅／angular encoding 定義。查閱日期：2026-09-06，實際環境 CUDA-Q 0.15.1。其餘縮放與碰撞例子由本文程式、RY 解析式與測試核對；索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N6] Kevin W. Aoun et al. “Quantum State Preparation via Neural Network Encoding in Quantum Machine Learning.” arXiv:2605.31006v1 (2026)；預印本。[原始來源](https://arxiv.org/abs/2605.31006v1)；[完整書目](../../REFERENCES.md#n6)。
+
+本章比較不同資料表示；這篇研究提供先學習編碼規則的延伸方向。比較時也需要計入編碼器本身的訓練成本。

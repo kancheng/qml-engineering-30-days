@@ -144,3 +144,9 @@ Day27 將比較 CPU／GPU 的模擬效能。本章計時可能包含 JIT（執�
 已保存的 GPU 抽樣程序在結束時有 `cudaErrorCudartUnloading` 訊息；退出碼為 0，表示程式回報成功，且分布檢查全部通過，但該結束錯誤的根因尚未定位。
 
 接續：[Day27｜CPU vs GPU Quantum Simulation](../day27/README.md)。
+
+## 延伸研究
+
+[N9] Antonio Anna Mele et al. “Noise-induced shallow circuits and the absence of barren plateaus.” Nature Physics 22, 751–756 (2026)；研究論文。[原始來源](https://doi.org/10.1038/s41567-026-03245-z)；[完整書目](../../REFERENCES.md#n9)。
+
+本章觀察噪聲對結果的影響；此研究提醒噪聲類型與量測範圍會改變理論結論。本章的 Pauli 噪聲通道不能直接套用非保單位噪聲的結論。

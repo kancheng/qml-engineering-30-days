@@ -186,3 +186,9 @@ MPLCONFIGDIR=/tmp/day29-matplotlib .venv/bin/python articles/day29/report.py
 [D28] [Executing Kernels](https://nvidia.github.io/cuda-quantum/latest/using/examples/executing_kernels.html)與[Using Quantum Hardware Providers](https://nvidia.github.io/cuda-quantum/latest/using/examples/hardware_providers.html)，查閱 2026-09-08；說明末端量測、`sample_async` 及遠端結果取得方式。
 
 [D29] [IonQ Jobs](https://docs.ionq.com/user-manual/jobs)與[API v0.4 Get Job](https://docs.ionq.com/api-reference/v0.4/jobs/get-job)，查閱 2026-09-08；說明工作狀態與附加資訊，不代表本日使用了該 API。完整 [參考索引](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N11] Archie Butterworth et al. “Efficient quantum state preparation on Quantinuum hardware.” arXiv:2609.08414v1 (2026)；預印本。[原始來源](https://arxiv.org/abs/2609.08414v1)；[完整書目](../../REFERENCES.md#n11)。
+
+本章準備硬體工作流程；這篇 Quantinuum 研究提供真實裝置的狀態驗證案例，與本章 IonQ 本地預演的證據範圍不同。

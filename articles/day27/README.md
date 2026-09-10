@@ -133,3 +133,9 @@ OMP_NUM_THREADS=1 python articles/day27/audit_results.py
 Day28 將檢視多 GPU 模擬的程式介面與資源需求，並說明單 GPU 環境能驗證的範圍。本機只有一張 RTX 3060，因此沒有多 GPU 實測結果。
 
 [D24] [NVIDIA State Vector Simulators](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/svsims.html)：CPU／GPU 狀態向量模擬器與精度選項，查閱日期 2026-09-07。另沿用 [Day24](../day24/README.md) 的電路與 NumPy 參考計算。完整 [參考索引](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N10] W. Michael Brown et al. “Multi-GPU Quantum Circuit Simulation and the Impact of Network Performance.” Computer Physics Communications 324, 110126 (2026)；研究論文。[原始來源](https://doi.org/10.1016/j.cpc.2026.110126)；[完整書目](../../REFERENCES.md#n10)。
+
+本章測量單 GPU 模擬時間；這篇研究可銜接多 GPU 系統的通訊成本，外部硬體的加速比不能直接套用到 RTX 3060。

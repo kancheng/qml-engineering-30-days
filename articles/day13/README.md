@@ -189,3 +189,9 @@ OMP_NUM_THREADS=1 DAY13_TARGET=nvidia python -m unittest discover -s articles/da
 - [D13] [NVIDIA Approximate State Preparation using MPS Sequential Encoding](https://nvidia.github.io/cuda-quantum/0.13.0/applications/python/mps_encoding.html)：狀態準備是將狀態向量轉成電路；MPS 是將完整狀態拆成一串相連矩陣的表示方式，本文未實作此方法。
 
 查閱日期 2026-09-07，實際 CUDA-Q 0.15.1。小型 RY／CNOT 分解由本文公式與測試核對，共用索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N6] Kevin W. Aoun et al. “Quantum State Preparation via Neural Network Encoding in Quantum Machine Learning.” arXiv:2605.31006v1 (2026)；預印本。[原始來源](https://arxiv.org/abs/2605.31006v1)；[完整書目](../../REFERENCES.md#n6)。
+
+本章區分振幅表示與實際狀態準備；這篇研究提供用神經網路產生電路參數的案例，方便比較載入狀態與建立準備電路的成本。

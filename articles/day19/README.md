@@ -191,3 +191,9 @@ OMP_NUM_THREADS=1 DAY19_TARGET=nvidia python -m unittest discover -s articles/da
 [D15] [NVIDIA Hybrid QNN 教學（0.8.0）](https://nvidia.github.io/cuda-quantum/0.8.0/examples/python/tutorials/hybrid_qnns.html) 示範一般計算層與量子電路層的整合。2026-09-07 重新查閱；本日未移植其歷史版本梯度程式，而是沿用 Day 17 的位移規則並獨立核對完整鏈式法則。來源索引：[REFERENCES.md](../../REFERENCES.md)。
 
 下一篇 [Day 20](../day20/README.md) 將進入 Iris 鳶尾花資料集（以花的尺寸辨認種類）的一般／量子／混合模型比較。本日不作 QPU、速度或量子優勢宣稱。
+
+## 延伸研究
+
+[N5] Brian Coyle et al. “Training-efficient density quantum machine learning.” npj Quantum Information 11, 172 (2025)；研究論文。[原始來源](https://doi.org/10.1038/s41534-025-01099-6)；[完整書目](../../REFERENCES.md#n5)。
+
+本章檢查混合模型各層的導數；這篇研究可延伸思考模型結構與梯度計算量的關係。本章仍以獨立數值方法核對既有模型。

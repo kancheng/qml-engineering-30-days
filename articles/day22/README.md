@@ -160,3 +160,9 @@ OMP_NUM_THREADS=1 DAY22_TARGET=nvidia python -m unittest discover -s articles/da
 出版頁查閱日期 2026-09-07；頁面標示發表版本對應 arXiv v2，另列較新的 v3，本日引用期刊版本。完整書目見 [REFERENCES.md](../../REFERENCES.md)。
 
 接續：[Day23｜Quantum Kernel](../day23/README.md)。
+
+## 延伸研究
+
+[N3] Seungcheol Oh et al. “Fourier Analysis Perspective on Quantum Neural Networks.” Communications Physics 9, 176 (2026)；觀點論文。[原始來源](https://doi.org/10.1038/s42005-026-02680-x)；[完整書目](../../REFERENCES.md#n3)。
+
+本章重複將資料放入電路；傅立葉觀點可用來理解重複編碼如何影響頻率結構，但增加可表示的函數不保證分類效果更好。

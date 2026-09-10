@@ -176,3 +176,9 @@ OMP_NUM_THREADS=1 DAY17_TARGET=nvidia python -m unittest discover -s articles/da
 [P3] Maria Schuld, Ville Bergholm, Christian Gogolin, Josh Izaac, Nathan Killoran. “Evaluating analytic gradients on quantum hardware.” *Physical Review A* **99**, 032331 (2019). [出版商／DOI](https://doi.org/10.1103/PhysRevA.99.032331)，[arXiv:1811.11184](https://arxiv.org/abs/1811.11184)。2018 為預印本年份，正式出版為 2019。
 
 2026-09-07 核對作者、題名、年份、DOI 與兩次 shifted circuit 的主張；本日 RY 公式、鏈式法則與反例均由獨立矩陣導數／解析式核對。共用索引：[REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N5] Brian Coyle et al. “Training-efficient density quantum machine learning.” npj Quantum Information 11, 172 (2025)；研究論文。[原始來源](https://doi.org/10.1038/s41534-025-01099-6)；[完整書目](../../REFERENCES.md#n5)。
+
+本章核對參數位移與鏈式法則；這篇研究可延伸比較特定模型結構下的梯度成本。位移公式仍須依本章各量子閘的條件使用。

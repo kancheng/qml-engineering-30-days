@@ -141,3 +141,9 @@ OMP_NUM_THREADS=1 python articles/day18/demo.py --features -0.7 0.7
 - [D16] [scikit-learn log_loss](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)：標準邏輯斯迴歸的對數損失目標；與本文 Brier 控制實驗區別。
 
 查閱日期 2026-09-07。本日採 NumPy 自訂實作，沒有安裝 scikit-learn；共用索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N7] Jan Schnabel and Marco Roth. “Quantum kernel methods under scrutiny: a benchmarking study.” Quantum Machine Intelligence 7, 58 (2025)；研究論文。[原始來源](https://doi.org/10.1007/s42484-025-00273-5)；[完整書目](../../REFERENCES.md#n7)。
+
+本章建立公平比較規則；這項量子核基準研究可補充資料集、編碼與選參數設定的重要性。研究對象是核方法，不能當成本章所有模型的直接排名。

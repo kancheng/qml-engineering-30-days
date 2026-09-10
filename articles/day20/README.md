@@ -160,3 +160,9 @@ Day 16–20 至此完成模型結構、梯度、受控比較實驗、混合模�
 查閱日期 2026-09-07；資料來源署名與處理政策見 [data/day20/README.md](../../data/day20/README.md)，共用來源索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 下一日：[Day21｜Qubit 不夠、Feature 太多怎麼辦？](../day21/README.md)，比較 PCA、特徵選擇（只保留部分原始欄位）與可訓練的壓縮層（由訓練決定如何將多個特徵轉成較少數值）。
+
+## 延伸研究
+
+[N7] Jan Schnabel and Marco Roth. “Quantum kernel methods under scrutiny: a benchmarking study.” Quantum Machine Intelligence 7, 58 (2025)；研究論文。[原始來源](https://doi.org/10.1007/s42484-025-00273-5)；[完整書目](../../REFERENCES.md#n7)。
+
+本章比較 Iris 分類模型；延伸閱讀可對照共同評估規則與多種資料集的重要性。量子核研究的結果不能直接替代本章量子電路分類器的實測。

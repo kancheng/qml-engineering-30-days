@@ -188,3 +188,9 @@ OMP_NUM_THREADS=1 DAY14_TARGET=nvidia python -m unittest discover -s articles/da
 [D11] [NVIDIA Quantum Kernels](https://nvidia.github.io/cuda-quantum/latest/specification/cudaq/kernels.html)：量子核心程式組合、程式入口與 qview 子函式。查閱日期 2026-09-07，實際 CUDA-Q 0.15.1。
 
 模型重用 Day 9 電路模板、Day 12 角度策略、Day 13 明確振幅態準備電路與 Day 10 最佳化器。么正操作保持重疊的結論由上式推導；來源索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N3] Seungcheol Oh et al. “Fourier Analysis Perspective on Quantum Neural Networks.” Communications Physics 9, 176 (2026)；觀點論文。[原始來源](https://doi.org/10.1038/s42005-026-02680-x)；[完整書目](../../REFERENCES.md#n3)。
+
+本章組合資料編碼與可訓練電路；延伸閱讀可觀察組合方式如何限制模型可出現的頻率成分。

@@ -250,3 +250,9 @@ OMP_NUM_THREADS=1 DAY08_TARGET=nvidia python -m unittest discover -s articles/da
 查閱日期：2026-09-06。實際執行使用 CUDA-Q 0.15.1；解析結果由本日程式交叉驗證，共用索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 [Day 09](../day09/README.md) 將把電路參數分成資料與可訓練權重，建立參數化量子電路，也就是含有可調整角度等參數的電路，為 Day 10 的反覆調整參數的流程做準備。
+
+## 延伸研究
+
+[N11] Archie Butterworth et al. “Efficient quantum state preparation on Quantinuum hardware.” arXiv:2609.08414v1 (2026)；預印本。[原始來源](https://arxiv.org/abs/2609.08414v1)；[完整書目](../../REFERENCES.md#n11)。
+
+本章比較抽樣次數與期望值；此研究提供硬體量測設計的延伸案例。閱讀重點是量測方向與驗證資源，並非把模擬器的精確狀態當成硬體可直接讀出的資訊。

@@ -178,3 +178,9 @@ Day 11–15 至此交付第一個量子分類器、訓練曲線、決策邊界�
 [D14] [scikit-learn Common pitfalls](https://scikit-learn.org/stable/common_pitfalls.html)：資料切分、前處理與資料洩漏；本日以 NumPy 實作，沒有新增 scikit-learn 依賴。查閱日期 2026-09-07。
 
 電路、縮放器與最佳化器分別沿用 Day 14、11、10。同位性機率與 Brier 定義在本文明示；來源索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N5] Brian Coyle et al. “Training-efficient density quantum machine learning.” npj Quantum Information 11, 172 (2025)；研究論文。[原始來源](https://doi.org/10.1038/s41534-025-01099-6)；[完整書目](../../REFERENCES.md#n5)。
+
+本章建立量子分類器；這篇研究可作為不同模型結構與訓練成本的比較入口。本章分類器並未採用該論文的機率混合架構。

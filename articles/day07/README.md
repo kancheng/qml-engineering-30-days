@@ -260,3 +260,9 @@ OMP_NUM_THREADS=1 DAY07_TARGET=nvidia python -m unittest discover -s articles/da
 查閱日期：2026-09-06。實際驗證使用 CUDA-Q 0.15.1；最新文件與固定版本的行為以測試交叉核對。共用索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 [Day 08](../day08/README.md) 將用相同狀態準備比較 `sample`、`run`、`observe`，釐清量測計數、單次一般回傳值與期望值的差別；期望值是依各結果的機率計算出的平均值。
+
+## 延伸研究
+
+[N4] Xin Zhan et al. “A Full Stack Framework for High Performance Quantum-Classical Computing.” CUG 2025 proceedings (2025)；會議論文。[原始來源](https://cug.org/proceedings/cug2025_proceedings/includes/files/pap142s2-file1.pdf)；[完整書目](../../REFERENCES.md#n4)。
+
+本章將量子操作寫成可呼叫的程式；這篇研究可延伸理解量子 kernel 如何接入傳統程式的編譯與執行流程。

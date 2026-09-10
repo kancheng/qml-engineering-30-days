@@ -136,3 +136,9 @@ OMP_NUM_THREADS=1 DAY10_TARGET=nvidia python -m unittest discover -s articles/da
 ## 9. 來源
 
 [D12] [NVIDIA Quantum Algorithmic Primitives](https://nvidia.github.io/cuda-quantum/latest/specification/cudaq/algorithmic_primitives.html)：可觀測量的期望值與目標函數最佳化的角色。查閱日期：2026-09-06，實際執行 CUDA-Q 0.15.1。座標搜尋與合成回歸任務是本文教學實作；共用來源索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N5] Brian Coyle et al. “Training-efficient density quantum machine learning.” npj Quantum Information 11, 172 (2025)；研究論文。[原始來源](https://doi.org/10.1038/s41534-025-01099-6)；[完整書目](../../REFERENCES.md#n5)。
+
+本章完成參數更新迴圈；這篇研究可延伸思考每次更新需要多少電路求值。本章的座標搜尋沒有實作該論文方法。

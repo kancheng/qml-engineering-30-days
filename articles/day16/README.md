@@ -171,3 +171,9 @@ OMP_NUM_THREADS=1 DAY16_TARGET=nvidia python -m unittest discover -s articles/da
 [D15] [NVIDIA Hybrid Quantum Neural Networks（CUDA-Q 0.8.0 教學）](https://nvidia.github.io/cuda-quantum/0.8.0/examples/python/tutorials/hybrid_qnns.html)：作為一般神經網路層與量子期望值整合的歷史範例，不作本日 API／梯度正確性的依據。查閱日期 2026-09-07，實際環境 CUDA-Q 0.15.1。
 
 本日 MLP 與線性代數公式均明示並測試，QNN 重用 Day 14；來源索引見 [REFERENCES.md](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N5] Brian Coyle et al. “Training-efficient density quantum machine learning.” npj Quantum Information 11, 172 (2025)；研究論文。[原始來源](https://doi.org/10.1038/s41534-025-01099-6)；[完整書目](../../REFERENCES.md#n5)。
+
+本章串接傳統運算與量子量測；此研究提供另一種模型設計，可協助區分模型如何組合與梯度如何取得，兩者需要分別說明。

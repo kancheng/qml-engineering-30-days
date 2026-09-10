@@ -341,3 +341,9 @@ RZ 對 `|0⟩` 的 Z 機率完全不變，也不代表 RZ 沒有作用。若輸�
 ## 16. 下一篇
 
 [Day 04](../day04/README.md) 將進入兩個量子位元：用張量積，也就是組合兩個狀態向量的運算，表示 `|00⟩`，再用 H 閘與受控反相閘（CNOT）建立貝爾態。CNOT 依第一個位元決定是否翻轉第二個位元；貝爾態則是一種無法拆成兩個獨立純態的聯合狀態。後續會透過不同量測方式，觀察這種關係與一般機率混合的差異。
+
+## 延伸研究
+
+[N3] Seungcheol Oh et al. “Fourier Analysis Perspective on Quantum Neural Networks.” Communications Physics 9, 176 (2026)；觀點論文。[原始來源](https://doi.org/10.1038/s42005-026-02680-x)；[完整書目](../../REFERENCES.md#n3)。
+
+本章的旋轉閘可銜接輸入與輸出之間的振盪關係；頻率表示輸入改變時，輸出起伏的快慢。

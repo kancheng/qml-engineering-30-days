@@ -227,3 +227,9 @@ Day 1 確立研究與工程界線；Day 2 把量子位元寫成向量；Day 3 �
 - 本日狀態、期望值與變異數公式由 Day 3–4 的定義推導，並以代碼驗證。文獻索引見 [REFERENCES.md](../../REFERENCES.md)。查閱日期：2026-09-06。
 
 [Day 06](../day06/README.md) 將系統整理 CUDA-Q、CUDA、cuQuantum 的分工，以及已經跑通的 Ubuntu／RTX 3060 環境，附上可重跑的環境檢查與最小量子程式。CUDA 是 NVIDIA GPU 的運算平台，cuQuantum 是協助量子模擬的函式庫，Ubuntu 則是本專案主機使用的 Linux 作業系統。
+
+## 延伸研究
+
+[N1] Shreeya Sanjeev Gokhale et al. “A review of quantum machine learning algorithms, applications, and emerging advantages.” Discover Computing 29, 226 (2026)；綜述論文。[原始來源](https://doi.org/10.1007/s10791-026-10085-1)；[完整書目](../../REFERENCES.md#n1)。
+
+本章建立可重跑的實驗流程；延伸閱讀時，可將研究中的資料處理、電路執行與結果分析分開記錄，建立完整成本觀念。

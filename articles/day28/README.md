@@ -144,3 +144,9 @@ OMP_NUM_THREADS=1 .venv/bin/python articles/day28/scaling.py
 [D25] [NVIDIA State Vector Simulators](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/svsims.html)，查閱日期 2026-09-08；說明 `mgpu`／MPI 介面與版本條件，本章假設的效能數字並非出自該文件。
 
 [D26] [NVIDIA Multiple QPUs](https://nvidia.github.io/cuda-quantum/latest/using/backends/sims/mqpusims.html) 與 [Multi-GPU Workflows](https://nvidia.github.io/cuda-quantum/latest/using/examples/multi_gpu_workflows.html)，查閱日期 2026-09-08；說明非同步任務與 GPU 派送。完整 [參考索引](../../REFERENCES.md)。
+
+## 延伸研究
+
+[N10] W. Michael Brown et al. “Multi-GPU Quantum Circuit Simulation and the Impact of Network Performance.” Computer Physics Communications 324, 110126 (2026)；研究論文。[原始來源](https://doi.org/10.1016/j.cpc.2026.110126)；[完整書目](../../REFERENCES.md#n10)。
+
+本章估算多 GPU 容量與延遲；這篇實測研究可協助辨認模型中的通訊假設。文獻實測與本章假設模型應分開解讀。

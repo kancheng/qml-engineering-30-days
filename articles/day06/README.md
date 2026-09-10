@@ -221,8 +221,14 @@ python -m unittest discover -s articles/day06 -p 'test_*.py' -v
 - [D4] [NVIDIA cuQuantum Documentation](https://docs.nvidia.com/cuda/cuquantum/latest/index.html)：量子模擬函式庫。
 - [D7] [CUDA Toolkit, Driver, and Architecture Matrix](https://docs.nvidia.com/datacenter/tesla/drivers/cuda-toolkit-driver-and-architecture-matrix.html)：驅動程式／開發工具組 與 nvidia-smi 資訊。
 - [D8] [CUDA Minor Version Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/minor-version-compatibility.html)：同一 主版本系列 的相容機制與限制。
-- [D9] [NVIDIA CUDA Zone](https://developer.nvidia.com/cuda-zone)：CUDA 平行運算平台與程式設計模型。
+- [D9] [NVIDIA CUDA Zone](https://developer.nvidia.com/cuda)：CUDA 平行運算平台與程式設計模型。
 
 查閱日期：2026-09-06。文件會更新，實際安裝版本與執行結果分別由依賴清單及報告保存，見 [REFERENCES.md](../../REFERENCES.md)。
 
 [Day 07](../day07/README.md) 將拆解量子核心程式的寫法：建立量子位元、施加量子閘、傳入參數，以及使用條件與迴圈安排操作，讓已能執行的電路更容易修改與擴充。
+
+## 延伸研究
+
+[N4] Xin Zhan et al. “A Full Stack Framework for High Performance Quantum-Classical Computing.” CUG 2025 proceedings (2025)；會議論文。[原始來源](https://cug.org/proceedings/cug2025_proceedings/includes/files/pap142s2-file1.pdf)；[完整書目](../../REFERENCES.md#n4)。
+
+本章區分驅動程式、工具包與執行環境；這篇系統研究進一步呈現軟體各層如何銜接大型計算資源。

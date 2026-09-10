@@ -173,3 +173,9 @@ Day22 將實作資料重複編碼：在保持小量子位元數時，讓資料�
 官方文件查閱日 2026-09-07；本日以 NumPy 實作，沒有安裝 scikit-learn。完整索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 接續：[Day22｜Data Re-uploading](../day22/README.md)。
+
+## 延伸研究
+
+[N6] Kevin W. Aoun et al. “Quantum State Preparation via Neural Network Encoding in Quantum Machine Learning.” arXiv:2605.31006v1 (2026)；預印本。[原始來源](https://arxiv.org/abs/2605.31006v1)；[完整書目](../../REFERENCES.md#n6)。
+
+本章處理輸入特徵與降維；此研究提供可學習編碼的比較方向。壓縮後是否保留任務需要的資訊，仍須在相同資料切分下評估。
