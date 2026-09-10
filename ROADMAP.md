@@ -1,81 +1,96 @@
-# 30 天 Roadmap
+# 30 天學習路線
 
-正式開賽日：**2026-09-15**。每一天延續同一個 QML Engineering Project，而不是 30 個互不相關的範例。
+系列排程從 **2026-09-15** 開始。六個階段沿用同一套量子機器學習（QML）專案，先建立量子狀態與量測的概念，再完成資料編碼、模型比較、效能分析與硬體執行準備。各階段說明概念的用途，章節連結提供公式、程式與保存結果。
 
-## Part 1｜Day 01–05：最小理論，立即實作
+The six stages build one QML project: quantum fundamentals, parameterized circuits, data encoding, model comparisons, trainability studies, and execution preparation. The links lead to explanations, executable examples, and saved results. Multi-GPU analysis remains a scenario model, and QPU execution remains a local rehearsal.
 
-1. AI Engineer 為什麼現在要理解 QML？
-2. 從 Bit 到 Qubit：工程師需要懂多少量子力學？
-3. Quantum Gate：量子世界的 Layer？——用 NumPy 實作 gate matrix 與 state transformation
-4. [Superposition、Entanglement、Measurement](articles/day04/README.md)——已完成 NumPy／CUDA-Q CPU／RTX 3060 Bell state、Z／X 基底與 shots 實驗
-5. [從 Classical ML Pipeline 看懂 QML Pipeline](articles/day05/README.md)——完整前向流程、Notebook、架構圖與 NumPy／CUDA-Q CPU／GPU 驗證
+## 第 1 階段｜Day01–05：量子狀態與第一個完整流程
 
-Day 1–2 完成概念、數學語言與文獻入口；**Day 3 起每日必須包含可執行程式或可重現實驗**。
+量子位元是量子資訊的基本單位，狀態向量用複數振幅描述狀態，振幅的絕對值平方決定量測機率。量子閘是改變狀態的操作。疊加表示狀態可包含多個基底分量；糾纏表示多位元狀態無法拆成各位元獨立描述。Bell 態是雙位元糾纏的例子。Born 規則將振幅連到機率，量測基底則決定用哪組方向區分狀態。
 
-成果：Quantum Fundamentals Notebook、NumPy gate simulator、CUDA-Q Bell state、架構圖與第一個完整 Quantum Circuit Demo。
+這個階段以 NumPy（Python 數值運算套件）核對電路，再以 CUDA-Q 執行同樣的小型實驗，尚未訓練模型。
 
-Day 04 已先完成獨立環境中的 CUDA-Q 安裝與 CPU／GPU 基本驗證，三個 backend 各保留 90 筆實驗紀錄。Day 06 再系統整理 CUDA-Q／CUDA／cuQuantum、環境設定與版本條件。
+- [Day01｜AI 工程師為什麼要理解量子機器學習？](articles/day01/README.md)：專案方向、研究問題與文獻入口。
+- [Day02｜從 Bit 到 Qubit：量子狀態與量測機率](articles/day02/README.md)：以數值表示量子狀態，從振幅計算量測機率。
+- [Day03｜量子閘如何改變量子狀態？](articles/day03/README.md)：用矩陣實作量子操作，保存測試與結果。
+- [Day04｜疊加、糾纏與量測：建立第一個貝爾態](articles/day04/README.md)：疊加、糾纏與不同量測方向的實驗。
+- [Day05｜從一般機器學習流程看懂 QML 流程](articles/day05/README.md)：從輸入資料到量測輸出的完整流程。
 
-Day 05 已完成第一階段交付：[Quantum Fundamentals Notebook](notebooks/day05_quantum_fundamentals.ipynb)、[架構圖](figures/day05_pipeline.svg) 與完整 circuit demo。每個 backend 保存 27 筆輸入到量測輸出的驗證結果；此階段沒有模型訓練，optimizer 留待 Day 09–10。
+## 第 2 階段｜Day06–10：電路參數、執行介面與訓練
 
-## Part 2｜Day 06–10：正式進入 NVIDIA CUDA-Q
+CUDA 是 NVIDIA 的 GPU 運算平台，cuQuantum 是量子模擬加速函式庫，CUDA-Q 則提供量子程式與執行工具。CPU 是中央處理器，GPU 是圖形處理器；本系列兩者都用來模擬量子電路。後端是實際執行計算的工具。
 
-6. [CUDA-Q、CUDA、cuQuantum 有何不同？](articles/day06/README.md)——已完成環境診斷、CPU／GPU Hello Quantum 與主機／沙箱結果紀錄
-7. [建立第一個 CUDA-Q Quantum Kernel](articles/day07/README.md)——已完成 qubit／qvector、型別化參數、迴圈、條件分支與 CPU／GPU 驗證
-8. [`sample`、`run`、`observe` 到底差在哪？](articles/day08/README.md)——已完成 counts、逐次回傳值、finite／exact observe，CPU／GPU 各 16 組比較
-9. [Parameterized Quantum Circuit：讓量子電路開始可以學習](articles/day09/README.md)——已完成 data／weights 分離、4L 參數 Ansatz 與 CPU／GPU 驗證；尚未訓練
-10. [第一個 CUDA-Q Optimization Loop](articles/day10/README.md)——已完成 MSE、座標搜尋與可重現訓練紀錄
+CUDA-Q 的 kernel 是量子電路程式，不是後續的數學核函數。`sample` 回傳抽樣計數，`run` 取得程式回傳值，`observe` 計算期望值，也就是依機率加權的平均。PQC 是帶有可調參數的量子電路，Ansatz 是其預先選定的操作模板。MSE（平均平方誤差）衡量輸出與目標的差距；座標搜尋逐一嘗試增減權重，保留誤差較低的結果。
 
-成果：Parameterized Circuit、Variational Optimization Demo、Hybrid Loop。
+- [Day06｜CUDA-Q、CUDA、cuQuantum 有何不同？](articles/day06/README.md)：工具分工、環境診斷與 CPU／GPU 基本驗證。
+- [Day07｜第一個 CUDA-Q 量子核心程式：量子位元、參數與流程控制](articles/day07/README.md)：量子位元配置、參數、迴圈與條件分支。
+- [Day08｜`sample`、`run`、`observe`：同一電路的三種執行方式](articles/day08/README.md)：比較抽樣計數、逐次回傳值與期望值。
+- [Day09｜參數化量子電路：把資料與可訓練參數分開](articles/day09/README.md)：分開資料與權重，驗證可調電路的反應。
+- [Day10｜第一個 CUDA-Q 訓練迴圈：依預測誤差更新權重](articles/day10/README.md)：以平均平方誤差與座標搜尋更新參數。
 
-Day 06 已完成工具分工與環境驗證，主機 CPU／RTX 3060 smoke tests 通過，並保留沙箱下 GPU 不可見的失敗報告。Day 07 已完成 kernel 深入教學，CPU／GPU 各保存 36 組設定與 6 個測試的驗證成果。Day 08 已完成執行介面比較，CPU／GPU 各 16 組實驗與 5 個測試通過。Day 09 已完成 PQC，每個 backend 有 24 組 forward、12 組參數反應與 7 個測試通過。Day 10 已完成 loss、座標搜尋與 Hybrid Optimization Loop，保留 CPU／GPU、兩個初始化 seeds 的訓練與 holdout 結果。
+## 第 3 階段｜Day11–15：將資料編碼成可訓練模型
 
-## Part 3｜Day 11–15：把 Machine Learning Data 放進 Quantum Circuit
+前處理是模型接收資料前的縮放與轉換。角度編碼讓資料決定旋轉角度，振幅編碼則將資料轉成狀態振幅，需先正規化，使振幅絕對值平方總和為 1。不同資料可能在編碼或量測後變得無法區分，稱為資訊碰撞。
 
-11. [Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md)——已完成 train-only preprocessing、編碼比較、資訊碰撞與 CPU／GPU 驗證
-12. [Angle Encoding](articles/day12/README.md)——已完成三種角度範圍、四種旋轉準備方式與 CPU／GPU 各 96 組設定驗證
-13. [Amplitude Encoding](articles/day13/README.md)——已完成正規化、simulator loading、RY／CNOT state preparation 與 CPU／GPU 各 12 組驗證
-14. [Feature Map + Ansatz](articles/day14/README.md)——已完成可替換編碼、共用 Ansatz／ZZ／batch API 與 CPU／GPU 短訓練驗證
-15. [第一個 CUDA-Q Quantum Classifier](articles/day15/README.md)——已完成 XOR train／validation／test、checkpoint、curve 與 boundary
+訓練資料建立轉換規則與更新權重，驗證資料選擇候選，測試資料最後評分。XOR 在兩個輸入不同時標為 1、相同時標為 0；分類邊界是模型判斷不同類別的分界。模型保存檔記錄權重與必要設定，供之後重現預測。
 
-成果：可訓練的 Quantum Classifier、Training Curve、Decision Boundary。
+- [Day11｜一般數值資料如何轉成量子態？](articles/day11/README.md)：只用訓練資料建立轉換規則，檢查編碼差異。
+- [Day12｜角度編碼：角度範圍、旋轉軸與量測方式](articles/day12/README.md)：比較資料轉成旋轉角度的範圍與方式。
+- [Day13｜振幅編碼：從正規化向量到狀態準備電路](articles/day13/README.md)：將資料轉成狀態振幅，檢查準備成本。
+- [Day14｜資料編碼與可調電路：組成可訓練的量子模型](articles/day14/README.md)：組合資料編碼、可調電路與訓練流程。
+- [Day15｜第一個 CUDA-Q 量子分類器：訓練、評分與模型保存](articles/day15/README.md)：二分類模型、保存權重、訓練曲線與分類邊界。
 
-## Part 4｜Day 16–20：Quantum Machine Learning Engineering
+## 第 4 階段｜Day16–20：梯度、傳統對照與混合模型
 
-16. [QNN 到底是不是 Neural Network？](articles/day16/README.md)——已完成 QNN／MLP 前向、參數角色與非線性來源比較，CPU／GPU 驗證
-17. [QML 怎麼 Backprop？Gradient 從哪裡來？](articles/day17/README.md)——已完成 parameter-shift／finite difference／matrix derivative、loss chain rule 與 CPU／GPU 驗證
-18. [Classical ML vs QML：第一次公平 Benchmark](articles/day18/README.md)——已完成同 split／Brier／評估預算的 logistic-link、MLP、VQC 比較與成本紀錄
-19. [Hybrid Neural Network：Classical Layer + Quantum Layer](articles/day19/README.md)——已完成 12 參數 classical／quantum／classical 模型、全梯度與聯合更新驗證
-20. [Iris：Classical vs Quantum vs Hybrid](articles/day20/README.md)——已完成 binary Iris、train-only PCA、兩組 split、12 次 reference 訓練與 CUDA-Q CPU／GPU 凍結模型驗證
+梯度描述參數小幅改動時目標如何變化。參數位移法利用兩個特定角度的電路結果求導數，有限差分用微小改動近似變化率；鏈式法則把多層轉換的導數連起來。
 
-成果：Classical Baseline、VQC、Hybrid QNN 與第一份 Benchmark Report。
+MLP（多層感知器）是傳統神經網路，VQC（變分量子分類器）學習電路角度，Hybrid 結合傳統與量子層。Brier 分數是預測值與 0／1 標籤的平均平方誤差。Logistic-link 將加權分數透過 sigmoid 函數轉到 0 與 1 之間；本系列使用共同 Brier 目標比較，與常見的交叉熵訓練不同。
 
-## Part 5｜Day 21–25：不只 Toy Example
+- [Day16｜量子神經網路與一般神經網路：參數、運算與輸出的差別](articles/day16/README.md)：比較量子與傳統神經網路的參數和輸出。
+- [Day17｜量子模型的梯度：從電路輸出到訓練損失](articles/day17/README.md)：以參數位移、微小差分與矩陣導數核對梯度。
+- [Day18｜一般機器學習與量子模型：固定條件下的比較](articles/day18/README.md)：固定資料與評估預算，比較傳統與量子模型。
+- [Day19｜混合神經網路：讓一般計算層與量子電路一起學習](articles/day19/README.md)：結合傳統與量子運算，核對完整梯度。
+- [Day20｜Iris 鳶尾花分類：一般、量子與混合模型的比較](articles/day20/README.md)：Iris 鳶尾花二分類、壓縮輸入與成本紀錄。
 
-21. [Qubit 不夠、Feature 太多怎麼辦？](articles/day21/README.md)——已完成 PCA／feature selection／learned bottleneck、四維 classical baseline、16 次 reference 訓練與 CPU／GPU 驗證
-22. [Data Re-uploading](articles/day22/README.md)——已完成 once／repeat 配對、四維分段輸入、20 次 reference 訓練與 CPU／GPU 各792次 observe 驗證
-23. [Quantum Kernel：QML 不只有 QNN](articles/day23/README.md)——已完成 compute–uncompute、三種 kernel ridge、Gram 診斷與 CPU／GPU 各11,682次 observe 驗證
-24. [Barren Plateau：為什麼 QNN 學不動？](articles/day24/README.md)——已完成768個初始化、local／global梯度分布、解析對照與CPU／GPU各3,072次observe驗證
-25. [第二個真實資料集：Wine Benchmark](articles/day25/README.md)——已完成13維Wine二分類、train-only PCA、16次reference訓練與CPU／GPU各476次observe驗證
+## 第 5 階段｜Day21–25：資料表示、核方法與訓練限制
 
-成果：降維、Quantum Kernel、Trainability 與真實資料集比較。
+特徵是描述資料的數值。PCA（主成分分析）將欄位組合成較少的新座標；特徵選擇保留部分原始欄位，可訓練壓縮層則學習如何合併欄位。資料重複編碼讓輸入在電路中多次影響操作。
 
-## Part 6｜Day 26–30：GPU、Noise、QPU 與真正的 QML Engineering
+量子核方法比較編碼後狀態的相似度，先編碼再反向操作的流程可求得狀態重疊機率。Gram 矩陣保存樣本兩兩相似度，核嶺迴歸用此表求出預測係數。可訓練性描述權重是否容易有效更新；貧瘠高原研究某些條件下梯度普遍接近零、難以提供更新方向的現象。Iris 是鳶尾花資料，Wine 是葡萄酒化學測量資料，本系列均只取兩類比較。
 
-26. [用 CUDA-Q 模擬 Quantum Noise](articles/day26/README.md)——bit／phase flip、depolarizing、density matrix解析核對與CPU／GPU有限shots
-27. [CPU vs GPU Quantum Simulation](articles/day27/README.md)——相同電路／精度、序列量測、first／warm latency與原始計時紀錄
-28. [從單 GPU 到 Multi-GPU](articles/day28/README.md)——已完成可重現容量／延遲模型與測試；無多卡實測
-29. [Simulator → QPU](articles/day29/README.md)——已完成三種本地模式、90組counts與shots誤差驗證；QPU規格未提交
-30. [30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向](articles/day30/README.md)——已完成20個選定模型與8組fp64計時核算、30篇交付索引及證據總結
+- [Day21｜特徵多、量子位元少：比較三種資料壓縮方式](articles/day21/README.md)：比較特徵選擇、主成分分析與可訓練壓縮。
+- [Day22｜資料重複編碼：讓資料再次進入量子電路](articles/day22/README.md)：單次與重複編碼、分段輸入與電路成本。
+- [Day23｜量子核方法：從資料相似度建立分類模型](articles/day23/README.md)：從樣本相似度建立模型，核對完整矩陣。
+- [Day24｜Barren Plateau：為什麼 QNN 學不動？](articles/day24/README.md)：比較不同初始化、電路規模與目標的梯度。
+- [Day25｜第二個真實資料集：Wine 分類實驗](articles/day25/README.md)：Wine 二分類、十三維對照與固定模型驗證。
 
-成果：Noise-aware 實驗、模擬效能比較、硬體落差分析與完整專案總結。
+## 第 6 階段｜Day26–30：噪聲、效能與硬體準備
 
-系列已完成文章與可重現交付；[Day30證據報告](results/day30/README.md)保留實測／模型／本地預演的邊界。Multi-GPU與physical QPU仍未實測，完成系列不代表已驗證量子優勢。
+噪聲通道是干擾改變狀態的數學規則。位元翻轉交換 0 與 1，相位翻轉改變相對相位，去極化則混合不同 Pauli 操作。密度矩陣保存可能混合的量子狀態，Kraus 算符描述通道如何作用。一次 shot 是一次狀態準備與量測。
 
-## 實驗紀錄原則
+fp64 是以 64 位元儲存實數的雙精度格式。首次呼叫可能包含準備成本，暖機後時間反映重複呼叫；延遲是等待結果的時間。`mgpu` 分散一個狀態向量，`mqpu` 派送獨立任務。QPU 是真實量子處理器，本地硬體後端預演只核對編譯與模擬，不代表遠端硬體已執行。
 
-每個實驗盡量記錄 Dataset、Model、Qubit 數、Circuit Depth、Encoding、Ansatz、Optimizer、Learning Rate、Iterations、Shots、Noise Model、Backend、Execution Time、Metrics 與 Random Seed。所有重要 QML 實驗至少提供一個合理的 Classical Baseline。
+- [Day26｜量子噪聲：模擬干擾如何改變量測與預測](articles/day26/README.md)：噪聲通道、理論分布與有限次量測的差別。
+- [Day27｜CPU 與 GPU：如何比較量子模擬效能](articles/day27/README.md)：相同精度的單 GPU 計時與數值核對。
+- [Day28｜從單 GPU 到多 GPU：容量與任務分工](articles/day28/README.md)：單一狀態分散與獨立任務分工的假設模型。
+- [Day29｜從模擬器到 QPU：量測預算與遠端工作追蹤](articles/day29/README.md)：本地硬體後端預演、量測預算與工作追蹤。
+- [Day30｜30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向](articles/day30/README.md)：從保存資料核算指標，整理成果與後續實驗。
 
-## 文獻原則
+## 結果紀錄與比較條件
 
-Survey 用於建立研究地圖，具體方法與結論回到原始論文；軟體與硬體條件使用官方文件。所有書目先依 [文獻與資源索引](REFERENCES.md) 的規則核對題名、作者、出版資訊、DOI 與版本狀態。
+| 紀錄內容 | 用途 |
+|---|---|
+| 資料來源、切分與前處理 | 確認模型使用相同資訊，避免測試資料提前影響訓練 |
+| 模型、編碼、電路與參數 | 說明輸入如何形成預測 |
+| 初始化、隨機種子與搜尋預算 | 重現起始條件，核對比較是否一致 |
+| 損失、準確率與其他指標 | 分開觀察預測誤差與分類正確比例 |
+| 量測次數、噪聲與執行後端 | 說明結果是直接計算、抽樣或硬體量測 |
+| 時間、記憶體與版本 | 判斷成本與結果適用的環境 |
+
+學習率是每次更新的尺度，迭代次數是重複更新的次數，隨機種子控制起始權重或抽樣序列。這些設定與實際耗時都需要一起看，相同呼叫次數不等於相同成本。重要模型比較保留傳統方法作基準，以辨認量子部分是否帶來可重複的差異。
+
+系列文章與程式已整理完成，[Day30 證據報告](results/day30/README.md) 從保存結果重新核算指標。多 GPU 與實體 QPU 尚未實測，完成系列不代表已證明量子優勢，也不表示每次文件更新都重跑全部實驗。
+
+## 文獻與閱讀入口
+
+綜述論文整理研究方向；具體演算法、定理與實驗結果則回到原始論文。軟體條件參照官方文件與保存的版本紀錄。[文獻索引](REFERENCES.md) 說明各來源的用途與適用範圍，[專案首頁](README.md) 提供完整排程與重現入口。

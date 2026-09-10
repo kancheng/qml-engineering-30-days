@@ -1,111 +1,106 @@
-# 從 AI Engineering 到 Quantum Machine Learning：30 天 CUDA-Q 實戰
+# 從 AI 工程到量子機器學習：30 天 CUDA-Q 實作
 
-> Classical ML × CUDA-Q × Hybrid Quantum-Classical AI
+這個系列以 Python 與 NVIDIA CUDA-Q 建立量子機器學習（Quantum Machine Learning，QML）的實驗流程，從量子狀態、資料編碼與模型訓練，逐步走到效能比較與硬體執行準備。QML 探討如何將量子計算用於資料學習；CUDA-Q 是編寫與執行量子程式的工具。系列排程從 **2026-09-15** 開始，共 30 篇。
 
-這是一個以 AI Engineer 視角進入 Quantum Machine Learning（QML）的 30 天工程系列。正式開賽日為 **2026-09-15**，使用 Python 與 NVIDIA CUDA-Q，逐步完成可執行、可測試、可比較、可重現的 QML 專案。
+每章都有概念說明，Day03 起附可執行程式或可重現實驗。現有成果包含小型模型、數值核對與保存結果；多 GPU 部分是情境模型，QPU（真實量子處理器）部分是本地預演，尚無多卡或真實 QPU 實測，也未證明量子方法優於適當的傳統方法。
 
-## 系列原則
+This 30-part series uses Python and NVIDIA CUDA-Q to explore quantum machine learning, from quantum states and data encoding to model training, simulation performance, and hardware preparation. Articles include explanations and, from Day03 onward, executable examples or reproducible experiments. Multi-GPU results are scenario models, and QPU work is a local rehearsal; neither constitutes physical multi-GPU or QPU measurements.
 
-- Day 1–2 建立完整概念、數學語言與研究脈絡。
-- **Day 3 起每篇都包含程式或可重現實驗**，不連續堆疊純理論。
-- CUDA-Q 是主要工程工具；PennyLane、Qiskit 僅在比較或驗證時使用。
-- 重要 QML 實驗必須提供 Classical Baseline，不預設 Quantum 一定更快或更準。
-- 論文優先連到 DOI／出版商原始頁；preprint 明確標示 arXiv，並和正式出版版本分開。
-- 文獻核對規則與已驗證書目集中在 [文獻與資源索引](REFERENCES.md)。
+## 閱讀與實驗方式
 
-## 設備分工
+前兩章建立方向與基本數學語言，後續將概念接到程式、測試與結果。CUDA-Q 是主要工具，NumPy 提供一般電腦上的數值參考計算；PennyLane 與 Qiskit 是其他量子程式工具，在需要比較時介紹。
 
-Day 3 已提供 [Ubuntu 獨立環境與示範步驟](articles/day03/README.md#8-實作只用-numpy-建立-gate-simulator)，以及 [設備紀錄](articles/day03/ENVIRONMENT.md)。使用專案 `.venv` 與固定 NumPy 版本執行。
+模型比較同時保留傳統方法作為基準，並記錄資料、訓練預算與結果。模擬器是用一般電腦計算量子狀態的程式，模擬變快不等於量子模型分類更準，也不代表整段訓練更快。各章的具體限制與執行日期保存在結果報告中。
 
-| 設備 | 主要用途 |
+## 設備與環境
+
+[Day03 的環境與示範](articles/day03/README.md) 及 [設備紀錄](articles/day03/ENVIRONMENT.md) 說明專案設定。`.venv` 是獨立保存 Python 套件的虛擬環境，固定版本有助於重現相同執行條件。
+
+| 設備 | 專案用途 |
 |---|---|
-| Windows Surface Pro 7 | 寫作、Git、資料整理、NumPy 與小型 CPU simulation |
-| Ubuntu + NVIDIA RTX 3060 筆電 | CUDA-Q、GPU simulation、QML training、noise 與效能 benchmark |
+| Windows Surface Pro 7 | 文章、版本管理、資料整理與小型 CPU 數值運算 |
+| Ubuntu 與 NVIDIA RTX 3060 筆電 | CUDA-Q 電路、GPU 模擬、模型實驗、噪聲與計時 |
 
-CUDA-Q 官方目前列出 Linux、macOS ARM64，以及透過 WSL2 使用 Windows；GPU simulation 支援包含 Ampere 在內、compute capability 7.5 以上的架構。因此主要 CUDA-Q 環境放在 Ubuntu RTX 3060 筆電，Surface 作為輕量開發端。安裝時仍會鎖定實際 CUDA-Q、driver 與 Python 版本，避免把「目前官方條件」當成永久不變的設定。
+CPU 是中央處理器，GPU 是擅長平行運算的圖形處理器。Ubuntu 是 Linux 作業系統。實際執行條件以各日環境紀錄為準；安裝與硬體支援的歷史查閱結果見 [D2](REFERENCES.md)。Day20 與 Day25 的訓練由 NumPy 在 CPU 完成，CUDA-Q CPU／GPU 用於核對固定權重的輸出。
 
-## 30 天章節規劃與目錄
+## 30 天章節目錄
 
-狀態說明：✅ 完稿／📝 初稿／🧪 待實作／📌 已規劃。
+以下為系列排程與已完成文章，日期範圍為 2026-09-15 至 2026-10-14。文章完成不表示所有提到的硬體實驗都已執行，具體範圍見各日報告。
 
-| 日期 | Day | 章節 | 實作／成果 | 狀態 |
-|---|---:|---|---|---|
-| 09/15 | 01 | [AI Engineer 為什麼現在要理解 QML？](articles/day01/README.md) | 專案定位、研究問題、文獻入口 | ✅ |
-| 09/16 | 02 | [從 Bit 到 Qubit](articles/day02/README.md) | NumPy state vector 與 Born rule | ✅ |
-| 09/17 | 03 | [Quantum Gate：量子世界的 Layer？](articles/day03/README.md) | NumPy gates、測試、CSV／JSON 實驗資料 | ✅ |
-| 09/18 | 04 | [Superposition、Entanglement、Measurement](articles/day04/README.md) | NumPy／CUDA-Q CPU／RTX 3060 Bell state、Z／X 基底與 shots 實驗 | ✅ |
-| 09/19 | 05 | [從 Classical ML Pipeline 看懂 QML Pipeline](articles/day05/README.md) | 完整前向流程、已執行 Notebook、架構圖與三 backend 實驗 | ✅ |
-| 09/20 | 06 | [CUDA-Q、CUDA、cuQuantum 有何不同？](articles/day06/README.md) | Ubuntu RTX 3060 環境診斷、CPU／GPU Hello Quantum 與 JSON 報告 | ✅ |
-| 09/21 | 07 | [第一個 CUDA-Q Quantum Kernel](articles/day07/README.md) | allocation、參數、迴圈／分支、CPU／GPU 各 36 組驗證 | ✅ |
-| 09/22 | 08 | [`sample`、`run`、`observe`](articles/day08/README.md) | 共用 state preparation、回傳契約、finite／exact observe 與 CPU／GPU 比較 | ✅ |
-| 09/23 | 09 | [Parameterized Quantum Circuit](articles/day09/README.md) | data／weights 分離、4L 參數 Ansatz、CPU／GPU forward 與參數反應驗證 | ✅ |
-| 09/24 | 10 | [第一個 CUDA-Q Optimization Loop](articles/day10/README.md) | MSE、座標搜尋、CPU／GPU hybrid optimization loop | ✅ |
-| 09/25 | 11 | [Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md) | train-only preprocessing、編碼比較與 CPU／GPU 驗證 | ✅ |
-| 09/26 | 12 | [Angle Encoding](articles/day12/README.md) | 2D dataset、角度範圍與旋轉軸比較 | ✅ |
-| 09/27 | 13 | [Amplitude Encoding](articles/day13/README.md) | normalization、明確 gate 準備與成本 | ✅ |
-| 09/28 | 14 | [Feature Map + Ansatz](articles/day14/README.md) | 可訓練 model skeleton、雙編碼與 optimizer 整合 | ✅ |
-| 09/29 | 15 | [第一個 CUDA-Q Quantum Classifier](articles/day15/README.md) | XOR 分類、checkpoint、curve、boundary | ✅ |
-| 09/30 | 16 | [QNN 到底是不是 Neural Network？](articles/day16/README.md) | QNN／MLP 輸出、參數與非線性比較 | ✅ |
-| 10/01 | 17 | [QML 怎麼 Backprop？](articles/day17/README.md) | parameter-shift、finite difference、chain rule | ✅ |
-| 10/02 | 18 | [Classical ML vs QML](articles/day18/README.md) | Logistic-link、MLP、VQC 固定協定 benchmark | ✅ |
-| 10/03 | 19 | [Hybrid Neural Network](articles/day19/README.md) | Classical＋Quantum＋Classical、完整 chain rule | ✅ |
-| 10/04 | 20 | [Iris：Classical vs Quantum vs Hybrid](articles/day20/README.md) | Binary Iris、PCA、metrics／成本／穩定性報告 | ✅ |
-| 10/05 | 21 | [Qubit 不夠、Feature 太多怎麼辦？](articles/day21/README.md) | PCA、train-only selection、learned bottleneck 與四維 baseline | ✅ |
-| 10/06 | 22 | [Data Re-uploading](articles/day22/README.md) | 配對 schedule、四維分段輸入、電路成本與 CPU／GPU 驗證 | ✅ |
-| 10/07 | 23 | [Quantum Kernel](articles/day23/README.md) | Fidelity／RBF／linear、kernel ridge、完整 CPU／GPU 矩陣驗證 | ✅ |
-| 10/08 | 24 | [Barren Plateau](articles/day24/README.md) | qubits／depth／initialization／cost locality、解析對照與梯度驗證 | ✅ |
-| 10/09 | 25 | [第二個真實資料集：Wine](articles/day25/README.md) | Classical、VQC、Hybrid與13維baseline、CPU／GPU驗證 | ✅ |
-| 10/10 | 26 | [沒有完美 Qubit：Quantum Noise](articles/day26/README.md) | Kraus／density matrix、CPU／GPU抽樣與Wine末端noise | ✅ |
-| 10/11 | 27 | [CPU vs GPU Quantum Simulation](articles/day27/README.md) | 依序量測、fp64配對、first／warm latency與輸出核對 | ✅ |
-| 10/12 | 28 | [單 GPU 到 Multi-GPU](articles/day28/README.md) | 容量／延遲情境模型、mgpu／mqpu分工、環境探測與測試 | ✅ |
-| 10/13 | 29 | [Simulator → QPU](articles/day29/README.md) | CPU／IonQ本地emulation／noise、shots誤差與未提交工作規格 | ✅ |
-| 10/14 | 30 | [30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向](articles/day30/README.md) | 保存預測／計時核算、證據總結與後續實驗規格 | ✅ |
+| 日期 | Day | 章節 | 實作與重點 |
+|---|---:|---|---|
+| 09/15 | 01 | [AI 工程師為什麼要理解量子機器學習？](articles/day01/README.md) | 專案方向、研究問題與文獻入口 |
+| 09/16 | 02 | [從 Bit 到 Qubit：量子狀態與量測機率](articles/day02/README.md) | 以數值表示量子狀態，從振幅計算量測機率 |
+| 09/17 | 03 | [量子閘如何改變量子狀態？](articles/day03/README.md) | 用矩陣實作量子操作，保存測試與結果 |
+| 09/18 | 04 | [疊加、糾纏與量測：建立第一個貝爾態](articles/day04/README.md) | 疊加、糾纏與不同量測方向的實驗 |
+| 09/19 | 05 | [從一般機器學習流程看懂 QML 流程](articles/day05/README.md) | 從輸入資料到量測輸出的完整流程 |
+| 09/20 | 06 | [CUDA-Q、CUDA、cuQuantum 有何不同？](articles/day06/README.md) | 工具分工、環境診斷與 CPU／GPU 基本驗證 |
+| 09/21 | 07 | [第一個 CUDA-Q 量子核心程式：量子位元、參數與流程控制](articles/day07/README.md) | 量子位元配置、參數、迴圈與條件分支 |
+| 09/22 | 08 | [`sample`、`run`、`observe`：同一電路的三種執行方式](articles/day08/README.md) | 比較抽樣計數、逐次回傳值與期望值 |
+| 09/23 | 09 | [參數化量子電路：把資料與可訓練參數分開](articles/day09/README.md) | 分開資料與權重，驗證可調電路的反應 |
+| 09/24 | 10 | [第一個 CUDA-Q 訓練迴圈：依預測誤差更新權重](articles/day10/README.md) | 以平均平方誤差與座標搜尋更新參數 |
+| 09/25 | 11 | [一般數值資料如何轉成量子態？](articles/day11/README.md) | 只用訓練資料建立轉換規則，檢查編碼差異 |
+| 09/26 | 12 | [角度編碼：角度範圍、旋轉軸與量測方式](articles/day12/README.md) | 比較資料轉成旋轉角度的範圍與方式 |
+| 09/27 | 13 | [振幅編碼：從正規化向量到狀態準備電路](articles/day13/README.md) | 將資料轉成狀態振幅，檢查準備成本 |
+| 09/28 | 14 | [資料編碼與可調電路：組成可訓練的量子模型](articles/day14/README.md) | 組合資料編碼、可調電路與訓練流程 |
+| 09/29 | 15 | [第一個 CUDA-Q 量子分類器：訓練、評分與模型保存](articles/day15/README.md) | 二分類模型、保存權重、訓練曲線與分類邊界 |
+| 09/30 | 16 | [量子神經網路與一般神經網路：參數、運算與輸出的差別](articles/day16/README.md) | 比較量子與傳統神經網路的參數和輸出 |
+| 10/01 | 17 | [量子模型的梯度：從電路輸出到訓練損失](articles/day17/README.md) | 以參數位移、微小差分與矩陣導數核對梯度 |
+| 10/02 | 18 | [一般機器學習與量子模型：固定條件下的比較](articles/day18/README.md) | 固定資料與評估預算，比較傳統與量子模型 |
+| 10/03 | 19 | [混合神經網路：讓一般計算層與量子電路一起學習](articles/day19/README.md) | 結合傳統與量子運算，核對完整梯度 |
+| 10/04 | 20 | [Iris 鳶尾花分類：一般、量子與混合模型的比較](articles/day20/README.md) | Iris 鳶尾花二分類、壓縮輸入與成本紀錄 |
+| 10/05 | 21 | [特徵多、量子位元少：比較三種資料壓縮方式](articles/day21/README.md) | 比較特徵選擇、主成分分析與可訓練壓縮 |
+| 10/06 | 22 | [資料重複編碼：讓資料再次進入量子電路](articles/day22/README.md) | 單次與重複編碼、分段輸入與電路成本 |
+| 10/07 | 23 | [量子核方法：從資料相似度建立分類模型](articles/day23/README.md) | 從樣本相似度建立模型，核對完整矩陣 |
+| 10/08 | 24 | [Barren Plateau：為什麼 QNN 學不動？](articles/day24/README.md) | 比較不同初始化、電路規模與目標的梯度 |
+| 10/09 | 25 | [第二個真實資料集：Wine 分類實驗](articles/day25/README.md) | Wine 二分類、十三維對照與固定模型驗證 |
+| 10/10 | 26 | [量子噪聲：模擬干擾如何改變量測與預測](articles/day26/README.md) | 噪聲通道、理論分布與有限次量測的差別 |
+| 10/11 | 27 | [CPU 與 GPU：如何比較量子模擬效能](articles/day27/README.md) | 相同精度的單 GPU 計時與數值核對 |
+| 10/12 | 28 | [從單 GPU 到多 GPU：容量與任務分工](articles/day28/README.md) | 單一狀態分散與獨立任務分工的假設模型 |
+| 10/13 | 29 | [從模擬器到 QPU：量測預算與遠端工作追蹤](articles/day29/README.md) | 本地硬體後端預演、量測預算與工作追蹤 |
+| 10/14 | 30 | [30 天 CUDA-Q 與 QML 實作回顧：成果、限制與後續方向](articles/day30/README.md) | 從保存資料核算指標，整理成果與後續實驗 |
 
-## 六個 Milestone
+## 六個階段的成果
 
-| 時間 | Milestone | 主要成果 |
-|---|---|---|
-| Day 05 | [Quantum Fundamentals ✅](articles/day05/README.md) | [Notebook](notebooks/day05_quantum_fundamentals.ipynb)、[架構圖](figures/day05_pipeline.svg)、完整 circuit demo |
-| [Day 10](articles/day10/README.md) | CUDA-Q Fundamentals | ✅ MSE、座標搜尋、CPU／GPU hybrid optimization loop |
-| [Day 15](articles/day15/README.md) | First QML Model ✅ | XOR Classifier、Training Curve、Decision Boundary |
-| [Day 20](articles/day20/README.md) | Hybrid QML ✅ | Iris binary：MLP／VQC／Hybrid report |
-| [Day 25](articles/day25/README.md) | Wine Binary Dataset | ✅ 第二份可重現 Classical／VQC／Hybrid benchmark |
-| [Day 30](articles/day30/README.md) | Final Project ✅ | [證據報告](results/day30/README.md)、Noise／GPU實測、Multi-GPU模型與QPU本地預演 |
+| 範圍 | 成果與入口 |
+|---|---|
+| Day01–05 | 量子基礎、[實驗筆記本](notebooks/day05_quantum_fundamentals.ipynb) 與 [流程圖](figures/day05_pipeline.svg) |
+| Day06–10 | 電路參數、量測與 [第一個訓練流程](articles/day10/README.md) |
+| Day11–15 | 資料編碼與 [二分類模型](articles/day15/README.md) |
+| Day16–20 | 模型比較與 [Iris 實驗](articles/day20/README.md) |
+| Day21–25 | 輸入壓縮、核方法與 [Wine 實驗](articles/day25/README.md) |
+| Day26–30 | 噪聲、效能、硬體預演與 [證據報告](results/day30/README.md) |
 
-Day 11 已完成：[Classical Data 怎麼變成 Quantum Data？](articles/day11/README.md)，包含資料縮放、編碼比較與 CPU／GPU 可重現實驗。
+各階段的銜接與用語說明見 [學習路線](ROADMAP.md)，文獻原名、用途與版本紀錄見 [參考索引](REFERENCES.md)。
 
-## 系列完成與重現入口
+## 核對保存結果
 
-30篇文章與每日交付物已齊備。[Day30總結](articles/day30/README.md)與[證據報告](results/day30/README.md)整理可支持的結論；multi-GPU為模型分析、QPU為本地預演，尚未證明量子優勢。
-
-快速核對保存成果（不需GPU）：
+以下指令不需要 GPU，會檢查保存資料與彙整結果的一致性：
 
 ```bash
 python3 articles/day30/evidence.py --check
 python3 -m unittest discover -s articles/day30 -p 'test_*.py'
 ```
 
-這是保存資料核對，不會重跑全部歷史訓練。完整重跑請使用各日文章及對應requirements檔。
+這不會重跑所有歷史訓練。完整重跑方式見各章文章及對應的 `requirements-dayXX.txt` 套件清單。
 
-## Repository 目錄
+## 專案目錄
 
 ```text
 .
-├── README.md             # 章節規劃與文章目錄
-├── ROADMAP.md            # 每階段目標與交付物
-├── REFERENCES.md         # 已核對文獻、官方資源與引用規則
-├── articles/             # 每日文章、Python程式與測試
-├── notebooks/            # 可重現教學與實驗
+├── README.md             # 專案說明與章節目錄
+├── ROADMAP.md            # 階段安排與學習重點
+├── REFERENCES.md         # 文獻、官方資源與版本紀錄
+├── articles/             # 每日文章、Python 程式與測試
+├── notebooks/            # 結合文字、程式與輸出的實驗筆記本
 ├── data/                 # 保存的資料、來源與授權
 ├── figures/              # 文章圖表
 └── results/              # 結果與執行環境紀錄
 ```
 
-目錄隨每日成果建立，不預先加入大量空資料夾。
+## 官方工具入口
 
-## 主要官方入口
-
-- [NVIDIA CUDA-Q Quick Start](https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html)
-- [CUDA-Q by Example](https://nvidia.github.io/cuda-quantum/latest/using/examples/examples.html)
-- [CUDA-Q Local Installation](https://nvidia.github.io/cuda-quantum/latest/using/install/local_installation.html)
-- [NVIDIA cuQuantum Documentation](https://docs.nvidia.com/cuda/cuquantum/latest/index.html)
+- [CUDA-Q 入門](https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html)：第一個量子程式。
+- [CUDA-Q 範例](https://nvidia.github.io/cuda-quantum/latest/using/examples/examples.html)：各種電路與執行方式。
+- [CUDA-Q 本地安裝](https://nvidia.github.io/cuda-quantum/latest/using/install/local_installation.html)：安裝條件與環境設定。
+- [cuQuantum 文件](https://docs.nvidia.com/cuda/cuquantum/latest/index.html)：加速量子模擬的 GPU 函式庫，與編寫量子程式的 CUDA-Q 分工不同。
