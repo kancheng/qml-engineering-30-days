@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="480" viewBox="0 0 1080 480" role="img" aria-labelledby="title desc">
-  <title id="title">Day 05: Classical and quantum forward pipelines</title>
-  <desc id="desc">Classical: input, features, model, prediction, loss. Day 05: input x, angle pi x, RY and CNOT, counts, Z0 estimate, MSE. Training and optimizer are future work.</desc>
+  <title id="title">Day5：從一般輸入到量測分數</title>
+  <desc id="desc">一般流程：資料、輸入整理、模型、分數與誤差。本日：輸入轉角度、RY 與 CNOT、量測計數、第一位元記分、與公式比較。本日尚未更新權重。</desc>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs>
   <rect width="1080" height="480" rx="16" fill="#f8fafc"/>
-  <g font-family="sans-serif" fill="#0f172a">
-    <text x="32" y="44" font-size="25" font-weight="bold">From classical data to a measured quantum output</text>
-    <text x="32" y="80" font-size="16">Day 05 / Quantum Fundamentals / forward pass only</text>
-    <text x="32" y="125" font-size="18" font-weight="bold">Classical ML</text>
+  <g font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif" fill="#0f172a">
+    <text x="32" y="44" font-size="25" font-weight="bold">一筆資料如何變成量測分數？</text>
+    <text x="32" y="80" font-size="16">Day 05｜固定流程的前向計算：先核對輸出，再加入訓練</text>
+    <text x="32" y="125" font-size="18" font-weight="bold">一般機器學習的計算流程</text>
     <g fill="#e2e8f0" stroke="#94a3b8"><rect x="32" y="146" width="165" height="64" rx="8"/><rect x="240" y="146" width="165" height="64" rx="8"/><rect x="448" y="146" width="165" height="64" rx="8"/><rect x="656" y="146" width="165" height="64" rx="8"/><rect x="864" y="146" width="180" height="64" rx="8"/></g>
-    <g font-size="17" text-anchor="middle"><text x="114" y="184">Dataset</text><text x="322" y="184">Features</text><text x="530" y="184">Model</text><text x="738" y="184">Prediction</text><text x="954" y="184">Loss</text></g>
-    <text x="32" y="263" font-size="18" font-weight="bold">Day 05 quantum pipeline</text>
+    <g font-size="17" text-anchor="middle"><text x="114" y="184">輸入資料</text><text x="322" y="184">整理輸入</text><text x="530" y="184">模型運算</text><text x="738" y="184">輸出分數</text><text x="954" y="184">比較答案與分數</text></g>
+    <text x="32" y="263" font-size="18" font-weight="bold">本日流程：從數字到量測，再回到一般計算</text>
     <g fill="#dbeafe" stroke="#3b82f6"><rect x="32" y="284" width="165" height="80" rx="8"/><rect x="240" y="284" width="165" height="80" rx="8"/><rect x="448" y="284" width="165" height="80" rx="8"/><rect x="656" y="284" width="165" height="80" rx="8"/><rect x="864" y="284" width="180" height="80" rx="8"/></g>
-    <g font-size="17" text-anchor="middle"><text x="114" y="314">Input x in [0, 1]</text><text x="114" y="343">theta = pi * x</text><text x="322" y="314">RY(theta) on q0</text><text x="322" y="343">CNOT(q0, q1)</text><text x="530" y="314">Z measurements</text><text x="530" y="343">N shots → counts</text><text x="738" y="314">Estimate &lt;Z0&gt;</text><text x="738" y="343">Classical output</text><text x="954" y="314">MSE vs cos(pi*x)</text><text x="954" y="343">Save CSV + JSON</text></g>
-    <text x="32" y="412" font-size="17">NumPy reference • CUDA-Q CPU • CUDA-Q RTX 3060</text>
-    <text x="32" y="446" font-size="16" fill="#475569">Future: trainable circuit parameters → loss → optimizer → updated parameters (Day 09–10)</text>
+    <g font-size="17" text-anchor="middle"><text x="114" y="314">輸入 x：0 到 1</text><text x="114" y="343">轉成角度 θ = πx</text><text x="322" y="314">q0 做 RY(θ)</text><text x="322" y="343">q0 控制 q1 翻轉</text><text x="530" y="314">量測 0／1</text><text x="530" y="343">N 次結果 → 計數</text><text x="738" y="314">q0：0 記 +1</text><text x="738" y="343">1 記 −1，再取平均</text><text x="954" y="314">對照 cos(πx)</text><text x="954" y="343">保存分數與誤差</text></g>
+    <text x="32" y="412" font-size="17">NumPy 數值參考與 CUDA-Q 的 CPU／GPU 執行，都是一般電腦上的模擬。</text>
+    <text x="32" y="446" font-size="16" fill="#475569">後續 Day 09–10：加入可調權重 → 計算任務誤差 → 更新權重 → 再次執行</text>
   </g>
   <g stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"><path d="M197 178H232"/><path d="M405 178H440"/><path d="M613 178H648"/><path d="M821 178H856"/><path d="M197 324H232"/><path d="M405 324H440"/><path d="M613 324H648"/><path d="M821 324H856"/></g>
 </svg>

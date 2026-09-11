@@ -1,116 +1,130 @@
 # Day 05｜從一般機器學習流程看懂 QML 流程
 
-[Day4](../day04/README.md) 建立兩量子位元的 貝爾態（Bell state），透過不同量測基底與重複抽樣，理解糾纏、相關性與量測結果的差別。Day5 接著把輸入資料、量子電路與量測結果串起來，建立從一般數值輸入到可評估數值輸出的完整流程。
+前四天，我們已經會用向量描述量子狀態、用量子閘改變振幅，也能從量測結果整理機率。今天把這些步驟接起來：**給程式一個普通數字，它如何經過量子電路，再回到一般電腦可以比較與保存的數值？**
 
-**一般數值需要先轉成量子電路的操作設定，量測結果也需要整理，才能成為機器學習可用的輸出。** 本章將前幾章的量子概念串成可以逐步核對的流程。本章用一個介於 0 與 1 的數值 `x` 作為輸入，透過 `θ = πx` 轉成 RY 旋轉閘的角度，再接上 CNOT，準備兩量子位元的狀態。量測後，將第一個量子位元的 0／1 結果分別換成 +1／−1，再取平均，得到 `⟨Z0⟩` 的估計值；這個輸出與 Day4 用來描述兩量子位元相關性的數值不同。由於理想答案可直接算成 `cos(πx)`，每個處理階段都能核對，並以 MSE（平均平方誤差）觀察有限 shots 帶來的抽樣誤差。這裡的角度由資料決定，尚未透過 optimizer（最佳化器）學習參數，因此本章完成的是 forward pass（前向計算）。這條流程呈現量子運算與一般程式的分工；後續加入可訓練參數與更新步驟，才會形成訓練流程。
+先用 `x = 0.25` 當例子。程式把它轉成角度 `π/4`，依角度執行電路，再將一批量測結果換算成分數。理想分數約是 0.7071；有限次量測可能得到 0.70 或其他接近的值。我們會沿路算出這個答案，並檢查差異來自資料轉換、電路、讀取方式，還是抽樣波動。
 
-[Day4](../day04/README.md) constructed a two-qubit Bell state and used different measurement bases and repeated sampling to distinguish entanglement, correlation, and measurement outcomes. Day5 connects input data, quantum circuits, and measurement results into a complete workflow from an ordinary numerical input to a numerical output that can be evaluated.
+這是量子機器學習中從輸入到輸出的**前向計算（forward pass）**。本日先把這條路徑驗證清楚；角度由輸入決定，還沒有從答案學習參數，也沒有訓練完成的分類器。
 
-**Ordinary data must be converted into circuit settings, and measurement results must be processed into numerical outputs for machine learning.** This chapter connects the earlier concepts into a workflow that can be checked step by step. A scalar input `x` between 0 and 1 is converted into an RY rotation angle through `θ = πx`. A subsequent CNOT completes the two-qubit state preparation. After measurement, outcomes 0 and 1 for the first qubit are mapped to +1 and −1 and averaged to estimate `⟨Z0⟩`. This output differs from the two-qubit correlation examined in Day4. Since the ideal answer can be calculated directly as `cos(πx)`, each stage can be checked, and mean squared error (MSE) can quantify the sampling error from finite shots. The angle is determined by the input data; no optimizer learns parameters at this stage, so the implementation is a forward pass. The workflow shows how quantum operations and conventional code work together; trainable parameters and update steps are still needed to turn it into a training process.
+This chapter follows an ordinary number through data encoding, a quantum circuit, measurement counts, and numerical post-processing. A worked example connects each stage to the known function cos(πx), making both implementation errors and finite-sampling effects easier to identify. The implementation verifies a fixed forward pass; it does not train parameters or evaluate generalization. The article, notebook, and saved results provide a traceable path from equations to outputs.
 
 ---
 
-Day 3 實作單量子位元量子閘，Day 4 用 H + CNOT 建立貝爾態。今天將這些元件串成一條完整路徑：**輸入資料 → 編碼 → 電路 → 量測 → 數值輸出 → 評估與保存**。
+## 1. 先畫出一筆資料走過的路
 
-NumPy 是 Python 的數值運算套件，CUDA-Q 是描述量子電路並安排執行的工具。CPU 是一般電腦的中央處理器，GPU 是擅長平行運算的圖形處理器，RTX 3060 是本次使用的 GPU 型號。本章使用這些工具模擬量子運算，並以互動式筆記本（Notebook）將文字、程式與輸出放在一起。
+Day1 用花瓣尺寸說明模型如何預測種類。真正的分類工作可能有很多輸入，也需要已知種類作為答案。今天先縮小問題，只接收一個介於 0 與 1 的數字，輸出一個介於 −1 與 +1 的分數。
 
-## 1. 從熟悉的一般機器學習流程開始
+選擇這個小例子的原因，是每一步都有能手算的答案。若完整程式的輸出不對，就能回查哪一段開始偏離。
 
-監督式學習（supervised learning）使用附有正確答案的資料訓練模型。資料集是整理好的樣本集合；前處理負責清理資料與調整尺度；模型根據輸入產生預測。損失函數（loss function）把預測與答案的差距轉成數值，最佳化器（optimizer）則依據誤差或其變化方向調整參數。
+![從輸入到量測分數：一般計算、量子電路與結果評估的分工](../../figures/day05_pipeline.svg)
 
-量子機器學習（Quantum Machine Learning，QML）的模型部分可以包含量子電路，但資料整理、損失函數計算、參數更新與結果紀錄通常仍由一般程式負責。今天只先實作前向計算；可訓練電路與最佳化器會在 Day 9–10 加入。
-
-![一般機器學習與量子機器學習流程架構圖](../../figures/day05_pipeline.svg)
-
-| 階段 | 一般機器學習常見操作 | 本日示範 |
+| 階段 | 本日做什麼？ | 以 x = 0.25 為例 |
 |---|---|---|
-| 輸入 | 讀取數值特徵 | 9 個位於 `[0, 1]` 的單一數值輸入 |
-| 前處理／編碼 | 數值縮放、特徵轉換 | `theta = πx`，以 RY 寫入 q0 |
-| 模型／電路 | 參數化函數 | RY(q0) → CNOT(q0, q1) |
-| 輸出讀取 | 數值陣列 | Z 基底量測計數 → `⟨Z0⟩` 估計 |
-| 評估 | 比較預測與正確答案 | 比較已知函數 `cos(πx)`，計算 MSE |
-| 訓練 | 最佳化器更新權重 | 本日沒有參數更新 |
-| 紀錄 | 評估指標、設定、版本 | CSV、JSON、執行後端、量測次數、隨機種子 |
+| 輸入 | 確認數值在合法範圍 | 0.25 位於 0 到 1 之間 |
+| 編碼 | 將數值轉成操作角度 | θ = π × 0.25 = π/4 |
+| 電路 | 先 RY，再 CNOT | 振幅由這個角度決定 |
+| 量測 | 累積兩位元結果的次數 | 理想上只出現 00、11 |
+| 後處理 | 依第一個位元記分，再取平均 | 理想平均約為 0.7071 |
+| 評估與保存 | 對照公式，保留設定與誤差 | 與 cos(π/4) 比較 |
 
-前向計算（forward pass）是固定設定下，從輸入算到輸出的一次流程。特徵是提供給模型的資訊；縮放是調整數值範圍，特徵轉換則是改變輸入的表示方式。陣列是按順序或多個維度排列的數值，權重是模型內可調整的係數。評估指標用數值描述結果品質。
+**編碼**就是把輸入轉成電路能使用的操作設定；**後處理**則是把量測結果整理成任務需要的數值。這兩段與誤差計算，都由一般程式完成。量子電路只負責流程中的一部分。
 
-這張表是工作流程的對照，不表示量子閘等同任意神經網路層。
+本日用 NumPy 與 CUDA-Q 在一般電腦上模擬這段量子運算。NumPy 是數值計算套件；CUDA-Q 則讓我們以量子位元與操作來描述電路，再指定由哪個模擬器執行。
 
-## 2. 本日實驗問題與範圍
+## 2. 定義輸入：0.25 在這裡代表什麼？
 
-問題是：「給定單一數值輸入 `x`，能否用同一套介面完成 NumPy 與 CUDA-Q 的前向計算，並驗證有限量測次數的輸出誤差？」
+本日資料由程式直接產生，沒有讀取花卉資料集：
 
-資料由 `np.linspace(0, 1, 9)` 直接產生，目標值是已知的 `cos(πx)`。`np.linspace(0, 1, 9)` 會在 0 到 1 之間取 9 個等距數值。解析答案指能直接用公式計算的答案；`cos` 是餘弦函數。這裡沒有從資料調整參數的模型擬合，也沒有將資料切分成訓練與測試用途，因此不能評估泛化能力，也就是模型在未參與訓練的新資料上表現如何。
-
-這個範圍讓每個階段都能獨立檢查，避免還不理解量測輸出，就開始追蹤複雜的 training 損失函數。
-
-## 3. 環境與交付物
-
-虛擬環境 `.venv` 是專案獨立保存套件的資料夾，避免其他專案的版本互相影響。以下在專案根目錄執行，沿用既有環境：
-
-```bash
-source .venv/bin/activate
-python -m pip install -r requirements-day05.txt
-python -m pip check
+```text
+0、0.125、0.25、0.375、0.5、0.625、0.75、0.875、1
 ```
 
-全新專案副本請先使用 `python3.12 -m venv .venv`。本日保留 NumPy 2.2.6 與 CUDA-Q 0.15.1，增加 Notebook 執行套件；完整依賴版本見 [requirements-day05-lock.txt](../../requirements-day05-lock.txt)。
+這九個數字在 0 到 1 之間等距排列，程式使用 `np.linspace(0, 1, 9)` 產生。它們是用來檢查流程的輸入點，並不是訓練集或測試集。
 
-| 檔案 | 用途 |
-|---|---|
-| [pipeline.py](pipeline.py) | 資料編碼、NumPy reference、量測計數後處理、評估指標與 CLI |
-| [cudaq_pipeline.py](cudaq_pipeline.py) | CUDA-Q 量子核心程式與抽樣 |
-| [Quantum Fundamentals Notebook](../../notebooks/day05_quantum_fundamentals.ipynb) | Day 2–5 概念回顧與完整 CPU 示範 |
-| [架構圖 SVG](../../figures/day05_pipeline.svg) | 可在文章與 Notebook 顯示的獨立圖檔 |
-| [execute_notebook.py](execute_notebook.py) | 使用目前 Python 重跑 Notebook 全部儲存格 |
-| [results/day05](../../results/day05/) | 每個執行後端的`predictions.csv` 與 summary.json |
+如果後續改用真實花瓣長度，就要先說明如何把公分轉成這個範圍。例如何時把某個長度映射到 0、另一個長度映射到 1，以及新資料超出範圍時怎麼處理，都是資料處理的一部分。
 
-CLI 是命令列介面，表示透過終端機指令選擇設定與執行程式。CSV 是表格文字檔，JSON 以欄位名稱保存結構化資料；SVG 是可縮放而不因放大失去清晰度的向量圖格式。執行後端（backend）指定負責計算的模擬器或硬體：本章的 `numpy`、`qpp-cpu` 使用 CPU，`nvidia` 使用 GPU，三者都是模擬。
+本日採取明確規則：輸入必須是有限數值，而且介於 0 與 1，包含兩個端點。負數、大於 1、無限大或無效數值都回報錯誤，不會悄悄改成最接近的邊界。
 
-`pipeline.py` 直接重用 Day 3 的 RY／I／`|0⟩` 與 Day 4 的 CNOT／基底標籤（向量中各分量對應的位元組合）；未再複製一份量子閘定義。現階段仍以文章目錄為主，尚未將教學模組封裝成安裝套件。
+這種事先約定可接受條件的做法，稱為**輸入契約**。如果把 1.2 與 5 都截成 1，雖然程式可能繼續執行，卻會把不同資料變成相同輸入；是否允許這種資訊損失，需要由任務決定。
 
-## 4. 第一步：讓一般輸入決定角度
+真實資料若需要從樣本估計縮放範圍，應只用訓練資料決定規則，再套用到驗證與測試資料。否則評估資料的資訊就可能提前影響模型流程。
 
-資料編碼（encoding）是將輸入轉成電路可處理的形式。這裡用 `θ = πx` 將數值轉成角度；`θ` 讀作 theta，角度單位是弧度，`π` 代表半圈。本日輸入已在 `[0, 1]`，定義：
+## 3. 把輸入變成角度，但先別把它叫作學到的參數
+
+本日的編碼規則很簡單：
+
+```text
+θ = πx
+```
+
+`θ` 讀作 theta，是角度，單位為弧度；π 代表半圈。輸入 x 從 0 走到 1，角度便從 0 走到 π。
+
+[pipeline.py](pipeline.py) 中的 `encode` 函式負責檢查並轉換輸入。以下是可獨立執行的簡化示範：
 
 ```python
+import numpy as np
+
+
 def encode(value: float) -> float:
     if not np.isfinite(value) or not 0 <= value <= 1:
         raise ValueError("input must be finite and in [0, 1]")
     return float(np.pi * value)
+
+
+print(f"theta = {encode(0.25):.6f} radians")
 ```
 
-`np.isfinite` 檢查數值不是無限大或無效數值。超出範圍時程式回報錯誤，不會把負數改成 0、把大於 1 的值改成 1；這種改到邊界的操作稱為截斷（clipping）。輸入契約就是程式事先約定的合法輸入條件。縮放器（scaler）則是依資料計算轉換尺度的工具。真正資料集若需要縮放器，只用訓練資料決定尺度，再套用到驗證與測試資料，避免提前使用評估資料的資訊。驗證資料協助選擇設定，測試資料評估選定模型。
+輸出約為 `theta = 0.785398 radians`，也就是 π/4。`np.isfinite` 用來排除無限大與無效數值。
 
-`theta = πx` 是 **資料決定的角度**。它雖然是電路程式的輸入引數，卻不是本日學習出來的可訓練參數。之後才會把資料 `x` 和待訓練的權重分開。
+這個角度會隨資料改變，但不是從資料「學出來」的。程式沒有比較答案後再修正 `θ = πx`，也沒有另一組待調整的權重。**函式有輸入參數，與模型有可訓練參數，是兩件不同的事。**
 
-## 5. 第二步：RY + CNOT 形成完整電路
+## 4. 從角度算出電路狀態
 
-q0、q1 是兩個量子位元的編號。RY 是繞布洛赫球 y 軸旋轉的量子閘，用角度改變振幅；CNOT 是受控反相閘，控制位元為 1 時翻轉目標位元。從 `|00⟩` 開始，先對 q0 使用 RY，再用 q0 控制 q1；圖中的 MZ 表示在區分 0 與 1 的 Z 基底下量測：
+先準備兩個位元都為 0，記作 `|00⟩`。左邊是 q0，右邊是 q1，沿用 Day4 的順序。接著對 q0 做 RY，再以 q0 控制 q1 的翻轉：
 
 ```text
-q0: ──RY(πx)──●──MZ
-              │
-q1: ──────────X──MZ
+q0：|0⟩ ──RY(πx)──●──量測
+                  │
+q1：|0⟩ ──────────X──量測
 ```
 
-依 Day 3 的旋轉閘定義與 Day 4 的 CNOT 輸入與輸出對照表：
+RY 是 Day3 的可調旋轉閘，CNOT 則是 Day4 的受控反相閘。把兩章的規則接起來：
 
 ```text
-|ψ(x)⟩ = cos(πx/2)|00⟩ + sin(πx/2)|11⟩
+初始：|00⟩
+
+RY 之後：cos(πx/2)|00⟩ + sin(πx/2)|10⟩
+
+CNOT 之後：cos(πx/2)|00⟩ + sin(πx/2)|11⟩
 ```
 
-三個可立即驗證的輸入：
+CNOT 保留 `00`，把 `10` 變成 `11`。因此，只有這兩種結果有非零振幅。
 
-| x | 輸出狀態 | Z0 精確期望值 |
-|---:|---|---:|
-| 0 | `|00⟩` | +1 |
-| 0.5 | Day 4 的貝爾態 `(|00⟩ + |11⟩)/√2` | 0 |
-| 1 | `|11⟩` | −1 |
+代入 x = 0.25，半角為 π/8，得到：
 
-量子核心程式（quantum kernel）是描述量子操作的程式區塊。本日程式如下，完整版本在 [cudaq_pipeline.py](cudaq_pipeline.py)：
+```text
+00 的振幅 = cos(π/8) ≈ 0.92388
+11 的振幅 = sin(π/8) ≈ 0.38268
+
+P(00) ≈ 0.85355
+P(11) ≈ 0.14645
+P(01) = P(10) = 0
+```
+
+這裡仍要先算振幅，再取絕對值平方得到機率。也可以選三個容易核對的輸入，檢查電路是否接對：
+
+| x | 輸出狀態 | 直接量測 |
+|---:|---|---|
+| 0 | `\|00⟩` | 必定得到 00 |
+| 0.5 | `(\|00⟩ + \|11⟩)/√2` | 00、11 各一半，也就是 Day4 的貝爾態 |
+| 1 | `\|11⟩` | 必定得到 11 |
+
+CUDA-Q 的電路定義在 [cudaq_pipeline.py](cudaq_pipeline.py)。下面節錄其操作區塊，需在匯入 CUDA-Q 的模組中使用：
 
 ```python
+import cudaq
+
+
 @cudaq.kernel
 def encoded_pair(theta: float, measure: bool):
     q = cudaq.qvector(2)
@@ -121,114 +135,259 @@ def encoded_pair(theta: float, measure: bool):
         mz(q[1])
 ```
 
-`measure=False` 僅用於模擬器 `get_state` 正確性測試；正式預測使用 `measure=True` 的量測計數。`get_state` 與 `sample` 分別提供狀態資訊與抽樣結果，兩者不能混為同一種硬體讀出方式。[D3]
+`@cudaq.kernel` 標記描述量子操作的程式區塊。`measure=True` 時執行量測，用於實際產生本章分數；`False` 則供模擬器取得完整狀態以核對數值。CUDA-Q 的 `sample` 取得計數，`get_state` 取得模擬狀態資訊，兩者提供的證據不同。[CUDA-Q 執行方式文件](https://nvidia.github.io/cuda-quantum/latest/using/examples/executing_kernels.html)
 
-## 6. 第三步：把 Counts 轉成數值輸出
+## 5. 量測計數如何變成一個分數？
 
-可觀測量（observable）是量測所關心的量；期望值是依機率計算的平均值。`⟨Z0⟩` 表示第一個量子位元的 Z 期望值。輸出可觀測量選為 q0 的 Z，將首位 0 對應 +1、首位 1 對應 −1：
+電路給我們的是一批位元結果，例如某次出現 `00`，另一次出現 `11`。要把它們變成數值，還需要選擇記分規則。
+
+本日只看第一個位元 q0：量到 0 記 +1，量到 1 記 −1。四種結果的分數如下：
+
+| 結果 q0q1 | q0 是多少？ | 記分 |
+|---|---:|---:|
+| 00 | 0 | +1 |
+| 01 | 0 | +1 |
+| 10 | 1 | −1 |
+| 11 | 1 | −1 |
+
+假設 `n00` 表示 00 出現幾次，其餘同理，平均分數便是：
 
 ```text
 prediction = (n00 + n01 − n10 − n11) / shots
 ```
 
-`n00` 表示結果 `00` 出現的次數，其餘符號同理；`shots` 是總量測次數。位元字串是以 0、1 排列表示的結果，例如 `01`。
+`shots` 是總次數。依理論機率計算的這種平均叫作 q0 的 **Z 期望值**，記為 `⟨Z0⟩`；用有限次數得到的平均，則是它的估計值。分數範圍是 −1 到 +1，不是 0 到 1 的機率。
 
-例如 `00:493`、`11:507`，估計值為 `−0.014`。這是 Day 4 的量測計數接到一般數值輸出的第一步。
-
-注意不能用 `P(00)+P(11)−P(01)−P(10)` 代替它；那是 Day 4 的兩量子位元關聯值。對本日電路，關聯值始終為 1，無法表達輸入如何改變 `⟨Z0⟩`。
-
-`prediction_from_counts` 會檢查位元字串、非負整數量測計數與非零量測次數，並保留 01／10。即使理想電路只出現 00／11，後處理也不應依賴這個特殊假設。
-
-由狀態推導：
+回到 x = 0.25。假設 1,000 次得到 850 個 00、150 個 11，這組**教學用假設計數**的分數為：
 
 ```text
-⟨Z0⟩ = cos²(πx/2) − sin²(πx/2) = cos(πx)
+prediction = (850 − 150) / 1,000 = 0.70
 ```
 
-這是今天用來核對程式的解析答案。CNOT 保留在示範中以銜接 Day 4，但對這個單獨的 Z0 輸出，移除 CNOT 也會得到相同結果。不能把兩量子位元的存在解讀成此任務需要糾纏。
+若用理論機率計算，則約為 `0.85355 − 0.14645 = 0.70711`。兩者的差距可以來自有限次抽樣，不能只因沒有剛好相等就認定電路錯誤。
 
-## 7. 完整執行範例
+程式中的 `prediction_from_counts` 會檢查結果標籤、非負整數計數，以及總次數是否大於零。即使本日理想電路只有 00、11，公式仍保留 01、10，方便正確處理其他電路或不同條件下的計數。
+
+### 為什麼不能沿用 Day4 的關聯值？
+
+Day4 將「兩個位元相同」記 +1、「不同」記 −1，計算的是：
+
+```text
+兩位元關聯值 = P(00) + P(11) − P(01) − P(10)
+```
+
+本日電路只產生相同結果，所以這個關聯值一直是 1。它無法顯示 x 從 0 到 1 時，00 與 11 的比例如何改變。
+
+同一份計數，換一種記分方式，就可能得到完全不同的輸出。選擇讀取什麼量，通常稱為選擇**可觀測量**；它是模型設計的一部分，不是量測完隨便挑一個看起來合理的數字。
+
+## 6. 理想答案為什麼是 cos(πx)？
+
+依前面的電路狀態：
+
+```text
+P(q0 = 0) = cos²(πx/2)
+P(q0 = 1) = sin²(πx/2)
+
+理想分數 = cos²(πx/2) − sin²(πx/2)
+         = cos(πx)
+```
+
+最後一步使用三角函數的倍角關係 `cos²(a) − sin²(a) = cos(2a)`。能直接從公式算出的答案稱為**解析答案**，本日把它當成檢查流程的參考值。
+
+x = 0、0.5、1 的理想分數依序為 +1、0、−1；x = 0.25 則是 `cos(π/4) = 1/√2 ≈ 0.7071`。
+
+這裡的目標答案不是另外收集的花卉種類，也不是未知函數。我們事先知道它正好是這段電路的理想輸出，因此是在檢查「程式與抽樣是否符合已知規則」，不能解讀成模型從資料發現了這條規則。
+
+### 第二個量子位元是這項輸出的必要條件嗎？
+
+移除 CNOT，只保留 q0 的 RY，q0 量到 0、1 的機率仍是相同的 `cos²(πx/2)` 與 `sin²(πx/2)`。因此本日的 `⟨Z0⟩` 不變。
+
+CNOT 讓兩位元形成共同狀態，並銜接 Day4，但對目前這個輸出沒有必要性。是否需要某個元件，可以透過「移除它，固定其他條件，看觀察結果是否改變」來檢查。這比只看電路有幾個量子位元，更能說明設計的作用。
+
+## 7. 用平方誤差衡量差距，先確認差距代表什麼
+
+假設 x = 0.25 的分數是前面的 0.70，理想值約是 0.70710678，這筆誤差便是：
+
+```text
+差值 = 0.70 − 0.70710678 ≈ −0.00710678
+平方誤差 ≈ 0.00005051
+```
+
+平方讓正負誤差都變成非負數，不會在相加時互相抵消。將多筆平方誤差加總再除以筆數，得到**平均平方誤差（MSE）**。
+
+MSE 只是一個比較數值的規則。它在訓練中可以當作損失函數，指引參數調整；但本日沒有調參數，所以它衡量的是固定流程的輸出離已知答案有多遠，主要反映有限次抽樣誤差，而不是模型學習不足。
+
+### 能先估計誤差大概多大嗎？
+
+可以。每次記分只有 +1 或 −1，因此每次分數的平方都是 1。若平均分數為 `m = cos(πx)`，單次分數的變異數就是 `1 − m²`；變異數描述圍繞平均值的平方波動大小。
+
+將 N 次彼此獨立、條件相同的記分取平均，估計值的變異數為：
+
+```text
+Var(prediction) = (1 − cos²(πx)) / N
+```
+
+本例的平均估計沒有系統性偏差，所以反覆重做時，對理想值的預期平方誤差也等於這個變異數。
+
+| 輸入 x | 理想分數 | N = 1,000 時的預期平方誤差 |
+|---:|---:|---:|
+| 0 | +1 | 0，因為每次都得到同一結果 |
+| 0.25 | 約 0.7071 | 0.0005 |
+| 0.5 | 0 | 0.001，正負一各半，波動最大 |
+| 1 | −1 | 0，因為每次都得到同一結果 |
+
+這也說明「理想答案是 0」不代表每一批平均都剛好是 0。x = 0.5 正是抽樣波動最大的輸入。
+
+對九個等距輸入，`sin²(πx)` 相加為 4，因此每筆 1,000 次時，平均預期平方誤差是：
+
+```text
+4 / (9 × 1,000) = 4/9000 ≈ 0.00044444
+```
+
+增加抽樣次數能降低這項誤差，但它不會替模型學到新規則。若編碼或記分公式寫錯，多抽樣也不會自動修正這種錯誤。
+
+## 8. 實驗怎麼執行，結果怎麼讀？
+
+### 執行條件與環境
+
+每個後端都使用相同的九個輸入，每筆抽樣 1,000 次，再用三組種子 42、43、44 重複，得到 27 筆結果。種子是控制程式隨機序列的起始設定。本程式再由重複種子與輸入編號產生各筆抽樣種子，實際值會保存在資料中，方便追溯。
+
+三種後端分別是 NumPy 數值抽樣、CUDA-Q CPU 模擬 `qpp-cpu`、CUDA-Q GPU 模擬 `nvidia`。後端表示負責執行的程式或硬體；本章三者都是一般電腦上的模擬。
+
+在專案根目錄沿用既有虛擬環境：
+
+```bash
+source .venv/bin/activate
+python -m pip install -r requirements-day05.txt
+python -m pip check
+```
+
+若尚未建立環境，先用 `python3.12 -m venv .venv` 建立專案套件資料夾。本日已記錄的組合是 NumPy 2.2.6、CUDA-Q 0.15.1，加上執行筆記本的套件；完整版本見 [requirements-day05-lock.txt](../../requirements-day05-lock.txt)。這是既有驗證的版本，不代表最新安裝組合。
+
+### 先執行一條完整流程
 
 ```bash
 python articles/day05/pipeline.py --backend numpy
 python articles/day05/pipeline.py --backend qpp-cpu
+```
+
+有可用的 NVIDIA GPU 環境時，再執行：
+
+```bash
 python articles/day05/pipeline.py --backend nvidia
 ```
 
-隨機種子（seed）是產生隨機序列的起始設定，方便在相同環境重做抽樣。
-
-每個執行後端使用 9 個輸入、3 組 重複實驗的隨機種子（42、43、44）、每筆 量測 1,000 次，產生 27 筆資料。每個輸入透過 `SeedSequence([seed, input_index])` 衍生自己的抽樣隨機種子，實際隨機種子也寫進 CSV。
-
-結果存於 `results/day05/<backend>/`；重跑更新同一目錄，或使用 `--output-dir /tmp/day05-check` 另存。增加量測次數的範例：
+資料寫入 `results/day05/<backend>/`，重跑相同後端會更新該目錄。如果想比較更多抽樣次數並另存結果：
 
 ```bash
 python articles/day05/pipeline.py --backend qpp-cpu --shots 10000 --output-dir /tmp/day05-more-shots
 ```
 
-CSV 記錄輸入、角度、隨機種子、量測次數、四種量測計數、目標值、預測、平方誤差與時間。JSON 保存環境、資料編碼、電路、可觀測量、雜訊、MSE 與每個 重複實驗的隨機種子的 MSE。
+`predictions.csv` 逐筆記錄輸入、角度、種子、shots、四種計數、目標、分數與平方誤差。`summary.json` 保存環境、電路、記分方式、MSE，以及每組種子的 MSE。CSV 是表格文字檔，JSON 則以欄位名稱保存結構化資訊。
 
-## 8. 結果怎麼判讀？
+### 保存結果支持什麼結論？
 
-平均平方誤差（mean squared error，MSE）先將每筆預測減去目標值，將差值平方，再對所有資料取平均；數值越小，代表這批輸出越接近目標。例如誤差為 0.1，該筆平方誤差就是 0.01。本章的誤差來自有限次抽樣，而非訓練不足。
+以下為 2026-09-06 保存的預設實驗，各後端 27 筆的平均平方誤差：
 
-本次預設設定的結果如下，來源為各執行後端的 `summary.json`：
+| 方法 | MSE | 這個比較的作用 |
+|---|---:|---|
+| NumPy 有限次抽樣 | 約 0.00047117 | 一般數值參考實作 |
+| CUDA-Q CPU 有限次抽樣 | 約 0.00036461 | 核對電路框架的整段流程 |
+| CUDA-Q GPU 有限次抽樣 | 約 0.00036461 | 指定 GPU 模擬環境的保存結果 |
+| 永遠輸出 0 | 約 0.55555556 | 簡單對照，確認分數確實隨輸入變化 |
+| 直接計算 cos(πx) | 0，依定義 | 目標本來就由這條公式產生 |
 
-| 方法 | MSE |
-|---|---:|
-| NumPy 有限次抽樣 | 約 0.00047117 |
-| CUDA-Q qpp-cpu 有限次抽樣 | 約 0.00036461 |
-| CUDA-Q nvidia 有限次抽樣 | 約 0.00036461 |
-| 永遠輸出 0 的簡單對照 | 0.55555556 |
-| 一般解析式 `cos(πx)` | 0（依定義） |
+完整數據見 [results/day05](../../results/day05/)，歷史設備與驗證範圍見 [ENVIRONMENT.md](ENVIRONMENT.md)。
 
-解析式就是目標值的生成規則，因此得到零誤差是預期結果。量子優勢需要證明量子方法在指定任務、品質與成本條件下優於適當的一般方法；擊敗固定輸出 0 的方法不足以支持這項結論。本例已有便宜、精確的一般解。
+抽樣 MSE 與前面預估的 0.00044444 在相近尺度；三組種子的平均不必剛好等於期望值。CUDA-Q 這次比 NumPy 的 MSE 小，也不能據此認定它更準，因為它們以有限樣本估計相同理論值，抽樣序列可能不同。
 
-變異數（variance）描述估計值反覆抽樣時的波動大小，定義為偏離其平均值的差距平方再取平均。在每次量測彼此獨立、且相同輸入的機率不變時，±1 量測結果的樣本平均具有下列理論變異數：
+固定輸出 0 的方法很弱，擊敗它不足以證明量子方法有優勢。本題已有直接計算 `cos(πx)` 的一般解，而且沒有抽樣誤差；這個對照正好界定本章的用途是流程驗證。
 
-```text
-Var(prediction) = (1 − cos²(πx)) / shots
-```
+CPU 與 GPU 保存的計數相同，也不是所有環境都必須滿足的條件。耗時包含編譯與初始化，沒有控制暖機與系統負載，因此這份結果不能當成 GPU 加速評測。
 
-對本日九個輸入，量測 1,000 次時平均預期平方誤差為 `4/9000 ≈ 0.00044444`。實際 MSE 在此尺度附近波動，有限三組隨機種子 不保證精確等於期望值。
+## 9. 筆記本：把每一步的說明、程式與答案放在一起
 
-本次 CPU 與 GPU 的量測計數一致，但重現契約是設定與統計行為可追溯，不是所有框架／版本的亂數必須相同。時間包含編譯與初始化，沒有先重複執行以排除首次成本的暖機步驟，也未控制其他程式占用資源的負載或設計效能比較，不能當 GPU 效能評測。
+[Day5 筆記本](../../notebooks/day05_quantum_fundamentals.ipynb) 先回顧振幅、量測與貝爾態，再執行編碼、計數換分數，以及 NumPy／CUDA-Q CPU 的完整流程。每個文字段落後面都有可以執行的程式區塊，稱為儲存格。
 
-## 9. Notebook 示範與驗證
+在編輯器開啟它，選擇專案 `.venv/bin/python` 作為執行環境，再由第一格依序執行全部內容。這能避免只執行後半段，卻沿用先前留在記憶體裡的變數。
 
-在程式編輯器開啟 [Notebook](../../notebooks/day05_quantum_fundamentals.ipynb)，選取專案 `.venv/bin/python` 後執行全部儲存格。Notebook 包含已執行輸出，順序涵蓋量子閘、貝爾態、資料編碼、量測計數、NumPy 與 CUDA-Q CPU 流程。
-
-也可不開筆記本介面，直接執行：
+也可以透過專案腳本完整重跑：
 
 ```bash
 python articles/day05/execute_notebook.py
 ```
 
-Python 直譯器是執行 Python 程式的程序；Jupyter kernel 則是替筆記本執行程式的背景程序，與量子核心程式是不同概念。儲存格是筆記本中的一段文字或程式。此指令用目前 Python 直譯器啟動暫時的 Jupyter kernel，遇到儲存格執行錯誤即失敗，成功後更新 Notebook 輸出；不註冊全域 kernel。Notebook 的 CSV／JSON 寫入示範使用暫存目錄，不覆蓋正式結果。[D6]
+[execute_notebook.py](execute_notebook.py) 使用目前 Python 啟動暫時的 Jupyter 執行程序，遇到儲存格錯誤便停止，成功後更新筆記本輸出。這種將全部儲存格重新執行的方式，可檢查筆記本是否能從頭重現。[nbclient 執行文件](https://nbclient.readthedocs.io/en/latest/client.html)
 
-測試指令：
+Jupyter 的執行程序也稱為 kernel，但它和 CUDA-Q 描述量子操作的 quantum kernel 是不同概念。筆記本中的檔案保存範例使用暫存目錄；正式實驗資料由 `pipeline.py` 寫入結果目錄。
+
+本章相關檔案可依下列問題查找：
+
+| 想核對什麼？ | 入口 |
+|---|---|
+| 輸入檢查、計數轉分數、MSE | [pipeline.py](pipeline.py) |
+| CUDA-Q 的 RY、CNOT 與量測 | [cudaq_pipeline.py](cudaq_pipeline.py) |
+| 逐步執行與檢查輸出 | [筆記本](../../notebooks/day05_quantum_fundamentals.ipynb) |
+| 流程各階段的分工 | [流程圖](../../figures/day05_pipeline.svg) |
+| 執行版本、歷史 GPU 結果與限制 | [ENVIRONMENT.md](ENVIRONMENT.md) |
+
+程式直接重用 Day3 的旋轉閘與 Day4 的 CNOT 定義。這讓同一個操作只有一份主要實作，後續核對或修正時比較容易保持一致。
+
+## 10. 如何檢查這條流程，而不只看最後 MSE？
+
+先執行既有測試：
 
 ```bash
 python -m unittest discover -s articles/day05 -p 'test_*.py' -v
+```
+
+在可用的 GPU 環境核對整合測試：
+
+```bash
 DAY05_TARGET=nvidia python -m unittest discover -s articles/day05 -p 'test_cudaq_pipeline.py' -v
 ```
 
-測試涵蓋輸入契約、解析振幅、非對稱量測計數的位元順序、隨機種子重現、保存指標與完整 CUDA-Q 流程。執行環境與限制見 [ENVIRONMENT.md](ENVIRONMENT.md)。
+2026-09-11 改寫時，7 項 NumPy／CUDA-Q CPU 測試與筆記本全部 10 個程式儲存格通過；三個後端共 81 筆保存紀錄的分數與 MSE 也已重新核算。GPU 表格沿用歷史資料，本次未重新執行 GPU 實驗。
 
-## 10. 前五天串起了哪些步驟？
+測試要覆蓋不同責任。輸入端檢查非法數值會被拒絕；電路端對照解析振幅；後處理用包含 01、10 的非對稱計數檢查位元順序；保存端再核對每筆平方誤差與總體 MSE 是否一致。
 
-Day 1 確立研究與工程界線；Day 2 把量子位元寫成向量；Day 3 用么正矩陣改變狀態；Day 4 建立兩量子位元系統並理解量測相關性；Day 5 把輸入、電路、量測計數與評估指標接起來。
+例如，只看本日理想的 00、11 計數，即使把左右位元讀反也不容易發現。加入 01、10 測試，才會讓 q0 與 q1 的記分差異出現。好的測試需要能區分正確與錯誤實作的輸入。
 
-現在已有完整 前向計算流程，但沒有最佳化器、已訓練模型或真實資料集效能評測。之後的工作就是讓電路擁有獨立的可訓練參數，計算損失函數與梯度，再由一般最佳化器更新參數。梯度描述誤差隨各參數改變的方向與幅度，能協助決定調整方向。么正矩陣則是保持狀態向量長度與內積、可反向還原的矩陣，是前面理想量子閘的限制。
+如果結果異常，可以沿流程定位：
 
-## 11. 本日來源與下一篇
+| 觀察 | 下一步核對 |
+|---|---|
+| x = 0 的分數不是 +1 | 角度、初始狀態、位元順序與記分正負號 |
+| 所有輸入都得到 1 | 是否誤用兩位元關聯值代替 Z0 |
+| x = 0.5 的有限次分數不等於 0 | 先看 shots 與理論波動，而非立即判定失敗 |
+| MSE 很小，但不知道是否學會了 | 是否真的有參數更新與獨立評估資料 |
+| GPU 時間較短或較長 | 是否把初始化、負載與計時範圍控制一致 |
 
-- [D3] [NVIDIA CUDA-Q Executing Kernels](https://nvidia.github.io/cuda-quantum/latest/using/examples/executing_kernels.html)：`sample` 與 `get_state` 的用途。
-- [D6] [nbclient — Executing notebooks](https://nbclient.readthedocs.io/en/latest/client.html)：程式化執行 Notebook 與錯誤處理。
-- 本日狀態、期望值與變異數公式由 Day 3–4 的定義推導，並以代碼驗證。文獻索引見 [REFERENCES.md](../../REFERENCES.md)。查閱日期：2026-09-06。
+## 11. 距離「模型訓練」還缺哪一步？
 
-[Day 06](../day06/README.md) 將系統整理 CUDA-Q、CUDA、cuQuantum 的分工，以及已經跑通的 Ubuntu／RTX 3060 環境，附上可重跑的環境檢查與最小量子程式。CUDA 是 NVIDIA GPU 的運算平台，cuQuantum 是協助量子模擬的函式庫，Ubuntu 則是本專案主機使用的 Linux 作業系統。
+現在的流程是：輸入決定角度，固定電路產生分數，再與已知公式比較。訓練則還需要一組獨立的可調權重、用來衡量任務誤差的損失函數，以及選擇如何更新權重的最佳化器。
 
-## 延伸研究
+```text
+本日：輸入 x → 固定的轉換與電路 → 分數 → 核對誤差
+
+後續：輸入 x + 目前權重 → 分數 → 與答案比較
+                                  ↓
+                         更新權重，再次執行
+```
+
+要判斷模型能否處理沒見過的資料，還需要保留未參與訓練與設定選擇的資料，檢查泛化能力。本章九個已知輸入的函數核對，不能替代這個評估。
+
+前五天累積的是一條可以追查的證據路徑：從狀態定義、操作推導，到量測計數、分數與保存指標。接下來加入訓練時，就能分辨變化來自模型參數、資料處理或量測波動，而不是只看一條誤差曲線猜原因。
+
+## 12. 來源與下一篇
+
+- [CUDA-Q 執行方式](https://nvidia.github.io/cuda-quantum/latest/using/examples/executing_kernels.html)：量測計數與模擬狀態資訊的用途。
+- [nbclient 筆記本執行文件](https://nbclient.readthedocs.io/en/latest/client.html)：從頭執行儲存格與錯誤處理。
+- 狀態與分數公式由 Day3–4 的定義推導，抽樣誤差公式依獨立同分布的 ±1 結果計算。完整書目見 [REFERENCES.md](../../REFERENCES.md)。上述工具文件於 2026-09-11 核對。
+
+[Day 06](../day06/README.md) 會整理 CUDA-Q、CUDA、cuQuantum 的分工，說明如何確認程式實際使用的環境與執行後端，再進入後續可訓練電路的實作。
+
+### 延伸研究
 
 [N1] Shreeya Sanjeev Gokhale et al. “A review of quantum machine learning algorithms, applications, and emerging advantages.” Discover Computing 29, 226 (2026)；綜述論文。[原始來源](https://doi.org/10.1007/s10791-026-10085-1)；[完整書目](../../REFERENCES.md#n1)。
 
