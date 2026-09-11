@@ -1,24 +1,20 @@
 # Day 12｜角度編碼：角度範圍、旋轉軸與量測方式
 
-[Day11](../day11/README.md) 建立從原始資料到量子態的前處理與編碼流程，並區分縮放、編碼及量測階段可能造成的資訊損失。Day12 接著深入角度編碼，在固定資料與縮放規則下，觀察角度範圍、旋轉軸與初始態如何影響資料的表示與讀出。
+Day 11 用 `θ = πx` 把縮放後的特徵轉成角度，也看到 −1 與 +1 可能變成同一個物理態。今天固定同一份資料與同一把「只看訓練集」的縮放尺，改動三件事：**角度怎麼映、繞哪一軸轉、從什麼初始態出發**，看狀態與讀出會怎麼變。
 
-**把資料轉成不同角度，不保證得到不同量子態；得到不同量子態，也不保證目前的量測能分辨。** 角度範圍、初始狀態與量測方式，需要一起考慮。本章將縮放後的數值分別映到三種角度範圍，比較哪些輸入會變成相同物理態，再用 保真度（fidelity，量子態重疊程度）檢查資料之間的關係；這個數值描述狀態的相似程度，並不是分類準確率。另一個重點是旋轉閘必須連同初始態與讀出一起考慮：直接對 `|0⟩` 施加 RZ，只會改變無法觀測的整體相位；先用 H 準備疊加態再施加 RZ，角度才會進入相對相位，但仍需適合的 X／Y 讀出才能看見變化。實作沿用只由訓練資料決定的 縮放器，比較 NumPy 與 CUDA-Q 的狀態及期望值，另以有限次量測 觀察抽樣結果，尚未訓練模型。縮放決定數值範圍，角度映射決定電路操作，而量測決定能讀到哪些差異。更換編碼設定，仍無法恢復先前截斷操作已丟失的資訊。
+用音量旋鈕打比方：把數字刻在旋鈕上，不保證兩個刻度真的對應兩種聽得見的差別。刻度範圍太寬，兩端可能繞回同一點；轉錯軸，或一開始就不在能聽見變化的位置，指針動了你也可能聽不出來。量測方式就像你用哪種耳朵去聽。
 
-[Day11](../day11/README.md) established a preprocessing and encoding workflow from raw data to quantum states, distinguishing information loss during scaling, encoding, and measurement. Day12 examines angle encoding in more detail, keeping the data and scaling rules fixed while exploring how the angle range, rotation axis, and initial state affect representation and readout.
+實作：[angle_encoding.py](angle_encoding.py)；單筆示範：[demo.py](demo.py)；完整實驗：[experiment.py](experiment.py)。本日**沒有**訓練權重。
 
-**Different angles need not produce different physical states, and different states need not be distinguishable by a chosen measurement.** The angle range, initial state, and measurement must be considered together. Scaled values are mapped into three angle ranges to identify inputs that become the same physical state. Fidelity, a measure of quantum-state overlap, is used to examine relationships between encoded inputs; it measures state similarity rather than classification accuracy. Another key point is that rotation gates must be considered together with the initial state and readout. Applying RZ directly to `|0⟩` changes only an unobservable global phase. Preparing a superposition with H before applying RZ places the angle in the relative phase, but suitable X/Y readouts are still needed to reveal the change. The implementation reuses a scaler fitted only on training data, compares NumPy and CUDA-Q states and expectations, and examines finite-shot samples without training a model. Scaling sets the numerical range, angle mapping sets the circuit operations, and measurement determines which differences become visible. Changing the encoding cannot recover information already lost through clipping.
+Day12 keeps Day11's train-only scaler and varies angle mappings, rotation axes, and initial states for two-feature angle encoding. Fidelity tables and Bloch expectations separate encoding collisions from readout blind spots. NumPy and CUDA-Q checks verify the circuits without claiming classifier accuracy, encoding rankings, or QPU results.
 
 ---
 
-Day 11 示範 `θ=πx`，也發現 −1 與 +1 編碼後碰撞。今天保留同一份兩個特徵的資料與僅由訓練資料決定的縮放器，改變 **角度映射、旋轉軸、初始態**，看量子態與讀出如何改變。
+## 1. 一個特徵，對應一個旋轉
 
-實作：[angle_encoding.py](angle_encoding.py)；單筆示範：[demo.py](demo.py)；完整實驗：[experiment.py](experiment.py)。本日沒有訓練權重。
+**角度編碼**把資料當成量子閘的旋轉角度。單一量子位元的狀態可用**布洛赫球**想像成球面上的一點；RX、RY、RZ 分別繞 x、y、z 軸轉。
 
-## 1. 一個特徵對應一個旋轉操作
-
-角度編碼（angle encoding）將資料當成量子閘的旋轉角度。特徵是描述樣本的數值，例如長度與寬度。布洛赫球是單一量子位元狀態的幾何表示，RX、RY、RZ 分別對應繞 x、y、z 軸旋轉。
-
-CUDA-Q 的 Pauli 旋轉閘慣例為 `R_P(θ)=exp(−iθP/2)`，角度使用弧度。[D5] 其中 `P` 代表 X、Y 或 Z 矩陣，`i` 是滿足 `i²=-1` 的虛數單位，`exp` 是指數運算，`θ` 讀作 theta。弧度是角度單位，`π` 弧度等於半圈；下方展開式使用半角 `θ/2`。最簡單的兩個特徵編碼：
+CUDA-Q 的慣例是 `R_P(θ) = exp(−iθP/2)`，角度用弧度。[D5] `P` 是 X／Y／Z；`i` 滿足 `i² = −1`；π 是半圈。最簡單的兩個特徵：
 
 ```text
 q0: |0⟩ ──RY(θ0)──
@@ -32,34 +28,28 @@ def feature_map(q: cudaq.qview, angles: list[float]):
         ry(angles[i], q[i])
 ```
 
-程式中的 `qview` 用來操作已建立的量子位元，`list[float]` 表示浮點數清單；浮點數是電腦以有限位數表示的小數。`for` 重複操作兩個位元，`q[i]` 指向編號為 `i` 的位元。
-
-這裡沒有連接兩個位元的操作，結果是乘積態（product state），也就是能拆成兩個獨立狀態的組合。`⊗` 是組合向量的張量積，`cos` 與 `sin` 是餘弦、正弦函數：
+`qview` 操作已建立的位元；`list[float]` 是浮點數清單。這裡沒有連接兩個位元的閘，結果是**乘積態**：能拆成兩個獨立狀態。
 
 ```text
 |ψ(x)⟩ = [cos(θ0/2)|0⟩ + sin(θ0/2)|1⟩]
        ⊗ [cos(θ1/2)|0⟩ + sin(θ1/2)|1⟩]
 ```
 
-邏輯深度計算需要依序執行的操作層數，可同時進行的操作算在同一層。H 是 Hadamard 閘，將 `|0⟩` 轉成 `|+⟩ = (|0⟩ + |1⟩)/√2`。
+`⊗` 是張量積。兩個特徵、兩個旋轉，理想上可平行，邏輯深度為 1。若改成先 H 再 RZ，深度變 2。這是本例結構計數，不含硬體繞線或編譯合併後的成本，也不能推成所有資料載入方式的結論。
 
-本例兩個特徵用兩個量子位元、兩個旋轉量子閘，理想可平行邏輯深度為 1。H→RZ 版本多兩個 H，深度為 2；不包含量測基底轉換、硬體路由或編譯最佳化。硬體路由是因裝置連接限制而安排額外操作；編譯最佳化則是在維持結果的前提下調整電路。這些是本例結構的計數，不是所有資料載入方式的成本結論。
+## 2. 縮放歸縮放，角度映射歸映射
 
-## 2. 縮放與角度映射分開
+縮放器仍只用訓練資料訂最小／最大值；保留資料越界依 Day 11 政策截斷並留旗標。縮放後的 `x` 落在 `[-1, 1]`，**之後**再選怎麼變成角度：
 
-縮放器（scaler）保存每欄的數值範圍，將原始值轉到指定區間。保留資料（holdout）不參與規則的計算；截斷（clipping）把越界值改成上下界，旗標記錄哪些值被改動。
-
-沿用 Day 11 的 `fit_scaler(train)` 與 `transform(raw, scaler)`；只有訓練資料決定最小值／最大值，保留資料越界依原政策截斷並保留旗標。輸出 x 在 `[-1,1]`，之後再選映射：
-
-| 命令列映射選項 | θ(x) | 角度範圍 | 本日 RY 端點的保真度 |
+| 命令列選項 | θ(x) | 角度範圍 | RY 下 −1 與 +1 的保真度 |
 |---|---|---|---:|
-| `centered_full` | πx | [−π,π] | 1：相同物理態 |
-| `centered_half` | πx/2 | [−π/2,π/2] | 0：正交 |
-| `positive_half` | π(x+1)/2 | [0,π] | 0：正交 |
+| `centered_full` | πx | [−π, π] | 1：相同物理態 |
+| `centered_half` | πx/2 | [−π/2, π/2] | 0：正交（可完全區分） |
+| `positive_half` | π(x+1)/2 | [0, π] | 0：正交 |
 
-命令列選項是終端機傳給程式的設定；這三個名稱分別表示以 0 為中心的全範圍、以 0 為中心的半範圍，以及非負的半範圍。保真度（fidelity）衡量兩個狀態的重疊，1 表示相同物理態，0 表示正交，也就是有合適量測方式能完全區分的狀態。
+**保真度（fidelity）**衡量兩個狀態有多像：1 表示相同物理態，0 表示正交。它不是分類準確率。
 
-端點比較只改 x0：`[-1,0]` 與 `[1,0]`。預設示範改用 `positive_half`，是為了展示 Z 讀出單調的情況；既有 Day 9–11 的程式介面與模型沒有改動。這不是經過分類準確率比較後的最佳設定。
+端點比較只改第一個特徵：`[-1, 0]` 與 `[1, 0]`。預設示範改用 `positive_half`，是為了展示 Z 讀出隨 x 單調變化；Day 9–11 既有介面沒有改。這**不是**用分類成績挑出來的最佳設定。
 
 ```python
 scaler = fit_scaler(train)
@@ -67,52 +57,52 @@ scaled, clipped = transform(holdout, scaler)
 angles = to_angles(scaled[0], mapping='positive_half')
 ```
 
-`to_angles` 接受**已縮放**的兩個特徵，拒絕 NaN（無效數值）、Inf（無限大）、越界或錯誤形狀；形狀描述輸入的維度與元素數量。不要把原始 `[25,150]` 直接傳給它，也不要把已是弧度的資料再乘一次 π。`validate` 是低階弧度程式介面，可接受範圍外的有限角度，以保留旋轉週期性。
+`to_angles` 只接受**已縮放**的兩個特徵；拒絕無效數值、無限大、越界或形狀錯誤。不要把原始 `[25, 150]` 直接丟進去，也不要把已經是弧度的數再乘一次 π。低階的 `validate` 可接受範圍外的有限角度，以保留旋轉的週期性。
 
-## 3. 範圍如何影響資料的可區分性？
+## 3. 範圍一改，誰跟誰比較像也會改
 
-對 RY 乘積態編碼，兩筆角度向量的保真度可直接推導：
+對本日這種 RY 乘積態，兩筆資料的保真度可寫成：
 
 ```text
 F(a,b) = |⟨ψ(a)|ψ(b)⟩|²
        = ∏_j cos²((θ_j(a)−θ_j(b))/2)
 ```
 
-公式中的 `a`、`b` 是兩筆資料，`j` 是特徵編號，`∏` 表示將各特徵的項相乘，`⟨ψ(a)|ψ(b)⟩` 是兩個狀態向量的內積；對複數向量，先對第一個向量取共軛，再將對應分量相乘加總。
+`a`、`b` 是兩筆資料；`∏` 表示各特徵貢獻相乘。只改 `x0` 時：
 
-這裡的保真度是量子態重疊，不是模型準確率。F=1 表示只差整體相位，也就是所有振幅乘上同一個長度為 1 的複數，不改變物理預測；F=0 表示正交。縮短角度範圍可以避開本例端點重合，但也會改變其他資料間的距離：
-
-| 只改 x0 的資料配對 | centered_full | centered_half | positive_half |
+| 資料配對 | centered_full | centered_half | positive_half |
 |---|---:|---:|---:|
 | −1 與 +1 | 1 | 0 | 0 |
 | −0.25 與 +0.25 | 0.5 | 約 0.853553 | 約 0.853553 |
 
-兩種半範圍映射只差共同角度偏移，所以資料配對保真度相同；但讀出不同。期望值是依機率計算的平均值，準確率則是分類正確的比例。Z 量測將 0 記為 +1、1 記為 −1。RY 的 Z 期望值是 cosθ：`centered_half` 的正負 x 仍有相同 Z 值，`positive_half` 則在 x∈[−1,1] 上嚴格遞減，也就是 x 越大，理論輸出越小。精確 Z 可以區分本例的單一縮放後特徵，但有限量測次數仍有估計誤差，不能當成無限精度資料還原。
+兩種「半範圍」映射只差共同角度偏移，所以配對保真度相同，但**讀出不同**。RY 的 Z 期望值是 `cos θ`：`centered_half` 下正負 x 仍可能得到相同 Z；`positive_half` 在 `x ∈ [−1, 1]` 上嚴格遞減（x 越大，理論 Z 越小）。精算 Z 能區分本例單一縮放特徵，但有限次量測仍有估計誤差，不能當成無限精度還原。
 
-任何角度策略都無法恢復 Day 11 截斷已經丟失的差異。改映射與修復原始資料資訊損失是不同問題。
+任何角度策略都**救不回** Day 11 截斷已經弄丟的差異。改映射，與修復原始資料損失，是兩件事。
 
-## 4. RX、RY、RZ 不只是替換函式名稱
+## 4. RX、RY、RZ：不是換函式名稱而已
 
-對每個量子位元，從 |0⟩ 出發可推得：
+從 `|0⟩` 出發，各軸讀出不同：
 
-| 旋轉軸選項 | 操作順序 | ⟨X⟩ | ⟨Y⟩ | ⟨Z⟩ |
+| 選項 | 操作順序 | ⟨X⟩ | ⟨Y⟩ | ⟨Z⟩ |
 |---|---|---|---|---|
-| `ry` | RY(θ) | sinθ | 0 | cosθ |
-| `rx` | RX(θ) | 0 | −sinθ | cosθ |
+| `ry` | RY(θ) | sin θ | 0 | cos θ |
+| `rx` | RX(θ) | 0 | −sin θ | cos θ |
 | `rz` | RZ(θ) | 0 | 0 | 1 |
-| `h_rz` | 先 H，再 RZ(θ) | cosθ | sinθ | 0 |
+| `h_rz` | 先 H，再 RZ(θ) | cos θ | sin θ | 0 |
 
-RX 的 Y 符號是負號，符合上述旋轉閘定義；測試使用 Day 3 矩陣獨立核對。
+直覺：
 
-直接 RZ(θ)|0⟩ 只產生整體相位，不管角度如何改，物理態都相同。先 H 建立 `|+⟩`，再 RZ 才會把角度放進相對相位；相對相位是同一狀態內不同振幅的方向差，會影響後續運算。`h_rz` 的矩陣乘法順序是 `RZ(θ) @ H @ |0⟩`，不要寫反。
+- 直接對 `|0⟩` 做 RZ，只轉出**整體相位**（所有振幅乘同一個長度為 1 的複數）——物理態沒變，角度怎麼改都一樣
+- 先用 H 把 `|0⟩` 變成 `|+⟩ = (|0⟩+|1⟩)/√2`，再 RZ，角度才進入**相對相位**（同一個狀態裡，不同振幅的方向差）
+- 即使有相對相位，Z 基底機率仍可能看不出角度；需要 X／Y 等讀出才看得見
 
-即使 h_rz 已有相對相位，Z 基底機率仍不依賴角度；需要 X／Y 等讀出才能看見。讀出是選擇量測方式並將結果轉成數值；不同基底相當於以不同的一組基本狀態區分結果。實驗對每個設定計算 q0 的 X、Y、Z 期望值，並核對完整兩個量子位元狀態，因此 q1 也包含在正確性檢查中。
+`h_rz` 的矩陣順序是 `RZ(θ) @ H @ |0⟩`，不要寫反。實驗對每個設定算 q0 的 X／Y／Z，並核對完整兩位元狀態，因此 q1 也在正確性檢查內。RX 的 Y 為負號，符合上述旋轉定義；測試用 Day 3 矩陣獨立核對。
 
-## 5. CUDA-Q 實作邊界
+## 5. CUDA-Q 實作怎麼切邊界
 
-主控端（host）是一般 Python 程式，負責檢查輸入與安排執行；量子核心程式（quantum kernel）描述電路操作。`prepare(q, angles, axis)` 是共用子函式，旋轉軸的主控端字串轉成整數：0=RY、1=RX、2=RZ、3=H→RZ。主控端的 `validate` 拒絕不支援的選項；直接使用底層量子核心程式時須遵守這個契約。
+主控端檢查輸入並安排執行；量子核心程式描述電路。共用子函式 `prepare(q, angles, axis)` 把軸的字串編成整數：0=RY、1=RX、2=RZ、3=H→RZ。不支援的選項在主控端拒絕。
 
-`encoded` 只做狀態準備，供 `get_state` 與 `observe` 使用；`measured` 共用 prepare，再加 `mz(q0)`、`mz(q1)`。狀態以 `State.amplitude('00')` 等標籤取出，明確使用 `|q0 q1⟩` 的 NumPy 順序。
+`encoded` 只準備狀態，給 `get_state`／`observe` 用；`measured` 共用 prepare，再加 `mz(q0)`、`mz(q1)`。狀態用 `State.amplitude('00')` 等標籤取出，順序明確為 `|q0 q1⟩`。
 
 ```python
 angles = to_angles([0.25, -0.4], 'positive_half')
@@ -121,13 +111,11 @@ value = cudaq.observe(encoded, cudaq.spin.z(0),
                       angles, axis_code, shots_count=-1).expectation()
 ```
 
-NVIDIA 文件也提供 `cudaq.contrib.angular_encode`；本日明寫量子閘，方便看清 H 與 RZ 的順序，沒有依賴該輔助函式。[D5]
+文件另有 `cudaq.contrib.angular_encode`；本日明寫閘順序，方便看清 H 與 RZ，沒有依賴該輔助函式。[D5]
 
-## 6. 執行單筆與完整實驗
+## 6. 怎麼跑單筆與完整實驗
 
-CPU 是一般電腦的中央處理器，GPU 是擅長平行運算的圖形處理器。執行後端（backend）指定實際使用的模擬器；本章預設使用 CPU，`nvidia` 使用 GPU。`.venv` 是專案獨立保存 Python 套件的虛擬環境；`OMP_NUM_THREADS=1` 指定 CPU 平行工作的執行緒數為 1。
-
-沿用 `.venv`，沒有新增依賴；[requirements-day12.txt](../../requirements-day12.txt) 延續固定版本鏈。在專案根目錄：
+沿用 `.venv`；固定依賴見 [requirements-day12.txt](../../requirements-day12.txt)。
 
 ```bash
 source .venv/bin/activate
@@ -139,17 +127,15 @@ OMP_NUM_THREADS=1 python articles/day12/experiment.py
 OMP_NUM_THREADS=1 python articles/day12/experiment.py --backend nvidia
 ```
 
-預設示範的縮放後特徵是 `[0.25,-0.4]`，positive_half 角度約為 `[1.963495,0.942478]`。RY 的 q0 預期 X≈0.923880、Y=0、Z≈−0.382683。
+預設示範的縮放後特徵是 `[0.25, -0.4]`，`positive_half` 角度約 `[1.963495, 0.942478]`。RY 下 q0 預期約 X≈0.923880、Y=0、Z≈−0.382683。
 
-每個執行後端的實驗包含：
+每個後端實驗包含：
 
-- Day 11 的 4 筆訓練資料＋4 筆保留資料 × 3 映射方式 × 4 旋轉軸，共 96 組設定。
-- 2 組資料資料配對 × 3 映射方式，6 組 RY 保真度比較。
-- 8 筆 positive_half／RY 設定各 1,000 量測次數的 Z 基底抽樣。
+- Day 11 的 4 筆訓練＋4 筆保留 × 3 映射 × 4 旋轉軸 → **96** 組設定
+- 2 組資料配對 × 3 映射 → **6** 組 RY 保真度比較
+- 8 筆 `positive_half`／RY 各 1,000 次 Z 基底抽樣
 
-JSON 用欄位名稱保存結構化資料，CSV 是表格文字檔，TXT 保存純文字。
-
-保存 `predictions.json`、`pairs.json`、`summary.json`、`angle_sweep.csv` 與預設 RY `circuit.txt`。預設目錄為 `results/day12/<backend>/`；重跑會更新，可加 `--output-dir /tmp/day12-check` 另存。
+結果：`predictions.json`、`pairs.json`、`summary.json`、`angle_sweep.csv`、預設 RY 的 `circuit.txt`。目錄為 `results/day12/<backend>/`；可用 `--output-dir /tmp/day12-check` 另存。
 
 ## 7. 驗證與限制
 
@@ -158,16 +144,18 @@ OMP_NUM_THREADS=1 python -m unittest discover -s articles/day12 -p 'test_*.py' -
 OMP_NUM_THREADS=1 DAY12_TARGET=nvidia python -m unittest discover -s articles/day12 -p 'test_*.py' -v
 ```
 
-七個測試涵蓋角度端點與錯誤輸入、Day 11 相容性、資料配對的狀態重疊、布洛赫球符號、各軸複數態、RZ 與 H→RZ 差異，以及 positive_half 的 Z 單調性。完整 CPU／GPU 數字見 [結果紀錄](../../results/day12/README.md)。
+七個測試涵蓋：角度端點與錯誤輸入、Day 11 相容性、資料配對保真度、布洛赫符號、各軸複數態、RZ 與 H→RZ 差異，以及 `positive_half` 的 Z 單調性。完整數字見 [結果紀錄](../../results/day12/README.md)。
 
-NumPy 是 Python 的數值運算套件，用來核對公式。無噪聲表示未加入使演化或量測偏離理想情況的干擾。這是無噪聲模擬器上的表示與正確性實驗。完整狀態與精確期望值不等同量子處理器（QPU，實際執行量子操作的硬體）的直接輸出。精確值由模擬器保存的向量直接計算，不是有限次抽樣估計，仍可能有浮點誤差；沒有分類器、訓練、編碼效能排名或 GPU 加速宣稱。下一篇 [Day 13](../day13/README.md) 改看振幅編碼的正規化與狀態準備。
+這是無雜訊模擬器上的**表示與正確性**實驗：縮放範圍、角度映射、旋轉軸、初始態與讀出分開核對；保真度與期望值表用來區分編碼碰撞與量測盲點。換映射也救不回截斷損失。完整狀態與精算期望值 ≠ QPU 的直接輸出。沒有分類器、沒有訓練、沒有編碼效能排名，也沒有 GPU 加速宣稱。
+
+下一篇 [Day 13](../day13/README.md) 改看振幅編碼的正規化與狀態準備。
 
 ## 8. 來源
 
-[D5] [NVIDIA CUDA-Q Python API](https://nvidia.github.io/cuda-quantum/latest/api/languages/python_api.html)：角度編碼與 Pauli 旋轉閘 convention。查閱日期 2026-09-06，實際 CUDA-Q 0.15.1。映射、布洛赫球表格與保真度公式由 Day 3 量子閘矩陣推導並測試；來源索引見 [REFERENCES.md](../../REFERENCES.md)。
+[D5] [NVIDIA CUDA-Q Python API](https://nvidia.github.io/cuda-quantum/latest/api/languages/python_api.html)：角度編碼與 Pauli 旋轉閘慣例。查閱日期 2026-09-06，實際 CUDA-Q 0.15.1。映射、布洛赫表與保真度公式由 Day 3 閘矩陣推導並測試；索引見 [REFERENCES.md](../../REFERENCES.md)。
 
 ## 延伸研究
 
 [N3] Seungcheol Oh et al. “Fourier Analysis Perspective on Quantum Neural Networks.” Communications Physics 9, 176 (2026)；觀點論文。[原始來源](https://doi.org/10.1038/s42005-026-02680-x)；[完整書目](../../REFERENCES.md#n3)。
 
-本章比較角度映射；延伸閱讀可從輸出隨輸入變化的週期，理解縮放範圍與旋轉操作為何會影響可區分的資料。
+本章比較角度映射；延伸閱讀可從輸出隨輸入變化的週期，理解縮放範圍與旋轉操作為何會影響哪些資料仍可區分。
